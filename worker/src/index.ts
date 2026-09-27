@@ -162,6 +162,8 @@ async function pageMeta({ origin, pathname }: URL, env: Env): Promise<PageMeta |
     url,
     image: cover ? new URL(cover, origin).href : undefined,
     ld: eventJsonLd(event, url, origin) ?? undefined,
+    // What GET /api/events/:slug answers.
+    data: { url: `/api/events/${slug}`, body: { item: event } },
   }
 }
 

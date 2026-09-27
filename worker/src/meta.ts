@@ -2,7 +2,8 @@
 // site's index.html so search engines and link previews (Discord, LINE,
 // Facebook), which may not run the app, see them. index.html itself carries
 // the home page's. The app sets the same tab titles as people move around
-// (src/router/index.ts).
+// (src/router/index.ts). A page can also carry the API response it would
+// fetch first, so it renders without waiting for one (src/api/client.ts).
 
 import { jsonLdScript } from './jsonld'
 
@@ -18,6 +19,8 @@ export interface PageMeta {
   image?: string
   /** JSON-LD for the head. */
   ld?: unknown
+  /** The API response the page fetches first: its URL and body. */
+  data?: { url: string; body: unknown }
 }
 
 /** Pages whose text never changes, by path. */
@@ -50,6 +53,10 @@ export function withMeta(page: Response, meta: PageMeta, origin: string) {
     // A cover shows large; the square site icon as a thumbnail.
     `<meta name="twitter:card" content="${meta.image ? 'summary_large_image' : 'summary'}">`,
     meta.ld ? jsonLdScript(meta.ld) : '',
+    // `<` escaped so the data cannot close the tag.
+    meta.data
+      ? `<script type="application/json" id="api-data" data-url="${attr(meta.data.url)}">${JSON.stringify(meta.data.body).replace(/</g, '\\u003c')}</script>`
+      : '',
   ].join('')
   return new HTMLRewriter()
     .on('title', { element: (el) => void el.setInnerContent(`${meta.title} | ${SITE_NAME}`) })

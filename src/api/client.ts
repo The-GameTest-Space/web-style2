@@ -9,7 +9,25 @@ async function fetchJson<T>(url: string): Promise<T> {
   return res.json() as Promise<T>
 }
 
+/**
+ * The response the Worker wrote into the page for `url` (worker/src/meta.ts),
+ * so the first render waits on no request. Taken once: a retry or a later
+ * visit fetches afresh.
+ */
+function takeFromPage<T>(url: string): T | undefined {
+  const el = document.getElementById('api-data')
+  if (el?.dataset.url !== url) return undefined
+  el.remove()
+  try {
+    return JSON.parse(el.textContent ?? '') as T
+  } catch {
+    return undefined
+  }
+}
+
 export async function getJson<T>(url: string): Promise<T> {
+  const inPage = takeFromPage<T>(url)
+  if (inPage) return inPage
   // Sample content exists only in development; production builds drop this branch.
   if (import.meta.env.DEV) {
     const { withSampleFallback } = await import('@/mocks/fallback')
