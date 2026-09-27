@@ -4,6 +4,7 @@ import { ArrowLeft, CalendarPlus, ExternalLink } from 'lucide-vue-next'
 import { useApi, NotFoundError } from '@/api/client'
 import type { GameEvent, ItemResponse } from '@/api/types'
 import { EVENT_TYPE_LABEL, daysUntil, fullDate, isMultiDay, monthDay, time } from '@/utils/format'
+import { safeHtml } from '@/utils/html'
 import DdayCounter from '@/components/DdayCounter.vue'
 import OngoingMark from '@/components/OngoingMark.vue'
 import DiscordButton from '@/components/DiscordButton.vue'
@@ -14,6 +15,7 @@ const { data, error, loading, retry } = useApi<ItemResponse<GameEvent>>(() => `/
 
 const ev = computed(() => data.value?.item)
 const days = computed(() => (ev.value?.startsAt ? daysUntil(ev.value.startsAt) : 0))
+const descriptionHtml = computed(() => (ev.value?.description ? safeHtml(ev.value.description) : ''))
 const deadlineDays = computed(() => (ev.value?.deadline ? daysUntil(ev.value.deadline.date) : null))
 
 function icsStamp(iso: string) {
@@ -113,7 +115,7 @@ function downloadIcs() {
 
       <div class="poster__body">
         <div class="poster__text">
-          <p v-for="(p, i) in ev.description" :key="i">{{ p }}</p>
+          <div v-if="descriptionHtml" class="prose" v-html="descriptionHtml"></div>
 
           <section v-if="ev.agenda?.length" class="agenda" aria-labelledby="agenda-title">
             <h2 id="agenda-title" class="poster__h2">活動流程</h2>
@@ -266,14 +268,6 @@ function downloadIcs() {
   gap: 40px clamp(32px, 5vw, 72px);
   margin-top: clamp(28px, 5vh, 48px);
   align-items: start;
-}
-.poster__text > p {
-  font-size: 1.0625rem;
-  line-height: 1.85;
-  max-width: 38em;
-}
-.poster__text > p + p {
-  margin-top: 16px;
 }
 .poster__h2 {
   font-family: var(--font-body);

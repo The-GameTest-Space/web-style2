@@ -250,3 +250,120 @@ h3 *::selection {
 .join h2 *::selection {
   color: var(--card);
 }
+
+/* Admin-written HTML (event descriptions), after safeHtml(). */
+.prose {
+  max-width: 38em;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+.prose > :first-child {
+  margin-top: 0;
+}
+.prose :where(p, ul, ol, blockquote, figure, pre, table, hr) {
+  margin: 16px 0 0;
+}
+.prose :where(h1, h2, h3, h4) {
+  margin: 32px 0 0;
+  font-family: var(--font-body);
+  font-weight: 900;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+.prose :where(h1, h2) {
+  font-size: 1.375rem;
+}
+.prose h3 {
+  font-size: 1.1875rem;
+}
+.prose h4 {
+  font-size: 1.0625rem;
+}
+.prose :where(ul, ol) {
+  padding-left: 1.4em;
+}
+.prose li + li {
+  margin-top: 4px;
+}
+.prose li::marker {
+  color: var(--dot-deep);
+  font-weight: 800;
+}
+.prose a[href] {
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-decoration-color: var(--dot);
+  text-decoration-thickness: 3px;
+}
+.prose a[href]:hover {
+  text-decoration-color: var(--ink);
+}
+.prose :where(strong, b) {
+  font-weight: 800;
+}
+.prose blockquote {
+  padding-left: 16px;
+  border-left: 4px solid var(--dot);
+  color: var(--ink-2);
+}
+.prose img {
+  height: auto;
+}
+/* A picture on its own gets the paper shadow; one inside a line (a badge) sits in the text. */
+.prose > img,
+.prose figure img {
+  box-shadow: var(--shadow-paper);
+}
+.prose :where(p, li, a) img {
+  display: inline-block;
+  vertical-align: middle;
+}
+.prose hr {
+  border: 0;
+  border-top: 2px solid var(--ink);
+}
+.prose code {
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: var(--wall);
+  font-family: ui-monospace, SFMono-Regular, Menlo, var(--font-body);
+  font-size: 0.9em;
+}
+.prose pre {
+  overflow-x: auto;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: var(--wall);
+}
+.prose pre code {
+  padding: 0;
+  background: none;
+}
+.prose table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+.prose :where(th, td) {
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+}
+.prose .embed {
+  display: block;
+  max-width: 100%;
+  margin: 20px 0 0;
+  border: 0;
+  box-shadow: var(--shadow-paper);
+}
+.prose .embed--youtube {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+.prose .embed--discord {
+  width: 350px;
+  height: 500px;
+  border-radius: 8px;
+}

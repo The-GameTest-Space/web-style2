@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import { onBeforeRouteLeave, useRouter } from 'vue-router'
-import { ArrowLeft, ExternalLink, Plus, Trash2, X } from 'lucide-vue-next'
+import { ArrowLeft, Eye, EyeOff, ExternalLink, Plus, Trash2, X } from 'lucide-vue-next'
 import { AdminError, adminApi } from '@/api/admin'
 import type { AdminEvent, EventInput, EventType } from '@/api/types'
 import { EVENT_TYPE_LABEL, time } from '@/utils/format'
+import { asHtml, safeHtml } from '@/utils/html'
 import FormField from '@/components/FormField.vue'
 import StateBlock from '@/components/StateBlock.vue'
 
@@ -88,7 +89,7 @@ function fromEvent(e: AdminEvent): Form {
     venue: e.venue,
     online: e.online,
     fee: e.fee,
-    description: (e.description ?? []).join('\n\n'),
+    description: e.description ?? '',
     agenda: (e.agenda ?? []).map((a) => ({ ...a })),
     audience: (e.audience ?? []).join('\n'),
     url: e.url ?? '',
@@ -112,10 +113,7 @@ function toInput(f: Form): EventInput {
     venue: f.venue,
     online: f.online,
     fee: f.fee,
-    description: f.description
-      .split(/\n\s*\n/)
-      .map((p) => p.trim())
-      .filter(Boolean),
+    description: asHtml(f.description) || undefined,
     agenda: f.agenda,
     audience: f.audience
       .split('\n')
@@ -136,6 +134,10 @@ const fieldErrors = ref<Record<string, string>>({})
 const status = ref<{ kind: 'ok' | 'error'; text: string } | null>(
   typeof history.state?.flash === 'string' ? { kind: 'ok', text: history.state.flash } : null,
 )
+
+// The description exactly as the event page will show it.
+const showPreview = ref(false)
+const previewHtml = computed(() => safeHtml(asHtml(form.description)))
 
 const snapshot = ref(JSON.stringify(form))
 const dirty = computed(() => JSON.stringify(form) !== snapshot.value)
@@ -419,9 +421,38 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
 
         <section class="part" aria-labelledby="part-body">
           <h2 id="part-body" class="part__title">活動內容</h2>
-          <FormField id="f-description" label="活動說明" optional hint="段落之間空一行。" :error="fieldErrors['f-description']">
-            <textarea id="f-description" v-model="form.description" class="input" rows="8" v-bind="aria('f-description')"></textarea>
+          <FormField
+            id="f-description"
+            label="活動說明"
+            optional
+            hint="可以寫 HTML，例如 <p>、<h3>、<strong>、<a href>、<ul><li>、<img>，也可以貼上 YouTube 影片或 Discord 伺服器小工具的嵌入碼（iframe）。純文字則以空行分段。script、style、表單與其他網站的 iframe 會被移除。"
+            :error="fieldErrors['f-description']"
+          >
+            <textarea
+              id="f-description"
+              v-model="form.description"
+              class="input input--code"
+              rows="10"
+              spellcheck="false"
+              placeholder="<p>活動介紹…</p>"
+              v-bind="aria('f-description')"
+            ></textarea>
           </FormField>
+          <div class="preview">
+            <button
+              type="button"
+              class="outline-btn preview__toggle"
+              :aria-expanded="showPreview"
+              aria-controls="description-preview"
+              @click="showPreview = !showPreview"
+            >
+              <component :is="showPreview ? EyeOff : Eye" aria-hidden="true" />{{ showPreview ? '收起預覽' : '預覽活動說明' }}
+            </button>
+            <div v-if="showPreview" id="description-preview" class="preview__box">
+              <div v-if="previewHtml" class="prose" v-html="previewHtml"></div>
+              <p v-else class="preview__empty">還沒有內容。</p>
+            </div>
+          </div>
 
           <div class="field">
             <p id="agenda-label" class="field__label">活動流程<span class="field__opt">選填</span></p>
@@ -575,6 +606,26 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
 .slug__prefix {
   flex: none;
   font-weight: 700;
+  color: var(--ink-3);
+}
+.input--code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, var(--font-body);
+  font-size: 0.9375rem;
+}
+.preview {
+  display: grid;
+  gap: 12px;
+  margin-top: -8px;
+}
+.preview__toggle {
+  justify-self: start;
+}
+.preview__box {
+  padding: 20px 24px;
+  border: 2px dashed var(--rule);
+  border-radius: 10px;
+}
+.preview__empty {
   color: var(--ink-3);
 }
 .agenda {

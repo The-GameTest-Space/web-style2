@@ -128,7 +128,8 @@ export function parseEvent(input: unknown) {
     fee: text(body.fee, 'fee', 60),
     deadline,
     summary: text(body.summary, 'summary', 300),
-    description: array(body.description, 'description', 30).map((p, i) => text(p, `description.${i}`, 2000)),
+    // HTML. The site sanitizes it when rendering (src/utils/html.ts).
+    description: text(body.description, 'description', 20000, true),
     agenda: agenda.length ? agenda : undefined,
     audience: array(body.audience, 'audience', 20).map((a, i) => text(a, `audience.${i}`, 60)),
     url,
@@ -136,13 +137,23 @@ export function parseEvent(input: unknown) {
   }
 }
 
+const escapeHtml = (s: string) =>
+  s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!)
+
+/** Events saved before descriptions were HTML hold a list of plain paragraphs. */
+function withHtmlDescription(data: Record<string, unknown>) {
+  const d = data.description
+  if (!Array.isArray(d)) return data
+  return { ...data, description: d.map((p) => `<p>${escapeHtml(String(p))}</p>`).join('') }
+}
+
 /** The public shape: slug from the document ID, admin-only fields dropped. */
 export function publicEvent({ id, data }: Doc) {
-  const { published: _published, createdAt: _createdAt, updatedAt: _updatedAt, ...event } = data
+  const { published: _published, createdAt: _createdAt, updatedAt: _updatedAt, ...event } = withHtmlDescription(data)
   return { slug: id, ...event }
 }
 
-export const adminEvent = ({ id, data }: Doc) => ({ slug: id, ...data })
+export const adminEvent = ({ id, data }: Doc) => ({ slug: id, ...withHtmlDescription(data) })
 
 /** By start time; events without one (ongoing) come first. */
 export const byStart = (a: Record<string, unknown>, b: Record<string, unknown>) =>

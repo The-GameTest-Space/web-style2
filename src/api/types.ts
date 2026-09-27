@@ -37,7 +37,8 @@ interface EventBase {
   online: boolean
   fee: string
   summary: string
-  description: string[]
+  /** HTML written by an admin. Render it only through safeHtml (src/utils/html.ts). */
+  description?: string
   agenda?: { time: string; item: string }[]
   audience: string[]
   /** The organiser's own page: registration, tickets, full details. */
