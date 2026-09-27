@@ -1,7 +1,8 @@
 import type { GameEvent } from '@/api/types'
 
-// SAMPLE DATA. Fictional events. Dates are generated relative to today so
-// the D-day board always has something upcoming while the site is a demo.
+// SAMPLE DATA. Fictional events for the local-only fallback (../fallback.ts).
+// Dates are generated relative to today so the D-day board always has
+// something upcoming.
 
 type Seed = Omit<GameEvent, 'startsAt' | 'endsAt' | 'deadline'> & {
   start: [days: number, hour: number, minute?: number]

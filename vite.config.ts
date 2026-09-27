@@ -11,10 +11,10 @@ export default defineConfig({
     vueDevTools(),
   ],
   server: {
-    // MSW answers the mocked /api routes in the browser; everything else under
-    // /api (e.g. Discord sign-in) goes to the deployed Worker.
+    // /api is the Worker in worker/. The dev server uses the deployed one;
+    // API_TARGET=http://localhost:8787 points it at a local `wrangler dev`.
     proxy: {
-      '/api': { target: 'https://gtspace.gametestspace.workers.dev', changeOrigin: true },
+      '/api': { target: process.env.API_TARGET ?? 'https://gtspace.gametestspace.workers.dev', changeOrigin: true },
     },
   },
   resolve: {

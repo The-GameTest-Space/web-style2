@@ -17,6 +17,7 @@ const { data, error, loading, retry } = useApi<ListResponse<GameEvent>>('/api/ev
 const TYPES = Object.keys(EVENT_TYPE_LABEL) as EventType[]
 const type = computed(() => (TYPES.includes(route.query.type as EventType) ? (route.query.type as EventType) : null))
 const onlineOnly = computed(() => route.query.online === '1')
+const filtered = computed(() => !!type.value || onlineOnly.value)
 
 const upcoming = computed(() =>
   (data.value?.items ?? []).filter(
@@ -49,7 +50,7 @@ function setQuery(patch: Record<string, string | undefined>) {
       <p class="page-head__lede">
         本頁依月份整理 Game Jam、聚會、展覽、講座與線上試玩會等活動。倒數數字表示距離活動開始的天數，報名截止日另行標示。
       </p>
-      <SampleNote text="示範資料：活動資訊整理中" />
+      <SampleNote v-if="data?.sample" text="示範資料：活動資訊整理中" />
     </header>
 
     <div class="filters" role="group" aria-label="篩選活動">
@@ -77,6 +78,7 @@ function setQuery(patch: Record<string, string | undefined>) {
 
     <StateBlock v-if="loading && !data" kind="loading" message="正在載入活動資訊…" />
     <StateBlock v-else-if="error" kind="error" @retry="retry" />
+    <StateBlock v-else-if="!upcoming.length && !filtered" kind="empty" message="目前沒有即將舉行的活動。" />
     <StateBlock v-else-if="!upcoming.length" kind="empty" message="此分類目前沒有活動。">
       <button type="button" class="sticker-btn sticker-btn--paper" @click="router.replace({ query: {} })">查看全部活動</button>
     </StateBlock>

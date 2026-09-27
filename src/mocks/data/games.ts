@@ -1,7 +1,10 @@
 import type { Game } from '@/api/types'
 
 // SAMPLE DATA. Every game, studio and number below is fictional and exists
-// only to show how the wall looks when it is full. Replace with real entries.
+// only to show how the wall looks when it is full. Used by the local-only
+// fallback in ../fallback.ts, never by a production build.
+const cover = (name: string) => new URL(`../covers/${name}.svg`, import.meta.url).href
+
 export const games: Game[] = [
   {
     slug: 'night-market-keeper',
@@ -13,7 +16,7 @@ export const games: Game[] = [
     platforms: ['PC'],
     build: 'v0.4.2',
     status: 'seeking',
-    cover: '/covers/night-market-keeper.svg',
+    cover: cover('night-market-keeper'),
     pitch: '收攤前的最後一小時，用雞排攤和彈珠台擋住湧進來的妖怪。',
     description: [
       '夜市快收攤了，巷口卻湧進一群餓壞的妖怪。你要在攤位之間擺放防線：雞排攤會噴油煙減速、彈珠台能反彈投射物、珍奶攤的吸管是穿刺砲塔。',
@@ -38,7 +41,7 @@ export const games: Game[] = [
     platforms: ['PC', 'Mac'],
     build: 'v0.2.0',
     status: 'seeking',
-    cover: '/covers/typhoon-day.svg',
+    cover: cover('typhoon-day'),
     pitch: '停電的老公寓裡，一家人被困了一整天。窗外風雨，屋內有些話終於說出口。',
     description: [
       '宣布放颱風假的那個早上，爸媽、阿嬤和剛回台灣的姊姊全擠在同一間老公寓。窗戶貼著膠帶，泡麵囤在櫃子裡，然後停電了。',
@@ -62,7 +65,7 @@ export const games: Game[] = [
     platforms: ['PC', 'Switch'],
     build: 'v0.6.1',
     status: 'seeking',
-    cover: '/covers/last-train.svg',
+    cover: cover('last-train'),
     pitch: '零點零二分，你搭上了一班不該存在的末班車。每一站都比上一站更不對勁。',
     description: [
       '加班到深夜，你衝進月台搭上最後一班車。車廂很空，廣播念出的站名你從來沒聽過。',
@@ -87,7 +90,7 @@ export const games: Game[] = [
     platforms: ['PC', 'Mobile'],
     build: 'v1.0.0',
     status: 'released',
-    cover: '/covers/tin-roof-cats.svg',
+    cover: cover('tin-roof-cats'),
     pitch: '在水塔、鐵皮和晾衣架之間跑酷，一路跳到城市另一端找回你的主人。',
     description: [
       '一隻貓、一整座城市的頂樓加蓋。鐵皮屋頂會因為太陽變燙，水塔可以躲雨，晾衣架是最好的跳板。',
@@ -111,7 +114,7 @@ export const games: Game[] = [
     platforms: ['PC'],
     build: 'v0.3.0',
     status: 'seeking',
-    cover: '/covers/temple-synth.svg',
+    cover: cover('temple-synth'),
     pitch: '跟著廟會陣頭的鼓點打節奏，電子琴、嗩吶和鞭炮聲全是你的音軌。',
     description: [
       '廟會遶境的夜晚，你是電子花車上的樂手。鼓陣、嗩吶、電子琴輪番上陣，節奏越打越快。',
@@ -135,7 +138,7 @@ export const games: Game[] = [
     platforms: ['PC'],
     build: 'v0.1.4',
     status: 'seeking',
-    cover: '/covers/mountain-delivery.svg',
+    cover: cover('mountain-delivery'),
     pitch: '騎著機車載一整箱湯麵上山，髮夾彎、午後雷陣雨，湯不能灑。',
     description: [
       '你是山上唯一願意接單的外送員。每一單都要穿過髮夾彎、碎石路和突然的午後雷陣雨。',
@@ -159,7 +162,7 @@ export const games: Game[] = [
     platforms: ['PC', 'Mobile'],
     build: 'v0.5.0',
     status: 'seeking',
-    cover: '/covers/intertidal.svg',
+    cover: cover('intertidal'),
     pitch: '照顧一片東北角的潮池，看寄居蟹、海葵和小魚在漲退潮之間慢慢長成一個生態。',
     description: [
       '每天漲潮兩次、退潮兩次。退潮時你可以撿垃圾、移動石頭、幫迷路的小生物找到家；漲潮時就只能看著。',
@@ -183,7 +186,7 @@ export const games: Game[] = [
     platforms: ['PC', 'Switch'],
     build: 'v0.7.3',
     status: 'seeking',
-    cover: '/covers/cram-school-escape.svg',
+    cover: cover('cram-school-escape'),
     pitch: '四個人一起在班主任眼皮底下偷溜出補習班，誰被抓到誰就要留下來寫考卷。',
     description: [
       '晚上九點的補習班，班主任在走廊巡邏。你和三個朋友要趁他轉身的空檔，一個一個溜到逃生門。',

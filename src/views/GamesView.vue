@@ -41,10 +41,10 @@ function toggleGenre(g: string) {
       <p class="page-head__lede">
         本頁列出社群成員正在開發的遊戲。每張卡片載明開發者最希望了解的問題，橘色圓點代表已試玩過的人數。
       </p>
-      <SampleNote />
+      <SampleNote v-if="data?.sample" />
     </header>
 
-    <div class="filters" role="group" aria-label="篩選遊戲">
+    <div v-if="!data || all.length" class="filters" role="group" aria-label="篩選遊戲">
       <button
         type="button"
         class="filter filter--seeking"
@@ -69,6 +69,9 @@ function toggleGenre(g: string) {
 
     <StateBlock v-if="loading && !data" kind="loading" />
     <StateBlock v-else-if="error" kind="error" @retry="retry" />
+    <StateBlock v-else-if="!all.length" kind="empty" message="還沒有刊登的遊戲。尚未完成的遊戲也可以，請至 Discord 發布遊戲的 build。">
+      <DiscordButton variant="ink" label="至 Discord 發布 build" />
+    </StateBlock>
     <StateBlock v-else-if="!shown.length" kind="empty" message="目前沒有符合篩選條件的遊戲，請選擇其他類型。">
       <button type="button" class="sticker-btn sticker-btn--paper" @click="router.replace({ query: {} })">清除篩選</button>
     </StateBlock>

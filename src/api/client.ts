@@ -2,11 +2,20 @@ import { ref, watchEffect, toValue, type MaybeRefOrGetter } from 'vue'
 
 export class NotFoundError extends Error {}
 
-export async function getJson<T>(url: string): Promise<T> {
+async function fetchJson<T>(url: string): Promise<T> {
   const res = await fetch(url, { headers: { Accept: 'application/json' } })
   if (res.status === 404) throw new NotFoundError(url)
   if (!res.ok) throw new Error(`${res.status} ${url}`)
   return res.json() as Promise<T>
+}
+
+export async function getJson<T>(url: string): Promise<T> {
+  // Sample content exists only in development; production builds drop this branch.
+  if (import.meta.env.DEV) {
+    const { withSampleFallback } = await import('@/mocks/fallback')
+    return withSampleFallback(url, () => fetchJson<T>(url))
+  }
+  return fetchJson<T>(url)
 }
 
 /** Fetch JSON from the site API and expose loading / error / retry state. */

@@ -15,7 +15,8 @@ import BrandMark from '@/components/BrandMark.vue'
 const games = useApi<ListResponse<Game>>('/api/games')
 const events = useApi<ListResponse<GameEvent>>('/api/events')
 
-const featured = computed(() => games.data.value?.items.find((g) => g.slug === 'last-train') ?? games.data.value?.items[0])
+// The hero pins the most recently updated game.
+const featured = computed(() => [...(games.data.value?.items ?? [])].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0])
 const wall = computed(() => (games.data.value?.items ?? []).filter((g) => g !== featured.value).slice(0, 6))
 const upcoming = computed(() => (events.data.value?.items ?? []).filter((e) => daysUntil(e.startsAt) >= 0).slice(0, 4))
 
@@ -88,10 +89,11 @@ const loop = [
   <section id="wall" class="wall shell" aria-labelledby="wall-title">
     <div class="section-head">
       <TapeHeading id="wall-title" :tilt="1">社群遊戲作品</TapeHeading>
-      <SampleNote />
+      <SampleNote v-if="games.data.value?.sample" />
     </div>
     <StateBlock v-if="games.loading.value && !games.data.value" kind="loading" />
     <StateBlock v-else-if="games.error.value" kind="error" @retry="games.retry" />
+    <StateBlock v-else-if="!featured" kind="empty" message="還沒有刊登的遊戲。尚未完成的遊戲也可以，請至 Discord 發布遊戲的 build。" />
     <div v-else class="wall__grid">
       <GameCard v-for="g in wall" :key="g.slug" :game="g" class="wall__card" />
     </div>
@@ -104,13 +106,14 @@ const loop = [
   <section class="board-section shell" aria-labelledby="events-title">
     <div class="section-head">
       <TapeHeading id="events-title" :tilt="-0.8">近期活動</TapeHeading>
-      <SampleNote text="示範資料：活動資訊整理中" />
+      <SampleNote v-if="events.data.value?.sample" text="示範資料：活動資訊整理中" />
     </div>
     <div class="board">
       <span class="tape tape-bit board__tape board__tape--l" aria-hidden="true"></span>
       <span class="tape tape-bit board__tape board__tape--r" aria-hidden="true"></span>
       <StateBlock v-if="events.loading.value && !events.data.value" kind="loading" message="正在載入活動資訊…" />
       <StateBlock v-else-if="events.error.value" kind="error" @retry="events.retry" />
+      <StateBlock v-else-if="!upcoming.length" kind="empty" message="目前沒有即將舉行的活動。" />
       <ol v-else class="board__list">
         <EventRow v-for="e in upcoming" :key="e.slug" :event="e" />
       </ol>

@@ -62,8 +62,8 @@ function stick() {
         <figure class="print">
           <span class="tape tape-bit print__tape print__tape--l" aria-hidden="true"></span>
           <span class="tape tape-bit print__tape print__tape--r" aria-hidden="true"></span>
-          <img :src="game.cover" :alt="`《${game.title}》示範封面`" width="800" height="600" />
-          <figcaption class="print__cap hand">示範封面，日後將替換為實際遊戲畫面</figcaption>
+          <img :src="game.cover" :alt="`《${game.title}》封面`" width="800" height="600" />
+          <figcaption v-if="data?.sample" class="print__cap hand">示範封面，日後將替換為實際遊戲畫面</figcaption>
         </figure>
 
         <section class="about" aria-labelledby="about-title">

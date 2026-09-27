@@ -18,8 +18,8 @@ import { DISCORD_INVITE } from '@/composables/useDiscord'
         <a :href="DISCORD_INVITE" target="_blank" rel="noopener">Discord<span class="visually-hidden">（在新分頁開啟）</span></a>
       </nav>
       <p class="site-footer__note">
-        本網站目前刊登的遊戲與活動均為<strong>示範資料</strong>，僅供展示版面之用，並非實際作品或活動。Discord
-        的成員人數與線上人數為即時取自 Discord 的實際數字。如希望您的遊戲在本網站展示，請至 Discord 與我們聯繫。
+        Discord 的成員人數與線上人數為即時取自 Discord 的實際數字。如希望您的遊戲或活動在本網站刊登，請至 Discord
+        與我們聯繫。
       </p>
     </div>
   </footer>

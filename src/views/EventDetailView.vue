@@ -71,7 +71,7 @@ function downloadIcs() {
           <p class="poster__type">{{ EVENT_TYPE_LABEL[ev.type] }}<span v-if="ev.online"> · 線上</span></p>
           <h1 class="poster__title">{{ ev.title }}</h1>
           <p class="poster__summary">{{ ev.summary }}</p>
-          <p class="poster__sample hand">示範資料，並非實際舉辦的活動</p>
+          <p v-if="data?.sample" class="poster__sample hand">示範資料，並非實際舉辦的活動</p>
         </div>
       </header>
 
@@ -134,7 +134,7 @@ function downloadIcs() {
           <button type="button" class="poster__cal" @click="downloadIcs">
             <CalendarPlus :size="20" aria-hidden="true" />下載行事曆檔案（.ics）
           </button>
-          <p class="poster__fine">示範活動不提供官方報名連結。正式活動刊登後，此處將提供主辦單位的報名頁面。</p>
+          <p v-if="data?.sample" class="poster__fine">示範活動不提供官方報名連結。正式活動刊登後，此處將提供主辦單位的報名頁面。</p>
         </aside>
       </div>
     </article>

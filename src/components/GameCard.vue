@@ -22,7 +22,7 @@ const tapeTilt = computed(() => tiltFor(props.game.slug + 'tape', 9))
     <span class="tape tape-bit game-card__tape" aria-hidden="true"></span>
     <article class="game-card__paper">
       <div class="game-card__print">
-        <img :src="game.cover" :alt="`《${game.title}》示範封面`" width="400" height="300" loading="lazy" />
+        <img :src="game.cover" :alt="`《${game.title}》封面`" width="400" height="300" loading="lazy" />
       </div>
       <div class="game-card__body">
         <div class="game-card__head">
