@@ -3,8 +3,10 @@ import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import Viewfinder from './Viewfinder.vue'
 import { DISCORD_CLIENT_ID, signInWithDiscord, useAuth } from '@/composables/useAuth'
+import { useAdmin } from '@/composables/useAdmin'
 
 const { user, ready, signOut } = useAuth()
+const { status: adminStatus } = useAdmin()
 const route = useRoute()
 const menu = ref<HTMLDetailsElement | null>(null)
 
@@ -59,6 +61,7 @@ async function onSignOut() {
     <div class="acct__panel">
       <p class="acct__name">{{ user.displayName }}</p>
       <p class="acct__via">已用 Discord 登入</p>
+      <RouterLink v-if="adminStatus === 'admin'" to="/admin" class="acct__admin">活動管理</RouterLink>
       <button type="button" class="acct__out" @click="onSignOut">登出</button>
     </div>
   </details>
@@ -138,6 +141,18 @@ async function onSignOut() {
 .acct__via {
   font-size: 0.875rem;
   color: var(--ink-3);
+}
+.acct__admin {
+  justify-self: start;
+  margin-top: 10px;
+  padding: 4px 0;
+  font-weight: 700;
+  text-decoration: none;
+}
+.acct__admin:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--dot);
+  text-decoration-thickness: 3px;
 }
 .acct__out {
   justify-self: start;

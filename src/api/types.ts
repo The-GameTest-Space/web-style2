@@ -20,7 +20,7 @@ export interface Game {
   pitch: string
   description: string[]
   feedbackWanted: string[]
-  /** Orange dot stickers on the card: playtesters so far (sample data). */
+  /** Orange dot stickers on the card: playtesters so far. */
   dots: number
   updatedAt: string
   buildLog: BuildNote[]
@@ -43,14 +43,28 @@ export interface GameEvent {
   description: string[]
   agenda?: { time: string; item: string }[]
   audience: string[]
+  /** The organiser's own page: registration, tickets, full details. */
+  url?: string
 }
 
+/** An event as the admin pages see it, drafts included. */
+export interface AdminEvent extends GameEvent {
+  published: boolean
+  createdAt?: string
+  updatedAt?: string
+}
+
+/** What the admin form sends; the Worker stamps the times. */
+export type EventInput = Omit<AdminEvent, 'createdAt' | 'updatedAt'>
+
+// `sample` is set only by the local-only fallback (src/mocks/fallback.ts),
+// so pages can label sample content as such.
 export interface ListResponse<T> {
-  sample: boolean
+  sample?: boolean
   items: T[]
 }
 
 export interface ItemResponse<T> {
-  sample: boolean
+  sample?: boolean
   item: T
 }

@@ -42,6 +42,7 @@ __screenshots__/
 .firebase/
 firebase-debug.log*
 firebase-debug.*.log*
+firestore-debug.log
 
 # Service account keys (upload with `wrangler secret put`, never commit)
 *-firebase-adminsdk-*.json

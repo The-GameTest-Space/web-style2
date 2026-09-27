@@ -31,10 +31,10 @@ A space built around *playtesting*: developers testing each other's games. The s
 
 ## Capabilities and Constraints
 
-- Stack: existing Vue 3 + Vite + vue-router + TypeScript scaffold, with MSW mocking `/api/*` in development.
-- Pages: home, game list, event list, game detail, event detail.
-- Content is served from mock API endpoints until a real backend exists.
-- Undecided: submission flow for games/events (not in scope yet), backend, CMS.
+- Stack: Vue 3 + Vite + vue-router + TypeScript. The site and its `/api/*` ship together as one Cloudflare Worker; events are stored in Firestore, which only the Worker touches.
+- Pages: home, game list, event list, game detail, event detail, and `/admin` where admins (listed in Firestore `admins/{uid}`) create, edit, publish and delete events.
+- Games have no store yet, so production shows none. Sample games and events exist only in local development (`npm run dev`), as a fallback when the API has nothing.
+- Undecided: where games are stored, and a submission flow for games/events.
 
 ## Brand Commitments
 
@@ -46,7 +46,7 @@ A space built around *playtesting*: developers testing each other's games. The s
 
 - Discord invite: https://discord.gg/yXfKQpAPN
 - Logo images supplied in chat (mark + horizontal lockup).
-- No real games, events, member counts, partners, or testimonials exist yet. All game/event data is **sample data** and must be labeled as such; never invent member counts, stats, partner logos, or quotes presented as real.
+- No real games, member counts, partners, or testimonials exist yet. Events are real once an admin publishes them. Sample games/events appear only in local development and are always labeled 示範資料. Never invent member counts, stats, partner logos, or quotes presented as real.
 
 ## Product Principles
 

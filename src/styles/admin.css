@@ -1,0 +1,231 @@
+/* The admin pages (/admin). Loaded only with the admin route. Same wall,
+   ink and paper as the public site, tuned for filling in forms. */
+
+.admin {
+  padding-top: clamp(24px, 4vh, 40px);
+  padding-bottom: clamp(88px, 14vh, 160px);
+}
+
+.admin-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px 32px;
+}
+.admin-head__lede {
+  margin-top: 16px;
+  max-width: 36em;
+  color: var(--ink-2);
+}
+.admin-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.admin-back:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--dot);
+  text-decoration-thickness: 3px;
+}
+
+/* A short confirmation after a save or delete. */
+.admin-flash {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  font-weight: 700;
+}
+.admin-flash::before {
+  content: '';
+  flex: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+
+/* Fields */
+.field {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  min-width: 0;
+}
+.field__label {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 0.9375rem;
+}
+.field__opt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-3);
+}
+.field__msg {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+.field__msg.is-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.field__msg.is-error::before {
+  content: '';
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+
+.input {
+  width: 100%;
+  /* Fields are grid items; without this a datetime input keeps its intrinsic width and overflows. */
+  min-width: 0;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  background: var(--card);
+  font: inherit;
+  color: var(--ink);
+}
+.input:focus-visible {
+  border-radius: 10px;
+  outline-offset: 2px;
+}
+.input::placeholder {
+  color: var(--ink-3);
+  opacity: 0.75;
+}
+.input[aria-invalid='true'] {
+  border-color: var(--dot-deep);
+  box-shadow: 0 0 0 3px rgb(255 106 43 / 0.25);
+}
+.input[readonly] {
+  background: var(--wall);
+  border-style: dashed;
+}
+textarea.input {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+/* Native checkbox, bigger and in ink. */
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.check input {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: var(--ink);
+  cursor: pointer;
+}
+
+/* One-of-many choice drawn as the site's filter pills. */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pill {
+  position: relative;
+}
+.pill input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.pill span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+.pill:hover span {
+  background: var(--wall);
+}
+.pill input:checked + span {
+  background: var(--ink);
+  color: var(--card);
+}
+.pill input:focus-visible + span {
+  outline: 3px solid var(--dot);
+  outline-offset: 3px;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.7;
+  white-space: nowrap;
+}
+.status-chip--live {
+  background: var(--dot);
+  border-color: var(--dot);
+}
+.status-chip--draft {
+  border-style: dashed;
+}
+.status-chip--past {
+  border-color: var(--rule);
+  color: var(--ink-3);
+}
+
+/* Quiet, outlined: for actions that are not the main one. */
+.outline-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--card);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.outline-btn:hover {
+  background: var(--wall);
+}
+.outline-btn svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}

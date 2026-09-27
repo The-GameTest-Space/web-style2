@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { ArrowLeft, CalendarPlus } from 'lucide-vue-next'
+import { ArrowLeft, CalendarPlus, ExternalLink } from 'lucide-vue-next'
 import { useApi, NotFoundError } from '@/api/client'
 import type { GameEvent, ItemResponse } from '@/api/types'
 import { EVENT_TYPE_LABEL, daysUntil, fullDate, isMultiDay, monthDay, time } from '@/utils/format'
@@ -130,7 +130,10 @@ function downloadIcs() {
               {{ deadlineDays > 0 ? `剩餘 ${deadlineDays} 天` : deadlineDays === 0 ? '今天截止' : '已截止' }}
             </p>
           </div>
-          <DiscordButton label="在 Discord 尋找同行者" class="poster__cta" />
+          <a v-if="ev.url" :href="ev.url" target="_blank" rel="noopener" class="sticker-btn sticker-btn--ink poster__cta">
+            <ExternalLink aria-hidden="true" />前往活動頁面<span class="visually-hidden">（在新分頁開啟）</span>
+          </a>
+          <DiscordButton :variant="ev.url ? 'paper' : undefined" label="在 Discord 尋找同行者" class="poster__cta" />
           <button type="button" class="poster__cal" @click="downloadIcs">
             <CalendarPlus :size="20" aria-hidden="true" />下載行事曆檔案（.ics）
           </button>
