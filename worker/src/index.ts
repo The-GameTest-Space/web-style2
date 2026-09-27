@@ -10,13 +10,12 @@ interface Env {
 const DISCORD_CLIENT_ID = '1538119089883455548'
 const DISCORD_API = 'https://discord.com/api/v10'
 
-// The callback URLs registered on the Discord app. Their origins are the only
-// sites allowed to call this worker.
+// The callback URLs registered on the Discord app. The dev server reaches
+// this Worker through its /api proxy (vite.config.ts).
 const REDIRECT_URIS = [
   'http://localhost:5199/auth/discord/callback',
-  'https://the-gametest-space.github.io/web-style2/auth/discord/callback',
+  'https://gtspace.gametestspace.workers.dev/auth/discord/callback',
 ]
-const ORIGINS = new Set(REDIRECT_URIS.map((uri) => new URL(uri).origin))
 
 interface DiscordUser {
   id: string
@@ -31,32 +30,22 @@ function avatarUrl(user: DiscordUser) {
   return `https://cdn.discordapp.com/embed/avatars/${Number((BigInt(user.id) >> 22n) % 6n)}.png`
 }
 
-function corsHeaders(origin: string | null): Record<string, string> {
-  if (!origin || !ORIGINS.has(origin)) return { Vary: 'Origin' }
-  return {
-    'Access-Control-Allow-Origin': origin,
-    'Access-Control-Allow-Methods': 'POST',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    Vary: 'Origin',
-  }
-}
-
-function json(body: unknown, status: number, headers: Record<string, string>) {
-  return new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json', ...headers } })
+function json(body: unknown, status: number) {
+  return Response.json(body, { status })
 }
 
 /**
- * POST /discord { code, redirectUri } → { token, profile }
+ * POST /api/auth/discord { code, redirectUri } → { token, profile }
  * Trades a Discord OAuth2 authorization code for a Firebase custom token for
  * uid `discord:<id>`, plus the Discord name and avatar for the user record,
  * and saves the user to Firestore at users/{uid}.
  */
-async function discordSignIn(request: Request, env: Env, headers: Record<string, string>) {
+async function discordSignIn(request: Request, env: Env) {
   const { code, redirectUri } = await request
     .json<{ code?: unknown; redirectUri?: unknown }>()
     .catch(() => ({}) as { code?: unknown; redirectUri?: unknown })
   if (typeof code !== 'string' || typeof redirectUri !== 'string' || !REDIRECT_URIS.includes(redirectUri)) {
-    return json({ error: 'invalid_request' }, 400, headers)
+    return json({ error: 'invalid_request' }, 400)
   }
 
   // Discord also checks that redirect_uri equals the one the code was issued for.
@@ -73,14 +62,14 @@ async function discordSignIn(request: Request, env: Env, headers: Record<string,
   })
   if (!tokenRes.ok) {
     console.warn('Discord token exchange failed', tokenRes.status, await tokenRes.text())
-    return json({ error: 'invalid_grant' }, 401, headers)
+    return json({ error: 'invalid_grant' }, 401)
   }
   const { access_token } = await tokenRes.json<{ access_token: string }>()
 
   const meRes = await fetch(`${DISCORD_API}/users/@me`, { headers: { Authorization: `Bearer ${access_token}` } })
   if (!meRes.ok) {
     console.warn('Discord profile fetch failed', meRes.status)
-    return json({ error: 'discord_unavailable' }, 502, headers)
+    return json({ error: 'discord_unavailable' }, 502)
   }
   const me = await meRes.json<DiscordUser>()
 
@@ -92,23 +81,20 @@ async function discordSignIn(request: Request, env: Env, headers: Record<string,
   // so no one ends up signed in without a users/{uid} document.
   await saveUser(account, uid, { discordId: me.id, username: me.username, displayName, photoURL })
   const token = await createCustomToken(account, uid)
-  return json({ token, profile: { displayName, photoURL } }, 200, headers)
+  return json({ token, profile: { displayName, photoURL } }, 200)
 }
 
+// Only /api/* reaches this script (run_worker_first in wrangler.jsonc); the
+// site itself is served from the static assets.
 export default {
   async fetch(request, env) {
-    const headers = corsHeaders(request.headers.get('Origin'))
-    if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers })
-    if (request.method !== 'POST' || new URL(request.url).pathname !== '/discord') {
-      return json({ error: 'not_found' }, 404, headers)
-    }
+    const { pathname } = new URL(request.url)
+    if (request.method !== 'POST' || pathname !== '/api/auth/discord') return json({ error: 'not_found' }, 404)
     try {
-      return await discordSignIn(request, env, headers)
+      return await discordSignIn(request, env)
     } catch (e) {
-      // An uncaught throw becomes a bare 500 without CORS headers, which the
-      // browser reports as a CORS failure and hides the real cause.
       console.error(e)
-      return json({ error: 'server_error' }, 500, headers)
+      return json({ error: 'server_error' }, 500)
     }
   },
 } satisfies ExportedHandler<Env>

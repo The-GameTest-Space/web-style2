@@ -15,9 +15,6 @@ import { firebaseApp } from '@/firebase'
 // DISCORD_CLIENT_ID in worker/src/index.ts.
 export const DISCORD_CLIENT_ID = '1538119089883455548'
 
-// Cloudflare Worker (worker/) that trades a Discord code for a Firebase token.
-const AUTH_API = 'https://gtspace-auth.gametestspace.workers.dev'
-
 // initializeAuth instead of getAuth: sign-in goes through a custom token, so
 // the popup/redirect machinery getAuth bundles is never needed.
 const auth = initializeAuth(firebaseApp, {
@@ -69,7 +66,8 @@ export function takeDiscordState(): { state: string; returnTo: string } | null {
 
 /** Trade the code Discord sent back for a Firebase session. */
 export async function finishDiscordSignIn(code: string) {
-  const res = await fetch(`${AUTH_API}/discord`, {
+  // Served by the Worker in worker/ (proxied to it by the dev server).
+  const res = await fetch('/api/auth/discord', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ code, redirectUri: discordRedirectUri() }),
