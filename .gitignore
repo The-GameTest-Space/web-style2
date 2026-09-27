@@ -50,3 +50,6 @@ firestore-debug.log
 # Cloudflare Workers
 .wrangler/
 .dev.vars*
+
+# Impeccable skill runtime state (process, port, heartbeat)
+.impeccable/
