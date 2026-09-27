@@ -2,6 +2,7 @@ import { bearer, verifyIdToken } from './auth'
 import { COVER_PATH, MAX_COVER_BYTES, saveCover, serveCover } from './covers'
 import { EVENT_FIELDS, Invalid, SLUG, adminEvent, byStart, parseEvent, publicEvent } from './events'
 import { Firestore, saveUser } from './firestore'
+import { eventJsonLd, jsonLdScript } from './jsonld'
 import { createCustomToken, type ServiceAccount } from './token'
 
 interface Env {
@@ -11,6 +12,8 @@ interface Env {
   API_LIMIT: RateLimit
   // Event cover images (worker/src/covers.ts), KV namespace event_images.
   COVERS: KVNamespace
+  // The built site (dist/), for the event pages this script serves.
+  ASSETS: Fetcher
   // Local development only (.dev.vars): use the Firebase emulators, e.g.
   // localhost:8085 and localhost:9099. See README.
   FIRESTORE_EMULATOR_HOST?: string
@@ -143,6 +146,33 @@ async function sitemap(origin: string, env: Env) {
   return new Response(xml, { headers: { 'Content-Type': 'application/xml; charset=utf-8' } })
 }
 
+/**
+ * GET /events/:slug: the site's page with the event's JSON-LD in <head>, so
+ * search engines read the date and place without running the app. Anything
+ * that has no markup (ongoing or unknown events, a failed lookup) gets the
+ * page as it is.
+ */
+async function eventPage(request: Request, { origin }: URL, slug: string, env: Env) {
+  let ld: ReturnType<typeof eventJsonLd> = null
+  try {
+    const event = (await publishedEvents(env)).items.find((e) => e.slug === slug)
+    ld = event ? eventJsonLd(event, `${origin}/events/${slug}`, origin) : null
+  } catch (e) {
+    console.error(e)
+  }
+  if (!ld) return env.ASSETS.fetch(request)
+  // Fetched afresh, without the browser's If-None-Match: a 304 would leave
+  // nothing to add the markup to.
+  const page = await env.ASSETS.fetch(new URL(request.url))
+  const withLd = new HTMLRewriter()
+    .on('head', { element: (head) => void head.append(jsonLdScript(ld), { html: true }) })
+    .transform(page)
+  const res = new Response(withLd.body, withLd)
+  // The file's tag no longer matches the body.
+  res.headers.delete('ETag')
+  return res
+}
+
 // Whether a uid has an admins/{uid} document, remembered per isolate for a
 // minute, "no" included: otherwise any signed-in account could spend the
 // daily read quota by calling /api/admin/me in a loop. Keyed by verified uid
@@ -256,13 +286,20 @@ async function route(request: Request, { origin, pathname }: URL, env: Env) {
   return notFound()
 }
 
-// Only /api/* and /sitemap.xml reach this script (run_worker_first in
-// wrangler.jsonc); the site itself is served from the static assets.
+// Only /api/*, /sitemap.xml and /events/* reach this script (run_worker_first
+// in wrangler.jsonc); the rest of the site is served from the static assets.
 export default {
   async fetch(request, env) {
     const url = new URL(request.url)
     const { pathname } = url
     const ip = request.headers.get('CF-Connecting-IP') ?? 'unknown'
+    // Event pages are counted apart as well. Over the limit they are still
+    // served, only without the markup: a visitor never gets JSON for a page.
+    if (pathname.startsWith('/events/')) {
+      const slug = request.method === 'GET' && pathname.match(/^\/events\/([a-z0-9-]+)$/)?.[1]
+      if (!slug || !(await env.API_LIMIT.limit({ key: `pages:${ip}` })).success) return env.ASSETS.fetch(request)
+      return eventPage(request, url, slug, env)
+    }
     // Cover images are counted apart (same limit): a page can show several,
     // and they must not use up the allowance for the API itself.
     const key = pathname.startsWith('/api/covers/') ? `covers:${ip}` : ip
