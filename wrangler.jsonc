@@ -9,7 +9,9 @@
     "not_found_handling": "single-page-application",
     // Only the API runs the Worker script; everything else is a static file.
     "run_worker_first": ["/api/*"]
-  }
+  },
+  // /api/* requests per client IP, counted per Cloudflare location.
+  "ratelimits": [{ "name": "API_LIMIT", "namespace_id": "1001", "simple": { "limit": 60, "period": 60 } }]
   // Secrets (set with `npx wrangler secret put <NAME>`, never committed):
   //   DISCORD_CLIENT_SECRET     Discord app OAuth2 client secret
   //   FIREBASE_SERVICE_ACCOUNT  Firebase service account key JSON

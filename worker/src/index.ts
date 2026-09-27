@@ -6,6 +6,8 @@ import { createCustomToken, type ServiceAccount } from './token'
 interface Env {
   DISCORD_CLIENT_SECRET: string
   FIREBASE_SERVICE_ACCOUNT: string
+  // Per-IP request limit for /api/* (ratelimits in wrangler.jsonc).
+  API_LIMIT: RateLimit
   // Local development only (.dev.vars): use the Firebase emulators, e.g.
   // localhost:8085 and localhost:9099. See README.
   FIRESTORE_EMULATOR_HOST?: string
@@ -101,9 +103,11 @@ async function readJson(request: Request): Promise<unknown> {
 }
 
 // Every page view lists the published events, and Spark allows 50k document
-// reads a day, so each isolate keeps the list for 30 s. An admin write clears
-// it here; other isolates catch up when theirs expires.
-const PUBLIC_TTL = 30_000
+// reads a day (each listed event is one read), so each isolate keeps the list
+// for 5 min: even a steady stream of requests costs 288 lists a day per
+// isolate. An admin write clears it here; other isolates catch up when theirs
+// expires.
+const PUBLIC_TTL = 5 * 60_000
 let publicEvents: { at: number; items: Record<string, unknown>[] } | null = null
 
 async function publishedEvents(env: Env) {
@@ -111,6 +115,23 @@ async function publishedEvents(env: Env) {
   const docs = await firestore(env).list('events', { field: 'published', value: true })
   publicEvents = { at: Date.now(), items: docs.map(publicEvent).sort(byStart) }
   return publicEvents.items
+}
+
+// Whether a uid has an admins/{uid} document, remembered per isolate for a
+// minute, "no" included: otherwise any signed-in account could spend the
+// daily read quota by calling /api/admin/me in a loop. Keyed by verified uid
+// only, so made-up tokens cannot grow it. Removing an admin in the console
+// takes up to a minute to apply.
+const ADMIN_TTL = 60_000
+const adminCache = new Map<string, { admin: boolean; at: number }>()
+
+async function isAdmin(db: Firestore, uid: string) {
+  const hit = adminCache.get(uid)
+  if (hit && Date.now() - hit.at < ADMIN_TTL) return hit.admin
+  const admin = (await db.get(`admins/${uid}`)) !== null
+  if (adminCache.size > 1000) adminCache.clear()
+  adminCache.set(uid, { admin, at: Date.now() })
+  return admin
 }
 
 /** Create (`exists: false`) or update (`exists: true`) events/{slug} from an admin's form. */
@@ -145,11 +166,11 @@ async function admin(request: Request, path: string, env: Env) {
   const uid = token && (await verifyIdToken(token, env.FIREBASE_AUTH_EMULATOR_HOST))
   if (!uid) return json({ error: 'unauthenticated' }, 401)
   const db = firestore(env)
-  const isAdmin = (await db.get(`admins/${uid}`)) !== null
+  const admin = await isAdmin(db, uid)
   const { method } = request
 
-  if (path === '/me' && method === 'GET') return json({ uid, admin: isAdmin }, 200)
-  if (!isAdmin) return json({ error: 'forbidden' }, 403)
+  if (path === '/me' && method === 'GET') return json({ uid, admin }, 200)
+  if (!admin) return json({ error: 'forbidden' }, 403)
 
   if (path === '/events' && method === 'GET') {
     return json({ items: (await db.list('events')).map(adminEvent).sort(byStart) }, 200)
@@ -201,6 +222,10 @@ async function route(request: Request, pathname: string, env: Env) {
 // site itself is served from the static assets.
 export default {
   async fetch(request, env) {
+    const ip = request.headers.get('CF-Connecting-IP') ?? 'unknown'
+    if (!(await env.API_LIMIT.limit({ key: ip })).success) {
+      return json({ error: 'rate_limited', message: '請求太頻繁，請稍後再試' }, 429)
+    }
     try {
       return await route(request, new URL(request.url).pathname, env)
     } catch (e) {
