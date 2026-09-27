@@ -7,6 +7,9 @@
     "directory": "./dist",
     // Paths without a file (e.g. /games/some-slug) get index.html with a 200.
     "not_found_handling": "single-page-application",
+    // Serve .html files at their own URL instead of redirecting to the path
+    // without .html: Google's site verification file must answer with a 200.
+    "html_handling": "none",
     // Only the API runs the Worker script; everything else is a static file.
     "run_worker_first": ["/api/*"]
   },
