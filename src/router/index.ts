@@ -21,8 +21,10 @@ const router = createRouter({
     },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('../views/NotFoundView.vue') },
   ],
-  scrollBehavior(to, _from, saved) {
+  scrollBehavior(to, from, saved) {
     if (saved) return saved
+    // Filters and search only change the query: keep the reader where they are.
+    if (to.path === from.path && to.hash === from.hash) return false
     if (to.hash) return { el: to.hash, behavior: 'smooth' }
     return { top: 0 }
   },
