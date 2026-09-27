@@ -10,12 +10,20 @@ const props = defineProps<{ event: GameEvent }>()
 
 const days = computed(() => (props.event.ongoing ? 0 : daysUntil(props.event.startsAt)))
 const deadlineDays = computed(() => (props.event.deadline ? daysUntil(props.event.deadline.date) : null))
+// A cover appears once it has loaded. One from another site can disappear:
+// then the row shows nothing rather than an empty frame.
+const shown = (e: Event) => (e.target as HTMLImageElement).classList.add('is-loaded')
+const hideBroken = (e: Event) => ((e.target as HTMLImageElement).hidden = true)
 const urgent = computed(() => deadlineDays.value !== null && deadlineDays.value >= 0 && deadlineDays.value <= 7)
 </script>
 
 <template>
   <li class="event-row">
-    <RouterLink :to="{ name: 'event', params: { slug: event.slug } }" class="event-row__link">
+    <RouterLink
+      :to="{ name: 'event', params: { slug: event.slug } }"
+      class="event-row__link"
+      :class="{ 'has-cover': event.cover }"
+    >
       <OngoingMark v-if="event.ongoing" class="event-row__dday" />
       <DdayCounter v-else :days="days" class="event-row__dday" />
       <div v-if="!event.ongoing" class="event-row__date">
@@ -40,6 +48,15 @@ const urgent = computed(() => deadlineDays.value !== null && deadlineDays.value 
         <strong class="num">{{ monthDay(event.deadline.date) }}</strong>
         <span v-if="urgent" class="event-row__left">剩餘 {{ deadlineDays }} 天</span>
       </p>
+      <img
+        v-if="event.cover"
+        :src="event.cover"
+        alt=""
+        class="event-row__cover"
+        loading="lazy"
+        @load="shown"
+        @error="hideBroken"
+      />
     </RouterLink>
   </li>
 </template>
@@ -136,6 +153,29 @@ const urgent = computed(() => deadlineDays.value !== null && deadlineDays.value 
   border-radius: 999px / 70%;
   transform: rotate(-3deg);
 }
+.event-row__link.has-cover {
+  grid-template-columns: 7.5rem 6.5rem minmax(0, 1fr) auto auto;
+}
+/* The cover as a small print pinned at the end of the row. */
+.event-row__cover {
+  grid-column: -2;
+  width: 8rem;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: var(--shadow-paper);
+  rotate: 1.5deg;
+  opacity: 0;
+  transition:
+    rotate 0.3s var(--ease-out),
+    opacity 0.3s;
+}
+.event-row__cover.is-loaded {
+  opacity: 1;
+}
+.event-row__link:hover .event-row__cover {
+  rotate: 0deg;
+}
 .event-row__left {
   font-size: 0.8125rem;
   font-weight: 700;
@@ -158,6 +198,20 @@ const urgent = computed(() => deadlineDays.value !== null && deadlineDays.value 
   .event-row__main,
   .event-row__main--wide {
     grid-column: 2;
+  }
+  /* The cover goes under the D-day, in the same column. */
+  .event-row__link.has-cover {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .has-cover .event-row__dday {
+    grid-row: 1;
+  }
+  .event-row__cover {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    align-self: start;
+    width: 5.25rem;
+    margin-top: 6px;
   }
   .event-row__deadline {
     grid-column: 2;

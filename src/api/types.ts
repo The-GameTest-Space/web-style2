@@ -43,6 +43,8 @@ interface EventBase {
   audience: string[]
   /** The organiser's own page: registration, tickets, full details. */
   url?: string
+  /** Cover picture: an upload (/api/covers/…) or an https URL. */
+  cover?: string
 }
 
 /** An event on given dates. */

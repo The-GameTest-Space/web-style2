@@ -4,6 +4,9 @@ import type { GameEvent } from '@/api/types'
 // Dates are generated relative to today so the D-day board always has
 // something upcoming.
 
+// Two of the sample game prints stand in as event covers.
+const cover = (name: string) => new URL(`../covers/${name}.svg`, import.meta.url).href
+
 type Seed = Omit<GameEvent, 'startsAt' | 'endsAt' | 'deadline'> & {
   start?: [days: number, hour: number, minute?: number]
   end?: [days: number, hour: number, minute?: number]
@@ -37,6 +40,7 @@ const seeds: Seed[] = [
   },
   {
     slug: 'taipei-48h-jam',
+    cover: cover('cram-school-escape'),
     title: '48 小時 Game Jam：台北場',
     type: 'jam',
     start: [12, 18],
@@ -94,6 +98,7 @@ const seeds: Seed[] = [
   },
   {
     slug: 'indie-expo-booth-call',
+    cover: cover('temple-synth'),
     title: '南部獨立遊戲展：攤位徵件',
     type: 'expo',
     start: [45, 10],

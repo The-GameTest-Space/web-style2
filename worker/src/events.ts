@@ -1,3 +1,4 @@
+import { COVER_PATH } from './covers'
 import type { Doc } from './firestore'
 
 // Events live at events/{slug}. The Worker is their only reader and writer
@@ -25,6 +26,7 @@ export const EVENT_FIELDS = [
   'agenda',
   'audience',
   'url',
+  'cover',
   'published',
 ]
 
@@ -78,6 +80,14 @@ const record = (v: unknown, field: string) => {
   return v as Record<string, unknown>
 }
 
+function isWebUrl(s: string, protocols: string[]) {
+  try {
+    return protocols.includes(new URL(s).protocol)
+  } catch {
+    return false
+  }
+}
+
 /** Validate an admin's event body into what is stored (dates as Date, empty optionals left out). */
 export function parseEvent(input: unknown) {
   const body = record(input, 'body')
@@ -105,14 +115,13 @@ export function parseEvent(input: unknown) {
   })
 
   const url = text(body.url, 'url', 500, true)
-  if (url) {
-    let ok = false
-    try {
-      ok = ['http:', 'https:'].includes(new URL(url).protocol)
-    } catch {
-      /* not a URL */
-    }
-    if (!ok) throw new Invalid('url', '請輸入以 https:// 開頭的完整網址')
+  if (url && !isWebUrl(url, ['http:', 'https:'])) throw new Invalid('url', '請輸入以 https:// 開頭的完整網址')
+
+  // An uploaded image (/api/covers/…) or a picture elsewhere, over https so
+  // the page never loads it insecurely.
+  const cover = text(body.cover, 'cover', 500, true)
+  if (cover && !COVER_PATH.test(cover) && !isWebUrl(cover, ['https:'])) {
+    throw new Invalid('cover', '請上傳圖片，或輸入以 https:// 開頭的圖片網址')
   }
 
   return {
@@ -133,6 +142,7 @@ export function parseEvent(input: unknown) {
     agenda: agenda.length ? agenda : undefined,
     audience: array(body.audience, 'audience', 20).map((a, i) => text(a, `audience.${i}`, 60)),
     url,
+    cover,
     published: bool(body.published, 'published'),
   }
 }

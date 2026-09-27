@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import { onBeforeRouteLeave, useRouter } from 'vue-router'
-import { ArrowLeft, Eye, EyeOff, ExternalLink, Plus, Trash2, X } from 'lucide-vue-next'
+import { ArrowLeft, Eye, EyeOff, ExternalLink, ImagePlus, Plus, Trash2, X } from 'lucide-vue-next'
 import { AdminError, adminApi } from '@/api/admin'
 import type { AdminEvent, EventInput, EventType } from '@/api/types'
 import { EVENT_TYPE_LABEL, time } from '@/utils/format'
 import { asHtml, safeHtml } from '@/utils/html'
+import { toCoverImage } from '@/utils/image'
 import FormField from '@/components/FormField.vue'
 import StateBlock from '@/components/StateBlock.vue'
 
@@ -38,6 +39,7 @@ interface Form {
   agenda: { time: string; item: string }[]
   audience: string
   url: string
+  cover: string
   published: boolean
 }
 
@@ -61,6 +63,7 @@ const blank = (): Form => ({
   agenda: [],
   audience: '',
   url: '',
+  cover: '',
   published: false,
 })
 
@@ -93,6 +96,7 @@ function fromEvent(e: AdminEvent): Form {
     agenda: (e.agenda ?? []).map((a) => ({ ...a })),
     audience: (e.audience ?? []).join('\n'),
     url: e.url ?? '',
+    cover: e.cover ?? '',
     published: e.published,
   }
 }
@@ -120,6 +124,7 @@ function toInput(f: Form): EventInput {
       .map((a) => a.trim())
       .filter(Boolean),
     url: f.url.trim() || undefined,
+    cover: f.cover.trim() || undefined,
     published: f.published,
   }
 }
@@ -129,6 +134,7 @@ const saved = ref<AdminEvent | null>(null)
 const loadState = ref<'loading' | 'ready' | 'missing' | 'error'>(isNew ? 'ready' : 'loading')
 const saving = ref(false)
 const deleting = ref(false)
+const uploading = ref(false)
 const fieldErrors = ref<Record<string, string>>({})
 // Set by the redirect after creating an event (router state, gone on reload).
 const status = ref<{ kind: 'ok' | 'error'; text: string } | null>(
@@ -177,6 +183,7 @@ const LABELS: Record<string, string> = {
   'f-description': '活動說明',
   'f-audience': '適合對象',
   'f-url': '活動頁面網址',
+  'f-cover': '封面圖片',
 }
 
 /** The input for a field path the Worker rejected, e.g. deadline.date or agenda.2.item. */
@@ -255,6 +262,25 @@ async function remove() {
     showError(e)
   } finally {
     deleting.value = false
+  }
+}
+
+async function pickCover(e: Event) {
+  const input = e.target as HTMLInputElement
+  const file = input.files?.[0]
+  input.value = ''
+  if (!file) return
+  uploading.value = true
+  fieldErrors.value = {}
+  try {
+    form.cover = (await adminApi.uploadCover(await toCoverImage(file))).url
+  } catch (err) {
+    console.error(err)
+    fieldErrors.value = {
+      'f-cover': err instanceof AdminError && err.field ? err.message : '無法讀取或上傳這張圖片，請換一張試試。',
+    }
+  } finally {
+    uploading.value = false
   }
 }
 
@@ -338,6 +364,44 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
               v-bind="aria('f-summary')"
             ></textarea>
           </FormField>
+          <div class="field">
+            <p id="cover-label" class="field__label">封面圖片<span class="field__opt">選填</span></p>
+            <div class="cover">
+              <img v-if="form.cover" :src="form.cover" alt="目前的封面" class="cover__img" />
+              <p v-else class="cover__empty">還沒有封面</p>
+              <div class="cover__actions">
+                <label class="outline-btn cover__pick" :class="{ 'is-busy': uploading }">
+                  <ImagePlus aria-hidden="true" />{{ uploading ? '上傳中…' : form.cover ? '更換圖片' : '上傳圖片' }}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    class="visually-hidden"
+                    aria-describedby="f-cover-msg"
+                    :disabled="uploading"
+                    @change="pickCover"
+                  />
+                </label>
+                <button v-if="form.cover" type="button" class="outline-btn" :disabled="uploading" @click="form.cover = ''">
+                  移除封面
+                </button>
+              </div>
+            </div>
+            <p id="f-cover-msg" class="field__msg" :class="{ 'is-error': fieldErrors['f-cover'] }" role="status">
+              {{ fieldErrors['f-cover'] || '建議用 16:9 的橫式圖片。上傳前會自動縮小並轉成 WebP，也會移除相片的拍攝資訊。' }}
+            </p>
+            <details class="cover__url">
+              <summary>改用其他網站的圖片網址</summary>
+              <input
+                id="f-cover"
+                v-model.trim="form.cover"
+                class="input"
+                maxlength="500"
+                placeholder="https://"
+                aria-label="封面圖片網址"
+                :aria-invalid="fieldErrors['f-cover'] ? 'true' : undefined"
+              />
+            </details>
+          </div>
         </section>
 
         <section class="part" aria-labelledby="part-time">
@@ -608,6 +672,52 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
   font-weight: 700;
   color: var(--ink-3);
 }
+.cover {
+  display: grid;
+  grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+  gap: 16px 20px;
+  align-items: center;
+}
+.cover__img,
+.cover__empty {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+}
+.cover__img {
+  object-fit: cover;
+  box-shadow: var(--shadow-paper);
+}
+.cover__empty {
+  display: grid;
+  place-items: center;
+  border: 2px dashed var(--rule);
+  font-size: 0.875rem;
+  color: var(--ink-3);
+}
+.cover__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.cover__pick:focus-within {
+  outline: 3px solid var(--dot);
+  outline-offset: 3px;
+}
+.cover__pick.is-busy {
+  cursor: progress;
+  opacity: 0.6;
+}
+.cover__url summary {
+  width: fit-content;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.cover__url .input {
+  margin-top: 8px;
+}
 .input--code {
   font-family: ui-monospace, SFMono-Regular, Menlo, var(--font-body);
   font-size: 0.9375rem;
@@ -745,7 +855,8 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
   }
 }
 @media (max-width: 600px) {
-  .part__row {
+  .part__row,
+  .cover {
     grid-template-columns: 1fr;
   }
   .agenda__row {

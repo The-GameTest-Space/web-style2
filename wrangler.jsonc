@@ -10,6 +10,8 @@
     // Only the API runs the Worker script; everything else is a static file.
     "run_worker_first": ["/api/*"]
   },
+  // Event cover images (worker/src/covers.ts), KV namespace event_images.
+  "kv_namespaces": [{ "binding": "COVERS", "id": "2986b2ae40cf40af8de5cf7b04840a15" }],
   // /api/* requests per client IP, counted per Cloudflare location.
   "ratelimits": [{ "name": "API_LIMIT", "namespace_id": "1001", "simple": { "limit": 60, "period": 60 } }]
   // Secrets (set with `npx wrangler secret put <NAME>`, never committed):

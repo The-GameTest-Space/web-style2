@@ -65,6 +65,14 @@ function downloadIcs() {
       <span class="tape tape-bit poster__tape poster__tape--l" aria-hidden="true"></span>
       <span class="tape tape-bit poster__tape poster__tape--r" aria-hidden="true"></span>
 
+      <img
+        v-if="ev.cover"
+        :src="ev.cover"
+        :alt="`「${ev.title}」封面`"
+        class="poster__cover"
+        @load="($event.target as HTMLImageElement).classList.add('is-loaded')"
+        @error="($event.target as HTMLImageElement).hidden = true"
+      />
       <header class="poster__head">
         <div class="poster__count">
           <template v-if="ev.ongoing">
@@ -195,6 +203,18 @@ function downloadIcs() {
 .poster__tape--r {
   right: 8%;
   rotate: 5deg;
+}
+.poster__cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: clamp(24px, 4vh, 40px);
+  object-fit: cover;
+  box-shadow: var(--shadow-paper);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.poster__cover.is-loaded {
+  opacity: 1;
 }
 .poster__head {
   display: grid;

@@ -1,4 +1,5 @@
 import { bearer, verifyIdToken } from './auth'
+import { COVER_PATH, MAX_COVER_BYTES, saveCover, serveCover } from './covers'
 import { EVENT_FIELDS, Invalid, SLUG, adminEvent, byStart, parseEvent, publicEvent } from './events'
 import { Firestore, saveUser } from './firestore'
 import { createCustomToken, type ServiceAccount } from './token'
@@ -8,6 +9,8 @@ interface Env {
   FIREBASE_SERVICE_ACCOUNT: string
   // Per-IP request limit for /api/* (ratelimits in wrangler.jsonc).
   API_LIMIT: RateLimit
+  // Event cover images (worker/src/covers.ts), KV namespace event_images.
+  COVERS: KVNamespace
   // Local development only (.dev.vars): use the Firebase emulators, e.g.
   // localhost:8085 and localhost:9099. See README.
   FIRESTORE_EMULATOR_HOST?: string
@@ -172,6 +175,15 @@ async function admin(request: Request, path: string, env: Env) {
   if (path === '/me' && method === 'GET') return json({ uid, admin }, 200)
   if (!admin) return json({ error: 'forbidden' }, 403)
 
+  if (path === '/covers' && method === 'POST') {
+    const tooLarge = () => json({ error: 'too_large', field: 'cover', message: '圖片不能超過 5 MB' }, 413)
+    if (Number(request.headers.get('Content-Length') ?? 0) > MAX_COVER_BYTES) return tooLarge()
+    const body = await request.arrayBuffer()
+    if (body.byteLength > MAX_COVER_BYTES) return tooLarge()
+    const url = await saveCover(env.COVERS, body)
+    if (!url) throw new Invalid('cover', '只接受 JPEG、PNG、WebP、GIF 或 AVIF 圖片')
+    return json({ url }, 201)
+  }
   if (path === '/events' && method === 'GET') {
     return json({ items: (await db.list('events')).map(adminEvent).sort(byStart) }, 200)
   }
@@ -207,6 +219,8 @@ async function route(request: Request, pathname: string, env: Env) {
   if (pathname.startsWith('/api/admin/')) return admin(request, pathname.slice('/api/admin'.length), env)
 
   if (method !== 'GET') return notFound()
+  const cover = pathname.match(COVER_PATH)?.[1]
+  if (cover) return (await serveCover(env.COVERS, cover)) ?? notFound()
   if (pathname === '/api/events') return json({ items: await publishedEvents(env) }, 200)
   const slug = pathname.match(/^\/api\/events\/([a-z0-9-]+)$/)?.[1]
   if (slug) {
@@ -222,12 +236,16 @@ async function route(request: Request, pathname: string, env: Env) {
 // site itself is served from the static assets.
 export default {
   async fetch(request, env) {
+    const { pathname } = new URL(request.url)
     const ip = request.headers.get('CF-Connecting-IP') ?? 'unknown'
-    if (!(await env.API_LIMIT.limit({ key: ip })).success) {
+    // Cover images are counted apart (same limit): a page can show several,
+    // and they must not use up the allowance for the API itself.
+    const key = pathname.startsWith('/api/covers/') ? `covers:${ip}` : ip
+    if (!(await env.API_LIMIT.limit({ key })).success) {
       return json({ error: 'rate_limited', message: '請求太頻繁，請稍後再試' }, 429)
     }
     try {
-      return await route(request, new URL(request.url).pathname, env)
+      return await route(request, pathname, env)
     } catch (e) {
       if (e instanceof Invalid) return json({ error: 'invalid', field: e.field, message: e.message }, 400)
       console.error(e)
