@@ -1,5 +1,4 @@
 @import '@fontsource-variable/bricolage-grotesque/standard.css';
-@import '@fontsource-variable/noto-sans-tc/index.css';
 @import '@fontsource/iansui/index.css';
 @import './wall.css';
 
@@ -15,9 +14,13 @@
   --card: #ffffff;
   --rule: rgb(23 22 27 / 0.12);
 
-  --font-display: 'Bricolage Grotesque Variable', 'Noto Sans TC Variable', 'PingFang TC', sans-serif;
-  --font-body: 'Noto Sans TC Variable', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-  --font-hand: 'Iansui', 'Noto Sans TC Variable', cursive;
+  /* Chinese, Japanese and Korean text uses the device's own fonts: a web font
+     for them costs about a megabyte per visit. The page's language picks the
+     set (below); the later names cover kana and Hangul inside Chinese text. */
+  --font-cjk: 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', 'Hiragino Sans', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', var(--font-cjk);
+  --font-body: var(--font-cjk);
+  --font-hand: 'Iansui', var(--font-cjk);
 
   --gutter: clamp(16px, 4vw, 56px);
   --max: 1320px;
@@ -32,6 +35,14 @@
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .086 0 0 0 0 .105 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 
   color-scheme: light;
+}
+
+/* Shared Han characters take each language's own forms. */
+:root:lang(ja) {
+  --font-cjk: 'Hiragino Sans', 'Yu Gothic', 'YuGothic', 'Meiryo', 'Noto Sans JP', sans-serif;
+}
+:root:lang(ko) {
+  --font-cjk: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
 }
 
 *,
