@@ -1,0 +1,2163 @@
+{
+  "about": "Translations of each published event (Firestore events/{slug}.i18n), with the Chinese text they were made from. Applied with the translation script; Firestore is the source of truth afterwards.",
+  "events": {
+    "igdshare-meetups": {
+      "source": {
+        "title": "獨立遊戲開發者分享會（IGDShare）",
+        "summary": "在台灣推動獨立遊戲的社群，不定期舉辦開發者聚會、作品對談、議程心得分享與 Open Mic。",
+        "city": "台北",
+        "venue": "各場次地點詳見報名頁",
+        "fee": "依各場次公告",
+        "description": "<p>獨立遊戲開發者分享會（IGDShare）是在台灣推動獨立遊戲的社群，分享國外資訊與競賽消息，並舉辦開發者實體聚會。</p><p>近期場次包括開發者對談、GDC 議程心得討論，以及人人都能上台短講的 Open Mic 自由交流。新場次會公布在 <a href=\"https://igdshare.kktix.cc/\">KKTIX</a> 與 <a href=\"https://igdshare.org/\">IGDShare 網站</a>。</p>",
+        "schedule": "不定期舉辦，場次公布於 KKTIX",
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "獨立遊戲開發者",
+          "想認識同好的學生",
+          "對遊戲開發有興趣的人"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "IGDShare Indie Game Developer Meetups",
+          "summary": "A community promoting indie games in Taiwan. It holds developer meetups, conversations about games, conference talk recaps and open mics from time to time.",
+          "description": "<p>IGDShare is a community promoting indie games in Taiwan. It shares news from abroad and competition announcements, and runs in-person developer meetups.</p><p>Recent events have included developer conversations, discussions of takeaways from GDC talks, and open mics where anyone can get up, give a short talk and mingle. New events are posted on <a href=\"https://igdshare.kktix.cc/\">KKTIX</a> and the <a href=\"https://igdshare.org/\">IGDShare website</a>.</p>",
+          "city": "Taipei",
+          "venue": "Venue varies; see each event’s sign-up page",
+          "fee": "Varies by event",
+          "schedule": "Held occasionally; events posted on KKTIX",
+          "audience": [
+            "Indie game developers",
+            "Students looking to meet like-minded people",
+            "Anyone interested in game development"
+          ]
+        },
+        "ja": {
+          "title": "IGDShare（インディーゲーム開発者の交流会）",
+          "summary": "台湾でインディーゲームを盛り上げているコミュニティ。開発者の集まり、作品をめぐる対談、カンファレンス講演の感想共有、オープンマイクなどを不定期に開いています。",
+          "description": "<p>IGDShare（獨立遊戲開發者分享會）は、台湾でインディーゲームを盛り上げているコミュニティです。海外のニュースやコンテスト情報を発信するほか、開発者が顔を合わせるオフラインの集まりも開いています。</p><p>最近の回では、開発者による対談、GDC のセッションの感想を語り合う会、誰でも登壇して短く話せるオープンマイク形式の自由交流などがありました。新しい回は <a href=\"https://igdshare.kktix.cc/\">KKTIX</a> と <a href=\"https://igdshare.org/\">IGDShare 公式サイト</a>で告知されます。</p>",
+          "city": "台北",
+          "venue": "各回の会場は申し込みページに記載",
+          "fee": "開催回ごとに告知",
+          "schedule": "不定期開催。各回は KKTIX で告知",
+          "audience": [
+            "インディーゲーム開発者",
+            "仲間と出会いたい学生",
+            "ゲーム開発に興味がある人"
+          ]
+        },
+        "ko": {
+          "title": "IGDShare 인디 게임 개발자 공유회",
+          "summary": "대만에서 인디 게임 활성화에 힘쓰는 커뮤니티예요. 개발자 모임, 작품 토크, 강연 후기 공유, 오픈 마이크를 비정기적으로 열어요.",
+          "description": "<p>인디 게임 개발자 공유회(IGDShare)는 대만에서 인디 게임 활성화에 힘쓰는 커뮤니티예요. 해외 소식과 공모전 정보를 나누고, 개발자 오프라인 모임도 열어요.</p><p>최근에는 개발자 대담, GDC 세션 후기 토론, 누구나 무대에 올라 짧게 발표하는 오픈 마이크 자유 교류 등이 열렸어요. 새 모임 소식은 <a href=\"https://igdshare.kktix.cc/\">KKTIX</a>와 <a href=\"https://igdshare.org/\">IGDShare 웹사이트</a>에 올라와요.</p>",
+          "city": "타이베이",
+          "venue": "장소는 회차별 신청 페이지 참고",
+          "fee": "회차별 공지 참고",
+          "schedule": "비정기 개최, KKTIX에서 일정 공지",
+          "audience": [
+            "인디 게임 개발자",
+            "같은 관심사를 가진 사람을 만나고 싶은 학생",
+            "게임 개발에 관심 있는 사람"
+          ]
+        }
+      }
+    },
+    "kimu-meetups": {
+      "source": {
+        "title": "KIMU 獨立遊戲開發者聚會（台南・高雄）",
+        "summary": "IGDA 台灣旗下的南部社群，以台南、高雄為據點，舉辦工作坊、Game Jam 與開發者交流活動。",
+        "city": "台南・高雄",
+        "venue": "各場次地點詳見報名頁",
+        "fee": "依各場次公告",
+        "description": "<p>KIMU 獨立遊戲開發者聚會以 IGDA 台灣旗下 SIG 自居，是以台南、高雄為據點、推動獨立遊戲開發國際化的非營利組織。</p><p>近年都主辦 Global Game Jam 與 Faust Game Jam 的南部會場，也舉辦工作坊，例如 2026 年 8 月的「台日微型遊戲創作者同好會」。活動公布於 <a href=\"https://kimu.kktix.cc/\">KKTIX</a>，平時的討論在 <a href=\"https://www.facebook.com/groups/kimugroup/\">Facebook 社團</a>。</p>",
+        "schedule": "不定期舉辦工作坊與 Game Jam",
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "南部的遊戲開發者",
+          "學生"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "KIMU Indie Game Developer Meetups (Tainan & Kaohsiung)",
+          "summary": "A southern Taiwan community under IGDA Taiwan, based in Tainan and Kaohsiung. It runs workshops, game jams and developer meetups.",
+          "description": "<p>KIMU describes itself as a SIG (special interest group) of IGDA Taiwan. It is a nonprofit based in Tainan and Kaohsiung that works to take indie game development international.</p><p>In recent years it has hosted the southern Taiwan sites of Global Game Jam and Faust Game Jam, and it also runs workshops, such as the “Taiwan–Japan Micro Game Creators Meetup” in August 2026. Events are announced on <a href=\"https://kimu.kktix.cc/\">KKTIX</a>, and day-to-day discussion happens in the <a href=\"https://www.facebook.com/groups/kimugroup/\">Facebook group</a>.</p>",
+          "city": "Tainan and Kaohsiung",
+          "venue": "Venue varies; see each event’s sign-up page",
+          "fee": "Varies by event",
+          "schedule": "Workshops and game jams, held occasionally",
+          "audience": [
+            "Game developers in southern Taiwan",
+            "Students"
+          ]
+        },
+        "ja": {
+          "title": "KIMU（台南・高雄のインディーゲーム開発者交流会）",
+          "summary": "IGDA台湾の傘下で活動する台湾南部のコミュニティ。台南と高雄を拠点に、ワークショップやゲームジャム、開発者の交流イベントを開いています。",
+          "description": "<p>KIMU 獨立遊戲開發者聚會は、IGDA台湾傘下の SIG を名乗る非営利団体です。台南と高雄を拠点に、インディーゲーム開発の国際化に取り組んでいます。</p><p>ここ数年は Global Game Jam と Faust Game Jam の南部会場を主催しています。ワークショップも開いていて、2026年8月には「台日微型遊戲創作者同好會」（台湾と日本のマイクロゲーム制作者の集い）を開催しました。イベントは <a href=\"https://kimu.kktix.cc/\">KKTIX</a> で告知され、普段の情報交換は <a href=\"https://www.facebook.com/groups/kimugroup/\">Facebook グループ</a>が中心です。</p>",
+          "city": "台南・高雄",
+          "venue": "各回の会場は申し込みページに記載",
+          "fee": "開催回ごとに告知",
+          "schedule": "ワークショップやゲームジャムを不定期開催",
+          "audience": [
+            "台湾南部のゲーム開発者",
+            "学生"
+          ]
+        },
+        "ko": {
+          "title": "KIMU 인디 게임 개발자 모임 (타이난·가오슝)",
+          "summary": "IGDA 대만 산하의 남부 커뮤니티로, 타이난과 가오슝을 거점으로 워크숍, 게임잼, 개발자 교류 행사를 열어요.",
+          "description": "<p>KIMU 인디 게임 개발자 모임은 타이난과 가오슝을 거점으로 인디 게임 개발의 국제화를 추진하는 비영리 단체로, 스스로를 IGDA 대만 산하 SIG로 소개해요.</p><p>최근 몇 년간 Global Game Jam과 Faust Game Jam의 남부 지역 행사를 주최해 왔고, 2026년 8월의 ‘대만·일본 마이크로 게임 크리에이터 모임’ 같은 워크숍도 열어요. 행사 소식은 <a href=\"https://kimu.kktix.cc/\">KKTIX</a>에 올라오고, 평소 이야기는 <a href=\"https://www.facebook.com/groups/kimugroup/\">Facebook 그룹</a>에서 나눠요.</p>",
+          "city": "타이난·가오슝",
+          "venue": "장소는 회차별 신청 페이지 참고",
+          "fee": "회차별 공지 참고",
+          "schedule": "워크숍과 게임잼 비정기 개최",
+          "audience": [
+            "대만 남부의 게임 개발자",
+            "학생"
+          ]
+        }
+      }
+    },
+    "seoul-indies-meetups": {
+      "source": {
+        "title": "Seoul Indies 首爾獨立遊戲開發者聚會",
+        "summary": "首爾每月一次的獨立遊戲開發者聚會，韓英雙語，可以上台用投影展示自己的遊戲。",
+        "city": "首爾・韓國",
+        "venue": "麻浦區 Enough Lounge（近期場次）",
+        "fee": "每次約 10,000 韓元",
+        "description": "<p>首爾的獨立遊戲開發者社群，每月聚會一次，韓文與英文都通。入場約 10,000 韓元（附部分飲料點心），不需要事先報名。</p><ul><li>流程：20:00 入場與破冰、20:30 上台展示遊戲、21:30 起自由試玩交流。</li><li>想用投影展示自己的遊戲（5–10 分鐘），可以透過 Meetup 活動頁上的表單申請。</li><li>近期場次在麻浦區 Enough Lounge（토정로 17길 11，2 樓）。</li></ul><p>最新場次公布在 <a href=\"https://www.meetup.com/seoul-indies/\">Meetup</a>。</p>",
+        "schedule": "每月一次，晚上 8 點（韓國時間），詳見 Meetup",
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "人在首爾的開發者",
+          "獨立遊戲開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Seoul Indies Developer Meetup",
+          "summary": "A monthly indie game developer meetup in Seoul, held in Korean and English. You can get up and show your own game on the projector.",
+          "description": "<p>An indie game developer community in Seoul that meets once a month, in both Korean and English. Entry is about ₩10,000 (some drinks and snacks included), and you don’t need to sign up in advance.</p><ul><li>Schedule: 20:00 doors open and icebreakers; 20:30 developers show their games on stage; from 21:30, free play and hanging out.</li><li>To show your game on the projector (5–10 minutes), apply through the form on the Meetup event page.</li><li>Recent meetups have been at Enough Lounge in Mapo-gu (2F, 11 Tojeong-ro 17-gil).</li></ul><p>Upcoming meetups are posted on <a href=\"https://www.meetup.com/seoul-indies/\">Meetup</a>.</p>",
+          "city": "Seoul, South Korea",
+          "venue": "Enough Lounge, Mapo-gu (recent meetups)",
+          "fee": "About ₩10,000 per meetup",
+          "schedule": "Monthly at 20:00 Korea time; see Meetup",
+          "audience": [
+            "Developers based in Seoul",
+            "Indie game developers"
+          ]
+        },
+        "ja": {
+          "title": "Seoul Indies（ソウルのインディーゲーム開発者交流会）",
+          "summary": "ソウルで月に1回開かれるインディーゲーム開発者の交流会。韓国語と英語のどちらでも参加でき、プロジェクターで自分のゲームを発表することもできます。",
+          "description": "<p>ソウルのインディーゲーム開発者コミュニティで、月に1回集まっています。韓国語でも英語でも通じます。入場料は約1万ウォン（一部の飲み物と軽食付き）で、事前の申し込みはいりません。</p><ul><li>流れ：20:00 開場とアイスブレイク、20:30 ゲームの発表、21:30 からは自由に試遊と交流。</li><li>プロジェクターで自分のゲームを紹介したい場合（5〜10分）は、Meetup のイベントページにあるフォームから申し込めます。</li><li>最近の回の会場は、麻浦区の Enough Lounge（토정로 17길 11、2階）です。</li></ul><p>最新の開催情報は <a href=\"https://www.meetup.com/seoul-indies/\">Meetup</a> で告知されます。</p>",
+          "city": "韓国・ソウル",
+          "venue": "麻浦区 Enough Lounge（最近の開催回）",
+          "fee": "毎回約1万ウォン",
+          "schedule": "毎月1回、20:00（韓国時間）。詳細は Meetup で",
+          "audience": [
+            "ソウルにいる開発者",
+            "インディーゲーム開発者"
+          ]
+        },
+        "ko": {
+          "title": "서울인디즈(Seoul Indies) 인디 게임 개발자 모임",
+          "summary": "서울에서 매달 열리는 인디 게임 개발자 모임이에요. 한국어와 영어가 모두 통하고, 무대에서 프로젝터로 자기 게임을 소개할 수 있어요.",
+          "description": "<p>서울의 인디 게임 개발자 커뮤니티로, 매달 한 번 모이고 한국어와 영어가 모두 통해요. 입장료는 약 10,000원(음료와 간식 일부 제공)이고, 사전 신청은 필요 없어요.</p><ul><li>진행: 20:00 입장·아이스브레이킹, 20:30 무대에서 게임 발표, 21:30부터 자유 시연과 교류.</li><li>프로젝터로 내 게임을 소개하고 싶다면(5~10분) Meetup 행사 페이지에 있는 신청서로 신청할 수 있어요.</li><li>최근 모임은 마포구 이너프 라운지(토정로 17길 11, 2층)에서 열렸어요.</li></ul><p>최신 일정은 <a href=\"https://www.meetup.com/seoul-indies/\">Meetup</a>에 올라와요.</p>",
+          "city": "서울, 한국",
+          "venue": "마포구 이너프 라운지 (최근 모임 장소)",
+          "fee": "회당 약 10,000원",
+          "schedule": "매월 1회 저녁 8시(한국 시간), 자세한 내용은 Meetup 참고",
+          "audience": [
+            "서울에 있는 개발자",
+            "인디 게임 개발자"
+          ]
+        }
+      }
+    },
+    "tigg-meetups": {
+      "source": {
+        "title": "中部獨立遊戲勇者交流會（TiGG）",
+        "summary": "台中的獨立遊戲開發者社群，Faust Game Jam 2026 台中會場即由他們主辦。",
+        "city": "台中",
+        "venue": "各場次地點詳見官網",
+        "fee": "依各場次公告",
+        "description": "<p>中部獨立遊戲勇者交流會（Taichung Indie Game Group，TiGG）是台中的獨立遊戲開發者社群，Faust Game Jam 2026 台中會場即由他們主辦。</p><p>活動會公布在 <a href=\"https://tigg.tw/\">TiGG 網站</a>與 <a href=\"https://www.accupass.com/organizer/detail/2405251250514238210740\">Accupass 主辦單位頁</a>。</p>",
+        "schedule": "不定期舉辦，詳見官網",
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "中部的遊戲開發者",
+          "學生"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Taichung Indie Game Group (TiGG)",
+          "summary": "An indie game developer community in Taichung. They are the hosts of the Taichung site of Faust Game Jam 2026.",
+          "description": "<p>Taichung Indie Game Group (TiGG) is an indie game developer community in Taichung, and the host of the Taichung site of Faust Game Jam 2026.</p><p>Events are posted on the <a href=\"https://tigg.tw/\">TiGG website</a> and their <a href=\"https://www.accupass.com/organizer/detail/2405251250514238210740\">Accupass organizer page</a>.</p>",
+          "city": "Taichung",
+          "venue": "Venue varies; see the official website",
+          "fee": "Varies by event",
+          "schedule": "Held occasionally; see the official website",
+          "audience": [
+            "Game developers in central Taiwan",
+            "Students"
+          ]
+        },
+        "ja": {
+          "title": "Taichung Indie Game Group（TiGG）",
+          "summary": "台中のインディーゲーム開発者コミュニティ。Faust Game Jam 2026 の台中会場は TiGG の主催です。",
+          "description": "<p>中部獨立遊戲勇者交流會（Taichung Indie Game Group、TiGG）は、台中のインディーゲーム開発者コミュニティです。Faust Game Jam 2026 の台中会場も TiGG が主催しています。</p><p>イベントは <a href=\"https://tigg.tw/\">TiGG 公式サイト</a>と <a href=\"https://www.accupass.com/organizer/detail/2405251250514238210740\">Accupass の主催者ページ</a>で告知されます。</p>",
+          "city": "台中",
+          "venue": "各回の会場は公式サイトに記載",
+          "fee": "開催回ごとに告知",
+          "schedule": "不定期開催。詳細は公式サイトで",
+          "audience": [
+            "台湾中部のゲーム開発者",
+            "学生"
+          ]
+        },
+        "ko": {
+          "title": "중부 인디 게임 용사 교류회 (TiGG)",
+          "summary": "타이중의 인디 게임 개발자 커뮤니티로, Faust Game Jam 2026의 타이중 지역 행사도 이들이 주최해요.",
+          "description": "<p>중부 인디 게임 용사 교류회(Taichung Indie Game Group, TiGG)는 타이중의 인디 게임 개발자 커뮤니티로, Faust Game Jam 2026의 타이중 지역 행사도 이들이 주최해요.</p><p>행사 소식은 <a href=\"https://tigg.tw/\">TiGG 웹사이트</a>와 <a href=\"https://www.accupass.com/organizer/detail/2405251250514238210740\">Accupass 주최자 페이지</a>에 올라와요.</p>",
+          "city": "타이중",
+          "venue": "장소는 회차별로 공식 웹사이트 참고",
+          "fee": "회차별 공지 참고",
+          "schedule": "비정기 개최, 공식 웹사이트 참고",
+          "audience": [
+            "대만 중부의 게임 개발자",
+            "학생"
+          ]
+        }
+      }
+    },
+    "game-test": {
+      "source": {
+        "title": "為您的遊戲尋找試玩者！",
+        "summary": "開發者在 Discord 發布遊戲的 build，由其他成員試玩並提供回饋；開發者也可以試玩其他成員的作品。",
+        "city": "全球",
+        "venue": "Discord",
+        "fee": "免費",
+        "description": "<p>在 Discord 建立測試貼文時，請附上：</p>\n<ol>\n  <li>遊戲簡介</li>\n  <li>想要測試的內容</li>\n  <li>遊戲連結</li>\n</ol>\n<p>你也可以附上問卷連結，進一步了解測試者的遊戲體驗！</p>\n<p><a href=\"https://discord.com/channels/1260814281222520842/1310832993761230849\">前往 Discord 測試頻道發文 →</a></p>\n<p>還沒加入伺服器嗎？請先透過<a href=\"https://discord.gg/yXfKQpAPN\">邀請連結</a>加入，才看得到測試頻道。</p>",
+        "schedule": "隨時可報名！",
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "Everyone"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Find Playtesters for Your Game!",
+          "summary": "Developers post builds of their games on Discord, and other members play them and give feedback. Developers can play other members’ games too.",
+          "description": "<p>When you create a playtest post on Discord, include:</p>\n<ol>\n  <li>A short description of your game</li>\n  <li>What you want tested</li>\n  <li>A link to the game</li>\n</ol>\n<p>You can also add a link to a survey to learn more about how testers experienced your game!</p>\n<p><a href=\"https://discord.com/channels/1260814281222520842/1310832993761230849\">Post in the Discord playtest channel →</a></p>\n<p>Not on the server yet? Join through the <a href=\"https://discord.gg/yXfKQpAPN\">invite link</a> first, or you won’t be able to see the playtest channel.</p>",
+          "city": "Worldwide",
+          "venue": "Discord",
+          "fee": "Free",
+          "schedule": "Sign up anytime!",
+          "audience": [
+            "Everyone"
+          ]
+        },
+        "ja": {
+          "title": "あなたのゲームにテスターを！",
+          "summary": "開発者が Discord にゲームのビルドを投稿すると、コミュニティのメンバーが遊んでフィードバックを返してくれます。自分がほかの人の作品を遊ぶこともできます。",
+          "description": "<p>Discord でテストプレイの募集を投稿するときは、次の内容を書き添えてください。</p>\n<ol>\n  <li>ゲームの概要</li>\n  <li>テストしてほしい内容</li>\n  <li>ゲームのリンク</li>\n</ol>\n<p>アンケートのリンクも添えれば、テスターがどう遊んだのかをもっと詳しく聞けます。</p>\n<p><a href=\"https://discord.com/channels/1260814281222520842/1310832993761230849\">Discord のテストチャンネルに投稿する →</a></p>\n<p>まだサーバーに参加していない場合は、先に<a href=\"https://discord.gg/yXfKQpAPN\">招待リンク</a>から参加してください。参加するとテストチャンネルが見られるようになります。</p>",
+          "city": "全世界",
+          "venue": "Discord",
+          "fee": "無料",
+          "schedule": "随時受付中！",
+          "audience": [
+            "どなたでも"
+          ]
+        },
+        "ko": {
+          "title": "내 게임을 플레이해 줄 테스터 찾기!",
+          "summary": "개발자가 Discord에 게임 빌드를 올리면 다른 멤버들이 플레이하고 피드백을 남겨요. 다른 멤버의 게임을 플레이해 볼 수도 있어요.",
+          "description": "<p>Discord에 테스트 글을 올릴 때는 다음 내용을 함께 적어 주세요.</p>\n<ol>\n  <li>게임 소개</li>\n  <li>테스트하고 싶은 부분</li>\n  <li>게임 링크</li>\n</ol>\n<p>설문 링크를 함께 올리면 테스터의 플레이 경험을 더 자세히 알 수 있어요!</p>\n<p><a href=\"https://discord.com/channels/1260814281222520842/1310832993761230849\">Discord 테스트 채널에 글 올리기 →</a></p>\n<p>아직 서버에 참여하지 않았나요? 먼저 <a href=\"https://discord.gg/yXfKQpAPN\">초대 링크</a>로 참여해야 테스트 채널이 보여요.</p>",
+          "city": "전 세계",
+          "venue": "Discord",
+          "fee": "무료",
+          "schedule": "언제든 신청 가능!",
+          "audience": [
+            "누구나"
+          ]
+        }
+      }
+    },
+    "taptap-spotlight-gamejam-2026": {
+      "source": {
+        "title": "2026 聚光燈 21 天遊戲創作挑戰（TapTap GameJam）",
+        "summary": "TapTap 的線上 Game Jam：10/1 公布主題，21 天內做出遊戲並上傳到 TapTap。總獎金百萬人民幣，報名到 9/30。",
+        "city": "線上（中國 TapTap）",
+        "venue": "TapTap 開發者中心（線上提交）",
+        "fee": "詳見活動官網",
+        "description": "<p>TapTap 年度的線上 Game Jam，10/1 中午 12 點公布主題，開發期到 10/21 中午 12 點。</p><h3>參加方式</h3><ul><li>可以個人或組隊參加，每隊最多 20 人（含隊長），每人只能加入一隊。隊長報名後會拿到邀請連結給隊友。</li><li>作品要上傳到 TapTap（Windows PC、Android，或 TapTap 的 H5 創意工坊），再到開發者中心的「平台活動」提交。</li><li>遊戲不能有連線或網路功能；使用 AI 生成素材要主動標明。</li><li>10/25–12/3 公開試玩與評審，得獎名單預定 12/10 公布。</li></ul><h3>先確認再報名</h3><p>活動在中國的 TapTap 平台進行，全中文。官方頁面沒有寫台灣或海外開發者能不能參加，而上傳作品需要 TapTap（中國）開發者帳號，實名或公司認證的條件請先確認。報名截止時間官方只寫到 9/30。</p>",
+        "schedule": null,
+        "deadlineLabel": "報名截止",
+        "agenda": null,
+        "audience": [
+          "獨立遊戲開發者",
+          "學生"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "2026 Spotlight 21-Day Game Creation Challenge (TapTap GameJam)",
+          "summary": "TapTap’s online game jam: the theme is revealed on October 1, and you have 21 days to make a game and upload it to TapTap. RMB 1 million in total prize money; sign-ups close September 30.",
+          "description": "<p>TapTap’s annual online game jam. The theme is revealed at 12:00 (noon) on October 1, and development runs until 12:00 (noon) on October 21.</p><h3>How to take part</h3><ul><li>Enter solo or as a team of up to 20 people (including the leader); each person can join only one team. Once the leader signs up, they get an invite link to share with teammates.</li><li>Upload your game to TapTap (Windows PC, Android, or TapTap’s H5 creative workshop), then submit it under “Platform Events” in the Developer Center.</li><li>Games can’t have online or network features, and any AI-generated assets must be disclosed.</li><li>Public playtesting and judging run October 25–December 3, and the winners are scheduled to be announced on December 10.</li></ul><h3>Check before you sign up</h3><p>The jam runs on TapTap’s China platform and is entirely in Chinese. The official page doesn’t say whether developers from Taiwan or elsewhere outside China can take part, and uploading a game requires a TapTap (China) developer account, so check the real-name or company verification requirements first. The organizers give the sign-up deadline only as September 30, with no time.</p>",
+          "city": "Online (TapTap China)",
+          "venue": "TapTap Developer Center (online submission)",
+          "fee": "See the official website",
+          "deadlineLabel": "Sign-up deadline",
+          "audience": [
+            "Indie game developers",
+            "Students"
+          ]
+        },
+        "ja": {
+          "title": "TapTap GameJam 2026（聚光灯・21日間ゲーム制作チャレンジ）",
+          "summary": "TapTap のオンラインゲームジャム。10月1日にテーマが発表され、21日間でゲームを作って TapTap にアップロードします。賞金総額は100万元（人民元）で、申し込みは9月30日まで。",
+          "description": "<p>TapTap が毎年開いているオンラインのゲームジャムです。10月1日正午にテーマが発表され、開発期間は10月21日正午まで。</p><h3>参加方法</h3><ul><li>個人でもチームでも参加でき、1チームは最大20人（リーダーを含む）です。参加できるのは1人1チームまで。リーダーが申し込むと、メンバーを招待するためのリンクが届きます。</li><li>作品は TapTap（Windows PC、Android、または TapTap の H5 創意工坊）にアップロードしたうえで、開発者センターの「平台活動」から提出します。</li><li>ゲームにオンライン接続やネットワークの機能を入れることはできません。AI で生成した素材を使う場合は、自分から明示する必要があります。</li><li>10月25日〜12月3日に一般公開での試遊と審査があり、受賞作は12月10日に発表される予定です。</li></ul><h3>申し込む前に確認を</h3><p>イベントは中国版 TapTap で行われ、すべて中国語です。台湾や海外の開発者が参加できるかどうかは公式サイトに書かれていません。また、作品のアップロードには中国版 TapTap の開発者アカウントが必要なので、実名認証や法人認証の条件を先に確認してください。申し込みの締め切りは、公式には9月30日と日付だけが示されています。</p>",
+          "city": "オンライン（中国版 TapTap）",
+          "venue": "TapTap 開発者センター（オンラインで提出）",
+          "fee": "公式サイト参照",
+          "deadlineLabel": "申し込み締め切り",
+          "audience": [
+            "インディーゲーム開発者",
+            "学生"
+          ]
+        },
+        "ko": {
+          "title": "2026 스포트라이트 21일 게임 제작 챌린지 (TapTap GameJam)",
+          "summary": "TapTap의 온라인 게임잼이에요. 10월 1일에 주제를 발표하고, 21일 안에 게임을 만들어 TapTap에 올려요. 총상금은 100만 위안이고, 신청은 9월 30일까지예요.",
+          "description": "<p>TapTap이 매년 여는 온라인 게임잼으로, 10월 1일 낮 12시에 주제를 발표하고 개발 기간은 10월 21일 낮 12시까지예요.</p><h3>참가 방법</h3><ul><li>개인이나 팀으로 참가할 수 있어요. 팀은 팀장을 포함해 최대 20명이고, 한 사람은 한 팀에만 들어갈 수 있어요. 팀장이 신청하면 팀원에게 보낼 초대 링크를 받아요.</li><li>작품은 TapTap(Windows PC, Android, 또는 TapTap의 H5 창작 공방)에 올린 뒤, 개발자 센터의 ‘플랫폼 행사’에서 제출해요.</li><li>게임에 온라인 연결이나 네트워크 기능이 있으면 안 돼요. AI로 생성한 에셋을 썼다면 스스로 밝혀야 해요.</li><li>10월 25일~12월 3일에 공개 플레이와 심사가 진행되고, 수상작은 12월 10일에 발표될 예정이에요.</li></ul><h3>신청 전에 확인하세요</h3><p>행사는 중국 TapTap 플랫폼에서 진행되고 안내가 모두 중국어예요. 공식 페이지에는 대만이나 해외 개발자가 참가할 수 있는지 나와 있지 않고, 작품을 올리려면 TapTap(중국) 개발자 계정이 필요하니 실명 인증이나 회사 인증 조건을 먼저 확인하세요. 신청 마감은 공식적으로 9월 30일이라는 날짜만 나와 있어요.</p>",
+          "city": "온라인 (중국 TapTap)",
+          "venue": "TapTap 개발자 센터 (온라인 제출)",
+          "fee": "공식 웹사이트 참고",
+          "deadlineLabel": "신청 마감",
+          "audience": [
+            "인디 게임 개발자",
+            "학생"
+          ]
+        }
+      }
+    },
+    "faust-game-jam-2026": {
+      "source": {
+        "title": "Faust Game Jam 2026（台北・台中・台南）",
+        "summary": "紀念 Faust Li（李家屹）的年度 Game Jam，台北、台中、台南三地同步舉辦。現場組隊，兩天內依題目做出一款遊戲，免費參加。",
+        "city": "台北・台中・台南",
+        "venue": "三地同步：台北 TCA 會議中心、台中嶺東科技大學、台南南臺科技大學",
+        "fee": "免費",
+        "description": "<p>由 IGDA 台灣發起、紀念 Faust Li（李家屹）的年度 Game Jam。參加者在現場和不認識的開發者組隊，依當天公布的題目在兩天內做出一款遊戲。Game Jam 不是比賽，沒有獎金，重點是一起做遊戲、互相交流。</p><h3>三個會場</h3><ul><li><strong>台北</strong>：台北市電腦公會 TCA 會議中心（臺北市松山區八德路三段 2 號 B1）｜<a href=\"https://igda-tw.kktix.cc/events/fgj2026-tp\">報名頁</a></li><li><strong>台中</strong>：嶺東科技大學 聖益樓 B1 SYB117（台中市南屯區嶺東路 1 號）｜<a href=\"https://www.accupass.com/event/2609101251571115044196\">報名頁</a></li><li><strong>台南</strong>：南臺科技大學 W 棟 6 樓 W609 教室｜<a href=\"https://kimu.kktix.cc/events/fgj26tainan\">報名頁</a></li></ul><h3>注意事項</h3><ul><li>需自備電腦與創作設備（例如手繪板）。</li><li>必須事先報名分組，不開放現場報名。</li><li>可以先自行組隊，但上限 3 人，其餘隊員由主辦單位安排。</li><li>遇颱風等狀況可能改為線上舉行，詳細時程以各會場公告為準。</li></ul>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": [
+          {
+            "time": "第一天 09:00",
+            "item": "報到"
+          },
+          {
+            "time": "第一天 10:00",
+            "item": "開幕、分組、公布題目"
+          },
+          {
+            "time": "第一天 14:00",
+            "item": "各組概念企畫發表"
+          },
+          {
+            "time": "第一天 20:30",
+            "item": "第一天成果發表"
+          },
+          {
+            "time": "第二天 15:00",
+            "item": "上傳遊戲"
+          },
+          {
+            "time": "第二天 16:00",
+            "item": "最終發表會"
+          }
+        ],
+        "audience": [
+          "有遊戲製作基礎的開發者",
+          "學生"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Faust Game Jam 2026 (Taipei, Taichung, Tainan)",
+          "summary": "An annual game jam in memory of Faust Li (李家屹), held at the same time in Taipei, Taichung and Tainan. Form teams on site and make a game on the theme in two days. Free to join.",
+          "description": "<p>An annual game jam started by IGDA Taiwan in memory of Faust Li (李家屹). Participants team up on site with developers they’ve never met and make a game in two days, based on a theme announced that day. A game jam isn’t a competition and has no prize money; the point is to make games together and connect with each other.</p><h3>Three sites</h3><ul><li><strong>Taipei</strong>: TCA Conference Center, Taipei Computer Association (B1, No. 2, Sec. 3, Bade Rd., Songshan Dist., Taipei City) | <a href=\"https://igda-tw.kktix.cc/events/fgj2026-tp\">Sign-up page</a></li><li><strong>Taichung</strong>: Ling Tung University, Shengyi Building B1, Room SYB117 (No. 1, Lingdong Rd., Nantun Dist., Taichung City) | <a href=\"https://www.accupass.com/event/2609101251571115044196\">Sign-up page</a></li><li><strong>Tainan</strong>: Southern Taiwan University of Science and Technology (STUST), Building W, 6F, Room W609 | <a href=\"https://kimu.kktix.cc/events/fgj26tainan\">Sign-up page</a></li></ul><h3>Good to know</h3><ul><li>Bring your own computer and creative gear (such as a drawing tablet).</li><li>You must sign up in advance to be placed on a team; there’s no on-site registration.</li><li>You can form your own team in advance, but with no more than 3 people; the organizers assign the remaining members.</li><li>In case of a typhoon or similar, the jam may move online. Each site’s announcements have the final schedule.</li></ul>",
+          "city": "Taipei, Taichung and Tainan",
+          "venue": "Three sites at once: TCA Conference Center (Taipei), Ling Tung University (Taichung), STUST (Tainan)",
+          "fee": "Free",
+          "agenda": [
+            {
+              "time": "Day 1, 09:00",
+              "item": "Check-in"
+            },
+            {
+              "time": "Day 1, 10:00",
+              "item": "Opening, team formation and theme reveal"
+            },
+            {
+              "time": "Day 1, 14:00",
+              "item": "Teams present their concepts"
+            },
+            {
+              "time": "Day 1, 20:30",
+              "item": "Day 1 progress presentations"
+            },
+            {
+              "time": "Day 2, 15:00",
+              "item": "Game upload"
+            },
+            {
+              "time": "Day 2, 16:00",
+              "item": "Final presentations"
+            }
+          ],
+          "audience": [
+            "Developers with some game-making experience",
+            "Students"
+          ]
+        },
+        "ja": {
+          "title": "Faust Game Jam 2026（台北・台中・台南）",
+          "summary": "Faust Li（李家屹）氏を記念して毎年開かれるゲームジャム。台北・台中・台南の3会場で同時に開催されます。会場でチームを組み、2日間でテーマに沿ったゲームを1本作ります。参加は無料です。",
+          "description": "<p>IGDA台湾が立ち上げた、Faust Li（李家屹）氏を記念して毎年開かれるゲームジャムです。参加者は会場で初対面の開発者とチームを組み、当日発表されるテーマに沿って2日間でゲームを1本作ります。ゲームジャムはコンテストではないので、賞金もありません。大切なのは、一緒にゲームを作って交流することです。</p><h3>3つの会場</h3><ul><li><strong>台北</strong>：台北市コンピュータ協会 TCA会議センター（台北市松山区八徳路三段2号 B1）｜<a href=\"https://igda-tw.kktix.cc/events/fgj2026-tp\">申し込みページ</a></li><li><strong>台中</strong>：嶺東科技大学 聖益楼 B1 SYB117（台中市南屯区嶺東路1号）｜<a href=\"https://www.accupass.com/event/2609101251571115044196\">申し込みページ</a></li><li><strong>台南</strong>：南台科技大学 W棟 6階 W609教室｜<a href=\"https://kimu.kktix.cc/events/fgj26tainan\">申し込みページ</a></li></ul><h3>注意事項</h3><ul><li>パソコンと制作用の機材（ペンタブレットなど）は各自でご用意ください。</li><li>チーム分けのため事前の申し込みが必要で、当日の申し込みは受け付けていません。</li><li>あらかじめチームを組んで参加することもできますが、3人までです。残りのメンバーは主催者が割り振ります。</li><li>台風などの場合はオンライン開催に切り替わることがあります。詳しいスケジュールは各会場の告知をご確認ください。</li></ul>",
+          "city": "台北・台中・台南",
+          "venue": "3会場同時開催：台北 TCA会議センター、台中 嶺東科技大学、台南 南台科技大学",
+          "fee": "無料",
+          "agenda": [
+            {
+              "time": "1日目 09:00",
+              "item": "受付"
+            },
+            {
+              "time": "1日目 10:00",
+              "item": "開会、チーム分け、テーマ発表"
+            },
+            {
+              "time": "1日目 14:00",
+              "item": "各チームのコンセプト企画発表"
+            },
+            {
+              "time": "1日目 20:30",
+              "item": "1日目の成果発表"
+            },
+            {
+              "time": "2日目 15:00",
+              "item": "ゲームのアップロード"
+            },
+            {
+              "time": "2日目 16:00",
+              "item": "最終発表会"
+            }
+          ],
+          "audience": [
+            "ゲーム制作の基礎がある開発者",
+            "学生"
+          ]
+        },
+        "ko": {
+          "title": "Faust Game Jam 2026 (타이베이·타이중·타이난)",
+          "summary": "Faust Li(李家屹)를 기리는 연례 게임잼으로, 타이베이, 타이중, 타이난 세 곳에서 동시에 열려요. 현장에서 팀을 꾸려 이틀 안에 주제에 맞는 게임을 하나 만들고, 참가는 무료예요.",
+          "description": "<p>IGDA 대만이 시작한, Faust Li(李家屹)를 기리는 연례 게임잼이에요. 참가자는 현장에서 처음 만나는 개발자들과 팀을 이루고, 당일 발표되는 주제에 맞춰 이틀 동안 게임을 하나 만들어요. 게임잼은 대회가 아니어서 상금이 없고, 함께 게임을 만들며 교류하는 게 핵심이에요.</p><h3>행사장 세 곳</h3><ul><li><strong>타이베이</strong>: 타이베이시 컴퓨터협회 TCA 컨벤션센터(타이베이시 쑹산구 바더루 3단 2호 B1) | <a href=\"https://igda-tw.kktix.cc/events/fgj2026-tp\">신청 페이지</a></li><li><strong>타이중</strong>: 링둥과기대학교 성이관(聖益樓) B1 SYB117(타이중시 난툰구 링둥루 1호) | <a href=\"https://www.accupass.com/event/2609101251571115044196\">신청 페이지</a></li><li><strong>타이난</strong>: 난타이과기대학교 W동 6층 W609 강의실 | <a href=\"https://kimu.kktix.cc/events/fgj26tainan\">신청 페이지</a></li></ul><h3>유의 사항</h3><ul><li>컴퓨터와 창작 장비(예: 펜 태블릿)는 직접 가져와야 해요.</li><li>팀 편성을 위해 반드시 사전 신청해야 하고, 현장 신청은 받지 않아요.</li><li>미리 팀을 꾸려 와도 되지만 최대 3명까지이고, 나머지 팀원은 주최 측이 배정해요.</li><li>태풍 등의 상황에서는 온라인으로 바뀔 수 있어요. 자세한 일정은 각 행사장 공지를 따라요.</li></ul>",
+          "city": "타이베이·타이중·타이난",
+          "venue": "3곳 동시 개최: 타이베이 TCA 컨벤션센터, 타이중 링둥과기대학교, 타이난 난타이과기대학교",
+          "fee": "무료",
+          "agenda": [
+            {
+              "time": "1일 차 09:00",
+              "item": "접수"
+            },
+            {
+              "time": "1일 차 10:00",
+              "item": "개막, 팀 편성, 주제 발표"
+            },
+            {
+              "time": "1일 차 14:00",
+              "item": "팀별 콘셉트 기획 발표"
+            },
+            {
+              "time": "1일 차 20:30",
+              "item": "1일 차 결과 발표"
+            },
+            {
+              "time": "2일 차 15:00",
+              "item": "게임 업로드"
+            },
+            {
+              "time": "2일 차 16:00",
+              "item": "최종 발표회"
+            }
+          ],
+          "audience": [
+            "게임 제작 기본기가 있는 개발자",
+            "학생"
+          ]
+        }
+      }
+    },
+    "level-up-kl-2026": {
+      "source": {
+        "title": "LEVEL UP KL 2026",
+        "summary": "馬來西亞數位經濟公司（MDEC）主辦的東南亞遊戲產業大會，有講座、展區、頒獎、大師班與商務媒合。",
+        "city": "吉隆坡・馬來西亞",
+        "venue": "Connexion Conference & Event Centre（CCEC）",
+        "fee": "展區免費；大會票 RM300 起",
+        "description": "<p>由 MDEC 與 BES Production 主辦，定位是連結東南亞與各地的開發者、發行商和投資人。官網有英文與馬來文，報名表不限國籍。</p><h3>通行證（馬幣，含 8% 稅）</h3><ul><li>Expo Pass：免費</li><li>Conference Pass：RM300；Conference Plus：RM600</li><li>Business Pass：RM1,250；Business Plus：RM2,000</li><li>Academic Pass：RM200（寄出學生或教職證明後取得優惠碼）</li></ul><p>活動內容包括商務媒合與人才交流區。SEA Game Awards 只收東南亞開發者的作品。每日開放時間尚未公布，此處時間為暫定（馬來西亞與台灣同時區）。<a href=\"https://registration.levelupkl.com.my/registration\">報名頁</a></p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "遊戲開發者",
+          "發行商",
+          "投資人"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "LEVEL UP KL 2026",
+          "summary": "A Southeast Asian games industry conference run by the Malaysia Digital Economy Corporation (MDEC), with talks, an expo, awards, masterclasses and business matchmaking.",
+          "description": "<p>Organized by MDEC and BES Production, it aims to connect developers, publishers and investors from Southeast Asia and beyond. The official website is in English and Malay, and registration is open to all nationalities.</p><h3>Passes (MYR, including 8% tax)</h3><ul><li>Expo Pass: free</li><li>Conference Pass: RM300; Conference Plus: RM600</li><li>Business Pass: RM1,250; Business Plus: RM2,000</li><li>Academic Pass: RM200 (send proof of student or faculty status to get a discount code)</li></ul><p>The program includes business matchmaking and a talent networking area. The SEA Game Awards accept games only from Southeast Asian developers. Daily opening hours haven’t been announced, so the times shown here are provisional (Malaysia is in the same time zone as Taiwan). <a href=\"https://registration.levelupkl.com.my/registration\">Registration page</a></p>",
+          "city": "Kuala Lumpur, Malaysia",
+          "venue": "Connexion Conference & Event Centre (CCEC)",
+          "fee": "Expo free; conference passes from RM300",
+          "audience": [
+            "Game developers",
+            "Publishers",
+            "Investors"
+          ]
+        },
+        "ja": {
+          "title": "LEVEL UP KL 2026",
+          "summary": "マレーシア・デジタル経済公社（MDEC）が主催する、東南アジアのゲーム業界カンファレンス。講演、展示、アワード、マスタークラス、ビジネスマッチングがあります。",
+          "description": "<p>MDEC と BES Production の主催で、東南アジアと世界各地の開発者・パブリッシャー・投資家をつなぐ場と位置づけられています。公式サイトは英語とマレー語で、申し込みフォームに国籍の制限はありません。</p><h3>パス（マレーシア・リンギット、税8%込み）</h3><ul><li>Expo Pass：無料</li><li>Conference Pass：RM300、Conference Plus：RM600</li><li>Business Pass：RM1,250、Business Plus：RM2,000</li><li>Academic Pass：RM200（学生証または教職員の証明を送ると割引コードがもらえます）</li></ul><p>ビジネスマッチングや人材交流のエリアもあります。SEA Game Awards の対象は東南アジアの開発者の作品だけです。毎日の開場時間は未発表で、このページの時刻は暫定です（マレーシアと台湾に時差はありません）。<a href=\"https://registration.levelupkl.com.my/registration\">申し込みページ</a></p>",
+          "city": "マレーシア・クアラルンプール",
+          "venue": "Connexion Conference & Event Centre（CCEC）",
+          "fee": "展示エリア無料／カンファレンスパス RM300〜",
+          "audience": [
+            "ゲーム開発者",
+            "パブリッシャー",
+            "投資家"
+          ]
+        },
+        "ko": {
+          "title": "LEVEL UP KL 2026",
+          "summary": "말레이시아 디지털경제공사(MDEC)가 주최하는 동남아시아 게임 산업 콘퍼런스예요. 강연, 전시, 시상식, 마스터클래스, 비즈니스 매칭이 있어요.",
+          "description": "<p>MDEC, BES Production 공동 주최로, 동남아시아와 세계 각지의 개발자, 퍼블리셔, 투자자를 연결하는 자리를 표방해요. 공식 웹사이트는 영어와 말레이어로 되어 있고, 신청서에 국적 제한은 없어요.</p><h3>패스 (말레이시아 링깃, 세금 8% 포함)</h3><ul><li>Expo Pass: 무료</li><li>Conference Pass: 300링깃, Conference Plus: 600링깃</li><li>Business Pass: 1,250링깃, Business Plus: 2,000링깃</li><li>Academic Pass: 200링깃(학생증이나 교직원 증명서를 보내면 할인 코드 발급)</li></ul><p>비즈니스 매칭과 인재 교류 존도 운영해요. SEA Game Awards는 동남아시아 개발자의 작품만 받아요. 일별 운영 시간은 아직 발표되지 않아서 여기 표시된 시간은 임시예요(말레이시아는 대만과 같은 시간대예요). <a href=\"https://registration.levelupkl.com.my/registration\">신청 페이지</a></p>",
+          "city": "쿠알라룸푸르, 말레이시아",
+          "venue": "Connexion Conference & Event Centre (CCEC)",
+          "fee": "전시 무료, 콘퍼런스 패스 300링깃부터",
+          "audience": [
+            "게임 개발자",
+            "퍼블리셔",
+            "투자자"
+          ]
+        }
+      }
+    },
+    "igdx-2026": {
+      "source": {
+        "title": "IGDX Business & Conference 2026（印尼遊戲開發者交流會）",
+        "summary": "印尼政府與印尼遊戲協會主辦的遊戲產業交流會，在峇里島連辦三天，有遊戲展區、講座與一對一商務媒合，免費參加。",
+        "city": "峇里島・印尼",
+        "venue": "Bali Beach Convention Center（Grand Inna Bali Beach，Sanur）",
+        "fee": "免費（商務票需審核）",
+        "description": "<p>由印尼通訊與數位事務部和印尼遊戲協會（AGI）主辦。</p><ul><li><strong>Public Pass</strong>（免費，登記即可）：遊戲展區、公開講座與周邊活動。<a href=\"https://luma.com/6ktj0yd5\">登記頁</a></li><li><strong>Business Pass</strong>（免費，需審核）：三天都能用，可以透過媒合平台安排一對一商務會議並使用商務休息區。<a href=\"https://luma.com/jd0lg25o\">申請頁</a></li></ul><p>遊戲展區以印尼開發者的作品為主，官方沒有看到開放海外團隊參展的徵件。峇里島與台灣同時區；時間為活動整體時段，每天的開放時間與講座語言請見官網。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "遊戲開發者",
+          "發行商",
+          "投資人"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "IGDX Business & Conference 2026 (Indonesia Game Developer Exchange)",
+          "summary": "A three-day games industry event in Bali run by the Indonesian government and the Indonesian Game Association, with a game showcase, talks and one-on-one business matchmaking. Free to attend.",
+          "description": "<p>Organized by Indonesia’s Ministry of Communication and Digital Affairs and the Indonesian Game Association (AGI).</p><ul><li><strong>Public Pass</strong> (free, just register): the game showcase, public talks and side events. <a href=\"https://luma.com/6ktj0yd5\">Registration page</a></li><li><strong>Business Pass</strong> (free, subject to approval): valid all three days; book one-on-one business meetings through the matchmaking platform and use the business lounge. <a href=\"https://luma.com/jd0lg25o\">Application page</a></li></ul><p>The game showcase mainly features games by Indonesian developers, and we haven’t seen an official call for overseas teams to exhibit. Bali is in the same time zone as Taiwan. The times shown cover the event as a whole; see the official website for daily hours and the language of the talks.</p>",
+          "city": "Bali, Indonesia",
+          "venue": "Bali Beach Convention Center (Grand Inna Bali Beach, Sanur)",
+          "fee": "Free (Business Pass requires approval)",
+          "audience": [
+            "Game developers",
+            "Publishers",
+            "Investors"
+          ]
+        },
+        "ja": {
+          "title": "IGDX Business & Conference 2026（インドネシアのゲーム開発者交流会）",
+          "summary": "インドネシア政府とインドネシアゲーム協会が主催するゲーム業界の交流イベント。バリ島で3日間にわたって開かれ、ゲーム展示、講演、1対1のビジネスマッチングがあります。参加は無料です。",
+          "description": "<p>インドネシア通信デジタル省とインドネシアゲーム協会（AGI）の主催です。</p><ul><li><strong>Public Pass</strong>（無料・登録のみ）：ゲーム展示エリア、一般向けの講演、関連イベント。<a href=\"https://luma.com/6ktj0yd5\">登録ページ</a></li><li><strong>Business Pass</strong>（無料・審査あり）：3日間有効。マッチングプラットフォームで1対1の商談を組めるほか、ビジネスラウンジも利用できます。<a href=\"https://luma.com/jd0lg25o\">申請ページ</a></li></ul><p>ゲーム展示はインドネシアの開発者の作品が中心で、海外チーム向けの出展募集は公式には見当たりません。バリ島と台湾に時差はありません。表示している時間はイベント全体の期間なので、毎日の開場時間や講演の言語は公式サイトでご確認ください。</p>",
+          "city": "インドネシア・バリ島",
+          "venue": "Bali Beach Convention Center（Grand Inna Bali Beach、サヌール）",
+          "fee": "無料（ビジネスパスは審査あり）",
+          "audience": [
+            "ゲーム開発者",
+            "パブリッシャー",
+            "投資家"
+          ]
+        },
+        "ko": {
+          "title": "IGDX Business & Conference 2026 (인도네시아 게임 개발자 교류회)",
+          "summary": "인도네시아 정부와 인도네시아 게임협회가 주최하는 게임 산업 교류 행사로, 발리에서 사흘 동안 열려요. 게임 전시, 강연, 1:1 비즈니스 매칭이 있고 참가는 무료예요.",
+          "description": "<p>인도네시아 통신디지털부와 인도네시아 게임협회(AGI)가 주최해요.</p><ul><li><strong>Public Pass</strong>(무료, 등록만 하면 됨): 게임 전시, 공개 강연, 부대 행사. <a href=\"https://luma.com/6ktj0yd5\">등록 페이지</a></li><li><strong>Business Pass</strong>(무료, 심사 필요): 사흘 내내 쓸 수 있고, 매칭 플랫폼으로 1:1 비즈니스 미팅을 잡거나 비즈니스 라운지를 이용할 수 있어요. <a href=\"https://luma.com/jd0lg25o\">신청 페이지</a></li></ul><p>게임 전시는 인도네시아 개발자의 작품이 중심이고, 해외 팀을 대상으로 한 공식 전시 모집 공고는 찾지 못했어요. 발리는 대만과 같은 시간대예요. 표시된 시간은 행사 전체 기간이고, 일별 운영 시간과 강연 언어는 공식 웹사이트를 확인하세요.</p>",
+          "city": "발리, 인도네시아",
+          "venue": "Bali Beach Convention Center (Grand Inna Bali Beach, Sanur)",
+          "fee": "무료 (Business Pass는 심사 필요)",
+          "audience": [
+            "게임 개발자",
+            "퍼블리셔",
+            "투자자"
+          ]
+        }
+      }
+    },
+    "gcores-fusion-2026-beijing": {
+      "source": {
+        "title": "核聚變遊戲嘉年華 2026 北京站",
+        "summary": "機核主辦的遊戲嘉年華，有「TapTap x 核聚變獨立遊戲區」，展出中國與海外的獨立遊戲，40 多家參展商、近 200 款遊戲。",
+        "city": "北京・中國",
+        "venue": "首鋼國際會展中心 1、3 號館（石景山首鋼園）",
+        "fee": "單日票 139 元人民幣（優惠 129 元）",
+        "description": "<p>機核（Gcores）每年的遊戲嘉年華，北京站有獨立遊戲區，可以試玩中國與海外開發者的作品。今年的參展陣容已經公布，比較適合去看展、交流，或為下一屆接洽參展（聯絡信箱：leo.lv@gcores.com）。</p><ul><li>時間：每天 9:00–17:00，16:00 停止入場</li><li>門票：單日票 139 元人民幣，優惠 129 元，只在嗶哩嗶哩會員購販售</li><li><strong>實名制</strong>：購票要填每位入場者的姓名、電話與證件號碼，入場要出示證件。官方列的證件是身分證、護照、港澳通行證「等」，沒有明寫台胞證，買票前請先確認。</li></ul>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "獨立遊戲開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "G-Fusion Game Carnival 2026 (Beijing)",
+          "summary": "A game carnival run by Gcores. Its TapTap x G-Fusion indie game area features games from China and abroad: more than 40 exhibitors and nearly 200 games.",
+          "description": "<p>Gcores’ annual game carnival. The Beijing edition has an indie zone where you can play games by developers from China and abroad. This year’s exhibitor lineup has already been announced, so it’s better suited to visiting, networking, or talking to the organizers about exhibiting next time (contact: leo.lv@gcores.com).</p><ul><li>Hours: 9:00–17:00 daily; last entry at 16:00</li><li>Tickets: RMB 139 for a day ticket, RMB 129 discounted, sold only on Bilibili Mall</li><li><strong>Real-name ticketing</strong>: when buying, you must enter each attendee’s name, phone number and ID number, and show that ID at the door. The organizers list accepted IDs as national ID cards, passports, Hong Kong and Macau travel permits “and so on”; the Taiwan Compatriot Permit isn’t mentioned by name, so check before you buy.</li></ul>",
+          "city": "Beijing, China",
+          "venue": "Shougang International Exhibition Center, Halls 1 and 3 (Shougang Park, Shijingshan)",
+          "fee": "Day ticket RMB 139 (RMB 129 discounted)",
+          "audience": [
+            "Players",
+            "Indie game developers"
+          ]
+        },
+        "ja": {
+          "title": "核聚変ゲームカーニバル 2026 北京会場",
+          "summary": "機核（Gcores）が主催するゲームカーニバルで、「TapTap x 核聚変」のインディーゲームエリアでは中国と海外のインディーゲームが展示されます。出展社は40社以上、ゲームは200本近くです。",
+          "description": "<p>機核（Gcores）が毎年開いているゲームカーニバルです。北京会場にはインディーゲームエリアがあり、中国や海外の開発者の作品を試遊できます。今年の出展ラインナップはすでに発表されているので、見学や交流、あるいは次回の出展の相談を目的に行くのがよいでしょう（連絡先：leo.lv@gcores.com）。</p><ul><li>時間：毎日9:00〜17:00（入場は16:00まで）</li><li>チケット：1日券139元（人民元）、割引券129元。販売は bilibili の「会員購」のみ</li><li><strong>実名制</strong>：購入時には入場者全員の氏名、電話番号、身分証明書の番号を入力し、入場時にはその身分証明書を提示します。公式に挙がっているのは居民身分証、パスポート、港澳通行証「など」で、台胞証（台湾居民来往大陸通行証）は明記されていないため、購入前に確認してください。</li></ul>",
+          "city": "中国・北京",
+          "venue": "首鋼国際会展中心 1・3号館（石景山区 首鋼園）",
+          "fee": "1日券139元（人民元）、割引129元",
+          "audience": [
+            "プレイヤー",
+            "インディーゲーム開発者"
+          ]
+        },
+        "ko": {
+          "title": "핵융합(核聚变) 게임 카니발 2026 베이징",
+          "summary": "Gcores가 주최하는 게임 카니발로, ‘TapTap x 핵융합 인디 게임 존’에서 중국과 해외의 인디 게임을 선보여요. 참가사는 40여 곳, 게임은 200개 가까이 돼요.",
+          "description": "<p>Gcores(机核)가 매년 여는 게임 카니발로, 베이징 행사에는 인디 게임 존이 있어 중국과 해외 개발자의 작품을 플레이해 볼 수 있어요. 올해 참가 라인업은 이미 발표되었으니, 관람과 교류를 하거나 다음 회 참가를 문의하러 가기에 좋아요(연락처: leo.lv@gcores.com).</p><ul><li>시간: 매일 9:00~17:00, 16:00 입장 마감</li><li>티켓: 1일권 139위안, 할인 129위안이며 빌리빌리 회원구(会员购)에서만 판매</li><li><strong>실명제</strong>: 티켓을 살 때 입장자 전원의 이름, 전화번호, 신분증 번호를 입력해야 하고, 입장할 때 신분증을 보여 줘야 해요. 공식 안내에 나온 신분 증명 서류는 신분증, 여권, 홍콩·마카오 통행증 ‘등’이고, 대만 주민용 통행증(台胞证)은 명시되어 있지 않으니 구매 전에 확인하세요.</li></ul>",
+          "city": "베이징, 중국",
+          "venue": "서우강 국제 컨벤션센터 1·3관 (스징산 서우강 파크)",
+          "fee": "1일권 139위안 (할인 129위안)",
+          "audience": [
+            "플레이어",
+            "인디 게임 개발자"
+          ]
+        }
+      }
+    },
+    "gamescom-asia-thailand-2026": {
+      "source": {
+        "title": "gamescom asia x Thailand Game Show 2026",
+        "summary": "gamescom asia 與泰國遊戲展合辦。10/29–30 是只限業界的商務區與大會，10/30–11/1 開放一般玩家。",
+        "city": "曼谷・泰國",
+        "venue": "詩麗吉王后國家會議中心（QSNCC）",
+        "fee": "商務訪客線上登記免費；一般入場 200 泰銖",
+        "description": "<p>由 Koelnmesse 主辦，今年與泰國遊戲展合辦。</p><h3>商務區與大會（10/29–30，只限業界）</h3><ul><li>商務訪客在 10/28 前線上登記免費（現場 25 新幣），需審核，入場要出示名片等證明。可以用 gamescom biz app 約發行商見面。</li><li>大會票：早鳥 155 新幣（至 9/29）、一般 255 新幣（至 10/28）、現場 355 新幣，含講座與商務派對。</li><li>同期有 MeetToMatch 的發行與投資媒合。有票的商務訪客可以寫信到 ticketing@gamescom.asia 申請簽證邀請函。</li></ul><h3>一般展區（10/30–11/1）</h3><p>一日票 200 泰銖（10:00–19:00），快速通關票 300 泰銖（09:30 入場）。</p><p>泰國比台灣慢 1 小時。商務區的開放時間尚未公布，開始時間為暫定。</p>",
+        "schedule": null,
+        "deadlineLabel": "商務訪客免費登記截止",
+        "agenda": null,
+        "audience": [
+          "遊戲開發者",
+          "發行商",
+          "玩家"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "gamescom asia x Thailand Game Show 2026",
+          "summary": "gamescom asia teams up with Thailand Game Show. October 29–30 is the industry-only business area and conference; October 30–November 1 is open to the public.",
+          "description": "<p>Organized by Koelnmesse, and held together with Thailand Game Show this year.</p><h3>Business area and conference (October 29–30, industry only)</h3><ul><li>Business visitors who register online by October 28 get in free (S$25 on site). Registration is reviewed, and you’ll need proof such as a business card at the door. You can book meetings with publishers in the gamescom biz app.</li><li>Conference tickets: S$155 early bird (until September 29), S$255 regular (until October 28), S$355 on site; they include the talks and the business party.</li><li>MeetToMatch runs publishing and investment matchmaking at the same time. Business visitors with tickets can request a visa invitation letter by emailing ticketing@gamescom.asia.</li></ul><h3>Public exhibition (October 30–November 1)</h3><p>Day ticket 200 baht (10:00–19:00); fast-track ticket 300 baht (entry from 09:30).</p><p>Thailand is 1 hour behind Taiwan. The business area’s hours haven’t been announced, so the start time shown is provisional.</p>",
+          "city": "Bangkok, Thailand",
+          "venue": "Queen Sirikit National Convention Center (QSNCC)",
+          "fee": "Business visitors free online; public entry 200 baht",
+          "deadlineLabel": "Free trade reg. ends",
+          "audience": [
+            "Game developers",
+            "Publishers",
+            "Players"
+          ]
+        },
+        "ja": {
+          "title": "gamescom asia x Thailand Game Show 2026",
+          "summary": "gamescom asia と Thailand Game Show の合同開催。10月29日〜30日は業界関係者限定のビジネスエリアとカンファレンス、10月30日〜11月1日は一般のプレイヤーも入場できます。",
+          "description": "<p>ケルンメッセ（Koelnmesse）の主催で、今年は Thailand Game Show と合同で開かれます。</p><h3>ビジネスエリアとカンファレンス（10月29日〜30日、業界関係者のみ）</h3><ul><li>ビジネス来場者は10月28日までにオンラインで登録すれば無料です（当日は25シンガポールドル）。審査があり、入場時には名刺などの証明が必要です。gamescom biz アプリを使えば、パブリッシャーとの面談を予約できます。</li><li>カンファレンスチケット：早期割引155シンガポールドル（9月29日まで）、通常255シンガポールドル（10月28日まで）、当日355シンガポールドル。いずれも講演とビジネスパーティーへの参加込みです。</li><li>同時期に MeetToMatch によるパブリッシング・投資のマッチングもあります。チケットを持つビジネス来場者は、ticketing@gamescom.asia へのメールでビザ申請用の招へい状を依頼できます。</li></ul><h3>一般展示エリア（10月30日〜11月1日）</h3><p>1日券200バーツ（10:00〜19:00）、優先入場チケット300バーツ（9:30入場）。</p><p>タイは台湾より1時間遅れています。ビジネスエリアの開場時間は未発表のため、開始時刻は暫定です。</p>",
+          "city": "タイ・バンコク",
+          "venue": "クイーン・シリキット・ナショナル・コンベンションセンター（QSNCC）",
+          "fee": "ビジネス来場者はオンライン登録で無料／一般入場200バーツ",
+          "deadlineLabel": "ビジネス来場者の無料登録期限",
+          "audience": [
+            "ゲーム開発者",
+            "パブリッシャー",
+            "プレイヤー"
+          ]
+        },
+        "ko": {
+          "title": "gamescom asia x Thailand Game Show 2026",
+          "summary": "gamescom asia와 태국 게임쇼가 함께 여는 행사예요. 10월 29~30일은 업계 관계자만 들어갈 수 있는 비즈니스 구역과 콘퍼런스가 열리고, 10월 30일~11월 1일에는 일반 플레이어도 입장할 수 있어요.",
+          "description": "<p>Koelnmesse가 주최하고, 올해는 태국 게임쇼와 함께 열려요.</p><h3>비즈니스 구역과 콘퍼런스 (10월 29~30일, 업계 관계자 전용)</h3><ul><li>비즈니스 방문객은 10월 28일까지 온라인으로 등록하면 무료예요(현장 등록은 25싱가포르달러). 심사가 있고, 입장할 때 명함 등 증빙 자료를 보여 줘야 해요. gamescom biz 앱으로 퍼블리셔와 미팅을 잡을 수 있어요.</li><li>콘퍼런스 티켓: 얼리버드 155싱가포르달러(9월 29일까지), 일반 255싱가포르달러(10월 28일까지), 현장 355싱가포르달러이고, 강연과 비즈니스 파티가 포함돼요.</li><li>같은 기간에 MeetToMatch의 퍼블리싱·투자 매칭도 열려요. 티켓이 있는 비즈니스 방문객은 ticketing@gamescom.asia로 메일을 보내 비자 초청장을 신청할 수 있어요.</li></ul><h3>일반 전시 (10월 30일~11월 1일)</h3><p>1일권 200바트(10:00~19:00), 패스트트랙 티켓 300바트(09:30 입장).</p><p>태국은 대만보다 1시간 느려요. 비즈니스 구역 운영 시간은 아직 발표되지 않아서 시작 시간은 임시예요.</p>",
+          "city": "방콕, 태국",
+          "venue": "퀸 시리킷 국립 컨벤션센터(QSNCC)",
+          "fee": "비즈니스 방문객 온라인 등록 무료, 일반 입장 200바트",
+          "deadlineLabel": "비즈니스 방문객 무료 등록 마감",
+          "audience": [
+            "게임 개발자",
+            "퍼블리셔",
+            "플레이어"
+          ]
+        }
+      }
+    },
+    "tokyo-game-dungeon-14": {
+      "source": {
+        "title": "東京ゲームダンジョン 14（Tokyo Game Dungeon）",
+        "summary": "東京濱松町的獨立遊戲展，以攤位試玩為主。這屆參展報名已截止，可以買票入場。",
+        "city": "東京・日本",
+        "venue": "東京都立產業貿易中心 濱松町館 2・3 樓展示室",
+        "fee": "一般票 1,000 日圓、商務票 2,000 日圓（18 歲以下免費）",
+        "description": "<p>東京ゲームダンジョン是以個人與小團隊為主的獨立遊戲展，攤位先搶先贏、不審核作品，每次都有大量新作可以試玩。</p><ul><li>時間（日本時間）：持先行入場預售票 11:00 起、其他門票 12:00 起入場，17:00 結束。台灣時間要各減 1 小時。</li><li>門票：一般 1,000 日圓、商務 2,000 日圓（含稅），18 歲以下免費；預售 9/30 開賣。</li><li>這一屆的參展報名已截止。</li></ul>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "獨立遊戲開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Tokyo Game Dungeon 14",
+          "summary": "An indie game show in Hamamatsucho, Tokyo, built around playing games at exhibitors’ booths. Exhibitor sign-ups for this edition have closed, but you can buy a ticket to attend.",
+          "description": "<p>Tokyo Game Dungeon is an indie game show mainly for solo developers and small teams. Booths are first come, first served with no curation, so every edition has lots of new games to try.</p><ul><li>Hours (Japan time): early-entry advance ticket holders from 11:00, all other tickets from 12:00; closes at 17:00. Subtract 1 hour for Taiwan time.</li><li>Tickets: general ¥1,000, business ¥2,000 (tax included), free for ages 18 and under; advance sales start September 30.</li><li>Exhibitor sign-ups for this edition have closed.</li></ul>",
+          "city": "Tokyo, Japan",
+          "venue": "Tokyo Metropolitan Industrial Trade Center, Hamamatsucho Building, 2F and 3F exhibition halls",
+          "fee": "General ¥1,000, business ¥2,000 (free for 18 and under)",
+          "audience": [
+            "Players",
+            "Indie game developers"
+          ]
+        },
+        "ja": {
+          "title": "東京ゲームダンジョン14",
+          "summary": "東京・浜松町のインディーゲーム展示会で、ブースでの試遊が中心です。今回の出展申し込みは締め切られましたが、チケットを買えば来場できます。",
+          "description": "<p>東京ゲームダンジョンは、個人や小規模チームを中心としたインディーゲーム展示会です。ブースは先着順で作品の審査はなく、毎回たくさんの新作を試遊できます。</p><ul><li>時間（日本時間）：先行入場前売券は11:00から、それ以外のチケットは12:00から入場でき、17:00に終了します。台湾時間ではそれぞれ1時間前です。</li><li>チケット：一般チケット1,000円、ビジネスチケット2,000円（税込）、18歳以下は無料。前売券は9月30日に発売されます。</li><li>今回の出展申し込みは締め切られました。</li></ul>",
+          "city": "日本・東京",
+          "venue": "東京都立産業貿易センター 浜松町館 2・3階展示室",
+          "fee": "一般チケット1,000円、ビジネスチケット2,000円（18歳以下無料）",
+          "audience": [
+            "プレイヤー",
+            "インディーゲーム開発者"
+          ]
+        },
+        "ko": {
+          "title": "도쿄 게임 던전 14",
+          "summary": "도쿄 하마마쓰초에서 열리는 인디 게임 전시회로, 부스 시연이 중심이에요. 이번 회차 전시 참가 신청은 마감되었고, 티켓을 사면 입장할 수 있어요.",
+          "description": "<p>도쿄 게임 던전(東京ゲームダンジョン)은 개인과 소규모 팀이 중심인 인디 게임 전시회예요. 부스는 선착순이고 작품 심사가 없어서, 매번 새 작품을 많이 플레이해 볼 수 있어요.</p><ul><li>시간(일본 시간): 선행 입장 예매권은 11:00부터, 그 외 티켓은 12:00부터 입장할 수 있고 17:00에 끝나요. 대만 시간은 각각 1시간씩 빼면 돼요.</li><li>티켓: 일반 1,000엔, 비즈니스 2,000엔(세금 포함), 18세 이하 무료. 예매는 9월 30일에 시작해요.</li><li>이번 회차 전시 참가 신청은 마감되었어요.</li></ul>",
+          "city": "도쿄, 일본",
+          "venue": "도쿄도립산업무역센터 하마마쓰초관 2·3층 전시실",
+          "fee": "일반 1,000엔, 비즈니스 2,000엔 (18세 이하 무료)",
+          "audience": [
+            "플레이어",
+            "인디 게임 개발자"
+          ]
+        }
+      }
+    },
+    "unreal-fest-tokyo-2026": {
+      "source": {
+        "title": "Unreal Fest Tokyo 2026",
+        "summary": "Epic Games Japan 的 Unreal Engine 官方活動，兩天 30 場以上的講座，另有獨立遊戲區。免費參加，需線上登記。",
+        "city": "東京・日本",
+        "venue": "有明 TFT 大廳（TFT 大樓西館 2F，東京都江東區有明 3-11-1）",
+        "fee": "免費（11/4 閉幕派對另售 7,700 日圓）",
+        "description": "<p>Epic Games Japan 主辦的 Unreal Engine 大會，有日本與海外開發者的 30 場以上講座、贊助商展區、獨立遊戲區，以及和講者交流的 Unreal Hub。</p><ul><li>時間：日本時間 11/3 09:00–19:30、11/4 09:00–19:00（台灣時間各減 1 小時）</li><li>免費參加，需在<a href=\"https://cvent.me/MAZVqk\">報名頁</a>登記（有英文介面）；11/4 晚上的閉幕派對另售 7,700 日圓。</li></ul>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "Unreal Engine 開發者",
+          "技術美術",
+          "程式"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Unreal Fest Tokyo 2026",
+          "summary": "Epic Games Japan’s official Unreal Engine event: two days, 30+ talks and an indie game area. Free to attend with online registration.",
+          "description": "<p>An Unreal Engine conference run by Epic Games Japan, with more than 30 talks by developers from Japan and abroad, a sponsor expo, an indie game area, and the Unreal Hub for meeting the speakers.</p><ul><li>Hours (Japan time): November 3, 09:00–19:30; November 4, 09:00–19:00 (subtract 1 hour for Taiwan time)</li><li>Free to attend; register on the <a href=\"https://cvent.me/MAZVqk\">registration page</a> (available in English). The closing party on the evening of November 4 is a separate ¥7,700 ticket.</li></ul>",
+          "city": "Tokyo, Japan",
+          "venue": "TFT Hall, Ariake (TFT Building West 2F, 3-11-1 Ariake, Koto-ku, Tokyo)",
+          "fee": "Free (November 4 closing party: ¥7,700 extra)",
+          "audience": [
+            "Unreal Engine developers",
+            "Technical artists",
+            "Programmers"
+          ]
+        },
+        "ja": {
+          "title": "Unreal Fest Tokyo 2026",
+          "summary": "エピック ゲームズ ジャパンによる Unreal Engine の公式イベント。2日間で30以上の講演があり、インディーゲームエリアも設けられます。参加は無料ですが、オンラインでの登録が必要です。",
+          "description": "<p>エピック ゲームズ ジャパンが主催する Unreal Engine のカンファレンスです。日本と海外の開発者による30以上の講演のほか、スポンサー展示、インディーゲームエリア、講演者と交流できる Unreal Hub があります。</p><ul><li>時間：日本時間11月3日 9:00〜19:30、11月4日 9:00〜19:00（台湾時間ではそれぞれ1時間前）</li><li>参加は無料ですが、<a href=\"https://cvent.me/MAZVqk\">登録ページ</a>での登録が必要です（英語表示あり）。11月4日夜のクロージングパーティーのチケットは別売りで、7,700円です。</li></ul>",
+          "city": "日本・東京",
+          "venue": "有明 TFTホール（TFTビル西館 2F、東京都江東区有明3-11-1）",
+          "fee": "無料（11月4日のクロージングパーティーは別途7,700円）",
+          "audience": [
+            "Unreal Engine の開発者",
+            "テクニカルアーティスト",
+            "プログラマー"
+          ]
+        },
+        "ko": {
+          "title": "Unreal Fest Tokyo 2026",
+          "summary": "Epic Games Japan이 여는 Unreal Engine 공식 행사예요. 이틀 동안 30개 이상의 강연이 있고, 인디 게임 존도 있어요. 참가는 무료이고 온라인 등록이 필요해요.",
+          "description": "<p>Epic Games Japan이 주최하는 Unreal Engine 콘퍼런스예요. 일본과 해외 개발자의 강연 30개 이상, 스폰서 전시, 인디 게임 존, 연사와 교류할 수 있는 Unreal Hub가 마련돼요.</p><ul><li>시간: 일본 시간 11월 3일 09:00~19:30, 11월 4일 09:00~19:00(대만 시간은 각각 1시간씩 빼세요)</li><li>무료로 참가할 수 있고, <a href=\"https://cvent.me/MAZVqk\">신청 페이지</a>에서 등록해야 해요(영어 화면 지원). 11월 4일 저녁 클로징 파티 티켓은 7,700엔에 따로 판매해요.</li></ul>",
+          "city": "도쿄, 일본",
+          "venue": "아리아케 TFT 홀 (TFT 빌딩 서관 2층, 도쿄도 고토구 아리아케 3-11-1)",
+          "fee": "무료 (11월 4일 클로징 파티는 별도 7,700엔)",
+          "audience": [
+            "Unreal Engine 개발자",
+            "테크니컬 아티스트",
+            "프로그래머"
+          ]
+        }
+      }
+    },
+    "gameworks-exchange-day-2026": {
+      "source": {
+        "title": "2026 異校 x GameWorks 遊戲交流日",
+        "summary": "把還在開發中的遊戲帶來擺攤，讓從沒玩過的人現場試玩、給回饋。電子遊戲和桌遊都可以，學生專題也歡迎。",
+        "city": "台中",
+        "venue": "思享空間（台中市東區公園東路 130 號 2 樓／5 樓）",
+        "fee": "免費（需報名，主辦審核）",
+        "description": "<p>GameWorks 推廣「白紙測試」：讓從未接觸過你作品的玩家親手試玩，拿到最直接的回饋。作品再早期都沒關係，只要能玩就能報名擺攤。</p><h3>誰可以來</h3><ul><li><strong>參展團隊</strong>：獨立遊戲團隊、個人開發者、學生專題團隊，沒有身分限制，桌遊也可以。</li><li><strong>看展的人</strong>：想和各校開發者交流、搶先試玩開發中作品的玩家。</li></ul><p>擺攤和看展都要在活動頁報名，由主辦單位審核。攤位額滿後暫停受理，是否開放候補以主辦公告為準。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": [
+          {
+            "time": "08:30",
+            "item": "攤主進場、佈置攤位"
+          },
+          {
+            "time": "09:30",
+            "item": "開放看展入場"
+          }
+        ],
+        "audience": [
+          "獨立遊戲團隊",
+          "學生專題團隊",
+          "桌遊設計者",
+          "想搶先試玩的玩家"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "2026 Inter-School x GameWorks Game Exchange Day",
+          "summary": "Bring the game you’re still making, set up a booth, and let people who’ve never played it try it and give feedback on the spot. Video games and board games are both welcome, and so are student projects.",
+          "description": "<p>GameWorks champions “blank-slate testing”: having players who have never seen your game play it themselves, so you get the most direct feedback. However early your game is, if it’s playable you can apply for a booth.</p><h3>Who can come</h3><ul><li><strong>Exhibiting teams</strong>: indie game teams, solo developers and student project teams. There are no eligibility restrictions, and board games are welcome too.</li><li><strong>Visitors</strong>: players who want to meet developers from different schools and get an early try of games in development.</li></ul><p>Both exhibitors and visitors must sign up on the event page, and the organizers review every application. Once the booths are full, applications are paused; whether there will be a waitlist depends on the organizers’ announcements.</p>",
+          "city": "Taichung",
+          "venue": "Sixiang Space (2F/5F, No. 130, Gongyuan E. Rd., East Dist., Taichung City)",
+          "fee": "Free (sign-up required, subject to approval)",
+          "agenda": [
+            {
+              "time": "08:30",
+              "item": "Exhibitors arrive and set up their booths"
+            },
+            {
+              "time": "09:30",
+              "item": "Doors open to visitors"
+            }
+          ],
+          "audience": [
+            "Indie game teams",
+            "Student project teams",
+            "Board game designers",
+            "Players who want an early look at new games"
+          ]
+        },
+        "ja": {
+          "title": "2026 異校 x GameWorks ゲーム交流デー",
+          "summary": "開発中のゲームを持ち寄ってブースを出し、初めて遊ぶ人にその場で試遊してもらって、フィードバックを受け取るイベント。デジタルゲームもボードゲームも出展でき、学生のプロジェクト作品も歓迎です。",
+          "description": "<p>GameWorks が広めているのが「白紙テスト」。あなたの作品にまったく触れたことのないプレイヤーに実際に遊んでもらい、いちばん率直なフィードバックを得る方法です。どんなに初期の段階でもかまいません。遊べる状態なら出展を申し込めます。</p><h3>参加できる人</h3><ul><li><strong>出展チーム</strong>：インディーゲーム開発チーム、個人開発者、学生のプロジェクトチームなど、立場は問いません。ボードゲームも出展できます。</li><li><strong>来場者</strong>：いろいろな学校の開発者と交流したい人や、開発中の作品をひと足先に遊びたいプレイヤー。</li></ul><p>出展・来場のどちらもイベントページでの申し込みが必要で、主催者の審査があります。ブースが埋まった時点で受付を停止し、キャンセル待ちを受け付けるかどうかは主催者の告知によります。</p>",
+          "city": "台中",
+          "venue": "思享空間（台中市東区公園東路130号 2階／5階）",
+          "fee": "無料（要申し込み・主催者の審査あり）",
+          "agenda": [
+            {
+              "time": "08:30",
+              "item": "出展者入場、ブース設営"
+            },
+            {
+              "time": "09:30",
+              "item": "来場者の入場開始"
+            }
+          ],
+          "audience": [
+            "インディーゲーム開発チーム",
+            "学生のプロジェクトチーム",
+            "ボードゲームデザイナー",
+            "開発中の作品をいち早く遊びたいプレイヤー"
+          ]
+        },
+        "ko": {
+          "title": "2026 異校 x GameWorks 게임 교류의 날",
+          "summary": "개발 중인 게임으로 부스를 열어, 그 게임을 처음 접하는 사람들이 현장에서 직접 플레이해 보게 하고 피드백을 받아요. 비디오 게임과 보드게임 모두 가능하고, 학생 프로젝트도 환영해요.",
+          "description": "<p>GameWorks는 ‘백지 테스트’를 알리고 있어요. 내 작품을 한 번도 접해 본 적 없는 플레이어가 직접 플레이하게 해서 가장 직접적인 피드백을 받는 방식이에요. 아무리 초기 단계라도 플레이만 할 수 있으면 부스를 신청할 수 있어요.</p><h3>참가 대상</h3><ul><li><strong>참가팀</strong>: 인디 게임 팀, 개인 개발자, 학생 프로젝트 팀 등 자격 제한이 없고, 보드게임도 가능해요.</li><li><strong>관람객</strong>: 여러 학교의 개발자와 교류하고, 개발 중인 작품을 먼저 플레이해 보고 싶은 플레이어.</li></ul><p>부스 참가와 관람 모두 행사 페이지에서 신청해야 하고, 주최 측이 심사해요. 부스가 다 차면 접수를 멈추며, 대기 신청 여부는 주최 측 공지를 따라요.</p>",
+          "city": "타이중",
+          "venue": "쓰샹 공간(思享空間), 타이중시 둥구 궁위안둥루 130호 2층/5층",
+          "fee": "무료 (신청 후 주최 측 심사)",
+          "agenda": [
+            {
+              "time": "08:30",
+              "item": "참가팀 입장, 부스 설치"
+            },
+            {
+              "time": "09:30",
+              "item": "관람객 입장 시작"
+            }
+          ],
+          "audience": [
+            "인디 게임 팀",
+            "학생 프로젝트 팀",
+            "보드게임 디자이너",
+            "개발 중인 게임을 먼저 해 보고 싶은 플레이어"
+          ]
+        }
+      }
+    },
+    "digigame-expo-2026": {
+      "source": {
+        "title": "デジゲー博 2026（Digital Game Expo）",
+        "summary": "東京秋葉原的同人與獨立數位遊戲展示販售會，可以試玩大量日本獨立作品。參展報名已截止，可以入場參觀。",
+        "city": "東京・日本",
+        "venue": "秋葉原 UDX 2F AKIBA_SQUARE、4F UDX GALLERY（東京都千代田區外神田 4-14-1）",
+        "fee": "詳見活動官網",
+        "description": "<p>只收同人與獨立數位遊戲的展示販售會，這屆約 250 個攤位。</p><ul><li>時間：日本時間 11:00–16:00（預定，台灣時間 10:00–15:00）</li><li>參展報名已於 8/31 截止，而且需要日本國內的郵寄地址；這次適合以參觀者身分去試玩、交流。</li></ul><p>入場方式與費用請見官網。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "獨立遊戲開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Digital Game Expo 2026",
+          "summary": "A show-and-sell event in Akihabara, Tokyo, for doujin and indie digital games, with lots of Japanese indie games to play. Exhibitor sign-ups have closed, but you can still attend as a visitor.",
+          "description": "<p>An exhibition and sales event exclusively for doujin and indie digital games, with about 250 booths this year.</p><ul><li>Hours: 11:00–16:00 Japan time (planned; 10:00–15:00 Taiwan time)</li><li>Exhibitor sign-ups closed on August 31 and required a mailing address in Japan, so this time it’s best to go as a visitor to play games and meet people.</li></ul><p>See the official website for admission details and fees.</p>",
+          "city": "Tokyo, Japan",
+          "venue": "Akihabara UDX, 2F AKIBA_SQUARE and 4F UDX GALLERY (4-14-1 Sotokanda, Chiyoda-ku, Tokyo)",
+          "fee": "See the official website",
+          "audience": [
+            "Players",
+            "Indie game developers"
+          ]
+        },
+        "ja": {
+          "title": "デジゲー博2026",
+          "summary": "東京・秋葉原で開かれる、同人・インディーのデジタルゲーム展示即売会。日本のインディー作品をたくさん試遊できます。出展申し込みは締め切られましたが、来場は可能です。",
+          "description": "<p>同人・インディーのデジタルゲームだけを扱う展示即売会で、今回は約250ブースが並びます。</p><ul><li>時間：日本時間11:00〜16:00（予定。台湾時間10:00〜15:00）</li><li>出展申し込みは8月31日に締め切られました。また、出展には日本国内の郵便物を受け取れる住所が必要なので、今回は来場者として試遊や交流を楽しむのがよいでしょう。</li></ul><p>入場方法と料金は公式サイトをご確認ください。</p>",
+          "city": "日本・東京",
+          "venue": "秋葉原UDX 2階 アキバ・スクエア、4階 UDXギャラリー（東京都千代田区外神田4-14-1）",
+          "fee": "公式サイト参照",
+          "audience": [
+            "プレイヤー",
+            "インディーゲーム開発者"
+          ]
+        },
+        "ko": {
+          "title": "디지게박 2026 (Digital Game Expo)",
+          "summary": "도쿄 아키하바라에서 열리는 동인·인디 디지털 게임 전시 판매회로, 일본 인디 작품을 많이 플레이해 볼 수 있어요. 전시 참가 신청은 마감되었고, 관람객으로 입장할 수 있어요.",
+          "description": "<p>디지게박(デジゲー博)은 동인·인디 디지털 게임만 다루는 전시 판매회로, 이번 회차 부스는 약 250개예요.</p><ul><li>시간: 일본 시간 11:00~16:00(예정, 대만 시간 10:00~15:00)</li><li>전시 참가 신청은 8월 31일에 마감되었고, 신청하려면 일본 국내 우편 주소도 있어야 해요. 이번에는 관람객으로 가서 플레이해 보고 교류하기에 좋아요.</li></ul><p>입장 방법과 요금은 공식 웹사이트를 확인하세요.</p>",
+          "city": "도쿄, 일본",
+          "venue": "아키하바라 UDX 2층 AKIBA_SQUARE, 4층 UDX GALLERY (도쿄도 지요다구 소토칸다 4-14-1)",
+          "fee": "공식 웹사이트 참고",
+          "audience": [
+            "플레이어",
+            "인디 게임 개발자"
+          ]
+        }
+      }
+    },
+    "cedec-kyushu-2026": {
+      "source": {
+        "title": "CEDEC+KYUSHU 2026",
+        "summary": "CEDEC 的九州場開發者大會，由 Level-5、CyberConnect2 等福岡遊戲公司籌辦，可以現場參加或線上看回放。",
+        "city": "福岡・日本",
+        "venue": "九州產業大學 1 號館（另有線上回放）",
+        "fee": "實體票：一般 6,000 日圓、學生 2,500 日圓（早鳥）",
+        "description": "<p>由 Level-5、CyberConnect2、Ganbarion、九州產業大學與 CESA 籌辦的開發者大會，主題演講由 Level-5 的日野晃博擔任。</p><h3>票價（含稅，10/30 前為早鳥價）</h3><ul><li>實體：一般 6,000 日圓（之後 7,000）、學生 2,500 日圓（之後 3,500）</li><li>線上：一般 6,500 日圓（之後 7,500）</li><li>實體＋線上：一般 7,000 日圓（之後 8,000）</li><li>高中生以下免費</li></ul><p>線上回放約兩週，議程應以日文為主。開始時間待公布，此處時間為暫定。</p>",
+        "schedule": null,
+        "deadlineLabel": "早鳥票截止",
+        "agenda": null,
+        "audience": [
+          "遊戲開發者",
+          "學生"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "CEDEC+KYUSHU 2026",
+          "summary": "The Kyushu edition of the CEDEC developer conference, organized by Fukuoka game companies such as Level-5 and CyberConnect2. Attend in person or watch the recordings online.",
+          "description": "<p>A developer conference organized by Level-5, CyberConnect2, Ganbarion, Kyushu Sangyo University and CESA. The keynote is by Level-5’s Akihiro Hino.</p><h3>Prices (tax included; early bird until October 30)</h3><ul><li>In person: general ¥6,000 (¥7,000 after), students ¥2,500 (¥3,500 after)</li><li>Online: general ¥6,500 (¥7,500 after)</li><li>In person + online: general ¥7,000 (¥8,000 after)</li><li>Free for high school students and younger</li></ul><p>Online replays are available for about two weeks. Sessions will likely be mostly in Japanese. The start time hasn’t been announced, so the time shown here is provisional.</p>",
+          "city": "Fukuoka, Japan",
+          "venue": "Kyushu Sangyo University, Building 1 (online replays also available)",
+          "fee": "In person: ¥6,000 general, ¥2,500 students (early bird)",
+          "deadlineLabel": "Early bird ends",
+          "audience": [
+            "Game developers",
+            "Students"
+          ]
+        },
+        "ja": {
+          "title": "CEDEC+KYUSHU 2026",
+          "summary": "CEDEC の九州版にあたる開発者カンファレンス。レベルファイブやサイバーコネクトツーなど福岡のゲーム会社が運営し、会場で参加するほか、オンラインのアーカイブ配信でも視聴できます。",
+          "description": "<p>レベルファイブ、サイバーコネクトツー、ガンバリオン、九州産業大学、CESA が運営する開発者カンファレンスです。基調講演はレベルファイブの日野晃博氏が務めます。</p><h3>料金（税込。10月30日までは早期割引価格）</h3><ul><li>リアルパス：一般6,000円（以降7,000円）、学生2,500円（以降3,500円）</li><li>オンラインパス：一般6,500円（以降7,500円）</li><li>レギュラーパス（会場＋オンライン）：一般7,000円（以降8,000円）</li><li>高校生以下は無料</li></ul><p>オンラインのアーカイブ配信は約2週間で、セッションは主に日本語になる見込みです。開始時刻は未発表のため、このページの時刻は暫定です。</p>",
+          "city": "日本・福岡",
+          "venue": "九州産業大学 1号館（オンラインのアーカイブ配信あり）",
+          "fee": "リアルパス：一般6,000円、学生2,500円（早期割引）",
+          "deadlineLabel": "早期割引の期限",
+          "audience": [
+            "ゲーム開発者",
+            "学生"
+          ]
+        },
+        "ko": {
+          "title": "CEDEC+KYUSHU 2026",
+          "summary": "CEDEC의 규슈판 개발자 콘퍼런스로, Level-5, CyberConnect2 등 후쿠오카의 게임 회사들이 준비해요. 현장에서 참가하거나 온라인 다시보기로 볼 수 있어요.",
+          "description": "<p>Level-5, CyberConnect2, Ganbarion, 규슈산업대학, CESA가 함께 준비하는 개발자 콘퍼런스예요. 기조연설은 Level-5의 히노 아키히로가 맡아요.</p><h3>요금 (세금 포함, 10월 30일까지 얼리버드 가격)</h3><ul><li>현장: 일반 6,000엔(이후 7,000엔), 학생 2,500엔(이후 3,500엔)</li><li>온라인: 일반 6,500엔(이후 7,500엔)</li><li>현장+온라인: 일반 7,000엔(이후 8,000엔)</li><li>고등학생 이하 무료</li></ul><p>온라인 다시보기는 약 2주간 볼 수 있고, 세션은 주로 일본어로 진행될 것으로 보여요. 시작 시간은 추후 공개되며, 여기 표시된 시간은 임시예요.</p>",
+          "city": "후쿠오카, 일본",
+          "venue": "규슈산업대학 1호관 (온라인 다시보기도 제공)",
+          "fee": "현장 패스: 일반 6,000엔, 학생 2,500엔 (얼리버드)",
+          "deadlineLabel": "얼리버드 마감",
+          "audience": [
+            "게임 개발자",
+            "학생"
+          ]
+        }
+      }
+    },
+    "g-con-2026": {
+      "source": {
+        "title": "G-CON 2026（G-STAR 開發者大會）",
+        "summary": "G-STAR 同期的遊戲開發者大會，今年的主題包括敘事、主機、設計與美術。通行證也可以進一般展區。",
+        "city": "釜山・韓國",
+        "venue": "BEXCO 會議廳",
+        "fee": "預售：一般 200,000 韓元、學生 120,000 韓元",
+        "description": "<p>G-STAR 期間舉辦的開發者大會，今年的主題標籤有敘事、主機、說故事、設計與美術，議程還在陸續公布。</p><h3>票價（含稅）</h3><ul><li>預售（至 11/15）：一般 200,000 韓元、學生 120,000 韓元</li><li>現場：一般 300,000 韓元、學生 250,000 韓元</li></ul><p>學生票限 2008 年 1 月 1 日以後出生者。G-CON 通行證在 11/19–11/22 中午 12 點後也可以進一般展區，順便逛獨立遊戲展區。是否提供口譯尚未公布，議程時間待公布，此處時間為暫定。</p>",
+        "schedule": null,
+        "deadlineLabel": "預售價截止",
+        "agenda": null,
+        "audience": [
+          "遊戲開發者",
+          "學生"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "G-CON 2026 (G-STAR Developer Conference)",
+          "summary": "A game developer conference held alongside G-STAR. This year’s topics include narrative, console, design and art. The pass also gets you into the public exhibition.",
+          "description": "<p>A developer conference held during G-STAR. This year’s topic tags are narrative, console, storytelling, design and art, and sessions are still being announced.</p><h3>Prices (tax included)</h3><ul><li>Advance (until November 15): general ₩200,000, students ₩120,000</li><li>On site: general ₩300,000, students ₩250,000</li></ul><p>Student tickets are only for people born on or after January 1, 2008. From November 19 to 22, the G-CON pass also gets you into the public exhibition after 12:00 (noon), so you can visit the indie game area too. Interpretation hasn’t been confirmed either way, and session times are still to be announced, so the times shown here are provisional.</p>",
+          "city": "Busan, South Korea",
+          "venue": "BEXCO Convention Hall",
+          "fee": "Advance: ₩200,000 general, ₩120,000 students",
+          "deadlineLabel": "Advance price ends",
+          "audience": [
+            "Game developers",
+            "Students"
+          ]
+        },
+        "ja": {
+          "title": "G-CON 2026（G-STAR の開発者カンファレンス）",
+          "summary": "G-STAR と同時期に開かれるゲーム開発者カンファレンス。今年のテーマはナラティブ、コンソール、デザイン、アートなどです。パスがあれば一般展示エリアにも入れます。",
+          "description": "<p>G-STAR の会期中に開かれる開発者カンファレンスで、今年のテーマタグはナラティブ、コンソール、ストーリーテリング、デザイン、アートです。セッションは順次発表されています。</p><h3>料金（税込）</h3><ul><li>事前登録（11月15日まで）：一般20万ウォン、学生12万ウォン</li><li>当日登録：一般30万ウォン、学生25万ウォン</li></ul><p>学生パスは2008年1月1日以降に生まれた人が対象です。G-CON のパスがあれば、11月19日〜22日の12:00以降は一般展示エリアにも入れるので、インディーゲームの展示もあわせて回れます。通訳の有無とセッションの時間は未発表で、このページの時刻は暫定です。</p>",
+          "city": "韓国・釜山",
+          "venue": "BEXCO コンベンションホール",
+          "fee": "事前登録：一般20万ウォン、学生12万ウォン",
+          "deadlineLabel": "事前登録の締め切り",
+          "audience": [
+            "ゲーム開発者",
+            "学生"
+          ]
+        },
+        "ko": {
+          "title": "G-CON 2026 (지스타 개발자 콘퍼런스)",
+          "summary": "지스타 기간에 열리는 게임 개발자 콘퍼런스예요. 올해 주제는 내러티브, 콘솔, 디자인, 아트 등이고, 패스로 일반 전시관에도 들어갈 수 있어요.",
+          "description": "<p>지스타 기간에 열리는 개발자 콘퍼런스예요. 올해 주제 태그는 내러티브, 콘솔, 스토리텔링, 디자인, 아트이고, 세션은 계속 공개되고 있어요.</p><h3>요금 (VAT 포함)</h3><ul><li>사전 등록(11월 15일까지): 일반 200,000원, 학생 120,000원</li><li>현장 등록: 일반 300,000원, 학생 250,000원</li></ul><p>학생 패스는 2008년 1월 1일 이후 출생자만 구매할 수 있어요. G-CON 패스가 있으면 11월 19~22일 낮 12시 이후 일반 전시관에도 입장할 수 있어서 인디 게임 전시도 함께 둘러볼 수 있어요. 통역 제공 여부는 아직 발표되지 않았고, 세션 시간도 추후 공개돼요. 여기 표시된 시간은 임시예요.</p>",
+          "city": "부산, 한국",
+          "venue": "벡스코 컨벤션홀",
+          "fee": "사전 등록: 일반 200,000원, 학생 120,000원",
+          "deadlineLabel": "사전 등록가 적용 마감",
+          "audience": [
+            "게임 개발자",
+            "학생"
+          ]
+        }
+      }
+    },
+    "g-star-2026": {
+      "source": {
+        "title": "G-STAR 2026（지스타，韓國國際遊戲展）",
+        "summary": "韓國最大的遊戲展，一般展區 11/19–11/22 開放，裡面有獨立遊戲展區「Indie Showcase 2.0: Galaxy」。",
+        "city": "釜山・韓國",
+        "venue": "BEXCO 會展中心（另有 G-STAR TV 線上轉播）",
+        "fee": "一般門票待公布；商務票預售 200,000 韓元",
+        "description": "<p>由韓國遊戲產業協會主辦的年度大展。</p><h3>日程</h3><ul><li>11/18（三）：大韓民國遊戲大賞</li><li>11/19–11/22：一般展區（BTC）與獨立遊戲展區 Indie Showcase 2.0: Galaxy（BEXCO 第二展示場 1 樓）</li><li>11/19–11/21：商務展區（BTB），韓國時間 10:00–18:00</li><li>11/19–11/20：<a href=\"https://www.gstar.or.kr/conference/conf_info.do\">G-CON 開發者大會</a></li></ul><h3>獨立開發者</h3><p>今年 Indie Showcase 的參展徵件（9/2–9/15）已截止，海外作品也可以報名，明年預計同一時期開放。想談發行或投資可以買商務票，另有英文的線上商務媒合系統。</p><p>一般入場票價與開放時間待公布，此處時間為暫定（韓國比台灣快 1 小時）。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "獨立遊戲團隊",
+          "遊戲業者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "G-STAR 2026",
+          "summary": "Korea’s biggest game show. The public exhibition is open November 19–22 and includes an indie game area, Indie Showcase 2.0: Galaxy.",
+          "description": "<p>A major annual show organized by the Korea Association of Game Industry.</p><h3>Schedule</h3><ul><li>Wednesday, November 18: Korea Game Awards</li><li>November 19–22: public exhibition (BTC) and the indie area Indie Showcase 2.0: Galaxy (BEXCO Exhibition Center 2, 1F)</li><li>November 19–21: business exhibition (BTB), 10:00–18:00 Korea time</li><li>November 19–20: <a href=\"https://www.gstar.or.kr/conference/conf_info.do\">G-CON developer conference</a></li></ul><h3>For indie developers</h3><p>This year’s call for Indie Showcase exhibitors (September 2–15) has closed. Games from outside Korea were eligible too, and next year’s call is expected around the same time. To talk publishing or investment, get a business ticket; there’s also an online business matchmaking system in English.</p><p>General admission prices and opening hours haven’t been announced, so the times shown here are provisional (Korea is 1 hour ahead of Taiwan).</p>",
+          "city": "Busan, South Korea",
+          "venue": "BEXCO (also streamed online on G-STAR TV)",
+          "fee": "General tickets TBA; business pass ₩200,000 in advance",
+          "audience": [
+            "Players",
+            "Indie game teams",
+            "Game industry professionals"
+          ]
+        },
+        "ja": {
+          "title": "G-STAR 2026",
+          "summary": "韓国最大のゲームショウ。一般展示は11月19日〜22日で、会場にはインディーゲームの展示エリア「Indie Showcase 2.0: Galaxy」も設けられます。",
+          "description": "<p>韓国ゲーム産業協会が主催する、年に一度の大規模なゲームショウです。</p><h3>日程</h3><ul><li>11月18日（水）：大韓民国ゲーム大賞</li><li>11月19日〜22日：一般展示（BTC）とインディーゲーム展示 Indie Showcase 2.0: Galaxy（BEXCO 第2展示場 1階）</li><li>11月19日〜21日：ビジネス展示（BTB）、韓国時間10:00〜18:00</li><li>11月19日〜20日：<a href=\"https://www.gstar.or.kr/conference/conf_info.do\">G-CON（開発者カンファレンス）</a></li></ul><h3>インディー開発者向け</h3><p>今年の Indie Showcase の出展募集（9月2日〜15日）は終了しました。海外の作品も応募でき、来年も同じ時期に募集が始まる見込みです。パブリッシングや投資の相談をしたいなら、ビジネスチケットの購入を。英語対応のオンライン・ビジネスマッチングシステムもあります。</p><p>一般入場の料金と開場時間は未発表で、このページの時刻は暫定です（韓国は台湾より1時間進んでいます）。</p>",
+          "city": "韓国・釜山",
+          "venue": "BEXCO（G-STAR TV でオンライン配信あり）",
+          "fee": "一般チケットは未発表／ビジネスチケット事前登録20万ウォン",
+          "audience": [
+            "プレイヤー",
+            "インディーゲーム開発チーム",
+            "ゲーム業界関係者"
+          ]
+        },
+        "ko": {
+          "title": "지스타 2026",
+          "summary": "한국 최대 게임 전시회예요. 일반 전시관은 11월 19~22일에 열리고, 그 안에 인디 게임 전시 ‘인디 쇼케이스 2.0: Galaxy’가 있어요.",
+          "description": "<p>한국게임산업협회가 주최하는 연례 대형 게임 전시회예요.</p><h3>일정</h3><ul><li>11월 18일(수): 대한민국 게임대상</li><li>11월 19~22일: 일반 전시관(BTC)과 인디 게임 전시 ‘인디 쇼케이스 2.0: Galaxy’(벡스코 제2전시장 1층)</li><li>11월 19~21일: 비즈니스 전시관(BTB), 한국 시간 10:00~18:00</li><li>11월 19~20일: <a href=\"https://www.gstar.or.kr/conference/conf_info.do\">G-CON 개발자 콘퍼런스</a></li></ul><h3>인디 개발자</h3><p>올해 인디 쇼케이스 전시 모집(9월 2~15일)은 마감되었어요. 해외 작품도 신청할 수 있고, 내년에도 같은 시기에 모집할 예정이에요. 퍼블리싱이나 투자를 논의하고 싶다면 BTB 입장권을 사면 되고, 영어로 된 온라인 비즈니스 매칭 시스템도 있어요.</p><p>일반 입장권 가격과 운영 시간은 추후 공개되며, 여기 표시된 시간은 임시예요(한국은 대만보다 1시간 빨라요).</p>",
+          "city": "부산, 한국",
+          "venue": "벡스코 (지스타 TV 온라인 중계 병행)",
+          "fee": "일반 입장권 추후 공개, BTB 입장권 사전 등록 200,000원",
+          "audience": [
+            "플레이어",
+            "인디 게임 팀",
+            "게임 업계 관계자"
+          ]
+        }
+      }
+    },
+    "kobe-game-labyrinth-2026": {
+      "source": {
+        "title": "神戸ゲームラビリンス 2026（神戶遊戲迷宮）",
+        "summary": "在神戶電子專門學校舉辦的獨立遊戲展，參展和入場都免費，個人、社團、公司都可以報名擺攤。",
+        "city": "神戶・日本",
+        "venue": "神戸電子専門学校 学生会館 4F（兵庫縣神戶市中央區加納町 2-1-15）",
+        "fee": "免費入場、免費參展",
+        "description": "<p>第三屆的神戶遊戲迷宮，與神戶電子專門學校的校慶同期舉辦。2025 年有 54 款遊戲參展、約 400 人入場。</p><ul><li>時間：日本時間 11:00–17:00（台灣時間 10:00–16:00）</li><li>參展報名：透過官網的 Google 表單，<strong>日本時間 10/4 23:59 截止</strong>，表單內附參展規約。</li><li>交通：JR 三宮站步行約 8 分鐘，新神戶站（新幹線）步行約 10 分鐘。</li></ul><p>海外團隊能不能參展，官網沒有寫明，請先看表單內的規約。</p>",
+        "schedule": null,
+        "deadlineLabel": "參展報名截止",
+        "agenda": null,
+        "audience": [
+          "獨立遊戲團隊",
+          "學生",
+          "玩家"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Kobe Game Labyrinth 2026",
+          "summary": "An indie game show at Kobe Denshi Technical College. It’s free to exhibit and free to attend, and individuals, groups and companies can all apply for a booth.",
+          "description": "<p>The third Kobe Game Labyrinth, held at the same time as Kobe Denshi Technical College’s school festival. In 2025, 54 games were exhibited and about 400 people attended.</p><ul><li>Hours: 11:00–17:00 Japan time (10:00–16:00 Taiwan time)</li><li>Exhibitor sign-up: through the Google Form on the official website, <strong>closing October 4, 23:59 Japan time</strong>. The exhibitor terms are included in the form.</li><li>Getting there: about 8 minutes’ walk from JR Sannomiya Station, or about 10 minutes’ walk from Shin-Kobe Station (Shinkansen).</li></ul><p>The official website doesn’t say whether overseas teams can exhibit, so read the terms in the form first.</p>",
+          "city": "Kobe, Japan",
+          "venue": "Kobe Denshi Technical College, Student Hall 4F (2-1-15 Kano-cho, Chuo-ku, Kobe, Hyogo)",
+          "fee": "Free to attend and to exhibit",
+          "deadlineLabel": "Exhibitor deadline",
+          "audience": [
+            "Indie game teams",
+            "Students",
+            "Players"
+          ]
+        },
+        "ja": {
+          "title": "神戸ゲームラビリンス2026",
+          "summary": "神戸電子専門学校で開かれるインディーゲーム展示会。出展も入場も無料で、個人・サークル・法人を問わず出展を申し込めます。",
+          "description": "<p>3回目となる神戸ゲームラビリンスは、神戸電子専門学校の学園祭と同時に開かれます。2025年は54タイトルが出展し、約400人が来場しました。</p><ul><li>時間：日本時間11:00〜17:00（台湾時間10:00〜16:00）</li><li>出展申し込み：公式サイトの Google フォームから受け付けています。<strong>日本時間10月4日23:59締め切り</strong>。出展規約はフォーム内に記載されています。</li><li>アクセス：JR三ノ宮駅から徒歩約8分、新神戸駅（新幹線）から徒歩約10分。</li></ul><p>海外チームが出展できるかどうかは公式サイトに明記されていません。まずはフォーム内の規約をご確認ください。</p>",
+          "city": "日本・神戸",
+          "venue": "神戸電子専門学校 学生会館4F（兵庫県神戸市中央区加納町2-1-15）",
+          "fee": "入場無料・出展無料",
+          "deadlineLabel": "出展申し込み締め切り",
+          "audience": [
+            "インディーゲーム開発チーム",
+            "学生",
+            "プレイヤー"
+          ]
+        },
+        "ko": {
+          "title": "고베 게임 라비린스 2026",
+          "summary": "고베전자전문학교에서 열리는 인디 게임 전시회로, 전시 참가와 입장 모두 무료예요. 개인, 서클, 회사 누구나 부스를 신청할 수 있어요.",
+          "description": "<p>올해로 3회째인 고베 게임 라비린스(神戸ゲームラビリンス)는 고베전자전문학교 학교 축제와 같은 기간에 열려요. 2025년에는 54개 게임이 전시되었고 약 400명이 방문했어요.</p><ul><li>시간: 일본 시간 11:00~17:00(대만 시간 10:00~16:00)</li><li>전시 참가 신청: 공식 웹사이트의 Google 폼으로 신청하며, <strong>일본 시간 10월 4일 23:59 마감</strong>이에요. 전시 규약은 폼 안에 있어요.</li><li>교통: JR 산노미야역에서 도보 약 8분, 신고베역(신칸센)에서 도보 약 10분</li></ul><p>해외 팀이 전시에 참가할 수 있는지는 공식 웹사이트에 나와 있지 않으니, 먼저 폼 안의 규약을 확인하세요.</p>",
+          "city": "고베, 일본",
+          "venue": "고베전자전문학교 학생회관 4층 (효고현 고베시 주오구 가노초 2-1-15)",
+          "fee": "입장 무료, 전시 참가 무료",
+          "deadlineLabel": "전시 참가 신청 마감",
+          "audience": [
+            "인디 게임 팀",
+            "학생",
+            "플레이어"
+          ]
+        }
+      }
+    },
+    "weplay-expo-2026": {
+      "source": {
+        "title": "WePlay 文化展 2026（十週年）",
+        "summary": "中國規模最大的獨立遊戲展，由 CiGA 主辦，今年十週年。indiePlay 中國獨立遊戲大賽的入圍展示與頒獎也在這裡。",
+        "city": "上海・中國",
+        "venue": "國家會展中心（上海）2.2 號館",
+        "fee": "詳見活動官網",
+        "description": "<p>WePlay 文化展由 CiGA 主辦，主辦單位稱它是中國最大的獨立遊戲展。2025 年有 300 多家參展商、來自 13 個國家與地區，500 多款遊戲、約兩萬人入場。今年十週年，場地從原本公布的世博展覽館 H3 館改到國家會展中心 2.2 號館。</p><ul><li>indiePlay 中國獨立遊戲大賽的入圍作品會在「indiePlay 入圍區」展出，頒獎典禮在 11/22 的主舞台舉行。</li><li>想參展可以聯絡主辦單位 CiGA：simon@ciga.me、nasij@ciga.me。官方文章提到越來越多海外開發者透過 WePlay 認識中國玩家，官網首頁的合作展會也列了台北國際電玩展。</li></ul><p>日期來自主辦單位公眾號公告；開放時間與票價尚未公布，此處時間為暫定。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "獨立遊戲團隊",
+          "玩家",
+          "發行商"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "WePlay Expo 2026 (10th Anniversary)",
+          "summary": "China’s largest indie game show, run by CiGA and marking its 10th anniversary this year. It also hosts the finalist showcase and awards ceremony of indiePlay, China’s indie game awards.",
+          "description": "<p>WePlay Expo is run by CiGA, which calls it China’s largest indie game show. In 2025 it had more than 300 exhibitors from 13 countries and regions, more than 500 games, and about 20,000 visitors. This year is its 10th anniversary, and the venue has moved from the originally announced Hall H3 of the Shanghai World Expo Exhibition and Convention Center to Hall 2.2 of the National Exhibition and Convention Center.</p><ul><li>Finalists of indiePlay, China’s indie game awards, are shown in the indiePlay finalists zone, and the awards ceremony takes place on the main stage on November 22.</li><li>To exhibit, contact the organizer, CiGA: simon@ciga.me or nasij@ciga.me. An official article notes that more and more overseas developers are reaching Chinese players through WePlay, and the partner shows listed on the official homepage include Taipei Game Show.</li></ul><p>The dates come from an announcement on the organizer’s WeChat official account. Opening hours and ticket prices haven’t been announced, so the times shown here are provisional.</p>",
+          "city": "Shanghai, China",
+          "venue": "National Exhibition and Convention Center (Shanghai), Hall 2.2",
+          "fee": "See the official website",
+          "audience": [
+            "Indie game teams",
+            "Players",
+            "Publishers"
+          ]
+        },
+        "ja": {
+          "title": "WePlay 文化展 2026（10周年）",
+          "summary": "CiGA が主催する中国最大のインディーゲーム展示会で、今年で10周年。indiePlay 中国インディーゲームコンテストのノミネート作品展示と授賞式もここで行われます。",
+          "description": "<p>WePlay 文化展は CiGA が主催するイベントで、主催者は中国最大のインディーゲーム展示会だとしています。2025年は13の国と地域から300社以上が出展し、ゲームは500本以上、来場者は約2万人でした。10周年となる今年は、会場が当初発表の世博展覧館 H3館から国家会展中心 2.2号館に変わりました。</p><ul><li>indiePlay 中国インディーゲームコンテストのノミネート作品は「indiePlay ノミネートエリア」で展示され、授賞式は11月22日にメインステージで行われます。</li><li>出展したい場合は、主催の CiGA（simon@ciga.me、nasij@ciga.me）に問い合わせてください。公式の記事では、WePlay を通じて中国のプレイヤーと出会う海外開発者が増えていると紹介されています。公式サイトのトップページにも、提携イベントとして台北ゲームショウが挙がっています。</li></ul><p>日程は主催者の WeChat 公式アカウントでの告知によるものです。開場時間と料金は未発表で、このページの時刻は暫定です。</p>",
+          "city": "中国・上海",
+          "venue": "国家会展中心（上海）2.2号館",
+          "fee": "公式サイト参照",
+          "audience": [
+            "インディーゲーム開発チーム",
+            "プレイヤー",
+            "パブリッシャー"
+          ]
+        },
+        "ko": {
+          "title": "WePlay 문화 전시회 2026 (10주년)",
+          "summary": "CiGA가 주최하는 중국 최대 규모의 인디 게임 전시회로, 올해 10주년이에요. indiePlay 중국 인디 게임 대회의 본선 진출작 전시와 시상식도 여기서 열려요.",
+          "description": "<p>WePlay 문화 전시회는 CiGA가 주최하며, 주최 측은 중국 최대의 인디 게임 전시회라고 소개해요. 2025년에는 13개 국가와 지역에서 300여 곳이 참가했고, 게임 500여 개가 나왔으며 약 2만 명이 방문했어요. 올해는 10주년으로, 장소가 처음 발표된 세계박람회 전시관 H3관에서 국가컨벤션전시센터 2.2관으로 바뀌었어요.</p><ul><li>indiePlay 중국 인디 게임 대회 본선 진출작은 ‘indiePlay 본선 진출작 존’에 전시되고, 시상식은 11월 22일 메인 무대에서 열려요.</li><li>전시에 참가하고 싶다면 주최 측 CiGA(simon@ciga.me, nasij@ciga.me)에 연락하세요. 공식 글에서는 WePlay를 통해 중국 플레이어를 만나는 해외 개발자가 늘고 있다고 소개하고, 공식 웹사이트 첫 페이지의 파트너 전시회 목록에도 타이베이 게임쇼가 올라 있어요.</li></ul><p>날짜는 주최 측 위챗 공식 계정 공지를 따랐어요. 운영 시간과 티켓 가격은 아직 발표되지 않았고, 여기 표시된 시간은 임시예요.</p>",
+          "city": "상하이, 중국",
+          "venue": "국가컨벤션전시센터(상하이) 2.2관",
+          "fee": "공식 웹사이트 참고",
+          "audience": [
+            "인디 게임 팀",
+            "플레이어",
+            "퍼블리셔"
+          ]
+        }
+      }
+    },
+    "gamesforum-vietnam-2026": {
+      "source": {
+        "title": "Gamesforum Vietnam 2026",
+        "summary": "以越南手機遊戲市場為主題的一日商務大會，聚焦用戶獲取、廣告變現與內購成長，英越雙語並有即時翻譯。",
+        "city": "河內・越南",
+        "venue": "JW Marriott Hanoi",
+        "fee": "海外團隊需購買付費票（最高約 216 英鎊）",
+        "description": "<p>第三屆的 Gamesforum Vietnam，是一天的商務大會與交流活動，不是遊戲展，沒有獨立遊戲攤位徵件。</p><ul><li>主題：越南市場的手機遊戲用戶獲取、廣告變現與內購成長。</li><li>議程以英文與越南文進行，有即時翻譯。</li><li>免費票只給越南本地的手機遊戲工作室與發行商；海外團隊要買付費票，服務商只能以贊助身分參加。活動前 5 天可退票。</li></ul><p>時間為越南時間 08:00–19:00（台灣時間 09:00–20:00）。<a href=\"https://www.eventbrite.co.uk/e/gamesforum-viet-nam-2026-tickets-1998744560786\">購票頁</a></p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "手機遊戲開發者",
+          "發行商"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Gamesforum Vietnam 2026",
+          "summary": "A one-day business conference on Vietnam’s mobile games market, focused on user acquisition, ad monetization and in-app purchase growth. Held in English and Vietnamese, with live interpretation.",
+          "description": "<p>The third Gamesforum Vietnam is a one-day business conference and networking event. It isn’t a game show, and there’s no call for indie game booths.</p><ul><li>Topics: user acquisition, ad monetization and in-app purchase growth for mobile games in the Vietnamese market.</li><li>Sessions are in English and Vietnamese, with live interpretation.</li><li>Free tickets are only for mobile game studios and publishers based in Vietnam. Overseas teams need to buy a paid ticket, and service providers can attend only as sponsors. Refunds are available up to 5 days before the event.</li></ul><p>Hours: 08:00–19:00 Vietnam time (09:00–20:00 Taiwan time). <a href=\"https://www.eventbrite.co.uk/e/gamesforum-viet-nam-2026-tickets-1998744560786\">Ticket page</a></p>",
+          "city": "Hanoi, Vietnam",
+          "venue": "JW Marriott Hanoi",
+          "fee": "Overseas teams need a paid ticket (up to about £216)",
+          "audience": [
+            "Mobile game developers",
+            "Publishers"
+          ]
+        },
+        "ja": {
+          "title": "Gamesforum Vietnam 2026",
+          "summary": "ベトナムのモバイルゲーム市場をテーマにした1日限りのビジネスカンファレンス。ユーザー獲得、広告収益化、アプリ内課金の売上拡大に焦点を当て、英語とベトナム語の2言語で同時通訳も付きます。",
+          "description": "<p>3回目を迎える Gamesforum Vietnam は、1日だけのビジネスカンファレンス兼交流イベントです。ゲームの展示会ではないため、インディーゲームのブース募集はありません。</p><ul><li>テーマ：ベトナム市場におけるモバイルゲームのユーザー獲得、広告収益化、アプリ内課金の売上拡大。</li><li>セッションは英語とベトナム語で進行し、同時通訳があります。</li><li>無料チケットの対象はベトナム国内のモバイルゲームスタジオとパブリッシャーのみです。海外チームは有料チケットを購入する必要があり、サービス事業者はスポンサーとしてしか参加できません。イベントの5日前までは払い戻しができます。</li></ul><p>時間はベトナム時間8:00〜19:00（台湾時間9:00〜20:00）です。<a href=\"https://www.eventbrite.co.uk/e/gamesforum-viet-nam-2026-tickets-1998744560786\">チケット購入ページ</a></p>",
+          "city": "ベトナム・ハノイ",
+          "venue": "JW Marriott Hanoi",
+          "fee": "海外チームは有料チケットが必要（最高約216ポンド）",
+          "audience": [
+            "モバイルゲーム開発者",
+            "パブリッシャー"
+          ]
+        },
+        "ko": {
+          "title": "Gamesforum Vietnam 2026",
+          "summary": "베트남 모바일 게임 시장을 주제로 한 하루짜리 비즈니스 콘퍼런스예요. 유저 획득, 광고 수익화, 인앱 결제 성장을 중점적으로 다루고, 영어와 베트남어로 진행되며 실시간 통역이 있어요.",
+          "description": "<p>올해로 3회째인 Gamesforum Vietnam은 하루 동안 열리는 비즈니스 콘퍼런스이자 네트워킹 행사예요. 게임 전시회가 아니어서 인디 게임 부스 모집은 없어요.</p><ul><li>주제: 베트남 시장의 모바일 게임 유저 획득, 광고 수익화, 인앱 결제 성장.</li><li>세션은 영어와 베트남어로 진행되고 실시간 통역이 있어요.</li><li>무료 티켓은 베트남 현지 모바일 게임 스튜디오와 퍼블리셔에게만 제공돼요. 해외 팀은 유료 티켓을 사야 하고, 서비스 업체는 스폰서로만 참가할 수 있어요. 행사 5일 전까지 환불할 수 있어요.</li></ul><p>베트남 시간 08:00~19:00(대만 시간 09:00~20:00)에 진행돼요. <a href=\"https://www.eventbrite.co.uk/e/gamesforum-viet-nam-2026-tickets-1998744560786\">티켓 구매 페이지</a></p>",
+          "city": "하노이, 베트남",
+          "venue": "JW Marriott Hanoi",
+          "fee": "해외 팀은 유료 티켓 구매 필요 (최대 약 216파운드)",
+          "audience": [
+            "모바일 게임 개발자",
+            "퍼블리셔"
+          ]
+        }
+      }
+    },
+    "indie-developers-conference-2026": {
+      "source": {
+        "title": "Indie Developers Conference 2026（IDC2026）",
+        "summary": "專為獨立與小團隊開發者辦的大會，由 Head High、PLAYISM（Active Gaming Media）與產經數位合辦，詳情待公布。",
+        "city": "日本（地點待公布）",
+        "venue": "詳見活動官網",
+        "fee": "詳見活動官網",
+        "description": "<p>這屆的主題是讓獨立遊戲一直被當作「作品」看待，講者包括獨立開發者與發行商。</p><p>官網目前只公布日期（11/28 週六），地點、時間與票券請見官網，此處時間為暫定。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "獨立遊戲開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Indie Developers Conference 2026 (IDC2026)",
+          "summary": "A conference for indie and small-team developers, co-organized by Head High, PLAYISM (Active Gaming Media) and Sankei Digital. Details to be announced.",
+          "description": "<p>This year’s theme is how indie games can keep being seen as creative works, and the speakers include indie developers and publishers.</p><p>So far the official website has announced only the date (Saturday, November 28). Check it for the venue, times and tickets; the time shown here is provisional.</p>",
+          "city": "Japan (venue TBA)",
+          "venue": "See the official website",
+          "fee": "See the official website",
+          "audience": [
+            "Indie game developers"
+          ]
+        },
+        "ja": {
+          "title": "Indie Developers Conference 2026（IDC2026）",
+          "summary": "インディー・小規模チームの開発者のためのカンファレンス。ヘッドハイ、PLAYISM（アクティブゲーミングメディア）、産経デジタルの共催で、詳細は未発表です。",
+          "description": "<p>今回のテーマは、インディーゲームがこれからも「作品」として受け止められ続けること。登壇するのはインディー開発者やパブリッシャーなどです。</p><p>現時点で公式サイトが発表しているのは、開催日の11月28日（土）だけです。会場、時間、チケットは公式サイトをご確認ください。このページの時刻は暫定です。</p>",
+          "city": "日本（会場は未発表）",
+          "venue": "公式サイト参照",
+          "fee": "公式サイト参照",
+          "audience": [
+            "インディーゲーム開発者"
+          ]
+        },
+        "ko": {
+          "title": "Indie Developers Conference 2026 (IDC2026)",
+          "summary": "인디·소규모 팀 개발자를 위한 콘퍼런스로, Head High, PLAYISM(Active Gaming Media), 산케이디지털이 공동 주최해요. 자세한 내용은 추후 공개돼요.",
+          "description": "<p>이번 행사는 인디 게임을 앞으로도 계속 ‘작품’으로 바라보자는 주제를 내걸었어요. 연사로는 인디 개발자와 퍼블리셔가 나서요.</p><p>공식 웹사이트에는 현재 날짜(11월 28일 토요일)만 나와 있어요. 장소, 시간, 티켓은 공식 웹사이트를 확인하세요. 여기 표시된 시간은 임시예요.</p>",
+          "city": "일본 (장소 추후 공개)",
+          "venue": "공식 웹사이트 참고",
+          "fee": "공식 웹사이트 참고",
+          "audience": [
+            "인디 게임 개발자"
+          ]
+        }
+      }
+    },
+    "siggraph-asia-2026": {
+      "source": {
+        "title": "SIGGRAPH Asia 2026",
+        "summary": "亞洲最大的電腦圖學與互動技術大會，設有遊戲議程與「Indie Showcase」，讓亞洲的遊戲新創展示開發中的作品。",
+        "city": "吉隆坡・馬來西亞",
+        "venue": "吉隆坡會議中心（KLCC）",
+        "fee": "展覽與體驗通行證 25 美元起",
+        "description": "<p>SIGGRAPH Asia 是電腦圖學與互動技術的大會，有獨立的遊戲議程，並不是獨立遊戲展。遊戲議程的 Indie Showcase 讓亞洲的遊戲新創展示開發中的作品，建議準備可試玩的版本（Steam 搶先體驗或公開測試也可以）。官網的投稿說明還沒有寫截止日與流程，是否仍開放或只限邀請，請見官網。</p><h3>通行證（美元，一般價至 11/30）</h3><ul><li>Exhibit &amp; Experience：25 美元（現場 30 美元），可以參加大會議程並逛 12/2–4 的展覽</li><li>Enhanced Access：650 美元</li><li>Full Access：1,175 美元（ACM 會員 1,075 美元、ACM 學生會員 575 美元）</li></ul><p>官網有給國際參加者的簽證資訊。馬來西亞與台灣同時區；每日時間尚未公布，此處時間為暫定。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "技術美術",
+          "程式",
+          "遊戲新創"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "SIGGRAPH Asia 2026",
+          "summary": "Asia’s largest conference on computer graphics and interactive techniques, with a games program and an Indie Showcase where Asian game startups can show games in development.",
+          "description": "<p>SIGGRAPH Asia is a conference on computer graphics and interactive techniques. It has its own games program, but it isn’t an indie game show. The Indie Showcase in the games program lets Asian game startups show games in development; bringing a playable build is recommended (Steam Early Access or a public beta also works). The submission guidelines on the official website don’t yet give a deadline or process, so check there whether it’s still open or invitation-only.</p><h3>Passes (US dollars; regular prices until November 30)</h3><ul><li>Exhibit &amp; Experience: US$25 (US$30 on site); gives access to conference sessions and the December 2–4 exhibition</li><li>Enhanced Access: US$650</li><li>Full Access: US$1,175 (ACM members US$1,075, ACM student members US$575)</li></ul><p>The official website has visa information for international attendees. Malaysia is in the same time zone as Taiwan. Daily hours haven’t been announced, so the times shown here are provisional.</p>",
+          "city": "Kuala Lumpur, Malaysia",
+          "venue": "Kuala Lumpur Convention Centre (KLCC)",
+          "fee": "Exhibit & Experience pass from US$25",
+          "audience": [
+            "Technical artists",
+            "Programmers",
+            "Game startups"
+          ]
+        },
+        "ja": {
+          "title": "SIGGRAPH Asia 2026",
+          "summary": "アジア最大のコンピュータグラフィックスとインタラクティブ技術のカンファレンス。ゲームのプログラムと「Indie Showcase」があり、アジアのゲームスタートアップが開発中の作品を展示できます。",
+          "description": "<p>SIGGRAPH Asia はコンピュータグラフィックスとインタラクティブ技術のカンファレンスです。ゲーム専用のプログラムはありますが、インディーゲームの展示会ではありません。ゲームプログラムの Indie Showcase では、アジアのゲームスタートアップが開発中の作品を展示できます。遊べるバージョンを用意しておくのがおすすめです（Steam の早期アクセスや公開テスト中のものでもかまいません）。公式サイトの応募案内にはまだ締め切りや手続きが書かれていないため、募集が続いているのか招待制なのかは公式サイトでご確認ください。</p><h3>パス（米ドル。通常価格は11月30日まで）</h3><ul><li>Exhibit &amp; Experience：25ドル（当日30ドル）。カンファレンスのプログラムに参加でき、12月2日〜4日の展示も見られます</li><li>Enhanced Access：650ドル</li><li>Full Access：1,175ドル（ACM会員1,075ドル、ACM学生会員575ドル）</li></ul><p>公式サイトには海外参加者向けのビザ情報があります。マレーシアと台湾に時差はありません。毎日の時間は未発表で、このページの時刻は暫定です。</p>",
+          "city": "マレーシア・クアラルンプール",
+          "venue": "クアラルンプール・コンベンションセンター（KLCC）",
+          "fee": "Exhibit & Experience パス 25米ドル〜",
+          "audience": [
+            "テクニカルアーティスト",
+            "プログラマー",
+            "ゲームスタートアップ"
+          ]
+        },
+        "ko": {
+          "title": "SIGGRAPH Asia 2026",
+          "summary": "아시아 최대의 컴퓨터 그래픽스·인터랙티브 기술 콘퍼런스예요. 게임 트랙과 ‘Indie Showcase’가 있어서 아시아 게임 스타트업이 개발 중인 작품을 선보일 수 있어요.",
+          "description": "<p>SIGGRAPH Asia는 컴퓨터 그래픽스와 인터랙티브 기술 콘퍼런스로, 별도의 게임 트랙이 있지만 인디 게임 전시회는 아니에요. 게임 트랙의 Indie Showcase에서는 아시아 게임 스타트업이 개발 중인 작품을 선보일 수 있고, 플레이 가능한 버전을 준비하는 게 좋아요(Steam 앞서 해보기나 공개 테스트 중이어도 괜찮아요). 공식 웹사이트의 제출 안내에는 아직 마감일과 절차가 나와 있지 않으니, 아직 신청을 받는지 초청제인지는 공식 웹사이트를 확인하세요.</p><h3>패스 (미국 달러, 일반 가격은 11월 30일까지)</h3><ul><li>Exhibit &amp; Experience: 25달러(현장 30달러), 콘퍼런스 세션 참가와 12월 2~4일 전시 관람 가능</li><li>Enhanced Access: 650달러</li><li>Full Access: 1,175달러(ACM 회원 1,075달러, ACM 학생 회원 575달러)</li></ul><p>공식 웹사이트에 해외 참가자를 위한 비자 안내가 있어요. 말레이시아는 대만과 같은 시간대이고, 일별 시간은 아직 발표되지 않아서 여기 표시된 시간은 임시예요.</p>",
+          "city": "쿠알라룸푸르, 말레이시아",
+          "venue": "쿠알라룸푸르 컨벤션센터(KLCC)",
+          "fee": "Exhibit & Experience 패스 25달러부터",
+          "audience": [
+            "테크니컬 아티스트",
+            "프로그래머",
+            "게임 스타트업"
+          ]
+        }
+      }
+    },
+    "indie-live-expo-2026-12": {
+      "source": {
+        "title": "INDIE Live Expo 2026.12.1（線上發表會）",
+        "summary": "日本的獨立遊戲線上發表會，以日、中、英、韓四種語言向全球播出。「INDIE Waves」單元開放一般報名，入選作品會在節目中介紹。",
+        "city": "線上（日本主辦）",
+        "venue": "線上直播（平台待公布）",
+        "fee": "免費報名（每組一款；多款或不符條件有付費方案）",
+        "description": "<p>INDIE Live Expo 是日本定期舉辦的獨立遊戲線上發表會，節目以日文、中文、英文、韓文向全球播出。12 月 1 日這一集的「INDIE Waves」單元開放一般報名。</p><h3>報名重點</h3><ul><li>每組（或每位開發者）可以免費報名一款作品；報名多款或不符合條件的作品有付費方案。</li><li>需要準備 15 秒影片，這一集另外要一支 30 秒以上的預告片。</li><li>報名數量多時，最多約選出 80 款。</li><li><strong>報名截止：日本時間 9/29 上午 11:59（台灣時間 10:59）</strong></li></ul><p>播出時間與平台待公布，此處顯示的時間只是暫定。<a href=\"https://indie.live-expo.games/en/entry/\">英文報名頁</a></p>",
+        "schedule": null,
+        "deadlineLabel": "INDIE Waves 報名截止",
+        "agenda": null,
+        "audience": [
+          "想在海外曝光的獨立團隊"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "INDIE Live Expo 2026.12.1 (Online Showcase)",
+          "summary": "A Japanese online indie game showcase broadcast worldwide in four languages: Japanese, Chinese, English and Korean. The INDIE Waves segment is open for general submissions, and selected games are featured on the show.",
+          "description": "<p>INDIE Live Expo is a regular online indie game showcase from Japan, broadcast worldwide in Japanese, Chinese, English and Korean. For the December 1 show, the INDIE Waves segment is open for general submissions.</p><h3>Entry essentials</h3><ul><li>Each team (or solo developer) can enter one game for free. Paid plans are available for entering more games or games that don’t meet the requirements.</li><li>You’ll need a 15-second video, and for this show, a trailer of at least 30 seconds as well.</li><li>If there are many entries, up to about 80 games will be selected.</li><li><strong>Deadline: September 29, 11:59 Japan time (10:59 Taiwan time)</strong></li></ul><p>The broadcast time and platform haven’t been announced; the time shown here is only provisional. <a href=\"https://indie.live-expo.games/en/entry/\">Entry page (English)</a></p>",
+          "city": "Online (hosted in Japan)",
+          "venue": "Livestream (platform TBA)",
+          "fee": "1 free title per team; extra or ineligible titles are paid",
+          "deadlineLabel": "INDIE Waves deadline",
+          "audience": [
+            "Indie teams looking for exposure abroad"
+          ]
+        },
+        "ja": {
+          "title": "INDIE Live Expo 2026.12.1",
+          "summary": "日本発のインディーゲームのオンライン発表会で、日本語・中国語・英語・韓国語の4言語で世界に配信されます。「INDIE Waves」コーナーは一般から応募でき、選ばれた作品が番組内で紹介されます。",
+          "description": "<p>INDIE Live Expo は、日本で定期的に開かれているインディーゲームのオンライン発表会です。番組は日本語・中国語・英語・韓国語で世界に向けて配信されます。12月1日の回では、「INDIE Waves」コーナーへの一般応募を受け付けています。</p><h3>応募のポイント</h3><ul><li>1団体（または開発者1人）につき1タイトルまで無料で応募できます。複数のタイトルや条件に合わない作品には有料プランがあります。</li><li>15秒の動画が必要です。今回はさらに30秒以上のトレーラーも用意してください。</li><li>応募が多い場合、選ばれるのは最大で80本ほどです。</li><li><strong>応募締め切り：日本時間9月29日 午前11:59（台湾時間10:59）</strong></li></ul><p>配信時間とプラットフォームは未発表で、このページの時刻は暫定です。<a href=\"https://indie.live-expo.games/en/entry/\">応募ページ（英語）</a></p>",
+          "city": "オンライン（日本主催）",
+          "venue": "オンライン配信（プラットフォームは未発表）",
+          "fee": "応募無料（1団体1タイトルまで。複数・条件外は有料プランあり）",
+          "deadlineLabel": "INDIE Waves 応募締め切り",
+          "audience": [
+            "海外で作品を知ってもらいたいインディーゲーム開発チーム"
+          ]
+        },
+        "ko": {
+          "title": "INDIE Live Expo 2026.12.1 (온라인 쇼케이스)",
+          "summary": "일본의 인디 게임 온라인 쇼케이스로, 일본어, 중국어, 영어, 한국어 4개 언어로 전 세계에 방송돼요. ‘INDIE Waves’ 코너는 일반 신청을 받고, 선정된 작품은 방송에서 소개돼요.",
+          "description": "<p>INDIE Live Expo는 일본에서 정기적으로 열리는 인디 게임 온라인 쇼케이스로, 방송은 일본어, 중국어, 영어, 한국어로 전 세계에 송출돼요. 12월 1일 방송의 ‘INDIE Waves’ 코너에서 일반 신청을 받아요.</p><h3>신청 전에 알아 둘 점</h3><ul><li>팀(또는 개발자 1명)당 작품 1개는 무료로 신청할 수 있어요. 여러 작품을 신청하거나 조건에 맞지 않는 작품은 유료 플랜이 있어요.</li><li>15초 영상이 필요하고, 이번 방송은 30초 이상의 트레일러도 따로 준비해야 해요.</li><li>신청이 많으면 최대 약 80개 작품을 선정해요.</li><li><strong>신청 마감: 일본 시간 9월 29일 오전 11:59(대만 시간 10:59)</strong></li></ul><p>방송 시간과 플랫폼은 추후 공개되며, 여기 표시된 시간은 임시예요. <a href=\"https://indie.live-expo.games/en/entry/\">영어 신청 페이지</a></p>",
+          "city": "온라인 (일본 주최)",
+          "venue": "온라인 생중계 (플랫폼 추후 공개)",
+          "fee": "무료 신청 (팀당 1개 작품, 여러 작품이나 조건 미충족 시 유료 플랜)",
+          "deadlineLabel": "INDIE Waves 신청 마감",
+          "audience": [
+            "해외에 게임을 알리고 싶은 인디 팀"
+          ]
+        }
+      }
+    },
+    "g-eight-2026": {
+      "source": {
+        "title": "2026 G-EIGHT 遊戲展",
+        "summary": "年底的遊戲展，設有給獨立開發者的「創作者專區」，參展報名開放中。",
+        "city": "台北",
+        "venue": "台北花博公園爭艷館",
+        "fee": "詳見活動官網",
+        "description": "<p>G-EIGHT 遊戲展 2026 年於 12/4（五）–12/6（日）在台北花博公園爭艷館舉辦。</p><p>展會設有「創作者專區」，開放獨立開發團隊報名參展，報名方式與截止日請見<a href=\"https://geight.io/creators-zone-application/\">創作者專區報名頁</a>。</p><p>每日開放時間與票價請以官網公告為準。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "獨立遊戲團隊"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "G-EIGHT Game Show 2026",
+          "summary": "A year-end game show with a Creators Zone for indie developers. Exhibitor sign-ups are open.",
+          "description": "<p>The G-EIGHT Game Show 2026 runs Friday–Sunday, December 4–6, at the Expo Dome in Taipei Expo Park.</p><p>The show has a Creators Zone where indie teams can apply to exhibit. For how to apply and the deadline, see the <a href=\"https://geight.io/creators-zone-application/\">Creators Zone application page</a>.</p><p>Check the official website for daily opening hours and ticket prices.</p>",
+          "city": "Taipei",
+          "venue": "Expo Dome, Taipei Expo Park",
+          "fee": "See the official website",
+          "audience": [
+            "Players",
+            "Indie game teams"
+          ]
+        },
+        "ja": {
+          "title": "G-EIGHT ゲームショウ 2026",
+          "summary": "年末に開かれるゲームショウ。インディー開発者向けのクリエイターエリアがあり、出展申し込みを受け付けています。",
+          "description": "<p>G-EIGHT ゲームショウ 2026 は、12月4日（金）〜6日（日）に台北花博公園 争艶館で開かれます。</p><p>会場にはインディーゲーム開発チームが出展できるクリエイターエリアがあります。申し込み方法と締め切りは<a href=\"https://geight.io/creators-zone-application/\">クリエイターエリアの申し込みページ</a>をご覧ください。</p><p>毎日の開場時間と料金は、公式サイトの告知をご確認ください。</p>",
+          "city": "台北",
+          "venue": "台北花博公園 争艶館",
+          "fee": "公式サイト参照",
+          "audience": [
+            "プレイヤー",
+            "インディーゲーム開発チーム"
+          ]
+        },
+        "ko": {
+          "title": "2026 G-EIGHT 게임쇼",
+          "summary": "연말에 열리는 게임쇼로, 인디 개발자를 위한 ‘크리에이터 존’이 있고 지금 전시 참가 신청을 받고 있어요.",
+          "description": "<p>G-EIGHT 게임쇼는 2026년 12월 4일(금)~6일(일) 타이베이 엑스포 공원 정옌관에서 열려요.</p><p>행사장에는 ‘크리에이터 존’이 있어 인디 개발팀의 전시 참가 신청을 받아요. 신청 방법과 마감일은 <a href=\"https://geight.io/creators-zone-application/\">크리에이터 존 신청 페이지</a>를 확인하세요.</p><p>일별 운영 시간과 티켓 가격은 공식 웹사이트 공지를 따라요.</p>",
+          "city": "타이베이",
+          "venue": "타이베이 엑스포 공원 정옌관(爭艷館)",
+          "fee": "공식 웹사이트 참고",
+          "audience": [
+            "플레이어",
+            "인디 게임 팀"
+          ]
+        }
+      }
+    },
+    "beaver-rocks-2026": {
+      "source": {
+        "title": "BEAVER ROCKS 2026 獨立遊戲與文化祭（비버롹스）",
+        "summary": "Smilegate Future Lab 主辦的首爾獨立遊戲展（前身為 Burning Beaver），可以試玩大量韓國獨立作品。",
+        "city": "首爾・韓國",
+        "venue": "SETEC 第 1、2 展示廳",
+        "fee": "詳見活動官網",
+        "description": "<p>由 Smilegate 未來實驗室主辦、前身為 Burning Beaver 的獨立遊戲與文化祭，官網有韓文與英文。</p><p>今年的參展徵件已截止。入選團隊可以拿到免費攤位、設備、餐點與攤位設計，還有測試夥伴整理的玩家回饋報告，適合明年考慮報名。</p><p>入場方式、票價與開放時間待公布，此處時間為暫定。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "獨立遊戲開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "BEAVER ROCKS 2026 Indie Game & Culture Festival",
+          "summary": "An indie game show in Seoul run by Smilegate Future Lab (formerly Burning Beaver), with lots of Korean indie games to play.",
+          "description": "<p>An indie game and culture festival run by Smilegate Future Lab, formerly known as Burning Beaver. The official website is in Korean and English.</p><p>This year’s call for exhibitors has closed. Selected teams get a free booth, equipment, meals and booth design, plus a player feedback report compiled by a testing partner, so it’s worth considering for next year.</p><p>Admission details, ticket prices and opening hours haven’t been announced, so the times shown here are provisional.</p>",
+          "city": "Seoul, South Korea",
+          "venue": "SETEC Exhibition Halls 1 and 2",
+          "fee": "See the official website",
+          "audience": [
+            "Players",
+            "Indie game developers"
+          ]
+        },
+        "ja": {
+          "title": "BEAVER ROCKS 2026（インディーゲームとカルチャーのフェス）",
+          "summary": "Smilegate Future Lab が主催するソウルのインディーゲーム展示会（前身は Burning Beaver）。韓国のインディー作品をたくさん試遊できます。",
+          "description": "<p>Smilegate Future Lab が主催する、インディーゲームとカルチャーのフェスです。前身は Burning Beaver で、公式サイトは韓国語と英語に対応しています。</p><p>今年の出展募集はすでに終了しました。選ばれたチームには無料ブース、機材、食事、ブースデザインが提供され、テストパートナーがまとめたプレイヤーのフィードバックレポートも受け取れます。来年の応募を考えているなら、チェックしておきたいイベントです。</p><p>入場方法、料金、開場時間は未発表で、このページの時刻は暫定です。</p>",
+          "city": "韓国・ソウル",
+          "venue": "SETEC 第1・第2展示ホール",
+          "fee": "公式サイト参照",
+          "audience": [
+            "プレイヤー",
+            "インディーゲーム開発者"
+          ]
+        },
+        "ko": {
+          "title": "비버롹스 2026 인디 게임·문화 축제",
+          "summary": "스마일게이트 퓨처랩이 주최하는 서울의 인디 게임 전시회로, 전신은 버닝비버예요. 한국 인디 게임을 많이 플레이해 볼 수 있어요.",
+          "description": "<p>비버롹스(BEAVER ROCKS)는 스마일게이트 퓨처랩이 주최하는 인디 게임·문화 축제로, 전신은 버닝비버(Burning Beaver)예요. 공식 웹사이트는 한국어와 영어로 되어 있어요.</p><p>올해 전시 모집은 마감되었어요. 선정된 팀은 무료 부스와 장비, 식사, 부스 디자인을 지원받고, 테스트 파트너가 정리한 플레이어 피드백 리포트도 받을 수 있으니 내년 참가를 고려해 볼 만해요.</p><p>입장 방법, 티켓 가격, 운영 시간은 추후 공개되며, 여기 표시된 시간은 임시예요.</p>",
+          "city": "서울, 한국",
+          "venue": "SETEC 1·2 전시장",
+          "fee": "공식 웹사이트 참고",
+          "audience": [
+            "플레이어",
+            "인디 게임 개발자"
+          ]
+        }
+      }
+    },
+    "osaka-game-dungeon-2": {
+      "source": {
+        "title": "大阪ゲームダンジョン 2（Osaka Game Dungeon）",
+        "summary": "東京ゲームダンジョン的大阪場，獨立遊戲攤位試玩與周邊販售。參展報名已截止，可以入場參觀。",
+        "city": "大阪・日本",
+        "venue": "マイドームおおさか 3F 展示廳 E・F（大阪市中央區本町橋 2-5）",
+        "fee": "詳見活動官網",
+        "description": "<p>由東京ゲームダンジョン團隊在大阪舉辦的獨立遊戲展，參觀者可以試玩作品、購買周邊。</p><ul><li>時間：日本時間 12:00–17:00（台灣時間 11:00–16:00）</li><li>參展報名已截止，門票資訊請見官網。</li></ul>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "獨立遊戲開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Osaka Game Dungeon 2",
+          "summary": "The Osaka edition of Tokyo Game Dungeon, with indie game booths to play at and merch for sale. Exhibitor sign-ups have closed, but you can still attend.",
+          "description": "<p>An indie game show in Osaka from the team behind Tokyo Game Dungeon. Visitors can play games and buy merch.</p><ul><li>Hours: 12:00–17:00 Japan time (11:00–16:00 Taiwan time)</li><li>Exhibitor sign-ups have closed. See the official website for ticket information.</li></ul>",
+          "city": "Osaka, Japan",
+          "venue": "Mydome Osaka, 3F Exhibition Halls E and F (2-5 Honmachibashi, Chuo-ku, Osaka)",
+          "fee": "See the official website",
+          "audience": [
+            "Players",
+            "Indie game developers"
+          ]
+        },
+        "ja": {
+          "title": "大阪ゲームダンジョン2",
+          "summary": "東京ゲームダンジョンの大阪版。インディーゲームのブースで試遊したり、グッズを買ったりできます。出展申し込みは締め切られましたが、来場は可能です。",
+          "description": "<p>東京ゲームダンジョンを手がけるゲームダンジョン事務局が、大阪で開くインディーゲーム展示会です。来場者は作品を試遊したり、グッズを買ったりできます。</p><ul><li>時間：日本時間12:00〜17:00（台湾時間11:00〜16:00）</li><li>出展申し込みは締め切られました。チケット情報は公式サイトをご確認ください。</li></ul>",
+          "city": "日本・大阪",
+          "venue": "マイドームおおさか 3階 展示ホールE・F（大阪市中央区本町橋2-5）",
+          "fee": "公式サイト参照",
+          "audience": [
+            "プレイヤー",
+            "インディーゲーム開発者"
+          ]
+        },
+        "ko": {
+          "title": "오사카 게임 던전 2",
+          "summary": "도쿄 게임 던전의 오사카 행사로, 인디 게임 부스 시연과 굿즈 판매가 열려요. 전시 참가 신청은 마감되었고, 관람객으로 입장할 수 있어요.",
+          "description": "<p>오사카 게임 던전(大阪ゲームダンジョン)은 도쿄 게임 던전 팀이 오사카에서 여는 인디 게임 전시회예요. 관람객은 작품을 플레이해 보고 굿즈를 살 수 있어요.</p><ul><li>시간: 일본 시간 12:00~17:00(대만 시간 11:00~16:00)</li><li>전시 참가 신청은 마감되었고, 티켓 정보는 공식 웹사이트를 확인하세요.</li></ul>",
+          "city": "오사카, 일본",
+          "venue": "마이돔 오사카 3층 전시홀 E·F (오사카시 주오구 혼마치바시 2-5)",
+          "fee": "공식 웹사이트 참고",
+          "audience": [
+            "플레이어",
+            "인디 게임 개발자"
+          ]
+        }
+      }
+    },
+    "taipei-game-show-2027": {
+      "source": {
+        "title": "2027 台北國際電玩展",
+        "summary": "每年開春的大型電玩展，B2C 玩家區 1/21–1/24 開放。INDIE HOUSE 獨立遊戲專區正在受理參展報名，10/14 截止。",
+        "city": "台北",
+        "venue": "南港展覽館 1 館",
+        "fee": "詳見活動官網",
+        "description": "<p>台北市電腦公會主辦的年度電玩展，同期舉辦 APGS 亞太遊戲高峰會。</p><h3>展區與日期</h3><ul><li><strong>B2C 玩家區</strong>：1/21（四）–1/24（日）</li><li><strong>B2B 商務區</strong>：1/21（四）–1/22（五）10:00–17:00</li><li><strong>APGS 亞太遊戲高峰會</strong>：1/21（四）–1/22（五）</li></ul><p>玩家區每日開放時間與票價請以官網公告為準。</p><h3>獨立開發者：INDIE HOUSE</h3><p>INDIE HOUSE 獨立遊戲專區報名至 <strong>10/14（三）</strong>截止，大會審核後預計 10/15（四）以 Email 通知結果。參展作品必須提供可試玩的 Demo。<a href=\"https://tgs.tca.org.tw/indie_application.php\">INDIE HOUSE 報名頁</a></p><p>Indie Game Award 2027 的報名已於 8/19 截止，頒獎典禮預定 2027/1/20 舉行。</p>",
+        "schedule": null,
+        "deadlineLabel": "INDIE HOUSE 報名截止",
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "獨立遊戲團隊",
+          "遊戲業者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Taipei Game Show 2027",
+          "summary": "A major video game show held at the start of every year. The B2C consumer area is open January 21–24. The INDIE HOUSE indie area is taking exhibitor applications until October 14.",
+          "description": "<p>An annual game show organized by the Taipei Computer Association, held alongside APGS, the Asia Pacific Game Summit.</p><h3>Areas and dates</h3><ul><li><strong>B2C consumer area</strong>: Thursday–Sunday, January 21–24</li><li><strong>B2B business area</strong>: Thursday–Friday, January 21–22, 10:00–17:00</li><li><strong>APGS Asia Pacific Game Summit</strong>: Thursday–Friday, January 21–22</li></ul><p>Check the official website for the consumer area’s daily hours and ticket prices.</p><h3>For indie developers: INDIE HOUSE</h3><p>Applications for the INDIE HOUSE indie area close on <strong>Wednesday, October 14</strong>. After review, results are expected to be emailed on Thursday, October 15. Exhibited games must have a playable demo. <a href=\"https://tgs.tca.org.tw/indie_application.php\">INDIE HOUSE application page</a></p><p>Entries for the Indie Game Award 2027 closed on August 19, and the awards ceremony is scheduled for January 20, 2027.</p>",
+          "city": "Taipei",
+          "venue": "Taipei Nangang Exhibition Center, Hall 1",
+          "fee": "See the official website",
+          "deadlineLabel": "INDIE HOUSE deadline",
+          "audience": [
+            "Players",
+            "Indie game teams",
+            "Game industry professionals"
+          ]
+        },
+        "ja": {
+          "title": "台北ゲームショウ2027",
+          "summary": "毎年、年明けに開かれる大型ゲームショウ。B2C の一般エリアは1月21日〜24日です。インディーゲームエリア INDIE HOUSE は出展の応募を受付中で、締め切りは10月14日。",
+          "description": "<p>台北市コンピュータ協会が主催する毎年恒例のゲームショウで、同時期に APGS（アジア太平洋ゲームサミット）も開かれます。</p><h3>エリアと日程</h3><ul><li><strong>B2C 一般エリア</strong>：1月21日（木）〜24日（日）</li><li><strong>B2B ビジネスエリア</strong>：1月21日（木）〜22日（金）10:00〜17:00</li><li><strong>APGS アジア太平洋ゲームサミット</strong>：1月21日（木）〜22日（金）</li></ul><p>一般エリアの毎日の開場時間と料金は、公式サイトの告知をご確認ください。</p><h3>インディー開発者向け：INDIE HOUSE</h3><p>インディーゲームエリア INDIE HOUSE への出展応募は<strong>10月14日（水）</strong>まで。審査のうえ、10月15日（木）にメールで結果が届く予定です。出展作品には試遊できるデモが必要です。<a href=\"https://tgs.tca.org.tw/indie_application.php\">INDIE HOUSE 応募ページ</a></p><p>Indie Game Award 2027 の応募は8月19日に締め切られました。授賞式は2027年1月20日に開かれる予定です。</p>",
+          "city": "台北",
+          "venue": "南港展覧館 1館",
+          "fee": "公式サイト参照",
+          "deadlineLabel": "INDIE HOUSE 応募締め切り",
+          "audience": [
+            "プレイヤー",
+            "インディーゲーム開発チーム",
+            "ゲーム業界関係者"
+          ]
+        },
+        "ko": {
+          "title": "2027 타이베이 게임쇼",
+          "summary": "매년 연초에 열리는 대형 게임쇼로, B2C 일반 관람 구역은 1월 21~24일에 열려요. 인디 게임 존 INDIE HOUSE가 10월 14일까지 전시 참가 신청을 받아요.",
+          "description": "<p>타이베이시 컴퓨터협회가 주최하는 연례 게임쇼로, APGS 아시아태평양 게임 서밋도 같은 기간에 열려요.</p><h3>구역과 일정</h3><ul><li><strong>B2C 일반 관람 구역</strong>: 1월 21일(목)~24일(일)</li><li><strong>B2B 비즈니스 구역</strong>: 1월 21일(목)~22일(금) 10:00~17:00</li><li><strong>APGS 아시아태평양 게임 서밋</strong>: 1월 21일(목)~22일(금)</li></ul><p>일반 관람 구역의 일별 운영 시간과 티켓 가격은 공식 웹사이트 공지를 따라요.</p><h3>인디 개발자: INDIE HOUSE</h3><p>인디 게임 존 INDIE HOUSE는 <strong>10월 14일(수)</strong>까지 신청을 받고, 주최 측이 심사한 뒤 10월 15일(목)에 이메일로 결과를 알려 줄 예정이에요. 전시 작품은 플레이 가능한 데모를 반드시 준비해야 해요. <a href=\"https://tgs.tca.org.tw/indie_application.php\">INDIE HOUSE 신청 페이지</a></p><p>Indie Game Award 2027 신청은 8월 19일에 마감되었고, 시상식은 2027년 1월 20일에 열릴 예정이에요.</p>",
+          "city": "타이베이",
+          "venue": "난강 전시센터 1관",
+          "fee": "공식 웹사이트 참고",
+          "deadlineLabel": "INDIE HOUSE 신청 마감",
+          "audience": [
+            "플레이어",
+            "인디 게임 팀",
+            "게임 업계 관계자"
+          ]
+        }
+      }
+    },
+    "global-game-jam-2027": {
+      "source": {
+        "title": "Global Game Jam 2027",
+        "summary": "全球同步的 Game Jam，2027 年活動週為 1/25–1/31。台灣各會場陸續公布，參加者報名 12/1 開放。",
+        "city": "全台（會場待公布）",
+        "venue": "台灣各會場將陸續公布",
+        "fee": "依各會場公告",
+        "description": "<p>Global Game Jam 是全球規模最大的 Game Jam，各地會場在同一週內依共同主題，用約 48 小時做出遊戲。2027 年的活動週是 <strong>1/25–1/31</strong>。</p><h3>時程</h3><ul><li><strong>11/1</strong>：開放會場登記（想在學校或社群主辦會場的人）</li><li><strong>12/1</strong>：開放參加者報名</li></ul><p>往年台灣在台北、台中、台南、高雄都有會場，由 IGDA 台灣、KIMU 等社群主辦。確切日期與報名方式以各會場公告為準。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "遊戲開發者",
+          "學生",
+          "第一次參加 Jam 的人"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Global Game Jam 2027",
+          "summary": "A game jam held worldwide at the same time; the 2027 jam week is January 25–31. Taiwan sites are being announced, and participant sign-ups open December 1.",
+          "description": "<p>Global Game Jam is the world’s largest game jam: sites everywhere make games on a shared theme in about 48 hours, all within the same week. The 2027 jam week is <strong>January 25–31</strong>.</p><h3>Timeline</h3><ul><li><strong>November 1</strong>: site registration opens (for anyone who wants to host a site at a school or community)</li><li><strong>December 1</strong>: participant sign-ups open</li></ul><p>In past years Taiwan has had sites in Taipei, Taichung, Tainan and Kaohsiung, hosted by communities such as IGDA Taiwan and KIMU. Check each site’s announcements for exact dates and how to sign up.</p>",
+          "city": "Across Taiwan (sites TBA)",
+          "venue": "Taiwan sites to be announced",
+          "fee": "Varies by site",
+          "audience": [
+            "Game developers",
+            "Students",
+            "First-time jammers"
+          ]
+        },
+        "ja": {
+          "title": "Global Game Jam 2027",
+          "summary": "世界中で同時に開かれるゲームジャム。2027年の開催週は1月25日〜31日です。台湾の各会場は順次発表され、参加者の申し込みは12月1日に始まります。",
+          "description": "<p>Global Game Jam は世界最大のゲームジャムです。同じ週に世界各地の会場で、共通のテーマに沿って約48時間でゲームを作ります。2027年の開催週は<strong>1月25日〜31日</strong>です。</p><h3>スケジュール</h3><ul><li><strong>11月1日</strong>：会場登録の受付開始（学校やコミュニティで会場を主催したい人向け）</li><li><strong>12月1日</strong>：参加者の申し込み受付開始</li></ul><p>例年、台湾では台北・台中・台南・高雄に会場があり、IGDA台湾や KIMU などのコミュニティが主催しています。正確な日程と申し込み方法は各会場の告知をご確認ください。</p>",
+          "city": "台湾各地（会場は未発表）",
+          "venue": "台湾の各会場は順次発表",
+          "fee": "会場ごとに告知",
+          "audience": [
+            "ゲーム開発者",
+            "学生",
+            "ゲームジャムに初めて参加する人"
+          ]
+        },
+        "ko": {
+          "title": "Global Game Jam 2027",
+          "summary": "전 세계에서 동시에 열리는 게임잼으로, 2027년 행사 주간은 1월 25~31일이에요. 대만 각 행사장은 차례로 발표되고, 참가자 신청은 12월 1일에 시작해요.",
+          "description": "<p>Global Game Jam은 세계 최대 규모의 게임잼이에요. 각지의 행사장에서 같은 주에 공통 주제로 약 48시간 동안 게임을 만들어요. 2027년 행사 주간은 <strong>1월 25~31일</strong>이에요.</p><h3>일정</h3><ul><li><strong>11월 1일</strong>: 행사장 등록 시작(학교나 커뮤니티에서 행사장을 운영하려는 사람 대상)</li><li><strong>12월 1일</strong>: 참가자 신청 시작</li></ul><p>예년에는 대만의 타이베이, 타이중, 타이난, 가오슝에 행사장이 있었고, IGDA 대만, KIMU 등의 커뮤니티가 주최했어요. 정확한 날짜와 신청 방법은 각 행사장 공지를 따라요.</p>",
+          "city": "대만 전역 (행사장 추후 공개)",
+          "venue": "대만 각 행사장 순차 공개 예정",
+          "fee": "행사장별 공지 참고",
+          "audience": [
+            "게임 개발자",
+            "학생",
+            "게임잼에 처음 참가하는 사람"
+          ]
+        }
+      }
+    },
+    "tokyo-game-dungeon-15": {
+      "source": {
+        "title": "東京ゲームダンジョン 15（Tokyo Game Dungeon）",
+        "summary": "東京的獨立遊戲展，參展攤位先搶先贏、不審核作品，2026 年 11 月開放報名，約 300 個攤位。",
+        "city": "東京・日本",
+        "venue": "東京都立產業貿易中心 濱松町館 2・3 樓展示室",
+        "fee": "詳見活動官網",
+        "description": "<p>東京ゲームダンジョン 15 預定 2027 年 2 月 20 日（六）舉辦。</p><h3>想參展</h3><ul><li>參展報名預定 <strong>2026 年 11 月</strong>開放（日期待公布），先搶先贏、不審核作品，約 300 個攤位，通常很快額滿。</li><li>上一屆的攤位是 180×90 公分的桌子、2 張椅子、2 張參展證，費用 8,500 日圓；這屆以官網公告為準。</li><li>官方簡介寫的是日本國內的個人與小團隊，海外團隊想報名，建議先寫信到 info@tokyogamedungeon.com 確認。</li></ul><p>開放時間待公布，此處時間為暫定。之後還有 5/2 的第 16 屆與 8/8 的第 17 屆。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "獨立遊戲團隊",
+          "玩家"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Tokyo Game Dungeon 15",
+          "summary": "An indie game show in Tokyo. Booths are first come, first served with no curation; exhibitor sign-ups open in November 2026, for about 300 booths.",
+          "description": "<p>Tokyo Game Dungeon 15 is scheduled for Saturday, February 20, 2027.</p><h3>Exhibiting</h3><ul><li>Exhibitor sign-ups are expected to open in <strong>November 2026</strong> (date TBA). Booths are first come, first served with no curation; there are about 300, and they usually fill up fast.</li><li>Last time, a booth was a 180×90 cm table, 2 chairs and 2 exhibitor passes for ¥8,500; for this edition, go by the official website.</li><li>The official description is aimed at individuals and small teams in Japan. If you’re an overseas team, email info@tokyogamedungeon.com to check before applying.</li></ul><p>Opening hours haven’t been announced, so the time shown here is provisional. The 16th edition follows on May 2 and the 17th on August 8.</p>",
+          "city": "Tokyo, Japan",
+          "venue": "Tokyo Metropolitan Industrial Trade Center, Hamamatsucho Building, 2F and 3F exhibition halls",
+          "fee": "See the official website",
+          "audience": [
+            "Indie game teams",
+            "Players"
+          ]
+        },
+        "ja": {
+          "title": "東京ゲームダンジョン15",
+          "summary": "東京のインディーゲーム展示会。出展は先着順で作品の審査はなく、ブースは約300。2026年11月に出展申し込みが始まります。",
+          "description": "<p>東京ゲームダンジョン15は、2027年2月20日（土）に開かれる予定です。</p><h3>出展したい場合</h3><ul><li>出展申し込みは<strong>2026年11月</strong>に始まる予定です（日付は未発表）。先着順で作品の審査はなく、ブースは約300。毎回すぐに埋まります。</li><li>前回のブースは180×90cmの机、椅子2脚、出展者証2枚で、出展料は8,500円でした。今回の内容は公式サイトの告知をご確認ください。</li><li>公式の案内では、対象は日本国内の個人や小規模チームとされています。海外チームで申し込みたい場合は、先に info@tokyogamedungeon.com へメールで確認するのがおすすめです。</li></ul><p>開場時間は未発表で、このページの時刻は暫定です。このあと5月2日に第16回、8月8日に第17回も予定されています。</p>",
+          "city": "日本・東京",
+          "venue": "東京都立産業貿易センター 浜松町館 2・3階展示室",
+          "fee": "公式サイト参照",
+          "audience": [
+            "インディーゲーム開発チーム",
+            "プレイヤー"
+          ]
+        },
+        "ko": {
+          "title": "도쿄 게임 던전 15",
+          "summary": "도쿄의 인디 게임 전시회로, 부스는 선착순이고 작품 심사가 없어요. 2026년 11월에 전시 참가 신청을 받으며, 부스는 약 300개예요.",
+          "description": "<p>도쿄 게임 던전 15(東京ゲームダンジョン 15)는 2027년 2월 20일(토)에 열릴 예정이에요.</p><h3>전시에 참가하려면</h3><ul><li>전시 참가 신청은 <strong>2026년 11월</strong>에 시작할 예정이에요(날짜 추후 공개). 선착순이고 작품 심사가 없으며, 부스는 약 300개로 보통 금방 마감돼요.</li><li>지난 회차 부스는 180×90cm 테이블, 의자 2개, 전시자 패스 2장이었고 비용은 8,500엔이었어요. 이번 회차는 공식 웹사이트 공지를 따라요.</li><li>공식 소개에는 일본 국내의 개인과 소규모 팀이 대상이라고 나와 있어요. 해외 팀이 신청하려면 먼저 info@tokyogamedungeon.com으로 메일을 보내 확인하는 게 좋아요.</li></ul><p>운영 시간은 추후 공개되며, 여기 표시된 시간은 임시예요. 이후 5월 2일에 16회, 8월 8일에 17회가 열려요.</p>",
+          "city": "도쿄, 일본",
+          "venue": "도쿄도립산업무역센터 하마마쓰초관 2·3층 전시실",
+          "fee": "공식 웹사이트 참고",
+          "audience": [
+            "인디 게임 팀",
+            "플레이어"
+          ]
+        }
+      }
+    },
+    "game-creators-conference-2027": {
+      "source": {
+        "title": "GAME CREATORS CONFERENCE '27（GCC'27）",
+        "summary": "關西最大的遊戲開發者交流大會，有講座與交流派對。隔天 3/13 在大阪另有獨立遊戲展 GamePavilion.jp。",
+        "city": "大阪・日本",
+        "venue": "大阪府立國際會議場（Grand Cube Osaka）10F",
+        "fee": "詳見活動官網",
+        "description": "<p>由 DECA（數位娛樂創作者協會）主辦，2027 年的主題是「つながりが生む、次の創造」（連結帶來下一個創作）。</p><p>時間、票價與議程尚未公布，此處時間為暫定。隔天 3/13 有大阪的獨立遊戲展 <a href=\"https://gamepavilion.jp/\">GamePavilion.jp 2027</a>（場地待公布）。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "遊戲開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "GAME CREATORS CONFERENCE ’27 (GCC’27)",
+          "summary": "The Kansai region’s largest game developer conference, with talks and a networking party. The next day, March 13, Osaka also hosts the indie game show GamePavilion.jp.",
+          "description": "<p>Organized by DECA (Digital Entertainment Creator Association). The 2027 theme is “つながりが生む、次の創造” (roughly, “connections give rise to the next creation”).</p><p>Times, ticket prices and the program haven’t been announced, so the time shown here is provisional. The next day, March 13, brings Osaka’s indie game show <a href=\"https://gamepavilion.jp/\">GamePavilion.jp 2027</a> (venue TBA).</p>",
+          "city": "Osaka, Japan",
+          "venue": "Osaka International Convention Center (Grand Cube Osaka), 10F",
+          "fee": "See the official website",
+          "audience": [
+            "Game developers"
+          ]
+        },
+        "ja": {
+          "title": "GAME CREATORS CONFERENCE '27（GCC'27）",
+          "summary": "関西最大のゲーム開発者カンファレンスで、講演と交流パーティーがあります。翌日の3月13日には、大阪でインディーゲーム展示会 GamePavilion.jp も開かれます。",
+          "description": "<p>デジタルエンターテインメントクリエイター協会（DECA）の主催で、2027年のテーマは「つながりが生む、次の創造」です。</p><p>時間、料金、プログラムは未発表で、このページの時刻は暫定です。翌日の3月13日には、大阪のインディーゲーム展示会 <a href=\"https://gamepavilion.jp/\">GamePavilion.jp 2027</a>（会場は未発表）も開かれます。</p>",
+          "city": "日本・大阪",
+          "venue": "大阪府立国際会議場（グランキューブ大阪）10F",
+          "fee": "公式サイト参照",
+          "audience": [
+            "ゲーム開発者"
+          ]
+        },
+        "ko": {
+          "title": "GAME CREATORS CONFERENCE '27 (GCC'27)",
+          "summary": "간사이 지역 최대의 게임 개발자 교류 콘퍼런스로, 강연과 네트워킹 파티가 있어요. 다음 날인 3월 13일에는 오사카에서 인디 게임 전시회 GamePavilion.jp도 열려요.",
+          "description": "<p>DECA(디지털 엔터테인먼트 크리에이터 협회)가 주최하며, 2027년 주제는 ‘つながりが生む、次の創造’(연결이 만들어 내는 다음 창작)이에요.</p><p>시간, 티켓 가격, 세션은 아직 발표되지 않았고, 여기 표시된 시간은 임시예요. 다음 날인 3월 13일에는 오사카에서 인디 게임 전시회 <a href=\"https://gamepavilion.jp/\">GamePavilion.jp 2027</a>(장소 추후 공개)도 열려요.</p>",
+          "city": "오사카, 일본",
+          "venue": "오사카부립국제회의장(Grand Cube Osaka) 10층",
+          "fee": "공식 웹사이트 참고",
+          "audience": [
+            "게임 개발자"
+          ]
+        }
+      }
+    },
+    "tokyo-indie-games-summit-2027": {
+      "source": {
+        "title": "TOKYO INDIE GAMES SUMMIT 2027",
+        "summary": "東京的獨立遊戲展，一般創作者攤位免費，而且歡迎海外團隊報名。3/27 商務日、3/28 一般開放日，參展報名到 11/15。",
+        "city": "東京・日本",
+        "venue": "杉並科學實驗室 IMAGINUS 等（東京都杉並區高圓寺北 2-14-13，JR 高圓寺站北口步行 5 分鐘）",
+        "fee": "一般創作者參展免費（需審核）",
+        "description": "<p>由 Phoenixx 主辦的第五屆，2026 年有超過兩萬人入場。</p><h3>想參展</h3><ul><li>「一般創作者出展枠」免費，個人、社團、小型獨立團隊都能報名，作品要能試玩（PC、手機、主機或自製裝置都可以）。</li><li><strong>官方明寫國內外皆可</strong>，能親自顧攤的團隊優先。</li><li>報名期間：日本時間 9/15 16:00 至 <strong>11/15 23:59</strong>，主辦單位會審核。</li><li>有發行商支持或規模較大的作品，可能會被轉到付費的企業攤位。</li></ul><p>時間：日本時間 10:00–17:00（台灣時間 09:00–16:00）。<a href=\"https://forms.gle/L3M2XF2VUDdKzdWK9\">報名表單</a>｜<a href=\"https://indiegamessummit.tokyo/en/news/\">英文參展說明</a></p>",
+        "schedule": null,
+        "deadlineLabel": "參展報名截止",
+        "agenda": null,
+        "audience": [
+          "獨立遊戲團隊",
+          "玩家",
+          "發行商"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "TOKYO INDIE GAMES SUMMIT 2027",
+          "summary": "An indie game show in Tokyo where general creator booths are free and overseas teams are welcome to apply. March 27 is the business day and March 28 the public day; exhibitor sign-ups run until November 15.",
+          "description": "<p>The fifth edition, organized by Phoenixx. The 2026 show drew more than 20,000 visitors.</p><h3>Exhibiting</h3><ul><li>General creator booths are free. Individuals, groups and small indie teams can all apply, as long as the game is playable (PC, mobile, console or custom hardware are all fine).</li><li><strong>The organizers state that teams from Japan and abroad are both eligible</strong>, with priority for teams that can staff their booth in person.</li><li>Application period: September 15, 16:00 to <strong>November 15, 23:59</strong> Japan time; the organizers review all entries.</li><li>Games with publisher backing or of a larger scale may be moved to paid company booths.</li></ul><p>Hours: 10:00–17:00 Japan time (09:00–16:00 Taiwan time). <a href=\"https://forms.gle/L3M2XF2VUDdKzdWK9\">Application form</a> | <a href=\"https://indiegamessummit.tokyo/en/news/\">Exhibitor info in English</a></p>",
+          "city": "Tokyo, Japan",
+          "venue": "Suginami Science Lab IMAGINUS, etc. (2-14-13 Koenjikita, Suginami-ku, Tokyo; 5 min walk from JR Koenji Sta. North Exit)",
+          "fee": "Free for general creators (subject to review)",
+          "deadlineLabel": "Exhibitor deadline",
+          "audience": [
+            "Indie game teams",
+            "Players",
+            "Publishers"
+          ]
+        },
+        "ja": {
+          "title": "TOKYO INDIE GAMES SUMMIT 2027",
+          "summary": "東京のインディーゲーム展示会。一般クリエイター向けの出展枠は無料で、海外チームの応募も歓迎しています。3月27日がビジネスデイ、28日が一般公開日で、出展の応募は11月15日まで。",
+          "description": "<p>Phoenixx が主催する第5回で、2026年は2万人を超える来場者がありました。</p><h3>出展したい場合</h3><ul><li>一般クリエイター向けの出展枠は無料です。個人、サークル、小規模なインディーゲーム開発チームが応募できます。作品は試遊できる状態であることが条件で、PC、スマートフォン、家庭用ゲーム機、自作デバイスのどれでもかまいません。</li><li><strong>国内・海外を問わないと公式に明記されています</strong>。ブースに本人が立てるチームが優先されます。</li><li>応募期間：日本時間9月15日16:00〜<strong>11月15日23:59</strong>。主催者による審査があります。</li><li>パブリッシャーが付いている作品や規模の大きい作品は、有料の企業ブースへの案内になる場合があります。</li></ul><p>時間：日本時間10:00〜17:00（台湾時間9:00〜16:00）。<a href=\"https://forms.gle/L3M2XF2VUDdKzdWK9\">応募フォーム</a>｜<a href=\"https://indiegamessummit.tokyo/en/news/\">出展案内（英語）</a></p>",
+          "city": "日本・東京",
+          "venue": "未来をつくる杉並サイエンスラボ IMAGINUS ほか（東京都杉並区高円寺北2-14-13、JR高円寺駅北口から徒歩5分）",
+          "fee": "一般クリエイターの出展は無料（審査あり）",
+          "deadlineLabel": "出展応募締め切り",
+          "audience": [
+            "インディーゲーム開発チーム",
+            "プレイヤー",
+            "パブリッシャー"
+          ]
+        },
+        "ko": {
+          "title": "TOKYO INDIE GAMES SUMMIT 2027",
+          "summary": "도쿄의 인디 게임 전시회로, 일반 크리에이터 부스는 무료이고 해외 팀의 신청도 환영해요. 3월 27일은 비즈니스 데이, 3월 28일은 일반 공개일이며, 전시 참가 신청은 11월 15일까지예요.",
+          "description": "<p>Phoenixx가 주최하는 다섯 번째 행사로, 2026년에는 2만 명 넘게 방문했어요.</p><h3>전시에 참가하려면</h3><ul><li>‘일반 크리에이터 전시 부문’은 무료이고, 개인, 서클, 소규모 인디 팀 누구나 신청할 수 있어요. 작품은 플레이할 수 있어야 해요(PC, 모바일, 콘솔, 자체 제작 기기 모두 가능).</li><li><strong>일본 국내외 팀 모두 신청할 수 있다고 공식적으로 명시</strong>하고 있고, 부스를 직접 지킬 수 있는 팀이 우선이에요.</li><li>신청 기간: 일본 시간 9월 15일 16:00부터 <strong>11월 15일 23:59</strong>까지이며, 주최 측이 심사해요.</li><li>퍼블리셔의 지원을 받거나 규모가 큰 작품은 유료 기업 부스로 안내될 수 있어요.</li></ul><p>시간: 일본 시간 10:00~17:00(대만 시간 09:00~16:00). <a href=\"https://forms.gle/L3M2XF2VUDdKzdWK9\">신청서</a> | <a href=\"https://indiegamessummit.tokyo/en/news/\">영어 전시 참가 안내</a></p>",
+          "city": "도쿄, 일본",
+          "venue": "스기나미 사이언스 랩 IMAGINUS 등 (도쿄도 스기나미구 고엔지키타 2-14-13, JR 고엔지역 북쪽 출구에서 도보 5분)",
+          "fee": "일반 크리에이터 전시 참가 무료 (심사 있음)",
+          "deadlineLabel": "전시 참가 신청 마감",
+          "audience": [
+            "인디 게임 팀",
+            "플레이어",
+            "퍼블리셔"
+          ]
+        }
+      }
+    },
+    "bitsummit-2027": {
+      "source": {
+        "title": "BitSummit 2027（第 15 屆）",
+        "summary": "日本最大的獨立遊戲展，在京都連辦三天，有很多海外團隊與各國展館。一般參展報名預定 2026 年 11 月左右開放。",
+        "city": "京都・日本",
+        "venue": "京都市勸業館 Miyako Messe（みやこめっせ）",
+        "fee": "詳見活動官網",
+        "description": "<p>BitSummit 是日本規模最大的獨立遊戲展，官網有日文與英文，每年都有許多海外團隊與各國／地區展館參加，並設有評審獎與觀眾票選獎。</p><h3>想參展</h3><p>2027 年的一般參展報名預定 <strong>2026 年 11 月左右</strong>開放，報名費與攤位費待公布。參考上一屆：每款作品報名費 2,750 日圓，入選後攤位費 33,000 日圓，學生有折扣。</p><p>開放時間待公布，此處時間為暫定。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "獨立遊戲團隊",
+          "玩家",
+          "發行商"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "BitSummit 2027 (15th Edition)",
+          "summary": "Japan’s largest indie game show, held over three days in Kyoto, with many overseas teams and country pavilions. General exhibitor applications are expected to open around November 2026.",
+          "description": "<p>BitSummit is Japan’s largest indie game show. The official website is in Japanese and English. Every year it draws many overseas teams and country and regional pavilions, and it has both juried awards and audience-choice awards.</p><h3>Exhibiting</h3><p>General exhibitor applications for 2027 are expected to open <strong>around November 2026</strong>. Application and booth fees haven’t been announced. For reference, at the previous edition it cost ¥2,750 per game to apply and ¥33,000 for a booth if selected, with student discounts.</p><p>Opening hours haven’t been announced, so the times shown here are provisional.</p>",
+          "city": "Kyoto, Japan",
+          "venue": "Miyako Messe (Kyoto International Exhibition Hall)",
+          "fee": "See the official website",
+          "audience": [
+            "Indie game teams",
+            "Players",
+            "Publishers"
+          ]
+        },
+        "ja": {
+          "title": "BitSummit 2027（第15回）",
+          "summary": "日本最大のインディーゲーム展示会。京都で3日間開かれ、海外からの出展チームや各国のパビリオンも多く集まります。一般出展の応募は2026年11月ごろに始まる予定です。",
+          "description": "<p>BitSummit は日本最大のインディーゲーム展示会で、公式サイトは日本語と英語に対応しています。毎年、多くの海外チームや国・地域のパビリオンが参加し、審査員賞と来場者投票による賞も設けられています。</p><h3>出展したい場合</h3><p>2027年の一般出展の応募は<strong>2026年11月ごろ</strong>に始まる予定で、応募料と出展料は未発表です。前回は1作品あたりの応募料が2,750円、選考通過後の出展料が33,000円で、学生割引もありました。</p><p>開場時間は未発表で、このページの時刻は暫定です。</p>",
+          "city": "日本・京都",
+          "venue": "京都市勧業館みやこめっせ",
+          "fee": "公式サイト参照",
+          "audience": [
+            "インディーゲーム開発チーム",
+            "プレイヤー",
+            "パブリッシャー"
+          ]
+        },
+        "ko": {
+          "title": "BitSummit 2027 (제15회)",
+          "summary": "일본 최대의 인디 게임 전시회로, 교토에서 사흘간 열리고 해외 팀과 국가별 전시관도 많아요. 일반 전시 참가 신청은 2026년 11월쯤 시작할 예정이에요.",
+          "description": "<p>BitSummit은 일본 최대 규모의 인디 게임 전시회예요. 공식 웹사이트는 일본어와 영어로 되어 있고, 매년 해외 팀과 국가·지역별 전시관이 많이 참가하며, 심사위원상과 관객 투표상도 있어요.</p><h3>전시에 참가하려면</h3><p>2027년 일반 전시 참가 신청은 <strong>2026년 11월쯤</strong> 시작할 예정이고, 신청비와 부스비는 추후 공개돼요. 지난 회차 기준으로는 작품당 신청비 2,750엔, 선정 후 부스비 33,000엔이었고 학생 할인이 있었어요.</p><p>운영 시간은 추후 공개되며, 여기 표시된 시간은 임시예요.</p>",
+          "city": "교토, 일본",
+          "venue": "교토시 권업관 미야코 멧세(Miyako Messe)",
+          "fee": "공식 웹사이트 참고",
+          "audience": [
+            "인디 게임 팀",
+            "플레이어",
+            "퍼블리셔"
+          ]
+        }
+      }
+    },
+    "cedec-2027": {
+      "source": {
+        "title": "CEDEC 2027",
+        "summary": "日本規模最大的遊戲開發者大會，由 CESA 主辦，實體與線上同時舉行，技術議程很多。",
+        "city": "橫濱・日本",
+        "venue": "太平洋橫濱 North（實體＋線上）",
+        "fee": "詳見活動官網",
+        "description": "<p>CEDEC 是了解日本遊戲業實務的重要場合，議程多偏技術。可以報名參加，也可以在徵稿期間投稿講題。</p><p>票價、時間與講者徵稿期間尚未公布，此處時間為暫定。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "遊戲開發者",
+          "技術美術",
+          "程式"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "CEDEC 2027",
+          "summary": "Japan’s largest game developer conference, run by CESA and held in person and online at the same time, with lots of technical sessions.",
+          "description": "<p>CEDEC is a key place to learn how the Japanese game industry actually works, and most sessions lean technical. You can register to attend, or submit a talk during the call for speakers.</p><p>Ticket prices, times and the call-for-speakers period haven’t been announced, so the times shown here are provisional.</p>",
+          "city": "Yokohama, Japan",
+          "venue": "Pacifico Yokohama North (in person + online)",
+          "fee": "See the official website",
+          "audience": [
+            "Game developers",
+            "Technical artists",
+            "Programmers"
+          ]
+        },
+        "ja": {
+          "title": "CEDEC2027",
+          "summary": "CESA（コンピュータエンターテインメント協会）が主催する、日本最大のゲーム開発者カンファレンス。会場とオンラインで同時に開かれ、技術系のセッションが多いのが特徴です。",
+          "description": "<p>CEDEC は日本のゲーム業界の実務を知るうえで重要な場で、セッションは技術寄りのものが中心です。受講者として申し込めるほか、公募期間中なら講演の応募もできます。</p><p>料金、時間、講演者の公募期間は未発表で、このページの時刻は暫定です。</p>",
+          "city": "日本・横浜",
+          "venue": "パシフィコ横浜ノース（会場＋オンライン）",
+          "fee": "公式サイト参照",
+          "audience": [
+            "ゲーム開発者",
+            "テクニカルアーティスト",
+            "プログラマー"
+          ]
+        },
+        "ko": {
+          "title": "CEDEC 2027",
+          "summary": "CESA가 주최하는 일본 최대 규모의 게임 개발자 콘퍼런스예요. 현장과 온라인으로 동시에 열리고, 기술 세션이 많아요.",
+          "description": "<p>CEDEC은 일본 게임 업계의 실무를 알 수 있는 중요한 자리로, 세션은 대부분 기술 중심이에요. 참가 신청은 물론, 공모 기간에 강연 주제를 제출할 수도 있어요.</p><p>티켓 가격, 시간, 연사 공모 기간은 아직 발표되지 않았고, 여기 표시된 시간은 임시예요.</p>",
+          "city": "요코하마, 일본",
+          "venue": "파시피코 요코하마 노스 (현장+온라인)",
+          "fee": "공식 웹사이트 참고",
+          "audience": [
+            "게임 개발자",
+            "테크니컬 아티스트",
+            "프로그래머"
+          ]
+        }
+      }
+    },
+    "tokyo-game-show-2027": {
+      "source": {
+        "title": "東京電玩展 2027（TOKYO GAME SHOW 2027）",
+        "summary": "日本最大的電玩展。獨立開發者可以申請免費的「SELECTED INDIE 80」或付費的獨立遊戲區攤位，2027 年的報名尚未公布。",
+        "city": "千葉・日本",
+        "venue": "幕張展覽館（Makuhari Messe）",
+        "fee": "詳見活動官網",
+        "description": "<p>東京電玩展 2026 有來自 53 個國家與地區的參展商。獨立開發者有兩種參展方式：</p><ul><li><strong>SELECTED INDIE 80</strong>：經審核、由贊助商支持的免費攤位，個人和公司都能申請，有英文申請說明。</li><li>付費的獨立遊戲區攤位。</li></ul><p>參考上一屆，SELECTED INDIE 80 在 2 月到 4 月底受理報名。2027 年的日期來自主辦單位 CESA 的新聞稿，報名資訊與開放時間待公布，此處時間為暫定。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "獨立遊戲團隊",
+          "玩家",
+          "遊戲業者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "TOKYO GAME SHOW 2027",
+          "summary": "Japan’s biggest game show. Indie developers can apply for a free SELECTED INDIE 80 booth or a paid booth in the indie game area; applications for 2027 haven’t been announced yet.",
+          "description": "<p>Tokyo Game Show 2026 had exhibitors from 53 countries and regions. Indie developers have two ways to exhibit:</p><ul><li><strong>SELECTED INDIE 80</strong>: free, sponsor-backed booths awarded after review. Individuals and companies can both apply, and application guidelines are available in English.</li><li>A paid booth in the indie game area.</li></ul><p>For reference, at the previous show SELECTED INDIE 80 took applications from February to the end of April. The 2027 dates come from a press release by the organizer, CESA; application details and opening hours haven’t been announced, so the times shown here are provisional.</p>",
+          "city": "Chiba, Japan",
+          "venue": "Makuhari Messe",
+          "fee": "See the official website",
+          "audience": [
+            "Indie game teams",
+            "Players",
+            "Game industry professionals"
+          ]
+        },
+        "ja": {
+          "title": "東京ゲームショウ2027",
+          "summary": "日本最大のゲームショウ。インディー開発者は、無料の「SELECTED INDIE 80」か有料のインディーゲームエリアのブースに出展を申し込めます。2027年の応募情報は未発表です。",
+          "description": "<p>東京ゲームショウ2026には、53の国と地域から出展社が集まりました。インディー開発者の出展方法は次の2つです。</p><ul><li><strong>SELECTED INDIE 80</strong>：審査制で、スポンサーの支援により無料で出展できるブース。個人でも法人でも応募でき、英語の応募案内もあります。</li><li>有料のインディーゲームエリアのブース。</li></ul><p>前回の SELECTED INDIE 80 は、2月から4月末まで応募を受け付けていました。2027年の日程は主催者 CESA のプレスリリースによるもので、応募情報と開場時間は未発表です。このページの時刻は暫定です。</p>",
+          "city": "日本・千葉",
+          "venue": "幕張メッセ",
+          "fee": "公式サイト参照",
+          "audience": [
+            "インディーゲーム開発チーム",
+            "プレイヤー",
+            "ゲーム業界関係者"
+          ]
+        },
+        "ko": {
+          "title": "도쿄 게임쇼 2027",
+          "summary": "일본 최대의 게임쇼예요. 인디 개발자는 무료 ‘SELECTED INDIE 80’이나 유료 인디 게임 존 부스에 신청할 수 있고, 2027년 신청 정보는 아직 발표되지 않았어요.",
+          "description": "<p>도쿄 게임쇼 2026에는 53개 국가와 지역에서 참가사가 모였어요. 인디 개발자가 참가하는 방법은 두 가지예요.</p><ul><li><strong>SELECTED INDIE 80</strong>: 심사를 거쳐 스폰서가 지원하는 무료 부스예요. 개인과 회사 모두 신청할 수 있고, 영어 신청 안내도 있어요.</li><li>유료 인디 게임 존 부스.</li></ul><p>지난 회차에는 SELECTED INDIE 80 신청을 2월부터 4월 말까지 받았어요. 2027년 날짜는 주최 측 CESA의 보도자료에서 가져왔고, 신청 정보와 운영 시간은 추후 공개돼요. 여기 표시된 시간은 임시예요.</p>",
+          "city": "지바, 일본",
+          "venue": "마쿠하리 멧세(Makuhari Messe)",
+          "fee": "공식 웹사이트 참고",
+          "audience": [
+            "인디 게임 팀",
+            "플레이어",
+            "게임 업계 관계자"
+          ]
+        }
+      }
+    }
+  }
+}
