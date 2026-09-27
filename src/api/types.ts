@@ -29,7 +29,7 @@ export interface Game {
 export type EventType = 'jam' | 'meetup' | 'expo' | 'talk' | 'playtest'
 
 /** Where an event takes place, as an ISO 3166 code. Labels are in src/utils/country.ts. */
-export type Country = 'TW' | 'JP' | 'KR'
+export type Country = 'TW' | 'JP' | 'KR' | 'CN' | 'SG' | 'MY' | 'TH' | 'VN' | 'PH' | 'ID'
 
 interface EventBase {
   slug: string

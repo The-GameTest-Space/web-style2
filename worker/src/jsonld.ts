@@ -34,8 +34,8 @@ export function eventJsonLd(event: Record<string, unknown>, pageUrl: string, ori
       : {
           '@type': 'Place',
           name: event.venue,
-          // The site lists events in Taiwan.
-          address: { '@type': 'PostalAddress', addressLocality: event.city, addressCountry: 'TW' },
+          // Events saved before countries were recorded are in Taiwan (countryOf).
+          address: { '@type': 'PostalAddress', addressLocality: event.city, addressCountry: text(event.country) ?? 'TW' },
         },
     ...(cover && { image: [new URL(cover, origin).href] }),
     // The fee is free text; only a free event has a price that is certain.

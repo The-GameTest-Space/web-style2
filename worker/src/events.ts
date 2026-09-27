@@ -7,7 +7,7 @@ import type { Doc } from './firestore'
 
 export const EVENT_TYPES = ['jam', 'meetup', 'expo', 'talk', 'playtest']
 // Must match COUNTRY_LABEL in src/utils/country.ts.
-export const COUNTRIES = ['TW', 'JP', 'KR']
+export const COUNTRIES = ['TW', 'JP', 'KR', 'CN', 'SG', 'MY', 'TH', 'VN', 'PH', 'ID']
 export const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 
 /** Every field an admin edits. Saving writes all of them, so a cleared field is removed. */
