@@ -18,10 +18,6 @@ const list = useApi<ListResponse<Game>>('/api/games')
 const game = computed(() => data.value?.item)
 const others = computed(() => (list.data.value?.items ?? []).filter((g) => g.slug !== props.slug).slice(0, 3))
 
-watch(game, (g) => {
-  if (g) document.title = `${g.title}｜The Game Test Space`
-})
-
 // The visitor's own sticker lives only in this browser; real feedback goes to Discord.
 const stuck = ref(false)
 const key = computed(() => `gts:dot:${props.slug}`)

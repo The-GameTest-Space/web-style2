@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 import { ArrowLeft, CalendarPlus } from 'lucide-vue-next'
 import { useApi, NotFoundError } from '@/api/client'
 import type { GameEvent, ItemResponse } from '@/api/types'
@@ -14,10 +14,6 @@ const { data, error, loading, retry } = useApi<ItemResponse<GameEvent>>(() => `/
 const ev = computed(() => data.value?.item)
 const days = computed(() => (ev.value ? daysUntil(ev.value.startsAt) : 0))
 const deadlineDays = computed(() => (ev.value?.deadline ? daysUntil(ev.value.deadline.date) : null))
-
-watch(ev, (e) => {
-  if (e) document.title = `${e.title}｜The Game Test Space`
-})
 
 function icsStamp(iso: string) {
   return new Date(iso).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')
