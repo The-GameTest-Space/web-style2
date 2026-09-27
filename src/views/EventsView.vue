@@ -3,8 +3,9 @@ import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Search, X } from 'lucide-vue-next'
 import { useApi } from '@/api/client'
-import type { DatedEvent, EventType, GameEvent, ListResponse } from '@/api/types'
+import type { Country, DatedEvent, EventType, GameEvent, ListResponse } from '@/api/types'
 import { EVENT_TYPE_LABEL, daysUntil, monthLabel } from '@/utils/format'
+import { COUNTRIES, COUNTRY_LABEL, countryOf } from '@/utils/country'
 import EventRow from '@/components/EventRow.vue'
 import TapeHeading from '@/components/TapeHeading.vue'
 import SampleNote from '@/components/SampleNote.vue'
@@ -18,6 +19,13 @@ const { data, error, loading, retry } = useApi<ListResponse<GameEvent>>('/api/ev
 const TYPES = Object.keys(EVENT_TYPE_LABEL) as EventType[]
 const type = computed(() => (TYPES.includes(route.query.type as EventType) ? (route.query.type as EventType) : null))
 const onlineOnly = computed(() => route.query.online === '1')
+// ?country=jp; lower case in the URL, ISO code in the data.
+const country = computed(() => {
+  const c = typeof route.query.country === 'string' ? route.query.country.toUpperCase() : ''
+  return COUNTRIES.includes(c as Country) ? (c as Country) : null
+})
+// Only countries that have events get a button.
+const countries = computed(() => COUNTRIES.filter((c) => (data.value?.items ?? []).some((e) => countryOf(e) === c)))
 
 // The search box follows ?q= so a search can be shared and survives going back.
 // v-model waits for IME composition to end, so half-typed 注音 doesn't filter.
@@ -38,6 +46,7 @@ const searchable = (e: GameEvent) =>
       e.title,
       e.summary,
       EVENT_TYPE_LABEL[e.type],
+      COUNTRY_LABEL[countryOf(e)],
       e.city,
       e.venue,
       e.fee,
@@ -47,11 +56,12 @@ const searchable = (e: GameEvent) =>
     ].join(' '),
   )
 
-const filtered = computed(() => !!type.value || onlineOnly.value || terms.value.length > 0)
+const filtered = computed(() => !!type.value || !!country.value || onlineOnly.value || terms.value.length > 0)
 
 const shown = computed(() =>
   (data.value?.items ?? []).filter((e) => {
     if ((type.value && e.type !== type.value) || (onlineOnly.value && !e.online)) return false
+    if (country.value && countryOf(e) !== country.value) return false
     if (!terms.value.length) return true
     const text = searchable(e)
     return terms.value.every((t) => text.includes(t))
@@ -117,7 +127,8 @@ function onSearchSubmit(e: Event) {
     <!-- Announces the number of results as the search changes. -->
     <p class="visually-hidden" aria-live="polite">{{ terms.length && data ? `找到 ${resultCount} 個活動` : '' }}</p>
 
-    <div class="filters" role="group" aria-label="篩選活動">
+    <div class="filters" role="group" aria-label="依類型篩選活動">
+      <span class="filters__label" aria-hidden="true">類型</span>
       <button type="button" class="filter" :aria-pressed="!type" @click="setQuery({ type: undefined })">全部</button>
       <button
         v-for="t in TYPES"
@@ -137,6 +148,20 @@ function onSearchSubmit(e: Event) {
         @click="setQuery({ online: onlineOnly ? undefined : '1' })"
       >
         僅顯示線上活動
+      </button>
+    </div>
+    <div v-if="countries.length > 1" class="filters" role="group" aria-label="依國家篩選活動">
+      <span class="filters__label" aria-hidden="true">國家</span>
+      <button type="button" class="filter" :aria-pressed="!country" @click="setQuery({ country: undefined })">全部</button>
+      <button
+        v-for="c in countries"
+        :key="c"
+        type="button"
+        class="filter"
+        :aria-pressed="country === c"
+        @click="setQuery({ country: country === c ? undefined : c.toLowerCase() })"
+      >
+        {{ COUNTRY_LABEL[c] }}
       </button>
     </div>
 
@@ -262,6 +287,15 @@ function onSearchSubmit(e: Event) {
   align-items: center;
   gap: 10px;
   margin-top: 16px;
+}
+.filters + .filters {
+  margin-top: 10px;
+}
+.filters__label {
+  min-width: 2.5em;
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--ink-3);
 }
 .filters__sep {
   width: 2px;

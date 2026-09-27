@@ -3,7 +3,8 @@ import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref } from 'v
 import { onBeforeRouteLeave, useRouter } from 'vue-router'
 import { ArrowLeft, Eye, EyeOff, ExternalLink, ImagePlus, Plus, Trash2, X } from 'lucide-vue-next'
 import { AdminError, adminApi } from '@/api/admin'
-import type { AdminEvent, EventInput, EventType } from '@/api/types'
+import type { AdminEvent, Country, EventInput, EventType } from '@/api/types'
+import { COUNTRIES, COUNTRY_LABEL, countryOf } from '@/utils/country'
 import { EVENT_TYPE_LABEL, time } from '@/utils/format'
 import { asHtml, safeHtml } from '@/utils/html'
 import { toCoverImage } from '@/utils/image'
@@ -23,6 +24,7 @@ interface Form {
   slug: string
   title: string
   type: EventType
+  country: Country
   summary: string
   startsAt: string
   endsAt: string
@@ -47,6 +49,7 @@ const blank = (): Form => ({
   slug: '',
   title: '',
   type: 'meetup',
+  country: 'TW',
   summary: '',
   startsAt: '',
   endsAt: '',
@@ -80,6 +83,7 @@ function fromEvent(e: AdminEvent): Form {
     slug: e.slug,
     title: e.title,
     type: e.type,
+    country: countryOf(e),
     summary: e.summary,
     startsAt: toLocalInput(e.startsAt),
     endsAt: toLocalInput(e.endsAt),
@@ -106,6 +110,7 @@ function toInput(f: Form): EventInput {
     slug: f.slug.trim(),
     title: f.title,
     type: f.type,
+    country: f.country,
     summary: f.summary,
     startsAt: toIso(f.startsAt),
     // An ongoing event keeps no end or deadline, even if they were filled in before the switch.
@@ -171,6 +176,7 @@ const LABELS: Record<string, string> = {
   'f-slug': '網址代稱',
   'f-title': '活動名稱',
   'f-type': '活動類型',
+  'f-country': '國家',
   'f-summary': '一句話摘要',
   'f-startsAt': '開始時間',
   'f-endsAt': '結束時間',
@@ -350,6 +356,15 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
               <label v-for="(t, i) in TYPES" :key="t" class="pill">
                 <input :id="i === 0 ? 'f-type' : undefined" v-model="form.type" type="radio" name="type" :value="t" />
                 <span>{{ EVENT_TYPE_LABEL[t] }}</span>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset class="field fieldset">
+            <legend class="field__label">國家</legend>
+            <div class="pills">
+              <label v-for="(c, i) in COUNTRIES" :key="c" class="pill">
+                <input :id="i === 0 ? 'f-country' : undefined" v-model="form.country" type="radio" name="country" :value="c" />
+                <span>{{ COUNTRY_LABEL[c] }}</span>
               </label>
             </div>
           </fieldset>

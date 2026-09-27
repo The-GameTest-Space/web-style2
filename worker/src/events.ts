@@ -6,12 +6,15 @@ import type { Doc } from './firestore'
 // here. The shape matches GameEvent / AdminEvent in src/api/types.ts.
 
 export const EVENT_TYPES = ['jam', 'meetup', 'expo', 'talk', 'playtest']
+// Must match COUNTRY_LABEL in src/utils/country.ts.
+export const COUNTRIES = ['TW', 'JP', 'KR']
 export const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 
 /** Every field an admin edits. Saving writes all of them, so a cleared field is removed. */
 export const EVENT_FIELDS = [
   'title',
   'type',
+  'country',
   'startsAt',
   'endsAt',
   'ongoing',
@@ -94,6 +97,9 @@ export function parseEvent(input: unknown) {
 
   const type = body.type
   if (typeof type !== 'string' || !EVENT_TYPES.includes(type)) throw new Invalid('type', '請選擇活動類型')
+  // Older clients send no country; their events are in Taiwan.
+  const country = body.country ?? 'TW'
+  if (typeof country !== 'string' || !COUNTRIES.includes(country)) throw new Invalid('country', '請選擇國家')
 
   // An ongoing event has a schedule in words instead of dates: its start (the
   // day it began) is optional, and end and deadline are dropped.
@@ -127,6 +133,7 @@ export function parseEvent(input: unknown) {
   return {
     title: text(body.title, 'title', 120),
     type,
+    country,
     startsAt,
     endsAt,
     ongoing: ongoing || undefined,

@@ -28,10 +28,15 @@ export interface Game {
 
 export type EventType = 'jam' | 'meetup' | 'expo' | 'talk' | 'playtest'
 
+/** Where an event takes place, as an ISO 3166 code. Labels are in src/utils/country.ts. */
+export type Country = 'TW' | 'JP' | 'KR'
+
 interface EventBase {
   slug: string
   title: string
   type: EventType
+  /** Missing on events saved before countries were recorded: those are in Taiwan (see countryOf). */
+  country?: Country
   city: string
   venue: string
   online: boolean
