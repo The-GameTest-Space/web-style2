@@ -211,6 +211,7 @@ export default {
   'event.findCompany': 'Discord에서 함께 갈 사람 찾기',
   'event.ics': '캘린더 파일 받기 (.ics)',
   'event.sampleNote': '예시 행사에는 공식 신청 링크가 없어요. 실제 행사가 올라오면 이곳에 주최 측 신청 페이지가 표시돼요.',
+  'event.untranslated': '이 행사는 아직 번역되지 않아서 중국어로 보여 드려요.',
 
   'notFound.title': '찾으시는 페이지가 없어요.',
   'notFound.text': '주소가 잘못되었거나 페이지가 삭제되었을 수 있어요.',

@@ -1,10 +1,10 @@
 import { bearer, verifyIdToken } from './auth'
 import { COVER_PATH, MAX_COVER_BYTES, saveCover, serveCover } from './covers'
-import { EVENT_FIELDS, Invalid, SLUG, adminEvent, byStart, parseEvent, publicEvent } from './events'
+import { Invalid, SLUG, adminEvent, byStart, localizeEvent, parseEvent, publicEvent, savedFields } from './events'
 import { Firestore, saveUser } from './firestore'
 import { eventJsonLd } from './jsonld'
 import { alternates, fixedPage, pageUrl, type PageMeta, withMeta } from './meta'
-import { DEFAULT_LOCALE, LOCALES, splitPath, type Locale } from '../../src/i18n/locales'
+import { DEFAULT_LOCALE, LOCALES, splitPath, withLang, type Locale } from '../../src/i18n/locales'
 import { createCustomToken, type ServiceAccount } from './token'
 
 interface Env {
@@ -165,11 +165,12 @@ async function pageMeta(origin: string, locale: Locale, path: string, env: Env):
   const fixed = fixedPage(locale, path)
   if (fixed) return { ...fixed, locale, path }
   const slug = path.match(/^\/events\/([a-z0-9-]+)$/)?.[1]
-  const event = slug && (await publishedEvents(env)).items.find((e) => e.slug === slug)
-  if (!event) return null
+  const found = slug && (await publishedEvents(env)).items.find((e) => e.slug === slug)
+  if (!found) return null
+  // In the page's language where the event has a translation.
+  const event = localizeEvent(found, locale)
   const url = pageUrl(origin, locale, path)
   const cover = typeof event.cover === 'string' && event.cover
-  // An event's own text is in the language its admin wrote it in.
   return {
     locale,
     path,
@@ -177,8 +178,8 @@ async function pageMeta(origin: string, locale: Locale, path: string, env: Env):
     description: String(event.summary),
     image: cover ? new URL(cover, origin).href : undefined,
     ld: eventJsonLd(event, url, origin) ?? undefined,
-    // What GET /api/events/:slug answers.
-    data: { url: `/api/events/${slug}`, body: { item: event } },
+    // What GET /api/events/:slug?lang= answers.
+    data: { url: withLang(`/api/events/${slug}`, locale), body: { item: event } },
   }
 }
 
@@ -228,7 +229,7 @@ async function isAdmin(db: Firestore, uid: string) {
 async function saveEvent(db: Firestore, slug: string, body: unknown, exists: boolean) {
   const event = parseEvent(body)
   const res = await db.write(`events/${slug}`, event, {
-    mask: EVENT_FIELDS,
+    mask: savedFields(body),
     now: exists ? ['updatedAt'] : ['createdAt', 'updatedAt'],
     exists,
   })
@@ -248,7 +249,7 @@ async function saveEvent(db: Firestore, slug: string, body: unknown, exists: boo
  *   GET    /events          → { items }       drafts included
  *   POST   /events          → { item }        create; the slug is in the body
  *   GET    /events/:slug    → { item }
- *   PUT    /events/:slug    → { item }        replace every field
+ *   PUT    /events/:slug    → { item }        replace every field (i18n only if sent)
  *   DELETE /events/:slug
  */
 async function admin(request: Request, path: string, env: Env) {
@@ -300,7 +301,14 @@ async function admin(request: Request, path: string, env: Env) {
   return notFound()
 }
 
-async function route(request: Request, { origin, pathname }: URL, env: Env) {
+/** The ?lang= of an events request: the language their text comes in. */
+function langParam({ searchParams }: URL): Locale {
+  const lang = searchParams.get('lang')
+  return LOCALES.find((l) => l === lang) ?? DEFAULT_LOCALE
+}
+
+async function route(request: Request, url: URL, env: Env) {
+  const { origin, pathname } = url
   const { method } = request
   if (pathname === '/api/auth/discord' && method === 'POST') return discordSignIn(request, env)
   if (pathname.startsWith('/api/admin/')) return admin(request, pathname.slice('/api/admin'.length), env)
@@ -309,11 +317,14 @@ async function route(request: Request, { origin, pathname }: URL, env: Env) {
   if (pathname === '/sitemap.xml') return sitemap(origin, env)
   const cover = pathname.match(COVER_PATH)?.[1]
   if (cover) return (await serveCover(env.COVERS, cover)) ?? notFound()
-  if (pathname === '/api/events') return json({ items: (await publishedEvents(env)).items }, 200)
+  if (pathname === '/api/events') {
+    const lang = langParam(url)
+    return json({ items: (await publishedEvents(env)).items.map((e) => localizeEvent(e, lang)) }, 200)
+  }
   const slug = pathname.match(/^\/api\/events\/([a-z0-9-]+)$/)?.[1]
   if (slug) {
     const item = (await publishedEvents(env)).items.find((e) => e.slug === slug)
-    return item ? json({ item }, 200) : notFound()
+    return item ? json({ item: localizeEvent(item, langParam(url)) }, 200) : notFound()
   }
   // Games have no store yet; the list is empty until they do.
   if (pathname === '/api/games') return json({ items: [] }, 200)

@@ -13,7 +13,7 @@ const samples: Record<string, () => { slug: string }[]> = {
 }
 
 export async function withSampleFallback<T>(url: string, real: () => Promise<T>): Promise<T> {
-  const [, kind, slug] = url.match(/^\/api\/(games|events)(?:\/([^/?#]+))?$/) ?? []
+  const [, kind, slug] = url.match(/^\/api\/(games|events)(?:\/([^/?#]+))?(?:\?.*)?$/) ?? []
   const load = kind ? samples[kind] : undefined
   if (!load) return real()
 

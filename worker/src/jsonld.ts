@@ -38,8 +38,9 @@ export function eventJsonLd(event: Record<string, unknown>, pageUrl: string, ori
           address: { '@type': 'PostalAddress', addressLocality: event.city, addressCountry: text(event.country) ?? 'TW' },
         },
     ...(cover && { image: [new URL(cover, origin).href] }),
-    // The fee is free text; only a free event has a price that is certain.
-    ...(/^(免費|free)/i.test(text(event.fee) ?? '') && {
+    // The fee is free text, in the page's language; only a free event has a
+    // price that is certain.
+    ...(/^(免費|free|無料|무료)/i.test(text(event.fee) ?? '') && {
       offers: { '@type': 'Offer', price: 0, priceCurrency: 'TWD', url },
     }),
   }

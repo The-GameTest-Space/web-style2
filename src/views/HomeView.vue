@@ -12,10 +12,11 @@ import SampleNote from '@/components/SampleNote.vue'
 import StateBlock from '@/components/StateBlock.vue'
 import BrandMark from '@/components/BrandMark.vue'
 import I18nT from '@/components/I18nT.vue'
-import { t } from '@/i18n'
+import { locale, t } from '@/i18n'
+import { withLang } from '@/i18n/locales'
 
 const games = useApi<ListResponse<Game>>('/api/games')
-const events = useApi<ListResponse<GameEvent>>('/api/events')
+const events = useApi<ListResponse<GameEvent>>(withLang('/api/events', locale))
 
 // The hero pins the most recently updated game.
 const featured = computed(() => [...(games.data.value?.items ?? [])].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0])

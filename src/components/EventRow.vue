@@ -4,6 +4,7 @@ import { MapPin, Clock, Repeat } from 'lucide-vue-next'
 import type { GameEvent } from '@/api/types'
 import { daysUntil, eventTypeLabel, isMultiDay, monthDay, time, weekday } from '@/utils/format'
 import { t } from '@/i18n'
+import { textLang } from '@/utils/eventText'
 import DdayCounter from './DdayCounter.vue'
 import OngoingMark from './OngoingMark.vue'
 
@@ -37,15 +38,15 @@ const urgent = computed(() => deadlineDays.value !== null && deadlineDays.value 
       </div>
       <div class="event-row__main" :class="{ 'event-row__main--wide': event.ongoing }">
         <span class="event-row__type">{{ eventTypeLabel(event.type) }}</span>
-        <h3 class="event-row__title" lang="zh-Hant-TW">{{ event.title }}</h3>
+        <h3 class="event-row__title" :lang="textLang(event, 'title')">{{ event.title }}</h3>
         <p class="event-row__meta">
-          <span v-if="event.ongoing" lang="zh-Hant-TW"><Repeat :size="15" aria-hidden="true" />{{ event.schedule }}</span>
-          <span lang="zh-Hant-TW"><MapPin :size="15" aria-hidden="true" />{{ event.city }}・{{ event.venue }}</span>
+          <span v-if="event.ongoing" :lang="textLang(event, 'schedule')"><Repeat :size="15" aria-hidden="true" />{{ event.schedule }}</span>
+          <span :lang="textLang(event, 'venue')"><MapPin :size="15" aria-hidden="true" />{{ event.city }}・{{ event.venue }}</span>
           <span v-if="!event.ongoing"><Clock :size="15" aria-hidden="true" />{{ t('event.starts', { time: time(event.startsAt) }) }}</span>
         </p>
       </div>
       <p v-if="event.deadline && deadlineDays !== null && deadlineDays >= 0" class="event-row__deadline" :class="{ 'is-urgent': urgent }">
-        <span class="hand" lang="zh-Hant-TW">{{ event.deadline.label }}</span>
+        <span class="hand" :lang="textLang(event, 'deadlineLabel')">{{ event.deadline.label }}</span>
         <strong class="num">{{ monthDay(event.deadline.date) }}</strong>
         <span v-if="urgent" class="event-row__left">{{ t('event.daysLeft', { n: deadlineDays }) }}</span>
       </p>

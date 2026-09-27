@@ -1,5 +1,6 @@
 import { COVER_PATH } from './covers'
 import type { Doc } from './firestore'
+import { DEFAULT_LOCALE, TRANSLATED, type Locale } from '../../src/i18n/locales'
 
 // Events live at events/{slug}. The Worker is their only reader and writer
 // (firestore.rules denies clients), so everything an admin sends is checked
@@ -32,6 +33,13 @@ export const EVENT_FIELDS = [
   'cover',
   'published',
 ]
+
+/**
+ * The fields a save writes. The translations only when the form sent them: a
+ * page opened before they existed sends none, and must not erase them.
+ */
+export const savedFields = (body: unknown) =>
+  (body as { i18n?: unknown } | null)?.i18n === undefined ? EVENT_FIELDS : [...EVENT_FIELDS, 'i18n']
 
 /** A rejected field, named by its path in the request body. */
 export class Invalid extends Error {
@@ -130,6 +138,8 @@ export function parseEvent(input: unknown) {
     throw new Invalid('cover', '請上傳圖片，或輸入以 https:// 開頭的圖片網址')
   }
 
+  const i18n = parseTranslations(body.i18n)
+
   return {
     title: text(body.title, 'title', 120),
     type,
@@ -150,8 +160,53 @@ export function parseEvent(input: unknown) {
     audience: array(body.audience, 'audience', 20).map((a, i) => text(a, `audience.${i}`, 60)),
     url,
     cover,
+    // Left out when there are none, so saving deletes the field.
+    i18n: Object.keys(i18n).length ? i18n : undefined,
     published: bool(body.published, 'published'),
   }
+}
+
+/**
+ * An admin's translations, i18n.{en,ja,ko}, with the same limits as the
+ * Chinese fields. Only the title and summary are required; a language with
+ * nothing filled in is dropped. See EventText in src/api/types.ts.
+ */
+function parseTranslations(v: unknown) {
+  const out: Record<string, Record<string, unknown>> = {}
+  if (v === undefined || v === null) return out
+  for (const [lang, value] of Object.entries(record(v, 'i18n'))) {
+    const at = `i18n.${lang}`
+    if (!(TRANSLATED as string[]).includes(lang)) throw new Invalid(at, '不支援這個語言')
+    const t = record(value, at)
+    const field = (name: string, max: number) => text(t[name], `${at}.${name}`, max, true)
+    // Row for row with the zh-TW agenda. A row can wait for its translation
+    // (an empty item), so adding a zh-TW row never blocks saving.
+    const agenda = array(t.agenda, `${at}.agenda`, 40).map((row, i) => {
+      const r = record(row, `${at}.agenda.${i}`)
+      return {
+        time: text(r.time, `${at}.agenda.${i}.time`, 40),
+        item: text(r.item, `${at}.agenda.${i}.item`, 200, true) ?? '',
+      }
+    })
+    const audience = array(t.audience, `${at}.audience`, 20).map((a, i) => text(a, `${at}.audience.${i}`, 60))
+    const parsed = {
+      title: field('title', 120),
+      summary: field('summary', 300),
+      city: field('city', 40),
+      venue: field('venue', 120),
+      fee: field('fee', 60),
+      description: field('description', 20000),
+      schedule: field('schedule', 60),
+      deadlineLabel: field('deadlineLabel', 20),
+      agenda: agenda.some((a) => a.item) ? agenda : undefined,
+      audience: audience.length ? audience : undefined,
+    }
+    if (Object.values(parsed).every((x) => x === undefined)) continue
+    if (!parsed.title) throw new Invalid(`${at}.title`, '有翻譯時，名稱為必填')
+    if (!parsed.summary) throw new Invalid(`${at}.summary`, '有翻譯時，摘要為必填')
+    out[lang] = parsed
+  }
+  return out
 }
 
 const escapeHtml = (s: string) =>
@@ -164,13 +219,53 @@ function withHtmlDescription(data: Record<string, unknown>) {
   return { ...data, description: d.map((p) => `<p>${escapeHtml(String(p))}</p>`).join('') }
 }
 
-/** The public shape: slug from the document ID, admin-only fields dropped. */
+/**
+ * The public shape: slug from the document ID, admin-only fields dropped. It
+ * still holds every translation; localizeEvent picks one before it is sent.
+ */
 export function publicEvent({ id, data }: Doc) {
   const { published: _published, createdAt: _createdAt, updatedAt: _updatedAt, ...event } = withHtmlDescription(data)
   return { slug: id, ...event }
 }
 
 export const adminEvent = ({ id, data }: Doc) => ({ slug: id, ...withHtmlDescription(data) })
+
+type Translation = Record<string, unknown> & { deadlineLabel?: string; agenda?: unknown[]; audience?: unknown[] }
+
+/**
+ * A public event (publicEvent) with its text in `locale`, as far as it has a
+ * translation, and `lang` saying which language the text is in. A translated
+ * event names the fields still in zh-TW in `untranslated`: those its
+ * translation leaves out, and an agenda until each of its rows is
+ * translated. Dates, places' codes and links have no language.
+ */
+export function localizeEvent(event: Record<string, unknown>, locale: Locale) {
+  const { i18n, ...base } = event
+  const t = locale === DEFAULT_LOCALE ? undefined : (i18n as Record<string, Translation> | undefined)?.[locale]
+  if (!t) return { ...base, lang: DEFAULT_LOCALE }
+
+  const out: Record<string, unknown> = { ...base, lang: locale }
+  const untranslated: string[] = []
+  for (const f of ['title', 'summary', 'city', 'venue', 'fee', 'description', 'schedule']) {
+    if (base[f] === undefined) continue
+    if (typeof t[f] === 'string') out[f] = t[f]
+    else untranslated.push(f)
+  }
+  if (base.deadline) {
+    if (t.deadlineLabel) out.deadline = { ...(base.deadline as object), label: t.deadlineLabel }
+    else untranslated.push('deadlineLabel')
+  }
+  if (Array.isArray(base.agenda) && base.agenda.length) {
+    const rows = t.agenda as { item?: string }[] | undefined
+    if (rows?.length === base.agenda.length && rows.every((r) => r.item)) out.agenda = rows
+    else untranslated.push('agenda')
+  }
+  if (Array.isArray(base.audience) && base.audience.length) {
+    if (t.audience?.length) out.audience = t.audience
+    else untranslated.push('audience')
+  }
+  return untranslated.length ? { ...out, untranslated } : out
+}
 
 /** By start time; events without one (ongoing) come first. */
 export const byStart = (a: Record<string, unknown>, b: Record<string, unknown>) =>

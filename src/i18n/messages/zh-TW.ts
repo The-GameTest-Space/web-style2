@@ -214,6 +214,7 @@ export default {
   'event.findCompany': '在 Discord 尋找同行者',
   'event.ics': '下載行事曆檔案（.ics）',
   'event.sampleNote': '示範活動不提供官方報名連結。正式活動刊登後，此處將提供主辦單位的報名頁面。',
+  'event.untranslated': '這個活動還沒有翻譯，內容以中文顯示。',
 
   'notFound.title': '找不到您要查看的頁面。',
   'notFound.text': '網址可能有誤，或該頁面已被移除。',

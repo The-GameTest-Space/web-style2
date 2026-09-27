@@ -1,3 +1,5 @@
+import type { Locale, TranslatedLocale } from '@/i18n/locales'
+
 export type GameStatus = 'seeking' | 'released'
 
 export interface BuildNote {
@@ -50,7 +52,34 @@ interface EventBase {
   url?: string
   /** Cover picture: an upload (/api/covers/…) or an https URL. */
   cover?: string
+  /**
+   * The language the API sent the text in: the page's if the event has a
+   * translation, zh-TW if not. Missing on sample events, which are zh-TW.
+   */
+  lang?: Locale
+  /** In a translated event, the fields the translation leaves out, still in zh-TW. */
+  untranslated?: TextField[]
 }
+
+/**
+ * An event's text in another language, written by an admin. Only the title
+ * and summary are required; what it leaves out shows in zh-TW. The agenda
+ * follows the zh-TW one row for row, and shows once every row has an item.
+ */
+export interface EventText {
+  title: string
+  summary: string
+  city?: string
+  venue?: string
+  fee?: string
+  description?: string
+  schedule?: string
+  deadlineLabel?: string
+  agenda?: { time: string; item: string }[]
+  audience?: string[]
+}
+
+export type TextField = keyof EventText
 
 /** An event on given dates. */
 export interface DatedEvent extends EventBase {
@@ -77,9 +106,13 @@ export type GameEvent = DatedEvent | OngoingEvent
 /** An event as the admin pages see it, drafts included. */
 export type AdminEvent = GameEvent & {
   published: boolean
+  i18n?: Translations
   createdAt?: string
   updatedAt?: string
 }
+
+/** An event's translations, by language. */
+export type Translations = Partial<Record<TranslatedLocale, EventText>>
 
 /** What the admin form sends; the Worker validates it and stamps the times. */
 export interface EventInput extends EventBase {
@@ -88,6 +121,8 @@ export interface EventInput extends EventBase {
   startsAt?: string
   endsAt?: string
   deadline?: { label: string; date: string }
+  /** Replaces all of them; the Worker leaves them as they are when it is left out. */
+  i18n?: Translations
   published: boolean
 }
 

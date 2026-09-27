@@ -24,6 +24,17 @@ export const prefix = (locale: Locale) => (locale === DEFAULT_LOCALE ? '' : `/${
 /** A page's path in a locale: localePath('ja', '/events') is '/ja/events'. */
 export const localePath = (locale: Locale, path: string) => prefix(locale) + path
 
+/** The languages an event's text can be translated into: all but zh-TW, which admins write in. */
+export type TranslatedLocale = Exclude<Locale, typeof DEFAULT_LOCALE>
+export const TRANSLATED = LOCALES.filter((l): l is TranslatedLocale => l !== DEFAULT_LOCALE)
+
+/**
+ * An events API URL asking for their text in a locale: withLang('/api/events',
+ * 'ja') is '/api/events?lang=ja'. The Worker writes a page's first response
+ * into it under this same URL, so the page finds it (src/api/client.ts).
+ */
+export const withLang = (url: string, locale: Locale) => (locale === DEFAULT_LOCALE ? url : `${url}?lang=${locale}`)
+
 const PREFIXED = new RegExp(`^/(${LOCALES.filter((l) => l !== DEFAULT_LOCALE).join('|')})(?=[/?#]|$)(.*)$`)
 
 /** The locale a path is in, and the path without its prefix ('/ja' → '/'). */

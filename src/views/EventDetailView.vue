@@ -10,10 +10,12 @@ import OngoingMark from '@/components/OngoingMark.vue'
 import DiscordButton from '@/components/DiscordButton.vue'
 import StateBlock from '@/components/StateBlock.vue'
 import I18nT from '@/components/I18nT.vue'
-import { t } from '@/i18n'
+import { locale, t } from '@/i18n'
+import { DEFAULT_LOCALE, withLang } from '@/i18n/locales'
+import { textLang } from '@/utils/eventText'
 
 const props = defineProps<{ slug: string }>()
-const { data, error, loading, retry } = useApi<ItemResponse<GameEvent>>(() => `/api/events/${props.slug}`)
+const { data, error, loading, retry } = useApi<ItemResponse<GameEvent>>(() => withLang(`/api/events/${props.slug}`, locale))
 
 const ev = computed(() => data.value?.item)
 const days = computed(() => (ev.value?.startsAt ? daysUntil(ev.value.startsAt) : 0))
@@ -94,8 +96,9 @@ function downloadIcs() {
         </div>
         <div class="poster__titles">
           <p class="poster__type">{{ eventTypeLabel(ev.type) }}<span v-if="ev.online"> · {{ t('event.online') }}</span></p>
-          <h1 class="poster__title" lang="zh-Hant-TW">{{ ev.title }}</h1>
-          <p class="poster__summary" lang="zh-Hant-TW">{{ ev.summary }}</p>
+          <h1 class="poster__title" :lang="textLang(ev, 'title')">{{ ev.title }}</h1>
+          <p class="poster__summary" :lang="textLang(ev, 'summary')">{{ ev.summary }}</p>
+          <p v-if="(ev.lang ?? DEFAULT_LOCALE) !== locale" class="poster__untranslated">{{ t('event.untranslated') }}</p>
           <p v-if="data?.sample" class="poster__sample hand">{{ t('event.sample') }}</p>
         </div>
       </header>
@@ -113,7 +116,7 @@ function downloadIcs() {
         </div>
         <div>
           <dt>{{ t('event.time') }}</dt>
-          <dd v-if="ev.ongoing" lang="zh-Hant-TW">{{ ev.schedule }}</dd>
+          <dd v-if="ev.ongoing" :lang="textLang(ev, 'schedule')">{{ ev.schedule }}</dd>
           <dd v-else-if="ev.endsAt && isMultiDay(ev.startsAt, ev.endsAt)">
             {{ t('event.starts', { time: time(ev.startsAt) }) }}<br />{{ t('event.ends', { date: monthDay(ev.endsAt), time: time(ev.endsAt) }) }}
           </dd>
@@ -121,21 +124,23 @@ function downloadIcs() {
         </div>
         <div>
           <dt>{{ t('event.place') }}</dt>
-          <dd lang="zh-Hant-TW">{{ ev.city }}<br />{{ ev.venue }}</dd>
+          <dd>
+            <span :lang="textLang(ev, 'city')">{{ ev.city }}</span><br /><span :lang="textLang(ev, 'venue')">{{ ev.venue }}</span>
+          </dd>
         </div>
         <div>
           <dt>{{ t('event.fee') }}</dt>
-          <dd lang="zh-Hant-TW">{{ ev.fee }}</dd>
+          <dd :lang="textLang(ev, 'fee')">{{ ev.fee }}</dd>
         </div>
       </dl>
 
       <div class="poster__body">
         <div class="poster__text">
-          <div v-if="descriptionHtml" class="prose" lang="zh-Hant-TW" v-html="descriptionHtml"></div>
+          <div v-if="descriptionHtml" class="prose" :lang="textLang(ev, 'description')" v-html="descriptionHtml"></div>
 
           <section v-if="ev.agenda?.length" class="agenda" aria-labelledby="agenda-title">
             <h2 id="agenda-title" class="poster__h2">{{ t('event.agenda') }}</h2>
-            <ol class="agenda__list" lang="zh-Hant-TW">
+            <ol class="agenda__list" :lang="textLang(ev, 'agenda')">
               <li v-for="a in ev.agenda" :key="a.time + a.item">
                 <span class="agenda__time num">{{ a.time }}</span>
                 <span>{{ a.item }}</span>
@@ -145,7 +150,7 @@ function downloadIcs() {
 
           <section class="audience" aria-labelledby="aud-title">
             <h2 id="aud-title" class="poster__h2">{{ t('event.audience') }}</h2>
-            <ul class="audience__list" lang="zh-Hant-TW">
+            <ul class="audience__list" :lang="textLang(ev, 'audience')">
               <li v-for="a in ev.audience" :key="a">{{ a }}</li>
             </ul>
           </section>
@@ -153,7 +158,7 @@ function downloadIcs() {
 
         <aside class="poster__side">
           <div v-if="ev.deadline && deadlineDays !== null" class="deadline" :class="{ 'is-past': deadlineDays < 0 }">
-            <p class="deadline__label hand" lang="zh-Hant-TW">{{ ev.deadline.label }}</p>
+            <p class="deadline__label hand" :lang="textLang(ev, 'deadlineLabel')">{{ ev.deadline.label }}</p>
             <p class="deadline__date num">{{ monthDay(ev.deadline.date) }}</p>
             <p class="deadline__left">
               {{ deadlineDays > 0 ? t('event.daysLeft', { n: deadlineDays }) : deadlineDays === 0 ? t('event.closesToday') : t('event.closed') }}
@@ -265,6 +270,11 @@ function downloadIcs() {
   text-decoration: underline wavy var(--dot);
   text-decoration-thickness: 2px;
   text-underline-offset: 0.3em;
+}
+.poster__untranslated {
+  margin-top: 12px;
+  font-size: 0.9375rem;
+  color: var(--ink-3);
 }
 .poster__facts {
   display: grid;

@@ -8,6 +8,8 @@ import { COUNTRIES, countryLabel, countryOf } from '@/utils/country'
 import { EVENT_TYPES, eventTypeLabel, time } from '@/utils/format'
 import { asHtml, safeHtml } from '@/utils/html'
 import { toCoverImage } from '@/utils/image'
+import { LOCALE_INFO, TRANSLATED, type TranslatedLocale } from '@/i18n/locales'
+import { blankRow, fromTextForms, hasText, toTextForms, type TextForms } from './translationForm'
 import FormField from '@/components/FormField.vue'
 import StateBlock from '@/components/StateBlock.vue'
 
@@ -41,6 +43,7 @@ interface Form {
   audience: string
   url: string
   cover: string
+  i18n: TextForms
   published: boolean
 }
 
@@ -66,6 +69,7 @@ const blank = (): Form => ({
   audience: '',
   url: '',
   cover: '',
+  i18n: toTextForms(undefined, 0),
   published: false,
 })
 
@@ -100,6 +104,7 @@ function fromEvent(e: AdminEvent): Form {
     audience: (e.audience ?? []).join('\n'),
     url: e.url ?? '',
     cover: e.cover ?? '',
+    i18n: toTextForms(e.i18n, (e.agenda ?? []).length),
     published: e.published,
   }
 }
@@ -129,6 +134,7 @@ function toInput(f: Form): EventInput {
       .filter(Boolean),
     url: f.url.trim() || undefined,
     cover: f.cover.trim() || undefined,
+    i18n: fromTextForms(f.i18n, f),
     published: f.published,
   }
 }
@@ -137,6 +143,8 @@ const form = reactive<Form>(blank())
 const saved = ref<AdminEvent | null>(null)
 const loadState = ref<'loading' | 'ready' | 'missing' | 'error'>(isNew ? 'ready' : 'loading')
 const saving = ref(false)
+// The language the translation fields show.
+const lang = ref<TranslatedLocale>(TRANSLATED[0]!)
 const deleting = ref(false)
 const uploading = ref(false)
 const fieldErrors = ref<Record<string, string>>({})
@@ -191,8 +199,15 @@ const LABELS: Record<string, string> = {
   'f-cover': '封面圖片',
 }
 
-/** The input for a field path the Worker rejected, e.g. deadline.date or agenda.2.item. */
-function fieldId(field: string) {
+/**
+ * The input for a field path the Worker rejected, e.g. deadline.date,
+ * agenda.2.item or i18n.ja.agenda.2.item.
+ */
+function fieldId(field: string): string {
+  if (field.startsWith('i18n.')) {
+    const [, l, ...rest] = field.split('.')
+    return fieldId(rest.join('.') || 'title').replace(/^f-/, `f-i18n-${l}-`)
+  }
   const [head, i, sub] = field.split('.')
   if (head === 'deadline') return i === 'label' ? 'f-deadlineLabel' : 'f-deadlineAt'
   if (head === 'agenda' && sub) return `f-agenda-${i}-${sub}`
@@ -208,7 +223,12 @@ function showError(e: unknown) {
   console.error(e)
   if (e instanceof AdminError && e.field) {
     const id = fieldId(e.field)
-    const label = LABELS[id] ?? (id.startsWith('f-agenda-') ? `活動流程第 ${Number(id.split('-')[2]) + 1} 項` : '')
+    // A translation's field: show its language, and name both.
+    const l = TRANSLATED.find((l) => id.startsWith(`f-i18n-${l}-`))
+    if (l) lang.value = l
+    const own = l ? id.replace(`i18n-${l}-`, '') : id
+    const name = LABELS[own] ?? (own.startsWith('f-agenda-') ? `活動流程第 ${Number(own.split('-')[2]) + 1} 項` : '')
+    const label = l ? `${LOCALE_INFO[l].name}翻譯的${name || '內容'}` : name
     fieldErrors.value = { [id]: e.message }
     status.value = { kind: 'error', text: label ? `${label}：${e.message}` : e.message }
     nextTick(() => document.getElementById(id)?.focus())
@@ -229,8 +249,10 @@ function showError(e: unknown) {
 }
 
 async function save() {
-  // Rows left completely empty are dropped instead of rejected.
-  form.agenda = form.agenda.filter((a) => a.time.trim() || a.item.trim())
+  // Rows left completely empty are dropped instead of rejected, with their translations.
+  const kept = form.agenda.flatMap((a, i) => (a.time.trim() || a.item.trim() ? [i] : []))
+  form.agenda = kept.map((i) => form.agenda[i]!)
+  for (const l of TRANSLATED) form.i18n[l].agenda = kept.map((i) => form.i18n[l].agenda[i] ?? blankRow())
   fieldErrors.value = {}
   status.value = null
   saving.value = true
@@ -289,8 +311,19 @@ async function pickCover(e: Event) {
   }
 }
 
+// Each translation has a row for every zh-TW row.
+function removeAgendaRow(i: number) {
+  form.agenda.splice(i, 1)
+  for (const l of TRANSLATED) form.i18n[l].agenda.splice(i, 1)
+}
+
+function clearTranslation(l: TranslatedLocale) {
+  form.i18n[l] = toTextForms(undefined, form.agenda.length)[l]
+}
+
 async function addAgendaRow() {
-  form.agenda.push({ time: '', item: '' })
+  form.agenda.push(blankRow())
+  for (const l of TRANSLATED) form.i18n[l].agenda.push(blankRow())
   await nextTick()
   document.getElementById(`f-agenda-${form.agenda.length - 1}-time`)?.focus()
 }
@@ -554,7 +587,7 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
                   :aria-label="`第 ${i + 1} 項的內容`"
                   :aria-invalid="fieldErrors[`f-agenda-${i}-item`] ? 'true' : undefined"
                 />
-                <button type="button" class="icon-btn" :aria-label="`移除第 ${i + 1} 項`" @click="form.agenda.splice(i, 1)">
+                <button type="button" class="icon-btn" :aria-label="`移除第 ${i + 1} 項`" @click="removeAgendaRow(i)">
                   <X :size="20" aria-hidden="true" />
                 </button>
               </li>
@@ -582,6 +615,182 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
               v-bind="aria('f-url')"
             />
           </FormField>
+        </section>
+
+        <section class="part" aria-labelledby="part-i18n">
+          <h2 id="part-i18n" class="part__title">翻譯</h2>
+          <p class="part__lede">
+            英文、日文與韓文頁面會顯示這裡的翻譯；沒有翻譯的語言顯示中文。可以只填名稱與摘要，留空的欄位會沿用中文。
+          </p>
+          <fieldset class="field fieldset">
+            <legend class="field__label">語言</legend>
+            <div class="pills">
+              <label v-for="l in TRANSLATED" :key="l" class="pill">
+                <input v-model="lang" type="radio" name="i18n-lang" :value="l" />
+                <span>
+                  <span :lang="LOCALE_INFO[l].htmlLang">{{ LOCALE_INFO[l].name }}</span>
+                  <span class="i18n-state" :class="{ 'is-done': hasText(form.i18n[l]) }">{{ hasText(form.i18n[l]) ? '已翻譯' : '未翻譯' }}</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div v-for="l in TRANSLATED" v-show="l === lang" :key="l" class="i18n">
+            <FormField :id="`f-i18n-${l}-title`" label="活動名稱" :error="fieldErrors[`f-i18n-${l}-title`]">
+              <input
+                :id="`f-i18n-${l}-title`"
+                v-model="form.i18n[l].title"
+                class="input"
+                maxlength="120"
+                :lang="LOCALE_INFO[l].htmlLang"
+                :placeholder="form.title"
+                v-bind="aria(`f-i18n-${l}-title`)"
+              />
+            </FormField>
+            <FormField :id="`f-i18n-${l}-summary`" label="一句話摘要" :error="fieldErrors[`f-i18n-${l}-summary`]">
+              <textarea
+                :id="`f-i18n-${l}-summary`"
+                v-model="form.i18n[l].summary"
+                class="input input--short"
+                rows="2"
+                maxlength="300"
+                :lang="LOCALE_INFO[l].htmlLang"
+                :placeholder="form.summary"
+                v-bind="aria(`f-i18n-${l}-summary`)"
+              ></textarea>
+            </FormField>
+            <div class="part__row">
+              <FormField :id="`f-i18n-${l}-city`" label="城市" :error="fieldErrors[`f-i18n-${l}-city`]">
+                <input
+                  :id="`f-i18n-${l}-city`"
+                  v-model="form.i18n[l].city"
+                  class="input"
+                  maxlength="40"
+                  :lang="LOCALE_INFO[l].htmlLang"
+                  :placeholder="form.city"
+                  v-bind="aria(`f-i18n-${l}-city`)"
+                />
+              </FormField>
+              <FormField :id="`f-i18n-${l}-venue`" label="場地" :error="fieldErrors[`f-i18n-${l}-venue`]">
+                <input
+                  :id="`f-i18n-${l}-venue`"
+                  v-model="form.i18n[l].venue"
+                  class="input"
+                  maxlength="120"
+                  :lang="LOCALE_INFO[l].htmlLang"
+                  :placeholder="form.venue"
+                  v-bind="aria(`f-i18n-${l}-venue`)"
+                />
+              </FormField>
+            </div>
+            <div class="part__row">
+              <FormField :id="`f-i18n-${l}-fee`" label="費用" :error="fieldErrors[`f-i18n-${l}-fee`]">
+                <input
+                  :id="`f-i18n-${l}-fee`"
+                  v-model="form.i18n[l].fee"
+                  class="input"
+                  maxlength="60"
+                  :lang="LOCALE_INFO[l].htmlLang"
+                  :placeholder="form.fee"
+                  v-bind="aria(`f-i18n-${l}-fee`)"
+                />
+              </FormField>
+              <FormField
+                v-if="form.ongoing"
+                :id="`f-i18n-${l}-schedule`"
+                label="時間說明"
+                :error="fieldErrors[`f-i18n-${l}-schedule`]"
+              >
+                <input
+                  :id="`f-i18n-${l}-schedule`"
+                  v-model="form.i18n[l].schedule"
+                  class="input"
+                  maxlength="60"
+                  :lang="LOCALE_INFO[l].htmlLang"
+                  :placeholder="form.schedule"
+                  v-bind="aria(`f-i18n-${l}-schedule`)"
+                />
+              </FormField>
+              <FormField
+                v-else-if="form.hasDeadline"
+                :id="`f-i18n-${l}-deadlineLabel`"
+                label="截止標籤"
+                :error="fieldErrors[`f-i18n-${l}-deadlineLabel`]"
+              >
+                <input
+                  :id="`f-i18n-${l}-deadlineLabel`"
+                  v-model="form.i18n[l].deadlineLabel"
+                  class="input"
+                  maxlength="20"
+                  :lang="LOCALE_INFO[l].htmlLang"
+                  :placeholder="form.deadlineLabel"
+                  v-bind="aria(`f-i18n-${l}-deadlineLabel`)"
+                />
+              </FormField>
+            </div>
+            <FormField
+              :id="`f-i18n-${l}-description`"
+              label="活動說明"
+              hint="寫法和中文的活動說明相同。嵌入碼與連結請照中文版保留。"
+              :error="fieldErrors[`f-i18n-${l}-description`]"
+            >
+              <textarea
+                :id="`f-i18n-${l}-description`"
+                v-model="form.i18n[l].description"
+                class="input input--code"
+                rows="8"
+                spellcheck="false"
+                :lang="LOCALE_INFO[l].htmlLang"
+                v-bind="aria(`f-i18n-${l}-description`)"
+              ></textarea>
+            </FormField>
+            <div v-if="form.agenda.length" class="field">
+              <p :id="`i18n-${l}-agenda-label`" class="field__label">活動流程</p>
+              <ol class="agenda" :aria-labelledby="`i18n-${l}-agenda-label`">
+                <li v-for="(row, i) in form.i18n[l].agenda" :key="i" class="agenda__row agenda__row--fixed">
+                  <input
+                    :id="`f-i18n-${l}-agenda-${i}-time`"
+                    v-model="row.time"
+                    class="input"
+                    maxlength="40"
+                    :lang="LOCALE_INFO[l].htmlLang"
+                    :placeholder="form.agenda[i]?.time"
+                    :aria-label="`第 ${i + 1} 項的時間（留空沿用中文）`"
+                    :aria-invalid="fieldErrors[`f-i18n-${l}-agenda-${i}-time`] ? 'true' : undefined"
+                  />
+                  <input
+                    :id="`f-i18n-${l}-agenda-${i}-item`"
+                    v-model="row.item"
+                    class="input"
+                    maxlength="200"
+                    :lang="LOCALE_INFO[l].htmlLang"
+                    :placeholder="form.agenda[i]?.item"
+                    :aria-label="`第 ${i + 1} 項的內容`"
+                    :aria-invalid="fieldErrors[`f-i18n-${l}-agenda-${i}-item`] ? 'true' : undefined"
+                  />
+                </li>
+              </ol>
+            </div>
+            <FormField
+              :id="`f-i18n-${l}-audience`"
+              label="適合對象"
+              hint="一行一個。"
+              :error="fieldErrors[`f-i18n-${l}-audience`]"
+            >
+              <textarea
+                :id="`f-i18n-${l}-audience`"
+                v-model="form.i18n[l].audience"
+                class="input input--short"
+                rows="3"
+                :lang="LOCALE_INFO[l].htmlLang"
+                :placeholder="form.audience"
+                v-bind="aria(`f-i18n-${l}-audience`)"
+              ></textarea>
+            </FormField>
+            <button v-if="hasText(form.i18n[l])" type="button" class="outline-btn i18n__clear" @click="clearTranslation(l)">
+              <X aria-hidden="true" />清除{{ LOCALE_INFO[l].name }}翻譯
+            </button>
+          </div>
         </section>
       </div>
 
@@ -766,6 +975,40 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
   align-items: center;
 }
 .agenda__add {
+  justify-self: start;
+}
+/* A translation's agenda follows the zh-TW one: no remove buttons. */
+.agenda__row--fixed {
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+}
+.part__lede {
+  margin-top: -8px;
+  color: var(--ink-2);
+}
+.i18n {
+  display: grid;
+  gap: 20px;
+}
+.i18n-state {
+  margin-left: 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+.i18n-state.is-done {
+  opacity: 1;
+}
+.i18n-state.is-done::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background: var(--dot);
+  vertical-align: 1px;
+}
+.i18n__clear {
   justify-self: start;
 }
 .icon-btn {

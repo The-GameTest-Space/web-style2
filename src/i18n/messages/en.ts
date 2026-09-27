@@ -217,6 +217,7 @@ export default {
   'event.ics': 'Download calendar file (.ics)',
   'event.sampleNote':
     'Sample events have no official sign-up link. Once a real event is listed, the organizer’s sign-up page goes here.',
+  'event.untranslated': 'This event hasn’t been translated yet, so its details are in Chinese.',
 
   'notFound.title': 'We couldn’t find that page.',
   'notFound.text': 'The address may be wrong, or the page may have been removed.',

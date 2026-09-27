@@ -12,11 +12,12 @@ import SampleNote from '@/components/SampleNote.vue'
 import StateBlock from '@/components/StateBlock.vue'
 import DiscordButton from '@/components/DiscordButton.vue'
 import I18nT from '@/components/I18nT.vue'
-import { t } from '@/i18n'
+import { locale, t } from '@/i18n'
+import { withLang } from '@/i18n/locales'
 
 const route = useRoute()
 const router = useRouter()
-const { data, error, loading, retry } = useApi<ListResponse<GameEvent>>('/api/events')
+const { data, error, loading, retry } = useApi<ListResponse<GameEvent>>(withLang('/api/events', locale))
 
 const type = computed(() =>
   EVENT_TYPES.includes(route.query.type as EventType) ? (route.query.type as EventType) : null,
