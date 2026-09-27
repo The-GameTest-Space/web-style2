@@ -9,6 +9,7 @@ const router = createRouter({
     { path: '/games/:slug', name: 'game', component: () => import('../views/GameDetailView.vue'), props: true },
     { path: '/events', name: 'events', component: () => import('../views/EventsView.vue'), meta: { title: '活動資訊' } },
     { path: '/events/:slug', name: 'event', component: () => import('../views/EventDetailView.vue'), props: true },
+    { path: '/auth/discord/callback', name: 'discord-callback', component: () => import('../views/DiscordCallbackView.vue'), meta: { title: '登入' } },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('../views/NotFoundView.vue'), meta: { title: '找不到頁面' } },
   ],
   scrollBehavior(to, _from, saved) {

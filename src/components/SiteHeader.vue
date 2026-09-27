@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
+import AccountMenu from './AccountMenu.vue'
 import BrandMark from './BrandMark.vue'
 import DiscordButton from './DiscordButton.vue'
 import Viewfinder from './Viewfinder.vue'
@@ -30,6 +31,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
         <RouterLink to="/events" class="site-nav__link vf-target" active-class="is-active">
           <Viewfinder />活動
         </RouterLink>
+        <AccountMenu />
         <DiscordButton class="site-nav__cta" label="加入 Discord" />
       </nav>
     </div>

@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "gtspace-auth",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-01"
+  // Secrets (set with `npx wrangler secret put <NAME>`, never committed):
+  //   DISCORD_CLIENT_SECRET     Discord app OAuth2 client secret
+  //   FIREBASE_SERVICE_ACCOUNT  Firebase service account key JSON
+}
