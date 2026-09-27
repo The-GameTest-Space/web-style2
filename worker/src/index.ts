@@ -2,7 +2,8 @@ import { bearer, verifyIdToken } from './auth'
 import { COVER_PATH, MAX_COVER_BYTES, saveCover, serveCover } from './covers'
 import { EVENT_FIELDS, Invalid, SLUG, adminEvent, byStart, parseEvent, publicEvent } from './events'
 import { Firestore, saveUser } from './firestore'
-import { eventJsonLd, jsonLdScript } from './jsonld'
+import { eventJsonLd } from './jsonld'
+import { FIXED_PAGES, type PageMeta, withMeta } from './meta'
 import { createCustomToken, type ServiceAccount } from './token'
 
 interface Env {
@@ -146,28 +147,41 @@ async function sitemap(origin: string, env: Env) {
   return new Response(xml, { headers: { 'Content-Type': 'application/xml; charset=utf-8' } })
 }
 
+/** The title, description and markup for a page, or null when it has none of its own. */
+async function pageMeta({ origin, pathname }: URL, env: Env): Promise<PageMeta | null> {
+  const fixed = FIXED_PAGES[pathname]
+  if (fixed) return { ...fixed, url: `${origin}${pathname}` }
+  const slug = pathname.match(/^\/events\/([a-z0-9-]+)$/)?.[1]
+  const event = slug && (await publishedEvents(env)).items.find((e) => e.slug === slug)
+  if (!event) return null
+  const url = `${origin}/events/${slug}`
+  const cover = typeof event.cover === 'string' && event.cover
+  return {
+    title: String(event.title),
+    description: String(event.summary),
+    url,
+    image: cover ? new URL(cover, origin).href : undefined,
+    ld: eventJsonLd(event, url, origin) ?? undefined,
+  }
+}
+
 /**
- * GET /events/:slug: the site's page with the event's JSON-LD in <head>, so
- * search engines read the date and place without running the app. Anything
- * that has no markup (ongoing or unknown events, a failed lookup) gets the
- * page as it is.
+ * GET /events, /games, /events/:slug: the site's page with the page's own
+ * title, description, link preview and (events) JSON-LD. Anything without
+ * its own (an unknown event, a failed lookup) gets the page as it is.
  */
-async function eventPage(request: Request, { origin }: URL, slug: string, env: Env) {
-  let ld: ReturnType<typeof eventJsonLd> = null
+async function page(request: Request, url: URL, env: Env) {
+  let meta: PageMeta | null = null
   try {
-    const event = (await publishedEvents(env)).items.find((e) => e.slug === slug)
-    ld = event ? eventJsonLd(event, `${origin}/events/${slug}`, origin) : null
+    meta = await pageMeta(url, env)
   } catch (e) {
     console.error(e)
   }
-  if (!ld) return env.ASSETS.fetch(request)
+  if (!meta) return env.ASSETS.fetch(request)
   // Fetched afresh, without the browser's If-None-Match: a 304 would leave
-  // nothing to add the markup to.
-  const page = await env.ASSETS.fetch(new URL(request.url))
-  const withLd = new HTMLRewriter()
-    .on('head', { element: (head) => void head.append(jsonLdScript(ld), { html: true }) })
-    .transform(page)
-  const res = new Response(withLd.body, withLd)
+  // nothing to write into.
+  const html = withMeta(await env.ASSETS.fetch(new URL(request.url)), meta, url.origin)
+  const res = new Response(html.body, html)
   // The file's tag no longer matches the body.
   res.headers.delete('ETag')
   return res
@@ -286,19 +300,21 @@ async function route(request: Request, { origin, pathname }: URL, env: Env) {
   return notFound()
 }
 
-// Only /api/*, /sitemap.xml and /events/* reach this script (run_worker_first
-// in wrangler.jsonc); the rest of the site is served from the static assets.
+// Only /api/*, /sitemap.xml, /events, /games and /events/* reach this script
+// (run_worker_first in wrangler.jsonc); the rest of the site, the home page
+// included, is served from the static assets.
 export default {
   async fetch(request, env) {
     const url = new URL(request.url)
     const { pathname } = url
     const ip = request.headers.get('CF-Connecting-IP') ?? 'unknown'
-    // Event pages are counted apart as well. Over the limit they are still
-    // served, only without the markup: a visitor never gets JSON for a page.
-    if (pathname.startsWith('/events/')) {
-      const slug = request.method === 'GET' && pathname.match(/^\/events\/([a-z0-9-]+)$/)?.[1]
-      if (!slug || !(await env.API_LIMIT.limit({ key: `pages:${ip}` })).success) return env.ASSETS.fetch(request)
-      return eventPage(request, url, slug, env)
+    // Pages are counted apart as well. Over the limit they are still served,
+    // only as index.html is: a visitor never gets JSON for a page.
+    if (!pathname.startsWith('/api/') && pathname !== '/sitemap.xml') {
+      if (request.method !== 'GET' || !(await env.API_LIMIT.limit({ key: `pages:${ip}` })).success) {
+        return env.ASSETS.fetch(request)
+      }
+      return page(request, url, env)
     }
     // Cover images are counted apart (same limit): a page can show several,
     // and they must not use up the allowance for the API itself.

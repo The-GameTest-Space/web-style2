@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watchEffect } from 'vue'
 import { ArrowLeft, CalendarPlus, ExternalLink } from 'lucide-vue-next'
 import { useApi, NotFoundError } from '@/api/client'
 import type { GameEvent, ItemResponse } from '@/api/types'
-import { EVENT_TYPE_LABEL, daysUntil, fullDate, isMultiDay, monthDay, time } from '@/utils/format'
+import { EVENT_TYPE_LABEL, daysUntil, fullDate, isMultiDay, monthDay, pageTitle, time } from '@/utils/format'
 import { safeHtml } from '@/utils/html'
 import DdayCounter from '@/components/DdayCounter.vue'
 import OngoingMark from '@/components/OngoingMark.vue'
@@ -17,6 +17,10 @@ const ev = computed(() => data.value?.item)
 const days = computed(() => (ev.value?.startsAt ? daysUntil(ev.value.startsAt) : 0))
 const descriptionHtml = computed(() => (ev.value?.description ? safeHtml(ev.value.description) : ''))
 const deadlineDays = computed(() => (ev.value?.deadline ? daysUntil(ev.value.deadline.date) : null))
+
+watchEffect(() => {
+  if (ev.value) document.title = pageTitle(ev.value.title)
+})
 
 function icsStamp(iso: string) {
   return new Date(iso).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')

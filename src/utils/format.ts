@@ -42,6 +42,9 @@ export function isMultiDay(start: string, end?: string) {
   return !!end && startOfDay(new Date(start)).getTime() !== startOfDay(new Date(end)).getTime()
 }
 
+/** A page's tab title, as the Worker writes it into the HTML (worker/src/meta.ts). */
+export const pageTitle = (page: string) => `${page} | Game Test Space`
+
 export const EVENT_TYPE_LABEL: Record<EventType, string> = {
   jam: 'Game Jam',
   meetup: '聚會',

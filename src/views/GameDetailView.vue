@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, watchEffect } from 'vue'
 import { ArrowLeft } from 'lucide-vue-next'
 import { useApi, NotFoundError } from '@/api/client'
 import type { Game, ItemResponse, ListResponse } from '@/api/types'
-import { GAME_STATUS_LABEL, monthDay } from '@/utils/format'
+import { GAME_STATUS_LABEL, monthDay, pageTitle } from '@/utils/format'
 import DotStickers from '@/components/DotStickers.vue'
 import DiscordButton from '@/components/DiscordButton.vue'
 import GameCard from '@/components/GameCard.vue'
@@ -17,6 +17,10 @@ const list = useApi<ListResponse<Game>>('/api/games')
 
 const game = computed(() => data.value?.item)
 const others = computed(() => (list.data.value?.items ?? []).filter((g) => g.slug !== props.slug).slice(0, 3))
+
+watchEffect(() => {
+  if (game.value) document.title = pageTitle(game.value.title)
+})
 
 // The visitor's own sticker lives only in this browser; real feedback goes to Discord.
 const stuck = ref(false)
