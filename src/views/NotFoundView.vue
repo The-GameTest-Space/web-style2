@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BrandMark from '@/components/BrandMark.vue'
+import { t } from '@/i18n'
 </script>
 
 <template>
@@ -7,11 +8,11 @@ import BrandMark from '@/components/BrandMark.vue'
     <div class="nf__card">
       <span class="tape tape-bit nf__tape" aria-hidden="true"></span>
       <BrandMark :size="64" />
-      <h1 id="nf-title" class="nf__title">找不到您要查看的頁面。</h1>
-      <p class="nf__text">網址可能有誤，或該頁面已被移除。</p>
+      <h1 id="nf-title" class="nf__title">{{ t('notFound.title') }}</h1>
+      <p class="nf__text">{{ t('notFound.text') }}</p>
       <div class="nf__actions">
-        <RouterLink to="/" class="sticker-btn">返回首頁</RouterLink>
-        <RouterLink to="/games" class="text-link">瀏覽遊戲作品</RouterLink>
+        <RouterLink to="/" class="sticker-btn">{{ t('notFound.home') }}</RouterLink>
+        <RouterLink to="/games" class="text-link">{{ t('notFound.games') }}</RouterLink>
       </div>
     </div>
   </section>

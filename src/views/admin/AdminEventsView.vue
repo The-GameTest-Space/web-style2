@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import { ExternalLink, Plus } from 'lucide-vue-next'
 import { adminApi } from '@/api/admin'
 import type { AdminEvent } from '@/api/types'
-import { EVENT_TYPE_LABEL, daysUntil, monthDay, weekday } from '@/utils/format'
+import { daysUntil, eventTypeLabel, monthDay, weekday } from '@/utils/format'
 import StateBlock from '@/components/StateBlock.vue'
 import TapeHeading from '@/components/TapeHeading.vue'
 
@@ -82,7 +82,7 @@ const year = (iso: string) => new Date(iso).getFullYear()
           <span class="row__main">
             <span class="row__title">{{ e.title }}</span>
             <span class="row__meta">
-              {{ EVENT_TYPE_LABEL[e.type] }}<template v-if="e.ongoing"> · {{ e.schedule }}</template> · {{ e.city }} · /events/{{ e.slug }}
+              {{ eventTypeLabel(e.type) }}<template v-if="e.ongoing"> · {{ e.schedule }}</template> · {{ e.city }} · /events/{{ e.slug }}
             </span>
           </span>
           <span

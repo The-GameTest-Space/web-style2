@@ -3,7 +3,8 @@ import { COVER_PATH, MAX_COVER_BYTES, saveCover, serveCover } from './covers'
 import { EVENT_FIELDS, Invalid, SLUG, adminEvent, byStart, parseEvent, publicEvent } from './events'
 import { Firestore, saveUser } from './firestore'
 import { eventJsonLd } from './jsonld'
-import { FIXED_PAGES, type PageMeta, withMeta } from './meta'
+import { alternates, fixedPage, pageUrl, type PageMeta, withMeta } from './meta'
+import { DEFAULT_LOCALE, LOCALES, splitPath, type Locale } from '../../src/i18n/locales'
 import { createCustomToken, type ServiceAccount } from './token'
 
 interface Env {
@@ -133,33 +134,47 @@ async function publishedEvents(env: Env) {
 // /games/:slug once they do.
 const SITEMAP_PAGES = ['/', '/events']
 
-/** GET /sitemap.xml: the fixed pages plus every published event, for search engines. */
+/**
+ * GET /sitemap.xml: the fixed pages plus every published event, for search
+ * engines, each in every language with links to the others.
+ */
 async function sitemap(origin: string, env: Env) {
   const { items, updated } = await publishedEvents(env)
-  const urls = [
-    ...SITEMAP_PAGES.map((path) => `<url><loc>${origin}${path}</loc></url>`),
-    ...items.map(({ slug }) => {
-      const lastmod = updated.get(String(slug))
-      return `<url><loc>${origin}/events/${slug}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}</url>`
-    }),
+  const pages = [
+    ...SITEMAP_PAGES.map((path) => ({ path, lastmod: '' })),
+    ...items.map(({ slug }) => ({ path: `/events/${slug}`, lastmod: updated.get(String(slug)) ?? '' })),
   ]
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`
+  const urls = pages.flatMap(({ path, lastmod }) => {
+    const links = alternates(origin, path)
+      .map(({ hreflang, href }) => `<xhtml:link rel="alternate" hreflang="${hreflang}" href="${href}"/>`)
+      .join('')
+    return LOCALES.map(
+      (locale) =>
+        `<url><loc>${pageUrl(origin, locale, path)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}${links}</url>`,
+    )
+  })
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`
   return new Response(xml, { headers: { 'Content-Type': 'application/xml; charset=utf-8' } })
 }
 
-/** The title, description and markup for a page, or null when it has none of its own. */
-async function pageMeta({ origin, pathname }: URL, env: Env): Promise<PageMeta | null> {
-  const fixed = FIXED_PAGES[pathname]
-  if (fixed) return { ...fixed, url: `${origin}${pathname}` }
-  const slug = pathname.match(/^\/events\/([a-z0-9-]+)$/)?.[1]
+/**
+ * The title, description and markup for a page in a language (`path` without
+ * its prefix), or null when it has none of its own.
+ */
+async function pageMeta(origin: string, locale: Locale, path: string, env: Env): Promise<PageMeta | null> {
+  const fixed = fixedPage(locale, path)
+  if (fixed) return { ...fixed, locale, path }
+  const slug = path.match(/^\/events\/([a-z0-9-]+)$/)?.[1]
   const event = slug && (await publishedEvents(env)).items.find((e) => e.slug === slug)
   if (!event) return null
-  const url = `${origin}/events/${slug}`
+  const url = pageUrl(origin, locale, path)
   const cover = typeof event.cover === 'string' && event.cover
+  // An event's own text is in the language its admin wrote it in.
   return {
+    locale,
+    path,
     title: String(event.title),
     description: String(event.summary),
-    url,
     image: cover ? new URL(cover, origin).href : undefined,
     ld: eventJsonLd(event, url, origin) ?? undefined,
     // What GET /api/events/:slug answers.
@@ -168,21 +183,24 @@ async function pageMeta({ origin, pathname }: URL, env: Env): Promise<PageMeta |
 }
 
 /**
- * GET /events, /games, /events/:slug: the site's page with the page's own
- * title, description, link preview and (events) JSON-LD. Anything without
- * its own (an unknown event, a failed lookup) gets the page as it is.
+ * GET /, /events, /games, /events/:slug and the same under /en, /ja, /ko:
+ * the site's page in its language, with the page's own title, description,
+ * link preview, links to its other languages and (events) JSON-LD. A zh-TW
+ * page without its own (an unknown event, a failed lookup) gets the page as
+ * it is; one in another language still gets its language.
  */
 async function page(request: Request, url: URL, env: Env) {
+  const { locale, path } = splitPath(url.pathname)
   let meta: PageMeta | null = null
   try {
-    meta = await pageMeta(url, env)
+    meta = await pageMeta(url.origin, locale, path, env)
   } catch (e) {
     console.error(e)
   }
-  if (!meta) return env.ASSETS.fetch(request)
+  if (!meta && locale === DEFAULT_LOCALE) return env.ASSETS.fetch(request)
   // Fetched afresh, without the browser's If-None-Match: a 304 would leave
   // nothing to write into.
-  const html = withMeta(await env.ASSETS.fetch(new URL(request.url)), meta, url.origin)
+  const html = withMeta(await env.ASSETS.fetch(new URL(request.url)), locale, url.origin, meta)
   const res = new Response(html.body, html)
   // The file's tag no longer matches the body.
   res.headers.delete('ETag')
@@ -302,9 +320,9 @@ async function route(request: Request, { origin, pathname }: URL, env: Env) {
   return notFound()
 }
 
-// Only /api/*, /sitemap.xml, /events, /games and /events/* reach this script
-// (run_worker_first in wrangler.jsonc); the rest of the site, the home page
-// included, is served from the static assets.
+// Only /api/*, /sitemap.xml and the pages above (with or without a language
+// prefix) reach this script (run_worker_first in wrangler.jsonc); the rest
+// of the site is served from the static assets.
 export default {
   async fetch(request, env) {
     const url = new URL(request.url)

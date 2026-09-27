@@ -3,36 +3,61 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 import AccountMenu from './AccountMenu.vue'
 import BrandMark from './BrandMark.vue'
 import DiscordButton from './DiscordButton.vue'
+import LocaleMenu from './LocaleMenu.vue'
 import Viewfinder from './Viewfinder.vue'
+import { t } from '@/i18n'
 
 const scrolled = ref(false)
 function onScroll() {
   scrolled.value = window.scrollY > 8
 }
+
+// Labels differ in length from language to language, so no breakpoint suits
+// them all. When the row doesn't fit, the nav first packs its items closer
+// (is-compact); if that isn't enough, it sets smaller and the Discord button
+// drops its label, keeping its logo (is-tight). Never a sideways scroll.
+const bar = ref<HTMLElement | null>(null)
+const nav = ref<HTMLElement | null>(null)
+const fit = new ResizeObserver(() => {
+  const el = bar.value
+  if (!el) return
+  const overflows = () => el.scrollWidth > el.clientWidth
+  el.classList.remove('is-compact', 'is-tight')
+  if (overflows()) el.classList.add('is-compact')
+  if (overflows()) el.classList.add('is-tight')
+})
+
 onMounted(() => {
   onScroll()
   window.addEventListener('scroll', onScroll, { passive: true })
+  // The nav changes size too, e.g. once the sign-in button appears.
+  if (bar.value) fit.observe(bar.value)
+  if (nav.value) fit.observe(nav.value)
 })
-onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+  fit.disconnect()
+})
 </script>
 
 <template>
   <header class="site-header" :class="{ 'is-scrolled': scrolled }">
-    <a class="skip-link" href="#main">跳至主要內容</a>
-    <div class="shell site-header__bar">
-      <RouterLink to="/" class="brand" aria-label="The Game Test Space 首頁">
+    <a class="skip-link" href="#main">{{ t('header.skip') }}</a>
+    <div ref="bar" class="shell site-header__bar">
+      <RouterLink to="/" class="brand" :aria-label="t('header.home')">
         <BrandMark :size="38" class="brand__mark" />
         <span class="brand__word" aria-hidden="true">The Game Test Space</span>
       </RouterLink>
-      <nav class="site-nav" aria-label="主選單">
+      <nav ref="nav" class="site-nav" :aria-label="t('header.nav')">
         <RouterLink to="/games" class="site-nav__link vf-target" active-class="is-active">
-          <Viewfinder />遊戲
+          <Viewfinder />{{ t('nav.games') }}
         </RouterLink>
         <RouterLink to="/events" class="site-nav__link vf-target" active-class="is-active">
-          <Viewfinder />活動
+          <Viewfinder />{{ t('nav.events') }}
         </RouterLink>
+        <LocaleMenu />
         <AccountMenu />
-        <DiscordButton class="site-nav__cta" label="加入 Discord" />
+        <DiscordButton class="site-nav__cta" />
       </nav>
     </div>
   </header>
@@ -59,7 +84,10 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
   gap: 16px;
   min-height: 76px;
 }
+/* Neither side shrinks: a row that doesn't fit overflows, which the script
+   above sees and answers by tightening the nav. */
 .brand {
+  flex: none;
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -81,6 +109,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
   white-space: nowrap;
 }
 .site-nav {
+  flex: none;
   display: flex;
   align-items: center;
   gap: clamp(8px, 2vw, 24px);
@@ -95,11 +124,13 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
   font-size: 1rem;
   color: var(--ink);
   text-decoration: none;
+  white-space: nowrap;
 }
 .site-nav__cta {
   min-height: 46px;
   padding-block: 0.55em;
   font-size: 1rem;
+  white-space: nowrap;
 }
 .skip-link {
   position: absolute;
@@ -135,12 +166,22 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
     font-size: 0.9375rem;
   }
 }
-@media (max-width: 380px) {
-  .site-nav__cta :deep(span:not(.visually-hidden)) {
-    display: none;
-  }
-  .site-nav__cta {
-    padding-inline: 0.8em;
-  }
+.site-header__bar.is-compact .site-nav__link,
+.site-header__bar.is-compact :deep(.acct-login),
+.site-header__bar.is-compact :deep(.lang__toggle) {
+  padding-inline: 6px;
+}
+.site-header__bar.is-tight {
+  gap: 8px;
+}
+.site-header__bar.is-tight .site-nav__link,
+.site-header__bar.is-tight :deep(.acct-login) {
+  font-size: 0.875rem;
+}
+.site-header__bar.is-tight .site-nav__cta :deep(span:not(.visually-hidden)) {
+  display: none;
+}
+.site-header__bar.is-tight .site-nav__cta {
+  padding-inline: 0.8em;
 }
 </style>

@@ -2,6 +2,8 @@
 import { useDiscord, DISCORD_INVITE } from '@/composables/useDiscord'
 import TallyMarks from './TallyMarks.vue'
 import DiscordButton from './DiscordButton.vue'
+import I18nT from './I18nT.vue'
+import { t } from '@/i18n'
 
 withDefaults(defineProps<{ size?: 'sm' | 'lg'; delay?: number; tilt?: number }>(), { size: 'sm', delay: 0, tilt: 1.5 })
 
@@ -13,46 +15,48 @@ const { presence, status } = useDiscord()
     class="sheet"
     :class="`sheet--${size}`"
     :style="{ '--tilt': `${tilt}deg`, '--delay': `${delay}ms` }"
-    aria-label="Discord 伺服器即時狀態"
+    :aria-label="t('discord.status')"
   >
     <span class="tape tape-bit sheet__tape sheet__tape--l" aria-hidden="true"></span>
     <span class="tape tape-bit sheet__tape sheet__tape--r" aria-hidden="true"></span>
     <header class="sheet__head">
-      <p class="sheet__title">社群即時狀態</p>
+      <p class="sheet__title">{{ t('discord.title') }}</p>
       <p class="sheet__guild">{{ presence?.guildName ?? 'The Game Test Space' }} · Discord</p>
     </header>
 
     <div v-if="status === 'ready' && presence" class="sheet__rows">
       <div class="sheet__row">
-        <span class="sheet__label">目前線上</span>
+        <span class="sheet__label">{{ t('discord.online') }}</span>
         <span class="sheet__value">
           <TallyMarks :count="presence.online" :delay="delay + 300" class="sheet__tally" />
           <strong class="num sheet__num">{{ presence.online }}</strong>
-          <span class="visually-hidden">人</span>
+          <span v-if="t('discord.unit')" class="visually-hidden">{{ t('discord.unit') }}</span>
         </span>
       </div>
       <div class="sheet__row">
-        <span class="sheet__label">成員總數</span>
+        <span class="sheet__label">{{ t('discord.members') }}</span>
         <span class="sheet__value">
           <strong class="num sheet__num">{{ presence.members }}</strong>
-          <span class="sheet__unit">人</span>
+          <span v-if="t('discord.unit')" class="sheet__unit">{{ t('discord.unit') }}</span>
         </span>
       </div>
-      <p class="sheet__source">以上數字即時取自 Discord</p>
+      <p class="sheet__source">{{ t('discord.source') }}</p>
     </div>
     <div v-else-if="status === 'unavailable'" class="sheet__rows">
-      <p class="sheet__fallback hand">目前無法取得線上人數。<br />請加入 Discord 查看。</p>
+      <p class="sheet__fallback hand">
+        <I18nT k="discord.unavailable"><template #br><br /></template></I18nT>
+      </p>
     </div>
     <div v-else class="sheet__rows sheet__rows--loading" aria-busy="true">
       <span class="sheet__line"></span>
       <span class="sheet__line"></span>
-      <span class="visually-hidden">正在讀取 Discord 狀態</span>
+      <span class="visually-hidden">{{ t('discord.loading') }}</span>
     </div>
 
     <footer class="sheet__foot">
-      <DiscordButton v-if="size === 'lg'" variant="ink" label="加入 Discord 社群" />
+      <DiscordButton v-if="size === 'lg'" variant="ink" :label="t('discord.join')" />
       <a v-else :href="DISCORD_INVITE" class="text-link sheet__join" target="_blank" rel="noopener">
-        加入 Discord 社群 →<span class="visually-hidden">（在新分頁開啟）</span>
+        {{ t('discord.join') }} →<span class="visually-hidden">{{ t('common.newTab') }}</span>
       </a>
     </footer>
   </section>

@@ -4,6 +4,8 @@ import { useRoute, useRouter } from 'vue-router'
 import BrandMark from '@/components/BrandMark.vue'
 import DiscordIcon from '@/components/DiscordIcon.vue'
 import { finishDiscordSignIn, signInWithDiscord, takeDiscordState } from '@/composables/useAuth'
+import { t } from '@/i18n'
+import { DEFAULT_LOCALE, splitPath } from '@/i18n/locales'
 
 const route = useRoute()
 const router = useRouter()
@@ -16,19 +18,22 @@ onMounted(async () => {
   if (saved) returnTo.value = saved.returnTo
 
   if (error) {
-    failure.value = '您在 Discord 取消了授權，所以沒有登入。'
+    failure.value = t('signIn.cancelled')
     return
   }
   if (!saved || typeof code !== 'string' || state !== saved.state) {
-    failure.value = '這個登入連結已失效，請重新登入一次。'
+    failure.value = t('signIn.expired')
     return
   }
   try {
     await finishDiscordSignIn(code)
-    router.replace(returnTo.value)
+    // This page is always at the unprefixed URL: a page in another language
+    // is under another router base, so it takes a page load.
+    if (splitPath(returnTo.value).locale === DEFAULT_LOCALE) router.replace(returnTo.value)
+    else location.replace(returnTo.value)
   } catch (e) {
     console.error(e)
-    failure.value = '無法完成登入，可能是網路不穩定，請稍後再試。'
+    failure.value = t('signIn.error')
   }
 })
 </script>
@@ -39,19 +44,19 @@ onMounted(async () => {
       <span class="tape tape-bit cb__tape" aria-hidden="true"></span>
       <BrandMark :size="64" />
       <template v-if="failure">
-        <h1 id="cb-title" class="cb__title">登入失敗。</h1>
+        <h1 id="cb-title" class="cb__title">{{ t('signIn.failed') }}</h1>
         <p class="cb__text" role="alert">{{ failure }}</p>
         <div class="cb__actions">
           <button type="button" class="sticker-btn sticker-btn--ink" @click="signInWithDiscord(returnTo)">
             <DiscordIcon />
-            <span>重新登入</span>
+            <span>{{ t('signIn.retry') }}</span>
           </button>
-          <RouterLink :to="returnTo" class="text-link">返回上一頁</RouterLink>
+          <a :href="returnTo" class="text-link">{{ t('signIn.back') }}</a>
         </div>
       </template>
       <template v-else>
-        <h1 id="cb-title" class="cb__title">登入中…</h1>
-        <p class="cb__text hand cb__hand" role="status">正在向 Discord 確認您的身分</p>
+        <h1 id="cb-title" class="cb__title">{{ t('signIn.pending') }}</h1>
+        <p class="cb__text hand cb__hand" role="status">{{ t('signIn.checking') }}</p>
       </template>
     </div>
   </section>

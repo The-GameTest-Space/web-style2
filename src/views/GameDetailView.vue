@@ -3,12 +3,14 @@ import { computed, ref, watch, watchEffect } from 'vue'
 import { ArrowLeft } from 'lucide-vue-next'
 import { useApi, NotFoundError } from '@/api/client'
 import type { Game, ItemResponse, ListResponse } from '@/api/types'
-import { GAME_STATUS_LABEL, monthDay, pageTitle } from '@/utils/format'
+import { gameStatusLabel, monthDay, pageTitle } from '@/utils/format'
 import DotStickers from '@/components/DotStickers.vue'
 import DiscordButton from '@/components/DiscordButton.vue'
 import GameCard from '@/components/GameCard.vue'
 import StateBlock from '@/components/StateBlock.vue'
 import TapeHeading from '@/components/TapeHeading.vue'
+import I18nT from '@/components/I18nT.vue'
+import { t } from '@/i18n'
 
 const props = defineProps<{ slug: string }>()
 
@@ -49,15 +51,15 @@ function stick() {
 
 <template>
   <div class="detail shell">
-    <RouterLink to="/games" class="back"><ArrowLeft :size="18" aria-hidden="true" />返回遊戲作品</RouterLink>
+    <RouterLink to="/games" class="back"><ArrowLeft :size="18" aria-hidden="true" />{{ t('game.back') }}</RouterLink>
 
-    <StateBlock v-if="loading && !data" kind="loading" message="正在載入遊戲資訊…" />
+    <StateBlock v-if="loading && !data" kind="loading" :message="t('game.loading')" />
     <StateBlock
       v-else-if="error && error instanceof NotFoundError"
       kind="missing"
-      message="此遊戲可能已從網站移除。"
+      :message="t('game.missing')"
     >
-      <RouterLink to="/games" class="sticker-btn sticker-btn--paper">瀏覽其他遊戲</RouterLink>
+      <RouterLink to="/games" class="sticker-btn sticker-btn--paper">{{ t('game.browse') }}</RouterLink>
     </StateBlock>
     <StateBlock v-else-if="error" kind="error" @retry="retry" />
 
@@ -66,23 +68,23 @@ function stick() {
         <figure class="print">
           <span class="tape tape-bit print__tape print__tape--l" aria-hidden="true"></span>
           <span class="tape tape-bit print__tape print__tape--r" aria-hidden="true"></span>
-          <img :src="game.cover" :alt="`《${game.title}》封面`" width="800" height="600" />
-          <figcaption v-if="data?.sample" class="print__cap hand">示範封面，日後將替換為實際遊戲畫面</figcaption>
+          <img :src="game.cover" :alt="t('game.coverAlt', { title: game.title })" width="800" height="600" />
+          <figcaption v-if="data?.sample" class="print__cap hand">{{ t('game.sampleCover') }}</figcaption>
         </figure>
 
         <section class="about" aria-labelledby="about-title">
-          <h2 id="about-title" class="about__title">遊戲簡介</h2>
-          <p class="about__pitch">{{ game.pitch }}</p>
-          <p v-for="(p, i) in game.description" :key="i" class="about__p">{{ p }}</p>
+          <h2 id="about-title" class="about__title">{{ t('game.about') }}</h2>
+          <p class="about__pitch" lang="zh-Hant-TW">{{ game.pitch }}</p>
+          <p v-for="(p, i) in game.description" :key="i" class="about__p" lang="zh-Hant-TW">{{ p }}</p>
         </section>
 
         <section class="log" aria-labelledby="log-title">
-          <h2 id="log-title" class="about__title">更新紀錄</h2>
+          <h2 id="log-title" class="about__title">{{ t('game.log') }}</h2>
           <ol class="log__list">
             <li v-for="b in game.buildLog" :key="b.version" class="log__item">
               <span class="log__ver num">{{ b.version }}</span>
               <span class="log__date num">{{ monthDay(b.date) }}</span>
-              <p class="log__note">{{ b.note }}</p>
+              <p class="log__note" lang="zh-Hant-TW">{{ b.note }}</p>
             </li>
           </ol>
         </section>
@@ -90,21 +92,24 @@ function stick() {
 
       <aside class="index-card" aria-labelledby="game-title">
         <span class="tape tape-bit index-card__tape" aria-hidden="true"></span>
-        <p v-if="game.status === 'seeking'" class="index-card__status">{{ GAME_STATUS_LABEL[game.status] }}</p>
-        <h1 id="game-title" class="index-card__title">{{ game.title }}</h1>
+        <p v-if="game.status === 'seeking'" class="index-card__status">{{ gameStatusLabel(game.status) }}</p>
+        <h1 id="game-title" class="index-card__title" lang="zh-Hant-TW">{{ game.title }}</h1>
         <p class="index-card__en">{{ game.titleEn }}</p>
 
         <dl class="facts">
-          <div><dt>開發者</dt><dd>{{ game.studio }}（{{ game.team }}）</dd></div>
-          <div><dt>版本</dt><dd class="num">{{ game.build }}</dd></div>
-          <div><dt>平台</dt><dd>{{ game.platforms.join('、') }}</dd></div>
-          <div><dt>類型</dt><dd>{{ game.genres.join('、') }}</dd></div>
-          <div><dt>更新日期</dt><dd class="num">{{ monthDay(game.updatedAt) }}</dd></div>
+          <div>
+            <dt>{{ t('game.developer') }}</dt>
+            <dd lang="zh-Hant-TW">{{ t('game.studioTeam', { studio: game.studio, team: game.team }) }}</dd>
+          </div>
+          <div><dt>{{ t('game.build') }}</dt><dd class="num">{{ game.build }}</dd></div>
+          <div><dt>{{ t('game.platforms') }}</dt><dd lang="zh-Hant-TW">{{ game.platforms.join(t('common.listSep')) }}</dd></div>
+          <div><dt>{{ t('game.genres') }}</dt><dd lang="zh-Hant-TW">{{ game.genres.join(t('common.listSep')) }}</dd></div>
+          <div><dt>{{ t('game.updated') }}</dt><dd class="num">{{ monthDay(game.updatedAt) }}</dd></div>
         </dl>
 
         <section class="ask" aria-labelledby="ask-title">
-          <h2 id="ask-title" class="ask__title">開發者希望了解</h2>
-          <ul class="ask__list hand">
+          <h2 id="ask-title" class="ask__title">{{ t('game.asks') }}</h2>
+          <ul class="ask__list hand" lang="zh-Hant-TW">
             <li v-for="q in game.feedbackWanted" :key="q">{{ q }}</li>
           </ul>
         </section>
@@ -112,20 +117,21 @@ function stick() {
         <div class="votes">
           <DotStickers :count="game.dots + (stuck ? 1 : 0)" size="lg" :max="10" />
           <p class="votes__label">
-            <strong class="num">{{ game.dots }}</strong> 人試玩過<span v-if="stuck">，另加上您的標記</span>
+            <I18nT k="game.played" :n="game.dots"><template #n><strong class="num">{{ game.dots }}</strong></template></I18nT
+            ><span v-if="stuck">{{ t('game.plusYours') }}</span>
           </p>
           <button type="button" class="votes__btn" :aria-pressed="stuck" @click="stick">
-            <span class="votes__dot" aria-hidden="true"></span>{{ stuck ? '取消試玩標記' : '標記為已試玩' }}
+            <span class="votes__dot" aria-hidden="true"></span>{{ stuck ? t('game.unmark') : t('game.mark') }}
           </button>
-          <p class="votes__fine">此標記僅儲存於您的瀏覽器。如需提供回饋，請至 Discord 告知開發者。</p>
+          <p class="votes__fine">{{ t('game.markNote') }}</p>
         </div>
 
-        <DiscordButton label="至 Discord 取得 build" class="index-card__cta" />
+        <DiscordButton :label="t('game.getBuild')" class="index-card__cta" />
       </aside>
     </article>
 
     <section v-if="game && others.length" class="more" aria-labelledby="more-title">
-      <TapeHeading id="more-title" :tilt="1">其他遊戲作品</TapeHeading>
+      <TapeHeading id="more-title" :tilt="1">{{ t('game.more') }}</TapeHeading>
       <div class="more__grid">
         <GameCard v-for="g in others" :key="g.slug" :game="g" />
       </div>

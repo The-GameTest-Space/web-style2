@@ -43,6 +43,21 @@
 }
 :root:lang(ko) {
   --font-cjk: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+  /* Korean breaks lines between words, not inside them. */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+/* Chinese text on a page in another language (an event's own title or venue,
+   marked lang="zh-Hant-TW") keeps Chinese forms and punctuation. No
+   specificity, so a class that picks the display or hand font still wins,
+   and resolves to this set. */
+:where(:root:not(:lang(zh)) [lang|='zh']) {
+  --font-cjk: 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', var(--font-cjk);
+  --font-body: var(--font-cjk);
+  --font-hand: 'Iansui', var(--font-cjk);
+  font-family: var(--font-body);
+  word-break: normal;
 }
 
 *,

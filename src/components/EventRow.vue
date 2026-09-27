@@ -2,7 +2,8 @@
 import { computed } from 'vue'
 import { MapPin, Clock, Repeat } from 'lucide-vue-next'
 import type { GameEvent } from '@/api/types'
-import { EVENT_TYPE_LABEL, daysUntil, isMultiDay, monthDay, time, weekday } from '@/utils/format'
+import { daysUntil, eventTypeLabel, isMultiDay, monthDay, time, weekday } from '@/utils/format'
+import { t } from '@/i18n'
 import DdayCounter from './DdayCounter.vue'
 import OngoingMark from './OngoingMark.vue'
 
@@ -29,24 +30,24 @@ const urgent = computed(() => deadlineDays.value !== null && deadlineDays.value 
       <div v-if="!event.ongoing" class="event-row__date">
         <span class="num event-row__md">{{ monthDay(event.startsAt) }}</span>
         <span class="event-row__wd">
-          （{{ weekday(event.startsAt) }}）<template v-if="isMultiDay(event.startsAt, event.endsAt)"
+          {{ t('date.weekdayParen', { wd: weekday(event.startsAt) }) }}<template v-if="isMultiDay(event.startsAt, event.endsAt)"
             >– {{ monthDay(event.endsAt!) }}</template
           >
         </span>
       </div>
       <div class="event-row__main" :class="{ 'event-row__main--wide': event.ongoing }">
-        <span class="event-row__type">{{ EVENT_TYPE_LABEL[event.type] }}</span>
-        <h3 class="event-row__title">{{ event.title }}</h3>
+        <span class="event-row__type">{{ eventTypeLabel(event.type) }}</span>
+        <h3 class="event-row__title" lang="zh-Hant-TW">{{ event.title }}</h3>
         <p class="event-row__meta">
-          <span v-if="event.ongoing"><Repeat :size="15" aria-hidden="true" />{{ event.schedule }}</span>
-          <span><MapPin :size="15" aria-hidden="true" />{{ event.city }}・{{ event.venue }}</span>
-          <span v-if="!event.ongoing"><Clock :size="15" aria-hidden="true" />{{ time(event.startsAt) }} 開始</span>
+          <span v-if="event.ongoing" lang="zh-Hant-TW"><Repeat :size="15" aria-hidden="true" />{{ event.schedule }}</span>
+          <span lang="zh-Hant-TW"><MapPin :size="15" aria-hidden="true" />{{ event.city }}・{{ event.venue }}</span>
+          <span v-if="!event.ongoing"><Clock :size="15" aria-hidden="true" />{{ t('event.starts', { time: time(event.startsAt) }) }}</span>
         </p>
       </div>
       <p v-if="event.deadline && deadlineDays !== null && deadlineDays >= 0" class="event-row__deadline" :class="{ 'is-urgent': urgent }">
-        <span class="hand">{{ event.deadline.label }}</span>
+        <span class="hand" lang="zh-Hant-TW">{{ event.deadline.label }}</span>
         <strong class="num">{{ monthDay(event.deadline.date) }}</strong>
-        <span v-if="urgent" class="event-row__left">剩餘 {{ deadlineDays }} 天</span>
+        <span v-if="urgent" class="event-row__left">{{ t('event.daysLeft', { n: deadlineDays }) }}</span>
       </p>
       <img
         v-if="event.cover"

@@ -3,12 +3,14 @@ import { computed, watchEffect } from 'vue'
 import { ArrowLeft, CalendarPlus, ExternalLink } from 'lucide-vue-next'
 import { useApi, NotFoundError } from '@/api/client'
 import type { GameEvent, ItemResponse } from '@/api/types'
-import { EVENT_TYPE_LABEL, daysUntil, fullDate, isMultiDay, monthDay, pageTitle, time } from '@/utils/format'
+import { daysUntil, eventTypeLabel, fullDate, isMultiDay, monthDay, pageTitle, time } from '@/utils/format'
 import { safeHtml } from '@/utils/html'
 import DdayCounter from '@/components/DdayCounter.vue'
 import OngoingMark from '@/components/OngoingMark.vue'
 import DiscordButton from '@/components/DiscordButton.vue'
 import StateBlock from '@/components/StateBlock.vue'
+import I18nT from '@/components/I18nT.vue'
+import { t } from '@/i18n'
 
 const props = defineProps<{ slug: string }>()
 const { data, error, loading, retry } = useApi<ItemResponse<GameEvent>>(() => `/api/events/${props.slug}`)
@@ -57,11 +59,11 @@ function downloadIcs() {
 
 <template>
   <div class="ev shell">
-    <RouterLink to="/events" class="back"><ArrowLeft :size="18" aria-hidden="true" />返回活動資訊</RouterLink>
+    <RouterLink to="/events" class="back"><ArrowLeft :size="18" aria-hidden="true" />{{ t('event.back') }}</RouterLink>
 
-    <StateBlock v-if="loading && !data" kind="loading" message="正在載入活動資訊…" />
-    <StateBlock v-else-if="error && error instanceof NotFoundError" kind="missing" message="此活動可能已結束或已取消。">
-      <RouterLink to="/events" class="sticker-btn sticker-btn--paper">瀏覽其他活動</RouterLink>
+    <StateBlock v-if="loading && !data" kind="loading" :message="t('events.loading')" />
+    <StateBlock v-else-if="error && error instanceof NotFoundError" kind="missing" :message="t('event.missing')">
+      <RouterLink to="/events" class="sticker-btn sticker-btn--paper">{{ t('event.browse') }}</RouterLink>
     </StateBlock>
     <StateBlock v-else-if="error" kind="error" @retry="retry" />
 
@@ -72,7 +74,7 @@ function downloadIcs() {
       <img
         v-if="ev.cover"
         :src="ev.cover"
-        :alt="`「${ev.title}」封面`"
+        :alt="t('event.coverAlt', { title: ev.title })"
         class="poster__cover"
         @load="($event.target as HTMLImageElement).classList.add('is-loaded')"
         @error="($event.target as HTMLImageElement).hidden = true"
@@ -81,57 +83,59 @@ function downloadIcs() {
         <div class="poster__count">
           <template v-if="ev.ongoing">
             <OngoingMark size="lg" />
-            <p class="poster__count-label">{{ ev.startsAt && days > 0 ? `${monthDay(ev.startsAt)} 起舉辦` : '持續舉辦中' }}</p>
+            <p class="poster__count-label">{{ ev.startsAt && days > 0 ? t('event.from', { date: monthDay(ev.startsAt) }) : t('event.running') }}</p>
           </template>
           <template v-else>
             <DdayCounter :days="days" size="lg" />
-            <p class="poster__count-label">{{ days > 0 ? '天後開始' : days === 0 ? '今天舉行' : '已經開始' }}</p>
+            <p class="poster__count-label">
+              {{ days > 0 ? t('event.daysToGo', { n: days }) : days === 0 ? t('event.today') : t('event.started') }}
+            </p>
           </template>
         </div>
         <div class="poster__titles">
-          <p class="poster__type">{{ EVENT_TYPE_LABEL[ev.type] }}<span v-if="ev.online"> · 線上</span></p>
-          <h1 class="poster__title">{{ ev.title }}</h1>
-          <p class="poster__summary">{{ ev.summary }}</p>
-          <p v-if="data?.sample" class="poster__sample hand">示範資料，並非實際舉辦的活動</p>
+          <p class="poster__type">{{ eventTypeLabel(ev.type) }}<span v-if="ev.online"> · {{ t('event.online') }}</span></p>
+          <h1 class="poster__title" lang="zh-Hant-TW">{{ ev.title }}</h1>
+          <p class="poster__summary" lang="zh-Hant-TW">{{ ev.summary }}</p>
+          <p v-if="data?.sample" class="poster__sample hand">{{ t('event.sample') }}</p>
         </div>
       </header>
 
       <dl class="poster__facts">
         <div>
-          <dt>日期</dt>
+          <dt>{{ t('event.date') }}</dt>
           <dd v-if="ev.ongoing">
-            長期舉辦<template v-if="ev.startsAt"><br />{{ fullDate(ev.startsAt) }} 起</template>
+            {{ t('event.longRunning') }}<template v-if="ev.startsAt"><br />{{ t('event.since', { date: fullDate(ev.startsAt) }) }}</template>
           </dd>
           <dd v-else>
             {{ fullDate(ev.startsAt) }}
-            <template v-if="isMultiDay(ev.startsAt, ev.endsAt)"><br />至 {{ fullDate(ev.endsAt!) }}</template>
+            <template v-if="isMultiDay(ev.startsAt, ev.endsAt)"><br />{{ t('event.until', { date: fullDate(ev.endsAt!) }) }}</template>
           </dd>
         </div>
         <div>
-          <dt>時間</dt>
-          <dd v-if="ev.ongoing">{{ ev.schedule }}</dd>
+          <dt>{{ t('event.time') }}</dt>
+          <dd v-if="ev.ongoing" lang="zh-Hant-TW">{{ ev.schedule }}</dd>
           <dd v-else-if="ev.endsAt && isMultiDay(ev.startsAt, ev.endsAt)">
-            {{ time(ev.startsAt) }} 開始<br />{{ monthDay(ev.endsAt) }} {{ time(ev.endsAt) }} 結束
+            {{ t('event.starts', { time: time(ev.startsAt) }) }}<br />{{ t('event.ends', { date: monthDay(ev.endsAt), time: time(ev.endsAt) }) }}
           </dd>
           <dd v-else class="num">{{ time(ev.startsAt) }}<template v-if="ev.endsAt"> – {{ time(ev.endsAt) }}</template></dd>
         </div>
         <div>
-          <dt>地點</dt>
-          <dd>{{ ev.city }}<br />{{ ev.venue }}</dd>
+          <dt>{{ t('event.place') }}</dt>
+          <dd lang="zh-Hant-TW">{{ ev.city }}<br />{{ ev.venue }}</dd>
         </div>
         <div>
-          <dt>費用</dt>
-          <dd>{{ ev.fee }}</dd>
+          <dt>{{ t('event.fee') }}</dt>
+          <dd lang="zh-Hant-TW">{{ ev.fee }}</dd>
         </div>
       </dl>
 
       <div class="poster__body">
         <div class="poster__text">
-          <div v-if="descriptionHtml" class="prose" v-html="descriptionHtml"></div>
+          <div v-if="descriptionHtml" class="prose" lang="zh-Hant-TW" v-html="descriptionHtml"></div>
 
           <section v-if="ev.agenda?.length" class="agenda" aria-labelledby="agenda-title">
-            <h2 id="agenda-title" class="poster__h2">活動流程</h2>
-            <ol class="agenda__list">
+            <h2 id="agenda-title" class="poster__h2">{{ t('event.agenda') }}</h2>
+            <ol class="agenda__list" lang="zh-Hant-TW">
               <li v-for="a in ev.agenda" :key="a.time + a.item">
                 <span class="agenda__time num">{{ a.time }}</span>
                 <span>{{ a.item }}</span>
@@ -140,8 +144,8 @@ function downloadIcs() {
           </section>
 
           <section class="audience" aria-labelledby="aud-title">
-            <h2 id="aud-title" class="poster__h2">適合對象</h2>
-            <ul class="audience__list">
+            <h2 id="aud-title" class="poster__h2">{{ t('event.audience') }}</h2>
+            <ul class="audience__list" lang="zh-Hant-TW">
               <li v-for="a in ev.audience" :key="a">{{ a }}</li>
             </ul>
           </section>
@@ -149,20 +153,20 @@ function downloadIcs() {
 
         <aside class="poster__side">
           <div v-if="ev.deadline && deadlineDays !== null" class="deadline" :class="{ 'is-past': deadlineDays < 0 }">
-            <p class="deadline__label hand">{{ ev.deadline.label }}</p>
+            <p class="deadline__label hand" lang="zh-Hant-TW">{{ ev.deadline.label }}</p>
             <p class="deadline__date num">{{ monthDay(ev.deadline.date) }}</p>
             <p class="deadline__left">
-              {{ deadlineDays > 0 ? `剩餘 ${deadlineDays} 天` : deadlineDays === 0 ? '今天截止' : '已截止' }}
+              {{ deadlineDays > 0 ? t('event.daysLeft', { n: deadlineDays }) : deadlineDays === 0 ? t('event.closesToday') : t('event.closed') }}
             </p>
           </div>
           <a v-if="ev.url" :href="ev.url" target="_blank" rel="noopener" class="sticker-btn sticker-btn--ink poster__cta">
-            <ExternalLink aria-hidden="true" />前往活動頁面<span class="visually-hidden">（在新分頁開啟）</span>
+            <ExternalLink aria-hidden="true" />{{ t('event.visit') }}<span class="visually-hidden">{{ t('common.newTab') }}</span>
           </a>
-          <DiscordButton :variant="ev.url ? 'paper' : undefined" label="在 Discord 尋找同行者" class="poster__cta" />
+          <DiscordButton :variant="ev.url ? 'paper' : undefined" :label="t('event.findCompany')" class="poster__cta" />
           <button v-if="!ev.ongoing" type="button" class="poster__cal" @click="downloadIcs">
-            <CalendarPlus :size="20" aria-hidden="true" />下載行事曆檔案（.ics）
+            <CalendarPlus :size="20" aria-hidden="true" />{{ t('event.ics') }}
           </button>
-          <p v-if="data?.sample" class="poster__fine">示範活動不提供官方報名連結。正式活動刊登後，此處將提供主辦單位的報名頁面。</p>
+          <p v-if="data?.sample" class="poster__fine">{{ t('event.sampleNote') }}</p>
         </aside>
       </div>
     </article>

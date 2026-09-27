@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { t } from '@/i18n'
 
 // Fixed digit positions: the days count lives in three cells, always.
 const props = withDefaults(defineProps<{ days: number; size?: 'sm' | 'lg' }>(), { size: 'sm' })
@@ -13,9 +14,9 @@ const cells = computed(() => {
 })
 
 const label = computed(() => {
-  if (props.days === 0) return '活動今天開始'
-  if (props.days > 0) return `距離活動開始還有 ${props.days} 天`
-  return `活動已於 ${Math.abs(props.days)} 天前開始`
+  if (props.days === 0) return t('dday.todayLabel')
+  if (props.days > 0) return t('dday.future', { n: props.days })
+  return t('dday.past', { n: Math.abs(props.days) })
 })
 </script>
 
@@ -24,7 +25,7 @@ const label = computed(() => {
     <span class="visually-hidden">{{ label }}</span>
     <span class="dday__face" aria-hidden="true">
       <template v-if="days === 0">
-        <span class="dday__today">今天</span>
+        <span class="dday__today">{{ t('dday.today') }}</span>
       </template>
       <template v-else>
         <span class="dday__prefix">{{ days > 0 ? 'D−' : 'D+' }}</span>

@@ -1,4 +1,5 @@
 import { ref } from 'vue'
+import { splitPath } from '@/i18n/locales'
 
 const KEY = 'gts:intro-seen'
 
@@ -27,7 +28,8 @@ function decide() {
   if (typeof window === 'undefined') return false
   const params = new URLSearchParams(window.location.search)
   const base = import.meta.env.BASE_URL.replace(/\/$/, '')
-  const path = window.location.pathname.replace(base, '') || '/'
+  // The home page in any language: /, /en, /ja/.
+  const { path } = splitPath(window.location.pathname.replace(base, '') || '/')
   if (path !== '/') return false
   if (params.has('intro')) return true
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false

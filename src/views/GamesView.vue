@@ -8,6 +8,8 @@ import TapeHeading from '@/components/TapeHeading.vue'
 import SampleNote from '@/components/SampleNote.vue'
 import StateBlock from '@/components/StateBlock.vue'
 import DiscordButton from '@/components/DiscordButton.vue'
+import I18nT from '@/components/I18nT.vue'
+import { t } from '@/i18n'
 
 const route = useRoute()
 const router = useRouter()
@@ -37,24 +39,22 @@ function toggleGenre(g: string) {
 <template>
   <div class="games shell">
     <header class="page-head">
-      <TapeHeading as="h1" :tilt="-1.2">遊戲作品</TapeHeading>
-      <p class="page-head__lede">
-        本頁列出社群成員正在開發的遊戲。每張卡片載明開發者最希望了解的問題，橘色圓點代表已試玩過的人數。
-      </p>
+      <TapeHeading as="h1" :tilt="-1.2">{{ t('games.title') }}</TapeHeading>
+      <p class="page-head__lede">{{ t('games.lede') }}</p>
       <SampleNote v-if="data?.sample" />
     </header>
 
-    <div v-if="!data || all.length" class="filters" role="group" aria-label="篩選遊戲">
+    <div v-if="!data || all.length" class="filters" role="group" :aria-label="t('games.filters')">
       <button
         type="button"
         class="filter filter--seeking"
         :aria-pressed="seekingOnly"
         @click="setQuery({ seeking: seekingOnly ? undefined : '1' })"
       >
-        <span class="filter__dot" aria-hidden="true"></span>僅顯示徵求測試中
+        <span class="filter__dot" aria-hidden="true"></span>{{ t('games.seekingOnly') }}
       </button>
       <span class="filters__sep" aria-hidden="true"></span>
-      <button type="button" class="filter" :aria-pressed="!genre" @click="setQuery({ genre: undefined })">全部類型</button>
+      <button type="button" class="filter" :aria-pressed="!genre" @click="setQuery({ genre: undefined })">{{ t('games.allGenres') }}</button>
       <button
         v-for="g in genres"
         :key="g"
@@ -63,26 +63,28 @@ function toggleGenre(g: string) {
         :aria-pressed="genre === g"
         @click="toggleGenre(g)"
       >
-        {{ g }}
+        <span lang="zh-Hant-TW">{{ g }}</span>
       </button>
     </div>
 
     <StateBlock v-if="loading && !data" kind="loading" />
     <StateBlock v-else-if="error" kind="error" @retry="retry" />
-    <StateBlock v-else-if="!all.length" kind="empty" message="還沒有刊登的遊戲。尚未完成的遊戲也可以，請至 Discord 發布遊戲的 build。">
-      <DiscordButton variant="ink" label="至 Discord 發布 build" />
+    <StateBlock v-else-if="!all.length" kind="empty" :message="t('games.empty')">
+      <DiscordButton variant="ink" :label="t('games.postBuild')" />
     </StateBlock>
-    <StateBlock v-else-if="!shown.length" kind="empty" message="目前沒有符合篩選條件的遊戲，請選擇其他類型。">
-      <button type="button" class="sticker-btn sticker-btn--paper" @click="router.replace({ query: {} })">清除篩選</button>
+    <StateBlock v-else-if="!shown.length" kind="empty" :message="t('games.noMatch')">
+      <button type="button" class="sticker-btn sticker-btn--paper" @click="router.replace({ query: {} })">{{ t('common.clearFilters') }}</button>
     </StateBlock>
     <template v-else>
-      <p class="games__count" aria-live="polite">目前共有 <strong class="num">{{ shown.length }}</strong> 款遊戲</p>
+      <p class="games__count" aria-live="polite">
+        <I18nT k="games.count" :n="shown.length"><template #n><strong class="num">{{ shown.length }}</strong></template></I18nT>
+      </p>
       <div class="games__grid">
         <GameCard v-for="(g, i) in shown" :key="g.slug" :game="g" :order="i" class="games__card" />
         <aside class="games__slot">
-          <p class="games__slot-title">您的遊戲也可以在此展示。</p>
-          <p class="games__slot-text">尚未完成的遊戲同樣適用，只要能夠執行即可。請至 Discord 發布遊戲的 build。</p>
-          <DiscordButton variant="ink" label="至 Discord 發布 build" />
+          <p class="games__slot-title">{{ t('games.slotTitle') }}</p>
+          <p class="games__slot-text">{{ t('games.slotText') }}</p>
+          <DiscordButton variant="ink" :label="t('games.postBuild')" />
         </aside>
       </div>
     </template>

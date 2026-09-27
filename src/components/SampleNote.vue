@@ -1,5 +1,7 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ text?: string }>(), { text: '示範資料：實際作品徵集中' })
+import { t } from '@/i18n'
+
+withDefaults(defineProps<{ text?: string }>(), { text: () => t('sample.games') })
 </script>
 
 <template>

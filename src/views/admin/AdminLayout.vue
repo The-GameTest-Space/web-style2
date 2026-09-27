@@ -33,7 +33,7 @@ async function copyUid() {
         <template v-if="status === 'signed-out'">
           <h1 id="gate-title" class="gate__title">活動管理</h1>
           <p class="gate__text">此頁面供網站管理員刊登與管理活動，請先用 Discord 登入。</p>
-          <button type="button" class="sticker-btn sticker-btn--ink" @click="signInWithDiscord(route.fullPath)">
+          <button type="button" class="sticker-btn sticker-btn--ink" @click="signInWithDiscord()">
             <DiscordIcon />
             <span>用 Discord 登入</span>
           </button>

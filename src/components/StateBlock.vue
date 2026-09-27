@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { t } from '@/i18n'
+
 withDefaults(defineProps<{ kind: 'loading' | 'error' | 'empty' | 'missing'; message?: string }>(), {})
 defineEmits<{ retry: [] }>()
 </script>
@@ -7,15 +9,15 @@ defineEmits<{ retry: [] }>()
   <div class="state" :class="`state--${kind}`" :role="kind === 'error' ? 'alert' : 'status'" :aria-busy="kind === 'loading'">
     <template v-if="kind === 'loading'">
       <span class="state__ghosts" aria-hidden="true"><i></i><i></i><i></i></span>
-      <p class="hand state__text">{{ message ?? '正在載入資料…' }}</p>
+      <p class="hand state__text">{{ message ?? t('state.loading') }}</p>
     </template>
     <template v-else-if="kind === 'error'">
-      <p class="state__title">資料載入失敗。</p>
-      <p class="state__text">{{ message ?? '無法取得資料，可能是網路連線不穩定。' }}</p>
-      <button type="button" class="sticker-btn sticker-btn--ink" @click="$emit('retry')">重新載入</button>
+      <p class="state__title">{{ t('state.errorTitle') }}</p>
+      <p class="state__text">{{ message ?? t('state.errorText') }}</p>
+      <button type="button" class="sticker-btn sticker-btn--ink" @click="$emit('retry')">{{ t('state.retry') }}</button>
     </template>
     <template v-else>
-      <p class="state__title">{{ kind === 'missing' ? '找不到此項目。' : '目前沒有資料。' }}</p>
+      <p class="state__title">{{ kind === 'missing' ? t('state.missing') : t('state.empty') }}</p>
       <p class="state__text">{{ message }}</p>
       <slot />
     </template>

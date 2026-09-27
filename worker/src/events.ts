@@ -6,7 +6,7 @@ import type { Doc } from './firestore'
 // here. The shape matches GameEvent / AdminEvent in src/api/types.ts.
 
 export const EVENT_TYPES = ['jam', 'meetup', 'expo', 'talk', 'playtest']
-// Must match COUNTRY_LABEL in src/utils/country.ts.
+// Must match COUNTRIES in src/utils/country.ts.
 export const COUNTRIES = ['TW', 'JP', 'KR', 'CN', 'SG', 'MY', 'TH', 'VN', 'PH', 'ID']
 export const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 

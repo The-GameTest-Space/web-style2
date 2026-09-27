@@ -8,6 +8,14 @@ Events are stored in Firestore at `events/{slug}`. Only the Worker reads and wri
 
 To make someone an admin, open Firestore in the Firebase console and add a document to the `admins` collection. The document ID is their uid (`discord:<Discord user ID>`), and the document can be empty. Anyone who signs in and opens `/admin` without access sees their uid there, ready to copy.
 
+## Languages
+
+The site is in Traditional Chinese (at `/`), English (`/en`), Japanese (`/ja`) and Korean (`/ko`): every page has the same path under each prefix, and the header's language menu links the same page in the others. The language comes from the URL alone; nothing redirects by browser language, so search engines index all four.
+
+- `src/i18n/messages/zh-TW.ts` holds every string and is the source: add a key there first, then to `en.ts`, `ja.ts` and `ko.ts` (type-checking fails until all four have it). Templates call `t('key')`; a message with elements in it goes through `I18nT`.
+- The Worker writes each page's `<html lang>`, title, description and links to its other languages from the same files (`worker/src/meta.ts`), and the sitemap lists every language.
+- Event text is shown as the admin wrote it, in every language. The admin pages are Chinese only: `/en/admin` and the like go to `/admin`.
+
 ## Sample data
 
 `src/mocks/` holds fictional games and events. They are used only by `npm run dev`: when the API returns nothing, or can't be reached, the page shows the samples instead and labels them 示範資料. Production builds leave them out.

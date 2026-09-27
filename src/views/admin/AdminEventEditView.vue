@@ -4,8 +4,8 @@ import { onBeforeRouteLeave, useRouter } from 'vue-router'
 import { ArrowLeft, Eye, EyeOff, ExternalLink, ImagePlus, Plus, Trash2, X } from 'lucide-vue-next'
 import { AdminError, adminApi } from '@/api/admin'
 import type { AdminEvent, Country, EventInput, EventType } from '@/api/types'
-import { COUNTRIES, COUNTRY_LABEL, countryOf } from '@/utils/country'
-import { EVENT_TYPE_LABEL, time } from '@/utils/format'
+import { COUNTRIES, countryLabel, countryOf } from '@/utils/country'
+import { EVENT_TYPES, eventTypeLabel, time } from '@/utils/format'
 import { asHtml, safeHtml } from '@/utils/html'
 import { toCoverImage } from '@/utils/image'
 import FormField from '@/components/FormField.vue'
@@ -16,7 +16,6 @@ import StateBlock from '@/components/StateBlock.vue'
 const props = defineProps<{ slug?: string }>()
 const router = useRouter()
 const isNew = !props.slug
-const TYPES = Object.keys(EVENT_TYPE_LABEL) as EventType[]
 
 // What the inputs hold: dates as datetime-local strings (the admin's own
 // time zone), lists as plain text.
@@ -353,9 +352,9 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
           <fieldset class="field fieldset">
             <legend class="field__label">活動類型</legend>
             <div class="pills">
-              <label v-for="(t, i) in TYPES" :key="t" class="pill">
+              <label v-for="(t, i) in EVENT_TYPES" :key="t" class="pill">
                 <input :id="i === 0 ? 'f-type' : undefined" v-model="form.type" type="radio" name="type" :value="t" />
-                <span>{{ EVENT_TYPE_LABEL[t] }}</span>
+                <span>{{ eventTypeLabel(t) }}</span>
               </label>
             </div>
           </fieldset>
@@ -364,7 +363,7 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
             <div class="pills">
               <label v-for="(c, i) in COUNTRIES" :key="c" class="pill">
                 <input :id="i === 0 ? 'f-country' : undefined" v-model="form.country" type="radio" name="country" :value="c" />
-                <span>{{ COUNTRY_LABEL[c] }}</span>
+                <span>{{ countryLabel(c) }}</span>
               </label>
             </div>
           </fieldset>

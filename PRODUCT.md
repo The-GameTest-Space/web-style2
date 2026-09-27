@@ -40,7 +40,7 @@ A space built around *playtesting*: developers testing each other's games. The s
 
 - Name: **The Game Test Space** (short: GTSpace).
 - Logo: four dots in a diamond (one orange `#FF6B2B`-ish at top, three near-black) framed by rounded camera/viewfinder corner brackets, on a warm off-white ground. Wordmark in a heavy, tightly-set grotesque.
-- Language: Traditional Chinese (Taiwan) as primary; brand name and proper nouns stay in English.
+- Language: Traditional Chinese (Taiwan) as primary; brand name and proper nouns stay in English. The site's own text is also in English, Japanese and Korean (under `/en`, `/ja`, `/ko`); events and games appear as written.
 
 ## Evidence on Hand
 

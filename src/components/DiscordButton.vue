@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import DiscordIcon from './DiscordIcon.vue'
 import { DISCORD_INVITE } from '@/composables/useDiscord'
+import { t } from '@/i18n'
 
 withDefaults(defineProps<{ variant?: 'dot' | 'ink' | 'paper'; label?: string }>(), {
   variant: 'dot',
-  label: '加入 Discord',
+  label: () => t('common.joinDiscord'),
 })
 </script>
 
@@ -18,6 +19,6 @@ withDefaults(defineProps<{ variant?: 'dot' | 'ink' | 'paper'; label?: string }>(
   >
     <DiscordIcon />
     <span>{{ label }}</span>
-    <span class="visually-hidden">（在新分頁開啟）</span>
+    <span class="visually-hidden">{{ t('common.newTab') }}</span>
   </a>
 </template>

@@ -1,6 +1,6 @@
 import type { EventType, GameStatus } from '@/api/types'
+import { locale, t } from '@/i18n'
 
-const WEEKDAYS = ['日', '一', '二', '三', '四', '五', '六']
 const DAY_MS = 86_400_000
 
 function startOfDay(d: Date) {
@@ -20,7 +20,7 @@ export function monthDay(iso: string) {
 }
 
 export function weekday(iso: string) {
-  return WEEKDAYS[new Date(iso).getDay()]
+  return t('date.weekdays').split(' ')[new Date(iso).getDay()] ?? ''
 }
 
 export function time(iso: string) {
@@ -28,35 +28,33 @@ export function time(iso: string) {
   return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`
 }
 
-export function fullDate(iso: string) {
+/** The pieces the date messages (date.full, date.month) are made of. */
+function dateParams(iso: string) {
   const d = new Date(iso)
-  return `${d.getFullYear()} 年 ${d.getMonth() + 1} 月 ${d.getDate()} 日（${weekday(iso)}）`
+  return {
+    y: d.getFullYear(),
+    m: d.getMonth() + 1,
+    month: d.toLocaleDateString(locale, { month: 'long' }),
+    d: d.getDate(),
+    wd: weekday(iso),
+  }
 }
 
-export function monthLabel(iso: string) {
-  const d = new Date(iso)
-  return `${d.getFullYear()} 年 ${d.getMonth() + 1} 月`
-}
+export const fullDate = (iso: string) => t('date.full', dateParams(iso))
+
+export const monthLabel = (iso: string) => t('date.month', dateParams(iso))
 
 export function isMultiDay(start: string, end?: string) {
   return !!end && startOfDay(new Date(start)).getTime() !== startOfDay(new Date(end)).getTime()
 }
 
-/** A page's tab title, as the Worker writes it into the HTML (worker/src/meta.ts). */
+// Tab titles, as the Worker writes them into the HTML (worker/src/meta.ts).
 export const pageTitle = (page: string) => `${page} | Game Test Space`
+export const homeTitle = () => `Game Test Space | ${t('site.tagline')}`
 
-export const EVENT_TYPE_LABEL: Record<EventType, string> = {
-  jam: 'Game Jam',
-  meetup: '聚會',
-  expo: '展覽',
-  talk: '講座',
-  playtest: '試玩會',
-}
-
-export const GAME_STATUS_LABEL: Record<GameStatus, string> = {
-  seeking: '徵求測試中',
-  released: '已上架',
-}
+export const EVENT_TYPES: EventType[] = ['jam', 'meetup', 'expo', 'talk', 'playtest']
+export const eventTypeLabel = (type: EventType) => t(`eventType.${type}`)
+export const gameStatusLabel = (status: GameStatus) => t(`gameStatus.${status}`)
 
 /** A stable small tilt per item so the wall never looks machine-aligned. */
 export function tiltFor(key: string, range = 2.4) {

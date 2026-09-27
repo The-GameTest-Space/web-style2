@@ -36,8 +36,11 @@ export function discordRedirectUri() {
   return `${location.origin}${import.meta.env.BASE_URL}auth/discord/callback`
 }
 
-/** Leave for Discord's consent screen; the callback route finishes sign-in. */
-export function signInWithDiscord(returnTo: string) {
+/**
+ * Leave for Discord's consent screen; the callback route finishes sign-in and
+ * returns to `returnTo`, a path from the site root (with its language prefix).
+ */
+export function signInWithDiscord(returnTo = location.pathname + location.search + location.hash) {
   const state = crypto.randomUUID()
   sessionStorage.setItem(STATE_KEY, JSON.stringify({ state, returnTo }))
   const url = new URL('https://discord.com/oauth2/authorize')
@@ -51,6 +54,15 @@ export function signInWithDiscord(returnTo: string) {
     prompt: 'none',
   }).toString()
   location.assign(url)
+}
+
+/** Where the sign-in in progress returns to, leaving its state in place. */
+export function discordReturnTo(): string | null {
+  try {
+    return JSON.parse(sessionStorage.getItem(STATE_KEY) ?? 'null')?.returnTo ?? null
+  } catch {
+    return null
+  }
 }
 
 /** Read and clear the state saved by signInWithDiscord (single use). */

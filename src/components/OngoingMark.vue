@@ -1,11 +1,13 @@
 <script setup lang="ts">
 // Stands where the D-day counter would for an event with no end.
+import { t } from '@/i18n'
+
 withDefaults(defineProps<{ size?: 'sm' | 'lg' }>(), { size: 'sm' })
 </script>
 
 <template>
   <span class="ongoing" :class="`ongoing--${size}`">
-    <span class="ongoing__dot" aria-hidden="true"></span>長期
+    <span class="ongoing__dot" aria-hidden="true"></span>{{ t('ongoing.mark') }}
   </span>
 </template>
 

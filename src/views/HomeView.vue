@@ -11,6 +11,8 @@ import TapeHeading from '@/components/TapeHeading.vue'
 import SampleNote from '@/components/SampleNote.vue'
 import StateBlock from '@/components/StateBlock.vue'
 import BrandMark from '@/components/BrandMark.vue'
+import I18nT from '@/components/I18nT.vue'
+import { t } from '@/i18n'
 
 const games = useApi<ListResponse<Game>>('/api/games')
 const events = useApi<ListResponse<GameEvent>>('/api/events')
@@ -26,10 +28,10 @@ const upcoming = computed(() => {
 })
 
 const loop = [
-  { verb: '發布遊戲', text: '在 Discord 發布遊戲的 build，並說明最希望了解的一個問題。' },
-  { verb: '成員試玩', text: '社群中的開發者與玩家會下載遊戲試玩，或在線上試玩會中直接遊玩。' },
-  { verb: '取得回饋', text: '試玩者會回報卡關之處、令人發笑之處，以及先前未被發現的 bug，這些都是實際遊玩時的反應。' },
-  { verb: '推出新版', text: '修正完成後再次發布。您也可以試玩其他成員的遊戲；在本社群中，試玩以相互交換為原則。' },
+  { verb: t('home.loop.post'), text: t('home.loop.postText') },
+  { verb: t('home.loop.play'), text: t('home.loop.playText') },
+  { verb: t('home.loop.feedback'), text: t('home.loop.feedbackText') },
+  { verb: t('home.loop.ship'), text: t('home.loop.shipText') },
 ]
 </script>
 
@@ -38,14 +40,14 @@ const loop = [
   <section class="hero shell" aria-labelledby="hero-title">
     <div class="hero__copy">
       <h1 id="hero-title" class="hero__title">
-        為您的遊戲<br />尋找試玩者<span class="hero__period" data-intro-target aria-hidden="true"></span>
+        <I18nT k="home.title"><template #br><br /></template></I18nT><span class="hero__period" data-intro-target aria-hidden="true"></span>
       </h1>
       <p class="hero__lede">
-        The Game Test Space 是台灣遊戲開發者<strong>互相試玩</strong>作品的社群。開發者在 Discord 發布遊戲的 build，由其他成員試玩並提供回饋；開發者也可以試玩其他成員的作品。
+        <I18nT k="home.lede"><template #mutual><strong>{{ t('home.ledeMutual') }}</strong></template></I18nT>
       </p>
       <div class="hero__actions">
-        <DiscordButton label="加入 Discord 尋求試玩" />
-        <a href="#wall" class="text-link hero__peek">瀏覽社群遊戲作品</a>
+        <DiscordButton :label="t('home.cta')" />
+        <a href="#wall" class="text-link hero__peek">{{ t('home.peek') }}</a>
       </div>
     </div>
 
@@ -53,7 +55,7 @@ const loop = [
       <div class="hero__card">
         <GameCard v-if="featured" :game="featured" pin />
         <div v-else class="hero__card-ghost" aria-hidden="true"></div>
-        <p class="hero__note hand" aria-hidden="true">新增試玩紀錄</p>
+        <p class="hero__note hand" aria-hidden="true">{{ t('home.note') }}</p>
       </div>
       <svg class="hero__arrow" viewBox="0 0 160 190" aria-hidden="true">
         <path class="hero__arrow-line" pathLength="1" d="M60 6C18 40 8 96 38 132s74 40 106 30" />
@@ -67,7 +69,7 @@ const loop = [
 
   <!-- The loop the community runs on. -->
   <section class="loop shell" aria-labelledby="loop-title">
-    <TapeHeading id="loop-title" :tilt="-1.5">試玩流程</TapeHeading>
+    <TapeHeading id="loop-title" :tilt="-1.5">{{ t('home.loop') }}</TapeHeading>
     <ol class="loop__steps">
       <li v-for="(step, i) in loop" :key="step.verb" class="loop__step">
         <span class="loop__n hand" aria-hidden="true">{{ i + 1 }}</span>
@@ -93,38 +95,38 @@ const loop = [
   <!-- The wall of games. -->
   <section id="wall" class="wall shell" aria-labelledby="wall-title">
     <div class="section-head">
-      <TapeHeading id="wall-title" :tilt="1">社群遊戲作品</TapeHeading>
+      <TapeHeading id="wall-title" :tilt="1">{{ t('home.wall') }}</TapeHeading>
       <SampleNote v-if="games.data.value?.sample" />
     </div>
     <StateBlock v-if="games.loading.value && !games.data.value" kind="loading" />
     <StateBlock v-else-if="games.error.value" kind="error" @retry="games.retry" />
-    <StateBlock v-else-if="!featured" kind="empty" message="還沒有刊登的遊戲。尚未完成的遊戲也可以，請至 Discord 發布遊戲的 build。" />
+    <StateBlock v-else-if="!featured" kind="empty" :message="t('games.empty')" />
     <div v-else class="wall__grid">
       <GameCard v-for="g in wall" :key="g.slug" :game="g" class="wall__card" />
     </div>
     <div class="section-foot">
-      <RouterLink to="/games" class="sticker-btn sticker-btn--paper">查看全部遊戲 →</RouterLink>
+      <RouterLink to="/games" class="sticker-btn sticker-btn--paper">{{ t('games.viewAll') }} →</RouterLink>
     </div>
   </section>
 
   <!-- The D-day board. -->
   <section class="board-section shell" aria-labelledby="events-title">
     <div class="section-head">
-      <TapeHeading id="events-title" :tilt="-0.8">近期活動</TapeHeading>
-      <SampleNote v-if="events.data.value?.sample" text="示範資料：活動資訊整理中" />
+      <TapeHeading id="events-title" :tilt="-0.8">{{ t('home.events') }}</TapeHeading>
+      <SampleNote v-if="events.data.value?.sample" :text="t('sample.events')" />
     </div>
     <div class="board">
       <span class="tape tape-bit board__tape board__tape--l" aria-hidden="true"></span>
       <span class="tape tape-bit board__tape board__tape--r" aria-hidden="true"></span>
-      <StateBlock v-if="events.loading.value && !events.data.value" kind="loading" message="正在載入活動資訊…" />
+      <StateBlock v-if="events.loading.value && !events.data.value" kind="loading" :message="t('events.loading')" />
       <StateBlock v-else-if="events.error.value" kind="error" @retry="events.retry" />
-      <StateBlock v-else-if="!upcoming.length" kind="empty" message="目前沒有即將舉行的活動。" />
+      <StateBlock v-else-if="!upcoming.length" kind="empty" :message="t('events.none')" />
       <ol v-else class="board__list">
         <EventRow v-for="e in upcoming" :key="e.slug" :event="e" />
       </ol>
     </div>
     <div class="section-foot">
-      <RouterLink to="/events" class="sticker-btn sticker-btn--paper">查看全部活動 →</RouterLink>
+      <RouterLink to="/events" class="sticker-btn sticker-btn--paper">{{ t('events.viewAll') }} →</RouterLink>
     </div>
   </section>
 
@@ -137,12 +139,14 @@ const loop = [
     <div class="shell join__grid">
       <div class="join__copy">
         <BrandMark :size="72" class="join__mark" />
-        <h2 id="join-title" class="join__title">在 Discord<br />取得試玩回饋。</h2>
-        <p class="join__lede">本網站用於展示遊戲與活動資訊，實際的試玩交流在 Discord 進行。加入後可以：</p>
+        <h2 id="join-title" class="join__title">
+          <I18nT k="home.join.title"><template #br><br /></template></I18nT>
+        </h2>
+        <p class="join__lede">{{ t('home.join.lede') }}</p>
         <ul class="join__list">
-          <li>發布遊戲的 build，邀請成員測試</li>
-          <li>試玩其他成員的遊戲並提供回饋</li>
-          <li>邀集成員一同參加 Game Jam、聚會與展覽</li>
+          <li>{{ t('home.join.post') }}</li>
+          <li>{{ t('home.join.play') }}</li>
+          <li>{{ t('home.join.meet') }}</li>
         </ul>
       </div>
       <DiscordSheet size="lg" :tilt="-1.5" class="join__sheet" />

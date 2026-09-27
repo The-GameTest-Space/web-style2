@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { t } from '@/i18n'
 
 const emit = defineEmits<{ done: [] }>()
 
@@ -240,11 +241,11 @@ onBeforeUnmount(() => {
       <p class="intro__word">
         <span v-for="(c, i) in WORD" :key="i" ref="chars" class="intro__char">{{ c }}</span>
       </p>
-      <p ref="tag" class="intro__tag">台灣遊戲開發者互相試玩的社群</p>
+      <p ref="tag" class="intro__tag">{{ t('site.tagline') }}</p>
     </div>
 
-    <p class="visually-hidden" role="status">The Game Test Space，台灣遊戲開發者互相試玩的社群</p>
-    <button ref="skipBtn" type="button" class="intro__skip hand" @click.stop="skip">跳過動畫 →</button>
+    <p class="visually-hidden" role="status">{{ t('intro.announce') }}</p>
+    <button ref="skipBtn" type="button" class="intro__skip hand" @click.stop="skip">{{ t('intro.skip') }}</button>
   </div>
 </template>
 

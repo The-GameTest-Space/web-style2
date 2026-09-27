@@ -1,6 +1,8 @@
 # /api stays open: event pages load their content from it.
 User-agent: *
 Disallow: /admin
+# The admin pages are Chinese only; /en/admin and the like send people there.
+Disallow: /*/admin
 Disallow: /auth/
 
 Sitemap: https://gtspace.gametestspace.workers.dev/sitemap.xml

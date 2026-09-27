@@ -4,20 +4,23 @@ import { useRoute, useRouter } from 'vue-router'
 import { Search, X } from 'lucide-vue-next'
 import { useApi } from '@/api/client'
 import type { Country, DatedEvent, EventType, GameEvent, ListResponse } from '@/api/types'
-import { EVENT_TYPE_LABEL, daysUntil, monthLabel } from '@/utils/format'
-import { COUNTRIES, COUNTRY_LABEL, countryOf } from '@/utils/country'
+import { EVENT_TYPES, daysUntil, eventTypeLabel, monthLabel } from '@/utils/format'
+import { COUNTRIES, countryLabel, countryOf } from '@/utils/country'
 import EventRow from '@/components/EventRow.vue'
 import TapeHeading from '@/components/TapeHeading.vue'
 import SampleNote from '@/components/SampleNote.vue'
 import StateBlock from '@/components/StateBlock.vue'
 import DiscordButton from '@/components/DiscordButton.vue'
+import I18nT from '@/components/I18nT.vue'
+import { t } from '@/i18n'
 
 const route = useRoute()
 const router = useRouter()
 const { data, error, loading, retry } = useApi<ListResponse<GameEvent>>('/api/events')
 
-const TYPES = Object.keys(EVENT_TYPE_LABEL) as EventType[]
-const type = computed(() => (TYPES.includes(route.query.type as EventType) ? (route.query.type as EventType) : null))
+const type = computed(() =>
+  EVENT_TYPES.includes(route.query.type as EventType) ? (route.query.type as EventType) : null,
+)
 const onlineOnly = computed(() => route.query.online === '1')
 // ?country=jp; lower case in the URL, ISO code in the data.
 const country = computed(() => {
@@ -45,8 +48,8 @@ const searchable = (e: GameEvent) =>
     [
       e.title,
       e.summary,
-      EVENT_TYPE_LABEL[e.type],
-      COUNTRY_LABEL[countryOf(e)],
+      eventTypeLabel(e.type),
+      countryLabel(countryOf(e)),
       e.city,
       e.venue,
       e.fee,
@@ -101,44 +104,42 @@ function onSearchSubmit(e: Event) {
 <template>
   <div class="events shell">
     <header class="page-head">
-      <TapeHeading as="h1" :tilt="1">活動資訊</TapeHeading>
-      <p class="page-head__lede">
-        本頁依月份整理 Game Jam、聚會、展覽、講座與線上試玩會等活動。倒數數字表示距離活動開始的天數，報名截止日另行標示。
-      </p>
-      <SampleNote v-if="data?.sample" text="示範資料：活動資訊整理中" />
+      <TapeHeading as="h1" :tilt="1">{{ t('events.title') }}</TapeHeading>
+      <p class="page-head__lede">{{ t('events.lede') }}</p>
+      <SampleNote v-if="data?.sample" :text="t('sample.events')" />
     </header>
 
     <form class="search" role="search" @submit.prevent="onSearchSubmit">
-      <label for="event-search" class="visually-hidden">搜尋活動</label>
+      <label for="event-search" class="visually-hidden">{{ t('events.search') }}</label>
       <Search class="search__icon" :size="20" aria-hidden="true" />
       <input
         id="event-search"
         v-model="q"
         type="search"
         class="search__input"
-        placeholder="搜尋活動名稱、地點或內容"
+        :placeholder="t('events.searchPlaceholder')"
         autocomplete="off"
         enterkeyhint="search"
       />
-      <button v-if="q" type="button" class="search__clear" aria-label="清除搜尋" @click="q = ''">
+      <button v-if="q" type="button" class="search__clear" :aria-label="t('events.clearSearch')" @click="q = ''">
         <X :size="18" aria-hidden="true" />
       </button>
     </form>
     <!-- Announces the number of results as the search changes. -->
-    <p class="visually-hidden" aria-live="polite">{{ terms.length && data ? `找到 ${resultCount} 個活動` : '' }}</p>
+    <p class="visually-hidden" aria-live="polite">{{ terms.length && data ? t('events.found', { n: resultCount }) : '' }}</p>
 
-    <div class="filters" role="group" aria-label="依類型篩選活動">
-      <span class="filters__label" aria-hidden="true">類型</span>
-      <button type="button" class="filter" :aria-pressed="!type" @click="setQuery({ type: undefined })">全部</button>
+    <div class="filters" role="group" :aria-label="t('events.byType')">
+      <span class="filters__label" aria-hidden="true">{{ t('events.type') }}</span>
+      <button type="button" class="filter" :aria-pressed="!type" @click="setQuery({ type: undefined })">{{ t('common.all') }}</button>
       <button
-        v-for="t in TYPES"
-        :key="t"
+        v-for="et in EVENT_TYPES"
+        :key="et"
         type="button"
         class="filter"
-        :aria-pressed="type === t"
-        @click="setQuery({ type: type === t ? undefined : t })"
+        :aria-pressed="type === et"
+        @click="setQuery({ type: type === et ? undefined : et })"
       >
-        {{ EVENT_TYPE_LABEL[t] }}
+        {{ eventTypeLabel(et) }}
       </button>
       <span class="filters__sep" aria-hidden="true"></span>
       <button
@@ -147,12 +148,12 @@ function onSearchSubmit(e: Event) {
         :aria-pressed="onlineOnly"
         @click="setQuery({ online: onlineOnly ? undefined : '1' })"
       >
-        僅顯示線上活動
+        {{ t('events.onlineOnly') }}
       </button>
     </div>
-    <div v-if="countries.length > 1" class="filters" role="group" aria-label="依國家篩選活動">
-      <span class="filters__label" aria-hidden="true">國家</span>
-      <button type="button" class="filter" :aria-pressed="!country" @click="setQuery({ country: undefined })">全部</button>
+    <div v-if="countries.length > 1" class="filters" role="group" :aria-label="t('events.byCountry')">
+      <span class="filters__label" aria-hidden="true">{{ t('events.country') }}</span>
+      <button type="button" class="filter" :aria-pressed="!country" @click="setQuery({ country: undefined })">{{ t('common.all') }}</button>
       <button
         v-for="c in countries"
         :key="c"
@@ -161,32 +162,35 @@ function onSearchSubmit(e: Event) {
         :aria-pressed="country === c"
         @click="setQuery({ country: country === c ? undefined : c.toLowerCase() })"
       >
-        {{ COUNTRY_LABEL[c] }}
+        {{ countryLabel(c) }}
       </button>
     </div>
 
-    <StateBlock v-if="loading && !data" kind="loading" message="正在載入活動資訊…" />
+    <StateBlock v-if="loading && !data" kind="loading" :message="t('events.loading')" />
     <StateBlock v-else-if="error" kind="error" @retry="retry" />
-    <StateBlock v-else-if="!upcoming.length && !ongoing.length && !filtered" kind="empty" message="目前沒有即將舉行的活動。" />
+    <StateBlock v-else-if="!upcoming.length && !ongoing.length && !filtered" kind="empty" :message="t('events.none')" />
     <StateBlock
       v-else-if="!upcoming.length && !ongoing.length"
       kind="empty"
-      :message="terms.length ? `找不到符合「${q.trim()}」的活動。` : '此分類目前沒有活動。'"
+      :message="terms.length ? t('events.noMatchSearch', { q: q.trim() }) : t('events.noMatchFilter')"
     >
       <button type="button" class="sticker-btn sticker-btn--paper" @click="router.replace({ query: {} })">
-        {{ terms.length ? '清除搜尋與篩選' : '查看全部活動' }}
+        {{ terms.length ? t('events.clearAll') : t('events.viewAll') }}
       </button>
     </StateBlock>
     <template v-else>
       <p v-if="terms.length" class="events__count">
-        找到 <strong class="num">{{ resultCount }}</strong> 個符合「{{ q.trim() }}」的活動
+        <I18nT k="events.foundFor" :n="resultCount">
+          <template #n><strong class="num">{{ resultCount }}</strong></template>
+          <template #q>{{ q.trim() }}</template>
+        </I18nT>
       </p>
       <p v-if="closingSoon" class="events__alert">
         <span class="events__alert-dot" aria-hidden="true"></span>
-        共有 <strong class="num">{{ closingSoon }}</strong> 個活動將於七天內截止報名
+        <I18nT k="events.closingSoon" :n="closingSoon"><template #n><strong class="num">{{ closingSoon }}</strong></template></I18nT>
       </p>
       <section v-if="ongoing.length" class="month" aria-labelledby="ongoing-title">
-        <h2 id="ongoing-title" class="month__label">長期活動</h2>
+        <h2 id="ongoing-title" class="month__label">{{ t('events.ongoing') }}</h2>
         <div class="board">
           <span class="tape tape-bit board__tape" aria-hidden="true"></span>
           <ol class="board__list">
@@ -206,9 +210,9 @@ function onSearchSubmit(e: Event) {
     </template>
 
     <aside class="suggest">
-      <p class="suggest__title">提供活動資訊</p>
-      <p class="suggest__text">如有適合刊登的活動，請在 Discord 提供活動資訊，我們會整理後刊登於本頁。</p>
-      <DiscordButton variant="ink" label="至 Discord 提供活動" />
+      <p class="suggest__title">{{ t('events.suggestTitle') }}</p>
+      <p class="suggest__text">{{ t('events.suggestText') }}</p>
+      <DiscordButton variant="ink" :label="t('events.suggestCta')" />
     </aside>
   </div>
 </template>

@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { Game } from '@/api/types'
-import { GAME_STATUS_LABEL, tiltFor } from '@/utils/format'
+import { gameStatusLabel, tiltFor } from '@/utils/format'
+import { t } from '@/i18n'
 import DotStickers from './DotStickers.vue'
+import I18nT from './I18nT.vue'
 import Viewfinder from './Viewfinder.vue'
 
 const props = withDefaults(defineProps<{ game: Game; pin?: boolean; order?: number }>(), { pin: false, order: 0 })
@@ -22,24 +24,26 @@ const tapeTilt = computed(() => tiltFor(props.game.slug + 'tape', 9))
     <span class="tape tape-bit game-card__tape" aria-hidden="true"></span>
     <article class="game-card__paper">
       <div class="game-card__print">
-        <img :src="game.cover" :alt="`《${game.title}》封面`" width="400" height="300" loading="lazy" />
+        <img :src="game.cover" :alt="t('game.coverAlt', { title: game.title })" width="400" height="300" loading="lazy" />
       </div>
       <div class="game-card__body">
         <div class="game-card__head">
-          <h3 class="game-card__title">{{ game.title }}</h3>
-          <span v-if="game.status === 'seeking'" class="game-card__status">{{ GAME_STATUS_LABEL[game.status] }}</span>
+          <h3 class="game-card__title" lang="zh-Hant-TW">{{ game.title }}</h3>
+          <span v-if="game.status === 'seeking'" class="game-card__status">{{ gameStatusLabel(game.status) }}</span>
         </div>
-        <p class="game-card__by">
+        <p class="game-card__by" lang="zh-Hant-TW">
           <span>{{ game.studio }}</span>
           <span aria-hidden="true">·</span>
           <span class="num">{{ game.build }}</span>
           <span aria-hidden="true">·</span>
           <span>{{ game.genres.join(' / ') }}</span>
         </p>
-        <p class="game-card__ask hand">希望了解：{{ game.feedbackWanted[0] }}</p>
+        <p class="game-card__ask hand">{{ t('game.ask', { q: game.feedbackWanted[0] ?? '' }) }}</p>
         <div class="game-card__foot">
           <DotStickers :count="game.dots" :animate="pin" :delay="600 + order * 90">
-            <span class="game-card__dots-label"><span class="num">{{ game.dots }}</span> 人試玩過</span>
+            <span class="game-card__dots-label">
+              <I18nT k="game.played" :n="game.dots"><template #n><span class="num">{{ game.dots }}</span></template></I18nT>
+            </span>
           </DotStickers>
         </div>
       </div>

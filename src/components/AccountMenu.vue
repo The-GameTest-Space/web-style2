@@ -1,36 +1,15 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref } from 'vue'
 import Viewfinder from './Viewfinder.vue'
 import { DISCORD_CLIENT_ID, signInWithDiscord, useAuth } from '@/composables/useAuth'
 import { useAdmin } from '@/composables/useAdmin'
+import { useDetailsMenu } from '@/composables/useDetailsMenu'
+import { t } from '@/i18n'
 
 const { user, ready, signOut } = useAuth()
 const { status: adminStatus } = useAdmin()
-const route = useRoute()
 const menu = ref<HTMLDetailsElement | null>(null)
-
-function close() {
-  if (menu.value) menu.value.open = false
-}
-function onPointerDown(e: PointerEvent) {
-  if (menu.value?.open && !menu.value.contains(e.target as Node)) close()
-}
-function onKeyDown(e: KeyboardEvent) {
-  if (e.key === 'Escape' && menu.value?.open) {
-    close()
-    menu.value.querySelector('summary')?.focus()
-  }
-}
-onMounted(() => {
-  document.addEventListener('pointerdown', onPointerDown)
-  document.addEventListener('keydown', onKeyDown)
-})
-onBeforeUnmount(() => {
-  document.removeEventListener('pointerdown', onPointerDown)
-  document.removeEventListener('keydown', onKeyDown)
-})
-watch(() => route.fullPath, close)
+const { close } = useDetailsMenu(menu)
 
 async function onSignOut() {
   close()
@@ -47,22 +26,22 @@ async function onSignOut() {
     v-else-if="!user"
     type="button"
     class="acct-login vf-target"
-    aria-label="用 Discord 登入"
-    @click="signInWithDiscord(route.fullPath)"
+    :aria-label="t('account.signInLabel')"
+    @click="signInWithDiscord()"
   >
-    <Viewfinder />登入
+    <Viewfinder />{{ t('account.signIn') }}
   </button>
   <details v-else ref="menu" class="acct">
     <summary class="acct__toggle">
       <img v-if="user.photoURL" class="acct__avatar" :src="user.photoURL" alt="" width="36" height="36" />
       <span v-else class="acct__avatar acct__initial" aria-hidden="true">{{ user.displayName?.[0] ?? '?' }}</span>
-      <span class="visually-hidden">帳號選單：{{ user.displayName }}</span>
+      <span class="visually-hidden">{{ t('account.menu', { name: user.displayName ?? '' }) }}</span>
     </summary>
     <div class="acct__panel">
       <p class="acct__name">{{ user.displayName }}</p>
-      <p class="acct__via">已用 Discord 登入</p>
-      <RouterLink v-if="adminStatus === 'admin'" to="/admin" class="acct__admin">活動管理</RouterLink>
-      <button type="button" class="acct__out" @click="onSignOut">登出</button>
+      <p class="acct__via">{{ t('account.via') }}</p>
+      <RouterLink v-if="adminStatus === 'admin'" to="/admin" class="acct__admin">{{ t('account.admin') }}</RouterLink>
+      <button type="button" class="acct__out" @click="onSignOut">{{ t('account.signOut') }}</button>
     </div>
   </details>
 </template>
@@ -85,6 +64,7 @@ async function onSignOut() {
   font-size: 1rem;
   line-height: inherit;
   color: var(--ink);
+  white-space: nowrap;
   cursor: pointer;
 }
 .acct {
