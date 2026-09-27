@@ -362,6 +362,30 @@ function onSearchSubmit(e: Event) {
 .suggest__text {
   color: var(--ink-2);
 }
+/* On wide screens the suggest box sits beside the page heading; below this
+   it stays at the end of the list, where it is in the markup. */
+@media (min-width: 1081px) {
+  .events {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 400px;
+    column-gap: 48px;
+    align-content: start;
+  }
+  .events > * {
+    grid-column: 1 / -1;
+  }
+  .events > .page-head {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .events > .suggest {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    margin-top: 0;
+    max-width: none;
+  }
+}
 @media (max-width: 640px) {
   .filters__sep {
     display: none;
