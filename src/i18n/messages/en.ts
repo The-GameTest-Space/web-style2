@@ -13,7 +13,7 @@ export default {
   'meta.events.description':
     'Game jams, meetups, expos, talks and playtest sessions for game developers in Taiwan, with dates, venues and links to sign up.',
   'meta.signingIn': 'Signing In',
-  'meta.admin': 'Admin',
+  'meta.admin': 'Manage Events',
   'meta.notFound': 'Page Not Found',
 
   'date.weekdays': 'Sun Mon Tue Wed Thu Fri Sat',
@@ -59,7 +59,7 @@ export default {
   'discord.join': 'Join the Discord',
 
   'sample.games': 'Sample data: real games wanted',
-  'sample.events': 'Sample data: real events coming',
+  'sample.events': 'Sample data: we’re still gathering events',
 
   'state.loading': 'Loading…',
   'state.errorTitle': 'Couldn’t load this.',
@@ -119,7 +119,7 @@ export default {
   'home.join.lede': 'This site shows games and events. The playtesting itself happens on Discord. Once you join, you can:',
   'home.join.post': 'Post your build and invite members to test it',
   'home.join.play': 'Play other members’ games and give feedback',
-  'home.join.meet': 'Team up for game jams, meetups and expos',
+  'home.join.meet': 'Get a group together for game jams, meetups and expos',
 
   'games.title': 'Games',
   'games.lede':
@@ -143,12 +143,12 @@ export default {
   'game.loading': 'Loading game…',
   'game.missing': 'This game may have been removed from the site.',
   'game.browse': 'Browse other games',
-  'game.sampleCover': 'Sample cover, to be replaced with the real game',
+  'game.sampleCover': 'Sample cover, to be replaced with a screenshot of the real game',
   'game.about': 'About the game',
   'game.log': 'Update log',
   'game.developer': 'Developer',
   'game.studioTeam': '{studio} ({team})',
-  'game.build': 'Build',
+  'game.build': 'Version',
   'game.platforms': 'Platforms',
   'game.genres': 'Genres',
   'game.updated': 'Updated',
@@ -188,7 +188,7 @@ export default {
   'events.suggestCta': 'Share an event on Discord',
 
   'event.back': 'Back to events',
-  'event.missing': 'This event may have ended or been cancelled.',
+  'event.missing': 'This event may have ended or been canceled.',
   'event.browse': 'Browse other events',
   'event.coverAlt': 'Cover of {title}',
   'event.from': 'From {date}',
@@ -203,7 +203,7 @@ export default {
   'event.place': 'Place',
   'event.fee': 'Fee',
   'event.longRunning': 'Ongoing',
-  'event.since': 'Since {date}',
+  'event.since': 'From {date}',
   'event.until': 'to {date}',
   'event.starts': 'Starts {time}',
   'event.ends': 'Ends {date} {time}',
@@ -225,14 +225,14 @@ export default {
   'notFound.games': 'Browse games',
 
   'signIn.pending': 'Signing in…',
-  'signIn.checking': 'Checking who you are with Discord',
+  'signIn.checking': 'Confirming your identity with Discord',
   'signIn.failed': 'Couldn’t sign in.',
-  'signIn.cancelled': 'You cancelled on Discord, so you weren’t signed in.',
+  'signIn.cancelled': 'You canceled authorization on Discord, so you weren’t signed in.',
   'signIn.expired': 'This sign-in link has expired. Please sign in again.',
   'signIn.error': 'Sign-in couldn’t be completed, possibly because the connection is unstable. Please try again later.',
   'signIn.retry': 'Sign in again',
   'signIn.back': 'Go back',
 
   'intro.announce': 'The Game Test Space, Taiwan’s game dev playtesting community',
-  'intro.skip': 'Skip →',
+  'intro.skip': 'Skip intro →',
 } satisfies Messages
