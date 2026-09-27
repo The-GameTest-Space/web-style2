@@ -111,13 +111,36 @@ async function readJson(request: Request): Promise<unknown> {
 // isolate. An admin write clears it here; other isolates catch up when theirs
 // expires.
 const PUBLIC_TTL = 5 * 60_000
-let publicEvents: { at: number; items: Record<string, unknown>[] } | null = null
+let publicEvents: { at: number; items: Record<string, unknown>[]; updated: Map<string, string> } | null = null
 
 async function publishedEvents(env: Env) {
-  if (publicEvents && Date.now() - publicEvents.at < PUBLIC_TTL) return publicEvents.items
+  if (publicEvents && Date.now() - publicEvents.at < PUBLIC_TTL) return publicEvents
   const docs = await firestore(env).list('events', { field: 'published', value: true })
-  publicEvents = { at: Date.now(), items: docs.map(publicEvent).sort(byStart) }
-  return publicEvents.items
+  publicEvents = {
+    at: Date.now(),
+    items: docs.map(publicEvent).sort(byStart),
+    // For the sitemap: the public shape leaves updatedAt out.
+    updated: new Map(docs.map((d) => [d.id, typeof d.data.updatedAt === 'string' ? d.data.updatedAt : ''])),
+  }
+  return publicEvents
+}
+
+// Pages with content of their own. Games have no store yet: add /games and
+// /games/:slug once they do.
+const SITEMAP_PAGES = ['/', '/events']
+
+/** GET /sitemap.xml: the fixed pages plus every published event, for search engines. */
+async function sitemap(origin: string, env: Env) {
+  const { items, updated } = await publishedEvents(env)
+  const urls = [
+    ...SITEMAP_PAGES.map((path) => `<url><loc>${origin}${path}</loc></url>`),
+    ...items.map(({ slug }) => {
+      const lastmod = updated.get(String(slug))
+      return `<url><loc>${origin}/events/${slug}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}</url>`
+    }),
+  ]
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`
+  return new Response(xml, { headers: { 'Content-Type': 'application/xml; charset=utf-8' } })
 }
 
 // Whether a uid has an admins/{uid} document, remembered per isolate for a
@@ -213,18 +236,19 @@ async function admin(request: Request, path: string, env: Env) {
   return notFound()
 }
 
-async function route(request: Request, pathname: string, env: Env) {
+async function route(request: Request, { origin, pathname }: URL, env: Env) {
   const { method } = request
   if (pathname === '/api/auth/discord' && method === 'POST') return discordSignIn(request, env)
   if (pathname.startsWith('/api/admin/')) return admin(request, pathname.slice('/api/admin'.length), env)
 
   if (method !== 'GET') return notFound()
+  if (pathname === '/sitemap.xml') return sitemap(origin, env)
   const cover = pathname.match(COVER_PATH)?.[1]
   if (cover) return (await serveCover(env.COVERS, cover)) ?? notFound()
-  if (pathname === '/api/events') return json({ items: await publishedEvents(env) }, 200)
+  if (pathname === '/api/events') return json({ items: (await publishedEvents(env)).items }, 200)
   const slug = pathname.match(/^\/api\/events\/([a-z0-9-]+)$/)?.[1]
   if (slug) {
-    const item = (await publishedEvents(env)).find((e) => e.slug === slug)
+    const item = (await publishedEvents(env)).items.find((e) => e.slug === slug)
     return item ? json({ item }, 200) : notFound()
   }
   // Games have no store yet; the list is empty until they do.
@@ -232,11 +256,12 @@ async function route(request: Request, pathname: string, env: Env) {
   return notFound()
 }
 
-// Only /api/* reaches this script (run_worker_first in wrangler.jsonc); the
-// site itself is served from the static assets.
+// Only /api/* and /sitemap.xml reach this script (run_worker_first in
+// wrangler.jsonc); the site itself is served from the static assets.
 export default {
   async fetch(request, env) {
-    const { pathname } = new URL(request.url)
+    const url = new URL(request.url)
+    const { pathname } = url
     const ip = request.headers.get('CF-Connecting-IP') ?? 'unknown'
     // Cover images are counted apart (same limit): a page can show several,
     // and they must not use up the allowance for the API itself.
@@ -245,7 +270,7 @@ export default {
       return json({ error: 'rate_limited', message: '請求太頻繁，請稍後再試' }, 429)
     }
     try {
-      return await route(request, pathname, env)
+      return await route(request, url, env)
     } catch (e) {
       if (e instanceof Invalid) return json({ error: 'invalid', field: e.field, message: e.message }, 400)
       console.error(e)

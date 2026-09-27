@@ -1,0 +1,6 @@
+# /api stays open: event pages load their content from it.
+User-agent: *
+Disallow: /admin
+Disallow: /auth/
+
+Sitemap: https://gtspace.gametestspace.workers.dev/sitemap.xml

@@ -10,8 +10,9 @@
     // Serve .html files at their own URL instead of redirecting to the path
     // without .html: Google's site verification file must answer with a 200.
     "html_handling": "none",
-    // Only the API runs the Worker script; everything else is a static file.
-    "run_worker_first": ["/api/*"]
+    // Only the API and the sitemap run the Worker script; everything else is
+    // a static file.
+    "run_worker_first": ["/api/*", "/sitemap.xml"]
   },
   // Event cover images (worker/src/covers.ts), KV namespace event_images.
   "kv_namespaces": [{ "binding": "COVERS", "id": "2986b2ae40cf40af8de5cf7b04840a15" }],
