@@ -1,0 +1,252 @@
+@import '@fontsource-variable/bricolage-grotesque/standard.css';
+@import '@fontsource-variable/noto-sans-tc/index.css';
+@import '@fontsource/iansui/index.css';
+@import './wall.css';
+
+:root {
+  /* The wall, the marker, the sticker, the card. Nothing else. */
+  --wall: #efebe1;
+  --wall-shade: #e4dfd2;
+  --ink: #17161b;
+  --ink-2: #4a484e;
+  --ink-3: #6b686d;
+  --dot: #ff6a2b;
+  --dot-deep: #e2551a;
+  --card: #ffffff;
+  --rule: rgb(23 22 27 / 0.12);
+
+  --font-display: 'Bricolage Grotesque Variable', 'Noto Sans TC Variable', 'PingFang TC', sans-serif;
+  --font-body: 'Noto Sans TC Variable', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --font-hand: 'Iansui', 'Noto Sans TC Variable', cursive;
+
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1320px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-slap: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Paper on a wall: a short contact shadow plus a soft lift. */
+  --shadow-paper: 0 1px 1px rgb(23 22 27 / 0.08), 0 6px 14px -6px rgb(23 22 27 / 0.22);
+  --shadow-lift: 0 2px 2px rgb(23 22 27 / 0.06), 0 22px 32px -14px rgb(23 22 27 / 0.32);
+
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .086 0 0 0 0 .105 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--ink) var(--wall-shade);
+  scroll-padding-top: 96px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--wall);
+  /* Foam-board grain: barely there, only enough to read as a surface. */
+  background-image: var(--grain);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  caret-color: var(--dot);
+}
+
+::selection {
+  background: var(--dot);
+  color: var(--ink);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--wall-shade);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ink);
+  border: 3px solid var(--wall-shade);
+  border-radius: 999px;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.22em;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--dot);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.shell {
+  width: 100%;
+  max-width: calc(var(--max) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.hand {
+  font-family: var(--font-hand);
+  font-weight: 400;
+}
+
+.num {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* The sticker button: an orange dot label pressed onto the wall. */
+.sticker-btn {
+  --btn-bg: var(--dot);
+  --btn-fg: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  min-height: 52px;
+  padding: 0.7em 1.4em 0.7em 1.2em;
+  border: 0;
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  box-shadow: var(--shadow-paper);
+  cursor: pointer;
+  transition:
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out),
+    background-color 0.2s;
+}
+.sticker-btn:hover {
+  transform: translateY(-2px) rotate(-1deg);
+  box-shadow: var(--shadow-lift);
+}
+.sticker-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 1px 1px rgb(23 22 27 / 0.2);
+  transition-duration: 0.08s;
+}
+.sticker-btn--ink {
+  --btn-bg: var(--ink);
+  --btn-fg: var(--card);
+}
+.sticker-btn--paper {
+  --btn-bg: var(--card);
+  --btn-fg: var(--ink);
+}
+.sticker-btn svg {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.text-link {
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-decoration-color: var(--dot);
+  text-decoration-thickness: 3px;
+  transition: text-decoration-color 0.2s;
+}
+.text-link:hover {
+  text-decoration-color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Logo intro hand-off: the home hero waits for the intro, and its full stop
+   is the orange dot that flies in from the logo. */
+html.intro-active {
+  overflow: hidden;
+}
+html.intro-active .hero,
+html.intro-active .hero * {
+  animation-play-state: paused !important;
+}
+html.intro-active .hero__period {
+  animation: none !important;
+  opacity: 0;
+}
+html.intro-played .hero__period {
+  animation: none !important;
+}
+
+/* Display headings are set with tight leading. A selection box spans the
+   full CJK glyph box (~1.45em) and would paint over the line above, so
+   selected display type changes colour instead of drawing a box. */
+h1::selection,
+h2::selection,
+h3::selection,
+h1 *::selection,
+h2 *::selection,
+h3 *::selection {
+  background-color: transparent;
+  color: var(--dot);
+}
+.join h2::selection,
+.join h2 *::selection {
+  color: var(--card);
+}

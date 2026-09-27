@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Sample cover (placeholder art) for a fictional game: 末班車 -->
+  <defs>
+    <pattern id="ht" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="1.6" fill="#ff6a2b"/></pattern>
+  </defs>
+  <rect width="400" height="300" fill="#17161b"/>
+  <!-- tunnel perspective -->
+  <path d="M0 0h400L250 110H150z" fill="#1f1e24"/>
+  <path d="M150 110h100v80H150z" fill="#0f0e12"/>
+  <circle cx="200" cy="150" r="10" fill="#ff6a2b"/>
+  <circle cx="200" cy="150" r="22" fill="none" stroke="#ff6a2b" stroke-width="2" opacity=".5"/>
+  <!-- rails -->
+  <path d="M170 190L60 300M230 190l110 110" stroke="#fff" stroke-width="3"/>
+  <g stroke="#fff" stroke-width="2" opacity=".6"><path d="M163 200h74M148 216h104M128 236h144M100 264h200"/></g>
+  <!-- platform left -->
+  <path d="M0 300V120l150-10v80L0 300z" fill="#fff"/>
+  <path d="M0 250l150-60v8L0 262z" fill="url(#ht)"/>
+  <path d="M0 262l150-64v4L0 270z" fill="#17161b"/>
+  <!-- pillars -->
+  <g fill="#17161b"><path d="M24 118h18v150l-18 8zM88 114h12v92l-12 6zM128 111h8v63l-8 4z"/></g>
+  <!-- station sign -->
+  <rect x="40" y="62" width="120" height="34" fill="#fff"/>
+  <rect x="40" y="62" width="10" height="34" fill="#ff6a2b"/>
+  <rect x="60" y="72" width="60" height="6" fill="#17161b"/><rect x="60" y="83" width="40" height="4" fill="#17161b"/>
+  <!-- clock -->
+  <rect x="268" y="40" width="96" height="40" rx="4" fill="#0f0e12" stroke="#fff" stroke-width="3"/>
+  <g fill="#ff6a2b"><rect x="280" y="50" width="6" height="20"/><rect x="280" y="50" width="16" height="4"/><rect x="290" y="50" width="6" height="20"/><rect x="280" y="66" width="16" height="4"/><rect x="304" y="54" width="4" height="4"/><rect x="304" y="62" width="4" height="4"/><rect x="316" y="50" width="16" height="4"/><rect x="316" y="50" width="4" height="20"/><rect x="316" y="66" width="16" height="4"/><rect x="328" y="50" width="4" height="20"/><rect x="338" y="50" width="16" height="4"/><rect x="350" y="50" width="4" height="10"/><rect x="338" y="58" width="16" height="4"/><rect x="338" y="58" width="4" height="12"/><rect x="338" y="66" width="16" height="4"/></g>
+  <!-- lone figure -->
+  <g fill="#17161b"><circle cx="64" cy="190" r="7"/><path d="M56 198h16l3 36h-6l-2 26h-6l-2-26h-6z"/></g>
+</svg>

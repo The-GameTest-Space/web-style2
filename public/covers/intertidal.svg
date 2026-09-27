@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Sample cover (placeholder art) for a fictional game: 潮間帶 -->
+  <defs>
+    <pattern id="water" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1.6" fill="#17161b" opacity=".45"/></pattern>
+    <pattern id="sand" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#17161b" opacity=".35"/></pattern>
+  </defs>
+  <rect width="400" height="300" fill="#fff"/>
+  <rect width="400" height="300" fill="url(#sand)"/>
+  <!-- tide pool -->
+  <path d="M60 70c40-40 150-40 220-20s90 70 60 130-120 90-200 70S20 190 30 140s0-44 30-70z" fill="#fff" stroke="#17161b" stroke-width="5"/>
+  <path d="M60 70c40-40 150-40 220-20s90 70 60 130-120 90-200 70S20 190 30 140s0-44 30-70z" fill="url(#water)"/>
+  <!-- ripples -->
+  <g fill="none" stroke="#17161b" stroke-width="2" opacity=".5"><path d="M110 110q20-8 40 0M220 90q16-6 32 0M160 200q24-8 48 0"/></g>
+  <!-- rocks -->
+  <g fill="#17161b">
+    <path d="M90 150c6-22 40-26 50-6s-6 34-26 32-28-10-24-26z"/>
+    <path d="M250 150c10-16 44-12 50 8s-16 32-34 26-24-18-16-34z"/>
+    <path d="M300 60c14-8 36 0 38 16s-16 20-30 14-18-24-8-30z"/>
+  </g>
+  <!-- anemones -->
+  <g stroke="#ff6a2b" stroke-width="4" stroke-linecap="round">
+    <path d="M190 140v-14M190 140l-10-10M190 140l10-10M190 140l-14-2M190 140l14-2"/>
+    <path d="M150 230v-12M150 230l-9-8M150 230l9-8M150 230l-12 0M150 230l12 0"/>
+  </g>
+  <circle cx="190" cy="140" r="5" fill="#ff6a2b"/><circle cx="150" cy="230" r="4" fill="#ff6a2b"/>
+  <!-- crabs -->
+  <g fill="#ff6a2b">
+    <ellipse cx="236" cy="210" rx="14" ry="10"/><path d="M222 202l-10-8 4-4 8 6zM250 202l10-8-4-4-8 6z"/>
+    <ellipse cx="120" cy="96" rx="10" ry="7"/><path d="M110 90l-8-6 3-3 7 5zM130 90l8-6-3-3-7 5z"/>
+  </g>
+  <!-- hermit crab shell -->
+  <path d="M320 220c0-16 24-20 30-6 4 12-10 20-22 16" fill="#fff" stroke="#17161b" stroke-width="4"/>
+  <circle cx="334" cy="218" r="4" fill="#ff6a2b"/>
+  <!-- fish -->
+  <g fill="#17161b"><path d="M210 110c10-8 24-8 30 0-6 8-20 8-30 0zm30 0l10-7v14z"/><path d="M100 196c8-6 18-6 24 0-6 6-16 6-24 0zm24 0l8-5v10z"/></g>
+  <!-- tide timer ui -->
+  <rect x="16" y="262" width="120" height="22" rx="11" fill="#17161b"/>
+  <rect x="20" y="266" width="70" height="14" rx="7" fill="#ff6a2b"/>
+  <circle cx="370" cy="36" r="16" fill="none" stroke="#17161b" stroke-width="4"/>
+  <path d="M370 36V24M370 36l8 6" stroke="#17161b" stroke-width="4" stroke-linecap="round"/>
+</svg>

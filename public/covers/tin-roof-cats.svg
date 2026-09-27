@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Sample cover (placeholder art) for a fictional game: 鐵皮屋頂上的貓 -->
+  <defs>
+    <pattern id="tin" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#fff"/><rect width="3" height="10" fill="#17161b"/></pattern>
+    <pattern id="tin2" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#ff6a2b"/><rect width="3" height="10" fill="#17161b"/></pattern>
+    <pattern id="ht" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.2" fill="#17161b"/></pattern>
+  </defs>
+  <rect width="400" height="300" fill="#fff"/>
+  <rect width="400" height="170" fill="url(#ht)" opacity=".28"/>
+  <!-- sun / moon -->
+  <circle cx="318" cy="70" r="40" fill="#ff6a2b"/>
+  <!-- far rooftops -->
+  <path d="M0 170v-40h60v-20h50v30h40v-14h60v44h50v-30h70v16h70v14z" fill="#17161b" opacity=".2"/>
+  <!-- water tanks -->
+  <g>
+    <rect x="52" y="92" width="44" height="40" rx="4" fill="#fff" stroke="#17161b" stroke-width="4"/>
+    <path d="M52 104h44M52 120h44" stroke="#17161b" stroke-width="3"/>
+    <path d="M58 132l-6 30M90 132l6 30M60 150h28" stroke="#17161b" stroke-width="4"/>
+    <rect x="262" y="120" width="36" height="32" rx="4" fill="#17161b"/>
+    <path d="M266 152l-4 24M294 152l4 24" stroke="#17161b" stroke-width="4"/>
+  </g>
+  <!-- roofs -->
+  <path d="M-10 230l80-66h120l-40 66z" fill="url(#tin)" stroke="#17161b" stroke-width="4"/>
+  <path d="M150 300V200l40-40h110l60 40v100z" fill="url(#tin2)" stroke="#17161b" stroke-width="4"/>
+  <path d="M150 200h210" stroke="#17161b" stroke-width="6"/>
+  <rect x="0" y="230" width="150" height="70" fill="#17161b"/>
+  <!-- laundry line -->
+  <path d="M110 150q70 26 140 0" fill="none" stroke="#17161b" stroke-width="2"/>
+  <path d="M140 160h18v22h-18zM196 166h22l-3 18h-16z" fill="#fff" stroke="#17161b" stroke-width="3"/>
+  <!-- cat, mid-jump -->
+  <g fill="#17161b">
+    <path d="M216 118c14-12 38-12 52-2l16-6-4 14c4 8 0 16-10 18-18 4-38 2-54-8-6-4-6-12 0-16z"/>
+    <path d="M276 108l6-14 6 14zM266 108l4-13 7 12z"/>
+    <path d="M214 124c-14-2-24 6-34 2" fill="none" stroke="#17161b" stroke-width="6" stroke-linecap="round"/>
+    <path d="M232 138l-14 16M254 140l10 16" stroke="#17161b" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <circle cx="276" cy="118" r="2.5" fill="#ff6a2b"/>
+  <!-- motion marks -->
+  <path d="M170 104h24M160 116h20M176 128h14" stroke="#ff6a2b" stroke-width="4" stroke-linecap="round"/>
+</svg>

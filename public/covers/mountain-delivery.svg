@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Sample cover (placeholder art) for a fictional game: 山路外送 -->
+  <defs>
+    <pattern id="ht" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.3" fill="#17161b"/></pattern>
+    <pattern id="rain" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-20)"><rect x="5" width="2" height="7" fill="#17161b" opacity=".4"/></pattern>
+  </defs>
+  <rect width="400" height="300" fill="#fff"/>
+  <!-- storm cloud -->
+  <path d="M230 50c0-18 20-30 38-22 8-16 36-18 46 0 18-4 34 10 30 26z" fill="#17161b"/>
+  <rect x="230" y="54" width="120" height="80" fill="url(#rain)"/>
+  <!-- mountains -->
+  <path d="M0 200L90 80l60 70 50-60 90 110 110-70v170H0z" fill="url(#ht)" opacity=".5"/>
+  <path d="M0 300V190l70-50 80 60 70-40 90 60 90-40v120z" fill="#17161b"/>
+  <!-- switchback road -->
+  <path d="M40 300c40-20 180-10 200-40s-150-20-120-50 170-10 190-40-80-30-60-50" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 300c40-20 180-10 200-40s-150-20-120-50 170-10 190-40-80-30-60-50" fill="none" stroke="#17161b" stroke-width="2" stroke-dasharray="8 10"/>
+  <!-- scooter -->
+  <g transform="translate(214 236) rotate(-8)">
+    <rect x="12" y="-30" width="22" height="20" fill="#ff6a2b" stroke="#17161b" stroke-width="3"/>
+    <path d="M0 0h44l8-12h-10" fill="none" stroke="#ff6a2b" stroke-width="6" stroke-linejoin="round"/>
+    <circle cx="4" cy="4" r="7" fill="#fff" stroke="#ff6a2b" stroke-width="4"/>
+    <circle cx="46" cy="4" r="7" fill="#fff" stroke="#ff6a2b" stroke-width="4"/>
+    <circle cx="38" cy="-26" r="6" fill="#ff6a2b"/>
+  </g>
+  <!-- steam from the box -->
+  <path d="M232 196c-4-8 4-12 0-20M242 196c-4-8 4-12 0-18" fill="none" stroke="#ff6a2b" stroke-width="3" stroke-linecap="round"/>
+  <!-- road sign -->
+  <g><rect x="60" y="150" width="4" height="40" fill="#fff"/><path d="M62 128l20 20-20 20-20-20z" fill="#ff6a2b" stroke="#fff" stroke-width="3"/><path d="M56 150c4-8 8 8 12 0" fill="none" stroke="#17161b" stroke-width="3"/></g>
+</svg>
