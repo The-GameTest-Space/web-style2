@@ -5,7 +5,7 @@ import type { GameEvent } from '@/api/types'
 // something upcoming.
 
 type Seed = Omit<GameEvent, 'startsAt' | 'endsAt' | 'deadline'> & {
-  start: [days: number, hour: number, minute?: number]
+  start?: [days: number, hour: number, minute?: number]
   end?: [days: number, hour: number, minute?: number]
   deadline?: { label: string; days: number }
 }
@@ -15,8 +15,8 @@ const seeds: Seed[] = [
     slug: 'friday-playtest-night',
     title: 'GTSpace 週五試玩夜',
     type: 'playtest',
-    start: [4, 20],
-    end: [4, 23],
+    ongoing: true,
+    schedule: '每週五 20:00–23:00',
     city: '線上',
     venue: 'Discord 語音頻道',
     online: true,
@@ -149,9 +149,9 @@ export function buildEvents(now = new Date()): GameEvent[] {
   return seeds
     .map(({ start, end, deadline, ...rest }) => ({
       ...rest,
-      startsAt: at(today, start),
+      startsAt: start ? at(today, start) : undefined,
       endsAt: end ? at(today, end) : undefined,
       deadline: deadline ? { label: deadline.label, date: at(today, [deadline.days, 23, 59]) } : undefined,
     }))
-    .sort((a, b) => a.startsAt.localeCompare(b.startsAt))
+    .sort((a, b) => (a.startsAt ?? '').localeCompare(b.startsAt ?? '')) as GameEvent[]
 }

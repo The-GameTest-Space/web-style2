@@ -5,6 +5,7 @@ import { useApi, NotFoundError } from '@/api/client'
 import type { GameEvent, ItemResponse } from '@/api/types'
 import { EVENT_TYPE_LABEL, daysUntil, fullDate, isMultiDay, monthDay, time } from '@/utils/format'
 import DdayCounter from '@/components/DdayCounter.vue'
+import OngoingMark from '@/components/OngoingMark.vue'
 import DiscordButton from '@/components/DiscordButton.vue'
 import StateBlock from '@/components/StateBlock.vue'
 
@@ -12,7 +13,7 @@ const props = defineProps<{ slug: string }>()
 const { data, error, loading, retry } = useApi<ItemResponse<GameEvent>>(() => `/api/events/${props.slug}`)
 
 const ev = computed(() => data.value?.item)
-const days = computed(() => (ev.value ? daysUntil(ev.value.startsAt) : 0))
+const days = computed(() => (ev.value?.startsAt ? daysUntil(ev.value.startsAt) : 0))
 const deadlineDays = computed(() => (ev.value?.deadline ? daysUntil(ev.value.deadline.date) : null))
 
 function icsStamp(iso: string) {
@@ -22,7 +23,7 @@ function icsStamp(iso: string) {
 // A calendar file the visitor saves on click; nothing leaves the browser.
 function downloadIcs() {
   const e = ev.value
-  if (!e) return
+  if (!e || e.ongoing) return
   const end = e.endsAt ?? new Date(new Date(e.startsAt).getTime() + 2 * 3600_000).toISOString()
   const ics = [
     'BEGIN:VCALENDAR',
@@ -64,8 +65,14 @@ function downloadIcs() {
 
       <header class="poster__head">
         <div class="poster__count">
-          <DdayCounter :days="days" size="lg" />
-          <p class="poster__count-label">{{ days > 0 ? '天後開始' : days === 0 ? '今天舉行' : '已經開始' }}</p>
+          <template v-if="ev.ongoing">
+            <OngoingMark size="lg" />
+            <p class="poster__count-label">{{ ev.startsAt && days > 0 ? `${monthDay(ev.startsAt)} 起舉辦` : '持續舉辦中' }}</p>
+          </template>
+          <template v-else>
+            <DdayCounter :days="days" size="lg" />
+            <p class="poster__count-label">{{ days > 0 ? '天後開始' : days === 0 ? '今天舉行' : '已經開始' }}</p>
+          </template>
         </div>
         <div class="poster__titles">
           <p class="poster__type">{{ EVENT_TYPE_LABEL[ev.type] }}<span v-if="ev.online"> · 線上</span></p>
@@ -78,14 +85,18 @@ function downloadIcs() {
       <dl class="poster__facts">
         <div>
           <dt>日期</dt>
-          <dd>
+          <dd v-if="ev.ongoing">
+            長期舉辦<template v-if="ev.startsAt"><br />{{ fullDate(ev.startsAt) }} 起</template>
+          </dd>
+          <dd v-else>
             {{ fullDate(ev.startsAt) }}
             <template v-if="isMultiDay(ev.startsAt, ev.endsAt)"><br />至 {{ fullDate(ev.endsAt!) }}</template>
           </dd>
         </div>
         <div>
           <dt>時間</dt>
-          <dd v-if="ev.endsAt && isMultiDay(ev.startsAt, ev.endsAt)">
+          <dd v-if="ev.ongoing">{{ ev.schedule }}</dd>
+          <dd v-else-if="ev.endsAt && isMultiDay(ev.startsAt, ev.endsAt)">
             {{ time(ev.startsAt) }} 開始<br />{{ monthDay(ev.endsAt) }} {{ time(ev.endsAt) }} 結束
           </dd>
           <dd v-else class="num">{{ time(ev.startsAt) }}<template v-if="ev.endsAt"> – {{ time(ev.endsAt) }}</template></dd>
@@ -134,7 +145,7 @@ function downloadIcs() {
             <ExternalLink aria-hidden="true" />前往活動頁面<span class="visually-hidden">（在新分頁開啟）</span>
           </a>
           <DiscordButton :variant="ev.url ? 'paper' : undefined" label="在 Discord 尋找同行者" class="poster__cta" />
-          <button type="button" class="poster__cal" @click="downloadIcs">
+          <button v-if="!ev.ongoing" type="button" class="poster__cal" @click="downloadIcs">
             <CalendarPlus :size="20" aria-hidden="true" />下載行事曆檔案（.ics）
           </button>
           <p v-if="data?.sample" class="poster__fine">示範活動不提供官方報名連結。正式活動刊登後，此處將提供主辦單位的報名頁面。</p>
@@ -247,6 +258,7 @@ function downloadIcs() {
   margin: 4px 0 0;
   font-weight: 700;
   line-height: 1.5;
+  text-wrap: pretty;
 }
 .poster__body {
   display: grid;

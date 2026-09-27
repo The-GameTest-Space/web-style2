@@ -24,7 +24,7 @@ load()
 // Set by the edit page after a delete (router state, gone on reload).
 const flash = typeof history.state?.flash === 'string' ? (history.state.flash as string) : ''
 
-const isPast = (e: AdminEvent) => daysUntil(e.endsAt ?? e.startsAt) < 0
+const isPast = (e: AdminEvent) => !e.ongoing && daysUntil(e.endsAt ?? e.startsAt) < 0
 
 const groups = computed(() => {
   const all = events.value ?? []
@@ -71,13 +71,19 @@ const year = (iso: string) => new Date(iso).getFullYear()
     <ol class="sheet">
       <li v-for="e in g.items" :key="e.slug" class="row">
         <RouterLink :to="{ name: 'admin-event', params: { slug: e.slug } }" class="row__link">
-          <span class="row__date">
+          <span v-if="e.ongoing" class="row__date">
+            <span class="row__md">長期</span>
+            <span v-if="e.startsAt" class="row__yw">{{ year(e.startsAt) }}.{{ monthDay(e.startsAt) }} 起</span>
+          </span>
+          <span v-else class="row__date">
             <span class="row__md num">{{ monthDay(e.startsAt) }}</span>
             <span class="row__yw">{{ year(e.startsAt) }}（{{ weekday(e.startsAt) }}）</span>
           </span>
           <span class="row__main">
             <span class="row__title">{{ e.title }}</span>
-            <span class="row__meta">{{ EVENT_TYPE_LABEL[e.type] }} · {{ e.city }} · /events/{{ e.slug }}</span>
+            <span class="row__meta">
+              {{ EVENT_TYPE_LABEL[e.type] }}<template v-if="e.ongoing"> · {{ e.schedule }}</template> · {{ e.city }} · /events/{{ e.slug }}
+            </span>
           </span>
           <span
             class="status-chip"

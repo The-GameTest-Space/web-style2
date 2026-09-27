@@ -28,17 +28,14 @@ export interface Game {
 
 export type EventType = 'jam' | 'meetup' | 'expo' | 'talk' | 'playtest'
 
-export interface GameEvent {
+interface EventBase {
   slug: string
   title: string
   type: EventType
-  startsAt: string
-  endsAt?: string
   city: string
   venue: string
   online: boolean
   fee: string
-  deadline?: { label: string; date: string }
   summary: string
   description: string[]
   agenda?: { time: string; item: string }[]
@@ -47,15 +44,44 @@ export interface GameEvent {
   url?: string
 }
 
+/** An event on given dates. */
+export interface DatedEvent extends EventBase {
+  ongoing?: false
+  startsAt: string
+  endsAt?: string
+  deadline?: { label: string; date: string }
+  schedule?: never
+}
+
+/** An event with no end (a weekly night, an open call). It never expires. */
+export interface OngoingEvent extends EventBase {
+  ongoing: true
+  /** When it happens, in words, e.g. 每週五 20:00. */
+  schedule: string
+  /** The day it began, if the admin gave one. */
+  startsAt?: string
+  endsAt?: never
+  deadline?: never
+}
+
+export type GameEvent = DatedEvent | OngoingEvent
+
 /** An event as the admin pages see it, drafts included. */
-export interface AdminEvent extends GameEvent {
+export type AdminEvent = GameEvent & {
   published: boolean
   createdAt?: string
   updatedAt?: string
 }
 
-/** What the admin form sends; the Worker stamps the times. */
-export type EventInput = Omit<AdminEvent, 'createdAt' | 'updatedAt'>
+/** What the admin form sends; the Worker validates it and stamps the times. */
+export interface EventInput extends EventBase {
+  ongoing: boolean
+  schedule?: string
+  startsAt?: string
+  endsAt?: string
+  deadline?: { label: string; date: string }
+  published: boolean
+}
 
 // `sample` is set only by the local-only fallback (src/mocks/fallback.ts),
 // so pages can label sample content as such.

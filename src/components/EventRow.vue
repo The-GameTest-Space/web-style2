@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { MapPin, Clock } from 'lucide-vue-next'
+import { MapPin, Clock, Repeat } from 'lucide-vue-next'
 import type { GameEvent } from '@/api/types'
 import { EVENT_TYPE_LABEL, daysUntil, isMultiDay, monthDay, time, weekday } from '@/utils/format'
 import DdayCounter from './DdayCounter.vue'
+import OngoingMark from './OngoingMark.vue'
 
 const props = defineProps<{ event: GameEvent }>()
 
-const days = computed(() => daysUntil(props.event.startsAt))
+const days = computed(() => (props.event.ongoing ? 0 : daysUntil(props.event.startsAt)))
 const deadlineDays = computed(() => (props.event.deadline ? daysUntil(props.event.deadline.date) : null))
 const urgent = computed(() => deadlineDays.value !== null && deadlineDays.value >= 0 && deadlineDays.value <= 7)
 </script>
@@ -15,8 +16,9 @@ const urgent = computed(() => deadlineDays.value !== null && deadlineDays.value 
 <template>
   <li class="event-row">
     <RouterLink :to="{ name: 'event', params: { slug: event.slug } }" class="event-row__link">
-      <DdayCounter :days="days" class="event-row__dday" />
-      <div class="event-row__date">
+      <OngoingMark v-if="event.ongoing" class="event-row__dday" />
+      <DdayCounter v-else :days="days" class="event-row__dday" />
+      <div v-if="!event.ongoing" class="event-row__date">
         <span class="num event-row__md">{{ monthDay(event.startsAt) }}</span>
         <span class="event-row__wd">
           （{{ weekday(event.startsAt) }}）<template v-if="isMultiDay(event.startsAt, event.endsAt)"
@@ -24,12 +26,13 @@ const urgent = computed(() => deadlineDays.value !== null && deadlineDays.value 
           >
         </span>
       </div>
-      <div class="event-row__main">
+      <div class="event-row__main" :class="{ 'event-row__main--wide': event.ongoing }">
         <span class="event-row__type">{{ EVENT_TYPE_LABEL[event.type] }}</span>
         <h3 class="event-row__title">{{ event.title }}</h3>
         <p class="event-row__meta">
+          <span v-if="event.ongoing"><Repeat :size="15" aria-hidden="true" />{{ event.schedule }}</span>
           <span><MapPin :size="15" aria-hidden="true" />{{ event.city }}・{{ event.venue }}</span>
-          <span><Clock :size="15" aria-hidden="true" />{{ time(event.startsAt) }} 開始</span>
+          <span v-if="!event.ongoing"><Clock :size="15" aria-hidden="true" />{{ time(event.startsAt) }} 開始</span>
         </p>
       </div>
       <p v-if="event.deadline && deadlineDays !== null && deadlineDays >= 0" class="event-row__deadline" :class="{ 'is-urgent': urgent }">
@@ -73,6 +76,9 @@ const urgent = computed(() => deadlineDays.value !== null && deadlineDays.value 
 .event-row__wd {
   font-size: 0.875rem;
   color: var(--ink-3);
+}
+.event-row__main--wide {
+  grid-column: 2 / 4;
 }
 .event-row__type {
   display: inline-block;
@@ -149,7 +155,8 @@ const urgent = computed(() => deadlineDays.value !== null && deadlineDays.value 
     align-items: baseline;
     gap: 4px;
   }
-  .event-row__main {
+  .event-row__main,
+  .event-row__main--wide {
     grid-column: 2;
   }
   .event-row__deadline {

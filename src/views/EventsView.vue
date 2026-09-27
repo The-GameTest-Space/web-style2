@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useApi } from '@/api/client'
-import type { EventType, GameEvent, ListResponse } from '@/api/types'
+import type { DatedEvent, EventType, GameEvent, ListResponse } from '@/api/types'
 import { EVENT_TYPE_LABEL, daysUntil, monthLabel } from '@/utils/format'
 import EventRow from '@/components/EventRow.vue'
 import TapeHeading from '@/components/TapeHeading.vue'
@@ -19,14 +19,17 @@ const type = computed(() => (TYPES.includes(route.query.type as EventType) ? (ro
 const onlineOnly = computed(() => route.query.online === '1')
 const filtered = computed(() => !!type.value || onlineOnly.value)
 
+const shown = computed(() =>
+  (data.value?.items ?? []).filter((e) => (!type.value || e.type === type.value) && (!onlineOnly.value || e.online)),
+)
+// Ongoing events never expire; they sit above the months.
+const ongoing = computed(() => shown.value.filter((e) => e.ongoing))
 const upcoming = computed(() =>
-  (data.value?.items ?? []).filter(
-    (e) => daysUntil(e.endsAt ?? e.startsAt) >= 0 && (!type.value || e.type === type.value) && (!onlineOnly.value || e.online),
-  ),
+  shown.value.filter((e): e is DatedEvent => !e.ongoing && daysUntil(e.endsAt ?? e.startsAt) >= 0),
 )
 
 const months = computed(() => {
-  const groups = new Map<string, GameEvent[]>()
+  const groups = new Map<string, DatedEvent[]>()
   for (const e of upcoming.value) {
     const k = monthLabel(e.startsAt)
     groups.set(k, [...(groups.get(k) ?? []), e])
@@ -78,8 +81,8 @@ function setQuery(patch: Record<string, string | undefined>) {
 
     <StateBlock v-if="loading && !data" kind="loading" message="正在載入活動資訊…" />
     <StateBlock v-else-if="error" kind="error" @retry="retry" />
-    <StateBlock v-else-if="!upcoming.length && !filtered" kind="empty" message="目前沒有即將舉行的活動。" />
-    <StateBlock v-else-if="!upcoming.length" kind="empty" message="此分類目前沒有活動。">
+    <StateBlock v-else-if="!upcoming.length && !ongoing.length && !filtered" kind="empty" message="目前沒有即將舉行的活動。" />
+    <StateBlock v-else-if="!upcoming.length && !ongoing.length" kind="empty" message="此分類目前沒有活動。">
       <button type="button" class="sticker-btn sticker-btn--paper" @click="router.replace({ query: {} })">查看全部活動</button>
     </StateBlock>
     <template v-else>
@@ -87,6 +90,15 @@ function setQuery(patch: Record<string, string | undefined>) {
         <span class="events__alert-dot" aria-hidden="true"></span>
         共有 <strong class="num">{{ closingSoon }}</strong> 個活動將於七天內截止報名
       </p>
+      <section v-if="ongoing.length" class="month" aria-labelledby="ongoing-title">
+        <h2 id="ongoing-title" class="month__label">長期活動</h2>
+        <div class="board">
+          <span class="tape tape-bit board__tape" aria-hidden="true"></span>
+          <ol class="board__list">
+            <EventRow v-for="e in ongoing" :key="e.slug" :event="e" />
+          </ol>
+        </div>
+      </section>
       <section v-for="[month, items] in months" :key="month" class="month" :aria-label="month">
         <h2 class="month__label num">{{ month }}</h2>
         <div class="board">

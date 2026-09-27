@@ -13,6 +13,8 @@ export const EVENT_FIELDS = [
   'type',
   'startsAt',
   'endsAt',
+  'ongoing',
+  'schedule',
   'city',
   'venue',
   'online',
@@ -83,12 +85,16 @@ export function parseEvent(input: unknown) {
   const type = body.type
   if (typeof type !== 'string' || !EVENT_TYPES.includes(type)) throw new Invalid('type', '請選擇活動類型')
 
-  const startsAt = date(body.startsAt, 'startsAt')
-  const endsAt = date(body.endsAt, 'endsAt', true)
-  if (endsAt && endsAt < startsAt) throw new Invalid('endsAt', '結束時間不能早於開始時間')
+  // An ongoing event has a schedule in words instead of dates: its start (the
+  // day it began) is optional, and end and deadline are dropped.
+  const ongoing = body.ongoing === undefined || body.ongoing === null ? false : bool(body.ongoing, 'ongoing')
+  const schedule = ongoing ? text(body.schedule, 'schedule', 60) : undefined
+  const startsAt = ongoing ? date(body.startsAt, 'startsAt', true) : date(body.startsAt, 'startsAt')
+  const endsAt = ongoing ? undefined : date(body.endsAt, 'endsAt', true)
+  if (startsAt && endsAt && endsAt < startsAt) throw new Invalid('endsAt', '結束時間不能早於開始時間')
 
   let deadline: { label: string; date: Date } | undefined
-  if (body.deadline !== undefined && body.deadline !== null) {
+  if (!ongoing && body.deadline !== undefined && body.deadline !== null) {
     const d = record(body.deadline, 'deadline')
     deadline = { label: text(d.label, 'deadline.label', 20), date: date(d.date, 'deadline.date') }
   }
@@ -114,6 +120,8 @@ export function parseEvent(input: unknown) {
     type,
     startsAt,
     endsAt,
+    ongoing: ongoing || undefined,
+    schedule,
     city: text(body.city, 'city', 40),
     venue: text(body.venue, 'venue', 120),
     online: bool(body.online, 'online'),
@@ -136,5 +144,6 @@ export function publicEvent({ id, data }: Doc) {
 
 export const adminEvent = ({ id, data }: Doc) => ({ slug: id, ...data })
 
+/** By start time; events without one (ongoing) come first. */
 export const byStart = (a: Record<string, unknown>, b: Record<string, unknown>) =>
-  String(a.startsAt).localeCompare(String(b.startsAt))
+  String(a.startsAt ?? '').localeCompare(String(b.startsAt ?? ''))

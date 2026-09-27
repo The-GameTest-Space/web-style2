@@ -24,6 +24,8 @@ interface Form {
   summary: string
   startsAt: string
   endsAt: string
+  ongoing: boolean
+  schedule: string
   hasDeadline: boolean
   deadlineLabel: string
   deadlineAt: string
@@ -45,6 +47,8 @@ const blank = (): Form => ({
   summary: '',
   startsAt: '',
   endsAt: '',
+  ongoing: false,
+  schedule: '',
   hasDeadline: false,
   deadlineLabel: '報名截止',
   deadlineAt: '',
@@ -75,6 +79,8 @@ function fromEvent(e: AdminEvent): Form {
     summary: e.summary,
     startsAt: toLocalInput(e.startsAt),
     endsAt: toLocalInput(e.endsAt),
+    ongoing: !!e.ongoing,
+    schedule: e.schedule ?? '',
     hasDeadline: !!e.deadline,
     deadlineLabel: e.deadline?.label ?? '報名截止',
     deadlineAt: toLocalInput(e.deadline?.date),
@@ -96,9 +102,12 @@ function toInput(f: Form): EventInput {
     title: f.title,
     type: f.type,
     summary: f.summary,
-    startsAt: toIso(f.startsAt) ?? '',
-    endsAt: toIso(f.endsAt),
-    deadline: f.hasDeadline ? { label: f.deadlineLabel, date: toIso(f.deadlineAt) ?? '' } : undefined,
+    startsAt: toIso(f.startsAt),
+    // An ongoing event keeps no end or deadline, even if they were filled in before the switch.
+    endsAt: f.ongoing ? undefined : toIso(f.endsAt),
+    ongoing: f.ongoing,
+    schedule: f.ongoing ? f.schedule : undefined,
+    deadline: !f.ongoing && f.hasDeadline ? { label: f.deadlineLabel, date: toIso(f.deadlineAt) ?? '' } : undefined,
     city: f.city,
     venue: f.venue,
     online: f.online,
@@ -157,6 +166,7 @@ const LABELS: Record<string, string> = {
   'f-summary': '一句話摘要',
   'f-startsAt': '開始時間',
   'f-endsAt': '結束時間',
+  'f-schedule': '時間說明',
   'f-deadlineLabel': '截止標籤',
   'f-deadlineAt': '截止時間',
   'f-city': '城市',
@@ -330,30 +340,49 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
 
         <section class="part" aria-labelledby="part-time">
           <h2 id="part-time" class="part__title">時間</h2>
-          <div class="part__row">
-            <FormField id="f-startsAt" label="開始" :error="fieldErrors['f-startsAt']">
-              <input id="f-startsAt" v-model="form.startsAt" type="datetime-local" class="input" required v-bind="aria('f-startsAt')" />
-            </FormField>
-            <FormField id="f-endsAt" label="結束" optional :error="fieldErrors['f-endsAt']">
+          <label class="check"><input v-model="form.ongoing" type="checkbox" />長期活動（沒有結束日，會一直顯示在活動資訊頁）</label>
+          <template v-if="form.ongoing">
+            <FormField id="f-schedule" label="時間說明" hint="例如：每週五 20:00、隨時可報名。" :error="fieldErrors['f-schedule']">
               <input
-                id="f-endsAt"
-                v-model="form.endsAt"
-                type="datetime-local"
+                id="f-schedule"
+                v-model="form.schedule"
                 class="input"
-                :min="form.startsAt || undefined"
-                v-bind="aria('f-endsAt')"
+                required
+                maxlength="60"
+                placeholder="每週五 20:00"
+                v-bind="aria('f-schedule')"
               />
             </FormField>
-          </div>
-          <label class="check"><input v-model="form.hasDeadline" type="checkbox" />有報名或徵件截止日</label>
-          <div v-if="form.hasDeadline" class="part__row">
-            <FormField id="f-deadlineLabel" label="截止標籤" hint="例如：報名截止、徵件截止。" :error="fieldErrors['f-deadlineLabel']">
-              <input id="f-deadlineLabel" v-model="form.deadlineLabel" class="input" required maxlength="20" v-bind="aria('f-deadlineLabel')" />
+            <FormField id="f-startsAt" label="開始日期" optional hint="從哪天開始舉辦，可以留空。" :error="fieldErrors['f-startsAt']">
+              <input id="f-startsAt" v-model="form.startsAt" type="datetime-local" class="input part__narrow" v-bind="aria('f-startsAt')" />
             </FormField>
-            <FormField id="f-deadlineAt" label="截止時間" :error="fieldErrors['f-deadlineAt']">
-              <input id="f-deadlineAt" v-model="form.deadlineAt" type="datetime-local" class="input" required v-bind="aria('f-deadlineAt')" />
-            </FormField>
-          </div>
+          </template>
+          <template v-else>
+            <div class="part__row">
+              <FormField id="f-startsAt" label="開始" :error="fieldErrors['f-startsAt']">
+                <input id="f-startsAt" v-model="form.startsAt" type="datetime-local" class="input" required v-bind="aria('f-startsAt')" />
+              </FormField>
+              <FormField id="f-endsAt" label="結束" optional :error="fieldErrors['f-endsAt']">
+                <input
+                  id="f-endsAt"
+                  v-model="form.endsAt"
+                  type="datetime-local"
+                  class="input"
+                  :min="form.startsAt || undefined"
+                  v-bind="aria('f-endsAt')"
+                />
+              </FormField>
+            </div>
+            <label class="check"><input v-model="form.hasDeadline" type="checkbox" />有報名或徵件截止日</label>
+            <div v-if="form.hasDeadline" class="part__row">
+              <FormField id="f-deadlineLabel" label="截止標籤" hint="例如：報名截止、徵件截止。" :error="fieldErrors['f-deadlineLabel']">
+                <input id="f-deadlineLabel" v-model="form.deadlineLabel" class="input" required maxlength="20" v-bind="aria('f-deadlineLabel')" />
+              </FormField>
+              <FormField id="f-deadlineAt" label="截止時間" :error="fieldErrors['f-deadlineAt']">
+                <input id="f-deadlineAt" v-model="form.deadlineAt" type="datetime-local" class="input" required v-bind="aria('f-deadlineAt')" />
+              </FormField>
+            </div>
+          </template>
         </section>
 
         <section class="part" aria-labelledby="part-place">

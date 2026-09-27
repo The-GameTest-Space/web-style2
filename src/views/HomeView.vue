@@ -18,7 +18,12 @@ const events = useApi<ListResponse<GameEvent>>('/api/events')
 // The hero pins the most recently updated game.
 const featured = computed(() => [...(games.data.value?.items ?? [])].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0])
 const wall = computed(() => (games.data.value?.items ?? []).filter((g) => g !== featured.value).slice(0, 6))
-const upcoming = computed(() => (events.data.value?.items ?? []).filter((e) => daysUntil(e.startsAt) >= 0).slice(0, 4))
+// Dated events first; ongoing ones fill the board's remaining rows.
+const upcoming = computed(() => {
+  const items = events.data.value?.items ?? []
+  const dated = items.filter((e) => !e.ongoing && daysUntil(e.startsAt) >= 0)
+  return [...dated, ...items.filter((e) => e.ongoing)].slice(0, 4)
+})
 
 const loop = [
   { verb: '發布遊戲', text: '在 Discord 發布遊戲的 build，並說明最希望了解的一個問題。' },
