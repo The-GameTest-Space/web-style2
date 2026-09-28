@@ -15,6 +15,10 @@ export function daysUntil(iso: string, now = new Date()) {
 }
 
 export function monthDay(iso: string) {
+  // A day on its own (a game update's, 2026-09-21) is that day wherever the
+  // reader is; parsed as a time it would be UTC midnight.
+  const day = iso.match(/^\d{4}-(\d{2})-(\d{2})$/)
+  if (day) return `${day[1]}.${day[2]}`
   const d = new Date(iso)
   return `${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`
 }

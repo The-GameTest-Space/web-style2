@@ -2,7 +2,8 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import { onBeforeRouteLeave, useRouter } from 'vue-router'
 import { ArrowLeft, Eye, EyeOff, ExternalLink, ImagePlus, Plus, Trash2, X } from 'lucide-vue-next'
-import { AdminError, adminApi } from '@/api/admin'
+import { adminApi } from '@/api/admin'
+import { ApiError } from '@/api/signed'
 import type { AdminEvent, Country, EventInput, EventType } from '@/api/types'
 import { COUNTRIES, countryLabel, countryOf } from '@/utils/country'
 import { EVENT_TYPES, eventTypeLabel, time } from '@/utils/format'
@@ -174,7 +175,7 @@ async function load() {
     loadState.value = 'ready'
   } catch (e) {
     console.error(e)
-    loadState.value = e instanceof AdminError && e.status === 404 ? 'missing' : 'error'
+    loadState.value = e instanceof ApiError && e.status === 404 ? 'missing' : 'error'
   }
 }
 if (!isNew) load()
@@ -221,7 +222,7 @@ const aria = (id: string) => ({
 
 function showError(e: unknown) {
   console.error(e)
-  if (e instanceof AdminError && e.field) {
+  if (e instanceof ApiError && e.field) {
     const id = fieldId(e.field)
     // A translation's field: show its language, and name both.
     const l = TRANSLATED.find((l) => id.startsWith(`f-i18n-${l}-`))
@@ -234,7 +235,7 @@ function showError(e: unknown) {
     nextTick(() => document.getElementById(id)?.focus())
     return
   }
-  const code = e instanceof AdminError ? e.status : 0
+  const code = e instanceof ApiError ? e.status : 0
   status.value = {
     kind: 'error',
     text:
@@ -304,7 +305,7 @@ async function pickCover(e: Event) {
   } catch (err) {
     console.error(err)
     fieldErrors.value = {
-      'f-cover': err instanceof AdminError && err.field ? err.message : '無法讀取或上傳這張圖片，請換一張試試。',
+      'f-cover': err instanceof ApiError && err.field ? err.message : '無法讀取或上傳這張圖片，請換一張試試。',
     }
   } finally {
     uploading.value = false

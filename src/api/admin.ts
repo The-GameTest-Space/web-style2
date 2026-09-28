@@ -1,37 +1,8 @@
-import type { AdminEvent, EventInput, ItemResponse, ListResponse } from './types'
-import { useAuth } from '@/composables/useAuth'
+import type { AdminEvent, EventInput, ItemResponse, ListResponse, OwnGame } from './types'
+import { signedCall } from './signed'
 
-/** A failed admin call. `field` names the rejected form field when the Worker says which. */
-export class AdminError extends Error {
-  constructor(
-    readonly status: number,
-    readonly code: string,
-    message?: string,
-    readonly field?: string,
-  ) {
-    super(message ?? code)
-  }
-}
-
-// /api/admin/* on the Worker (worker/src/index.ts), signed with the
-// Firebase ID token of whoever is signed in.
-// A Blob body (an image) is sent as is; anything else as JSON.
-async function call<T>(method: string, path: string, body?: unknown): Promise<T> {
-  const token = await useAuth().user.value?.getIdToken()
-  if (!token) throw new AdminError(401, 'unauthenticated')
-  const raw = body instanceof Blob
-  const res = await fetch(`/api/admin${path}`, {
-    method,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      ...(body === undefined ? {} : { 'Content-Type': raw ? body.type : 'application/json' }),
-    },
-    body: body === undefined ? undefined : raw ? body : JSON.stringify(body),
-  })
-  const data = await res.json().catch(() => ({}))
-  if (!res.ok) throw new AdminError(res.status, data.error ?? 'server_error', data.message, data.field)
-  return data as T
-}
+// /api/admin/* on the Worker (worker/src/index.ts).
+const call = <T>(method: string, path: string, body?: unknown) => signedCall<T>(method, `/api/admin${path}`, body)
 
 export const adminApi = {
   me: () => call<{ uid: string; admin: boolean }>('GET', '/me'),
@@ -41,4 +12,7 @@ export const adminApi = {
   update: (event: EventInput) => call<ItemResponse<AdminEvent>>('PUT', `/events/${event.slug}`, event),
   remove: (slug: string) => call<{ ok: true }>('DELETE', `/events/${slug}`),
   uploadCover: (image: Blob) => call<{ url: string }>('POST', '/covers', image),
+  games: () => call<ListResponse<OwnGame> & { pinned: string | null }>('GET', '/games'),
+  pinGame: (slug: string | null) => call<{ pinned: string | null }>('PUT', '/games/pinned', { slug }),
+  hideGame: (slug: string, hidden: boolean) => call<ItemResponse<OwnGame>>('PUT', `/games/${slug}/hidden`, { hidden }),
 }

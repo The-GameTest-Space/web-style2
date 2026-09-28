@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { Pin } from 'lucide-vue-next'
 import type { Game } from '@/api/types'
 import { gameStatusLabel, tiltFor } from '@/utils/format'
 import { t } from '@/i18n'
@@ -27,6 +28,7 @@ const tapeTilt = computed(() => tiltFor(props.game.slug + 'tape', 9))
         <img :src="game.cover" :alt="t('game.coverAlt', { title: game.title })" width="400" height="300" loading="lazy" />
       </div>
       <div class="game-card__body">
+        <p v-if="game.pinned" class="game-card__pinned"><Pin :size="14" aria-hidden="true" />{{ t('game.pinned') }}</p>
         <div class="game-card__head">
           <h3 class="game-card__title" lang="zh-Hant-TW">{{ game.title }}</h3>
           <span v-if="game.status === 'seeking'" class="game-card__status">{{ gameStatusLabel(game.status) }}</span>
@@ -39,7 +41,8 @@ const tapeTilt = computed(() => tiltFor(props.game.slug + 'tape', 9))
           <span>{{ game.genres.join(' / ') }}</span>
         </p>
         <p class="game-card__ask hand">{{ t('game.ask', { q: game.feedbackWanted[0] ?? '' }) }}</p>
-        <div class="game-card__foot">
+        <!-- Only the sample games have a playtester count; nothing counts real ones yet. -->
+        <div v-if="game.dots" class="game-card__foot">
           <DotStickers :count="game.dots" :animate="pin" :delay="600 + order * 90">
             <span class="game-card__dots-label">
               <I18nT k="game.played" :n="game.dots"><template #n><span class="num">{{ game.dots }}</span></template></I18nT>
@@ -98,6 +101,17 @@ const tapeTilt = computed(() => tiltFor(props.game.slug + 'tape', 9))
 }
 .game-card__body {
   padding: 14px 6px 0;
+}
+.game-card__pinned {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 6px;
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+.game-card__pinned svg {
+  color: var(--dot-deep);
 }
 .game-card__head {
   display: flex;

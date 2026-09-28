@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { Plus } from 'lucide-vue-next'
 import { useApi } from '@/api/client'
 import type { Game, ListResponse } from '@/api/types'
 import GameCard from '@/components/GameCard.vue'
@@ -70,7 +71,10 @@ function toggleGenre(g: string) {
     <StateBlock v-if="loading && !data" kind="loading" />
     <StateBlock v-else-if="error" kind="error" @retry="retry" />
     <StateBlock v-else-if="!all.length" kind="empty" :message="t('games.empty')">
-      <DiscordButton variant="ink" :label="t('games.postBuild')" />
+      <div class="games__actions">
+        <DiscordButton variant="ink" :label="t('games.postBuild')" />
+        <RouterLink to="/games/new" class="sticker-btn sticker-btn--paper"><Plus aria-hidden="true" />{{ t('games.upload') }}</RouterLink>
+      </div>
     </StateBlock>
     <StateBlock v-else-if="!shown.length" kind="empty" :message="t('games.noMatch')">
       <button type="button" class="sticker-btn sticker-btn--paper" @click="router.replace({ query: {} })">{{ t('common.clearFilters') }}</button>
@@ -85,6 +89,7 @@ function toggleGenre(g: string) {
           <p class="games__slot-title">{{ t('games.slotTitle') }}</p>
           <p class="games__slot-text">{{ t('games.slotText') }}</p>
           <DiscordButton variant="ink" :label="t('games.postBuild')" />
+          <RouterLink to="/games/new" class="sticker-btn sticker-btn--paper"><Plus aria-hidden="true" />{{ t('games.upload') }}</RouterLink>
         </aside>
       </div>
     </template>
@@ -201,6 +206,12 @@ function toggleGenre(g: string) {
 }
 .games__slot-text {
   color: var(--ink-2);
+}
+.games__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 @media (max-width: 640px) {
   .games__card:nth-child(n) {

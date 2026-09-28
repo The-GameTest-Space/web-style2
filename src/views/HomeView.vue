@@ -18,8 +18,11 @@ import { withLang } from '@/i18n/locales'
 const games = useApi<ListResponse<Game>>('/api/games')
 const events = useApi<ListResponse<GameEvent>>(withLang('/api/events', locale))
 
-// The hero pins the most recently updated game.
-const featured = computed(() => [...(games.data.value?.items ?? [])].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0])
+// The hero pins the game an admin pinned, else the most recently updated one.
+const featured = computed(() => {
+  const items = games.data.value?.items ?? []
+  return items.find((g) => g.pinned) ?? [...items].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0]
+})
 const wall = computed(() => (games.data.value?.items ?? []).filter((g) => g !== featured.value).slice(0, 6))
 // Dated events first; ongoing ones fill the board's remaining rows.
 const upcoming = computed(() => {

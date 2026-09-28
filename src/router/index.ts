@@ -18,6 +18,10 @@ const router = createRouter({
     { path: '/', name: 'home', component: HomeView, meta: { title: homeTitle } },
     { path: '/games', name: 'games', component: () => import('../views/GamesView.vue'), meta: { title: () => pageTitle(t('meta.games.title')) } },
     { path: '/games/:slug', name: 'game', component: () => import('../views/GameDetailView.vue'), props: true },
+    // Members of the Discord server upload and manage their games here.
+    { path: '/games/new', name: 'game-new', component: () => import('../views/member/GameEditView.vue'), meta: { title: () => pageTitle(t('meta.uploadGame')) } },
+    { path: '/games/:slug/edit', name: 'game-edit', component: () => import('../views/member/GameEditView.vue'), props: true, meta: { title: () => pageTitle(t('meta.editGame')) } },
+    { path: '/my/games', name: 'my-games', component: () => import('../views/member/MyGamesView.vue'), meta: { title: () => pageTitle(t('meta.myGames')) } },
     { path: '/events', name: 'events', component: () => import('../views/EventsView.vue'), meta: { title: () => pageTitle(t('meta.events.title')) } },
     { path: '/events/:slug', name: 'event', component: () => import('../views/EventDetailView.vue'), props: true },
     { path: '/auth/discord/callback', name: 'discord-callback', component: () => import('../views/DiscordCallbackView.vue'), meta: { title: () => pageTitle(t('meta.signingIn')) } },
@@ -29,6 +33,7 @@ const router = createRouter({
         { path: '', name: 'admin', component: () => import('../views/admin/AdminEventsView.vue') },
         { path: 'events/new', name: 'admin-event-new', component: () => import('../views/admin/AdminEventEditView.vue') },
         { path: 'events/:slug', name: 'admin-event', component: () => import('../views/admin/AdminEventEditView.vue'), props: true },
+        { path: 'games', name: 'admin-games', component: () => import('../views/admin/AdminGamesView.vue') },
       ],
     },
     { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('../views/NotFoundView.vue'), meta: { title: () => pageTitle(t('meta.notFound')) } },
@@ -51,8 +56,10 @@ router.beforeEach((to) => {
   }
 })
 
-router.afterEach((to) => {
-  if (to.meta.title) document.title = to.meta.title()
+// Also called for a navigation a guard cancelled (an unsaved form): the
+// title stays the page's own then.
+router.afterEach((to, _from, failure) => {
+  if (!failure && to.meta.title) document.title = to.meta.title()
 })
 
 export default router

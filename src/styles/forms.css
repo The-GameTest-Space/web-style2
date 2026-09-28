@@ -1,7 +1,10 @@
-/* The admin pages (/admin). Loaded only with the admin route. Same wall,
-   ink and paper as the public site, tuned for filling in forms. */
+/* The pages with forms: the admin pages (/admin) and the members' game
+   pages (/games/new, /games/:slug/edit, /my/games). Loaded only with those
+   routes. Same wall, ink and paper as the public site, tuned for filling in
+   forms. */
 
-.admin {
+.admin,
+.member {
   padding-top: clamp(24px, 4vh, 40px);
   padding-bottom: clamp(88px, 14vh, 160px);
 }

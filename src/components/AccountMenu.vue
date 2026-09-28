@@ -40,6 +40,7 @@ async function onSignOut() {
     <div class="acct__panel">
       <p class="acct__name">{{ user.displayName }}</p>
       <p class="acct__via">{{ t('account.via') }}</p>
+      <RouterLink to="/my/games" class="acct__admin">{{ t('account.myGames') }}</RouterLink>
       <RouterLink v-if="adminStatus === 'admin'" to="/admin" class="acct__admin">{{ t('account.admin') }}</RouterLink>
       <button type="button" class="acct__out" @click="onSignOut">{{ t('account.signOut') }}</button>
     </div>

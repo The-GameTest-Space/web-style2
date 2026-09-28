@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { computed, ref, watch, watchEffect } from 'vue'
+import { computed, watchEffect } from 'vue'
 import { ArrowLeft } from 'lucide-vue-next'
 import { useApi, NotFoundError } from '@/api/client'
 import type { Game, ItemResponse, ListResponse } from '@/api/types'
 import { gameStatusLabel, monthDay, pageTitle } from '@/utils/format'
-import DotStickers from '@/components/DotStickers.vue'
 import DiscordButton from '@/components/DiscordButton.vue'
+import DiscordIcon from '@/components/DiscordIcon.vue'
 import GameCard from '@/components/GameCard.vue'
 import StateBlock from '@/components/StateBlock.vue'
 import TapeHeading from '@/components/TapeHeading.vue'
-import I18nT from '@/components/I18nT.vue'
 import { t } from '@/i18n'
 
 const props = defineProps<{ slug: string }>()
@@ -24,29 +23,34 @@ watchEffect(() => {
   if (game.value) document.title = pageTitle(game.value.title)
 })
 
-// The visitor's own sticker lives only in this browser; real feedback goes to Discord.
-const stuck = ref(false)
-const key = computed(() => `gts:dot:${props.slug}`)
-watch(
-  key,
-  (k) => {
-    try {
-      stuck.value = localStorage.getItem(k) === '1'
-    } catch {
-      stuck.value = false
-    }
-  },
-  { immediate: true },
-)
-function stick() {
-  stuck.value = !stuck.value
-  try {
-    if (stuck.value) localStorage.setItem(key.value, '1')
-    else localStorage.removeItem(key.value)
-  } catch {
-    /* storage unavailable: the sticker still shows for this visit */
-  }
-}
+// "Mark as played" is switched off until playtests are recorded on the
+// server: the mark lived only in this browser. To bring it back, uncomment
+// it here, in the template (.votes) and in the styles, and import ref and
+// watch from vue, DotStickers and I18nT again.
+//
+// // The visitor's own sticker lives only in this browser; real feedback goes to Discord.
+// const stuck = ref(false)
+// const key = computed(() => `gts:dot:${props.slug}`)
+// watch(
+//   key,
+//   (k) => {
+//     try {
+//       stuck.value = localStorage.getItem(k) === '1'
+//     } catch {
+//       stuck.value = false
+//     }
+//   },
+//   { immediate: true },
+// )
+// function stick() {
+//   stuck.value = !stuck.value
+//   try {
+//     if (stuck.value) localStorage.setItem(key.value, '1')
+//     else localStorage.removeItem(key.value)
+//   } catch {
+//     /* storage unavailable: the sticker still shows for this visit */
+//   }
+// }
 </script>
 
 <template>
@@ -94,12 +98,12 @@ function stick() {
         <span class="tape tape-bit index-card__tape" aria-hidden="true"></span>
         <p v-if="game.status === 'seeking'" class="index-card__status">{{ gameStatusLabel(game.status) }}</p>
         <h1 id="game-title" class="index-card__title" lang="zh-Hant-TW">{{ game.title }}</h1>
-        <p class="index-card__en">{{ game.titleEn }}</p>
+        <p v-if="game.titleEn" class="index-card__en">{{ game.titleEn }}</p>
 
         <dl class="facts">
           <div>
             <dt>{{ t('game.developer') }}</dt>
-            <dd lang="zh-Hant-TW">{{ t('game.studioTeam', { studio: game.studio, team: game.team }) }}</dd>
+            <dd lang="zh-Hant-TW">{{ game.team ? t('game.studioTeam', { studio: game.studio, team: game.team }) : game.studio }}</dd>
           </div>
           <div><dt>{{ t('game.build') }}</dt><dd class="num">{{ game.build }}</dd></div>
           <div><dt>{{ t('game.platforms') }}</dt><dd lang="zh-Hant-TW">{{ game.platforms.join(t('common.listSep')) }}</dd></div>
@@ -114,9 +118,12 @@ function stick() {
           </ul>
         </section>
 
+        <!-- "Mark as played": switched off until playtests are recorded on the
+             server (see the script). Only the sample games have a playtester
+             count; nothing counts real ones yet.
         <div class="votes">
-          <DotStickers :count="game.dots + (stuck ? 1 : 0)" size="lg" :max="10" />
-          <p class="votes__label">
+          <DotStickers v-if="(game.dots ?? 0) + (stuck ? 1 : 0)" :count="(game.dots ?? 0) + (stuck ? 1 : 0)" size="lg" :max="10" />
+          <p v-if="game.dots !== undefined" class="votes__label">
             <I18nT k="game.played" :n="game.dots"><template #n><strong class="num">{{ game.dots }}</strong></template></I18nT
             ><span v-if="stuck">{{ t('game.plusYours') }}</span>
           </p>
@@ -125,8 +132,13 @@ function stick() {
           </button>
           <p class="votes__fine">{{ t('game.markNote') }}</p>
         </div>
+        -->
 
-        <DiscordButton :label="t('game.getBuild')" class="index-card__cta" />
+        <!-- One way into Discord: the game's thread when its developer gave one, else the server. -->
+        <a v-if="game.thread" :href="game.thread" target="_blank" rel="noopener" class="sticker-btn index-card__cta">
+          <DiscordIcon /><span>{{ t('game.thread') }}</span><span class="visually-hidden">{{ t('common.newTab') }}</span>
+        </a>
+        <DiscordButton v-else variant="paper" :label="t('game.askOnDiscord')" class="index-card__cta" />
       </aside>
     </article>
 
@@ -175,6 +187,8 @@ function stick() {
 }
 .print img {
   width: 100%;
+  /* Over the height attribute, so a cover of any shape is cropped to 4:3. */
+  height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   outline: 1px solid var(--rule);
@@ -220,6 +234,8 @@ function stick() {
 }
 .about__p {
   margin-top: 16px;
+  /* A paragraph keeps the line breaks its owner typed. */
+  white-space: pre-line;
   font-size: 1.0625rem;
   line-height: 1.85;
   color: var(--ink-2);
@@ -338,6 +354,7 @@ function stick() {
   border-radius: 3px;
   transform: rotate(-3deg);
 }
+/* "Mark as played", switched off (see the script).
 .votes {
   display: grid;
   justify-items: start;
@@ -381,6 +398,7 @@ function stick() {
   font-size: 0.8125rem;
   color: var(--ink-3);
 }
+*/
 .index-card__cta {
   margin-top: 24px;
   width: 100%;

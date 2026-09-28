@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { signInWithDiscord } from '@/composables/useAuth'
 import { useAdmin } from '@/composables/useAdmin'
 import DiscordIcon from '@/components/DiscordIcon.vue'
 import StateBlock from '@/components/StateBlock.vue'
-import '@/styles/admin.css'
+import '@/styles/forms.css'
 
 const route = useRoute()
 const { status, uid, recheck } = useAdmin()
+// The events tab covers the event list and each event's page.
+const onEvents = computed(() => route.name === 'admin' || String(route.name).startsWith('admin-event'))
 
 const copied = ref(false)
 async function copyUid() {
@@ -31,8 +33,8 @@ async function copyUid() {
       <div class="gate__card">
         <span class="tape tape-bit gate__tape" aria-hidden="true"></span>
         <template v-if="status === 'signed-out'">
-          <h1 id="gate-title" class="gate__title">活動管理</h1>
-          <p class="gate__text">此頁面供網站管理員刊登與管理活動，請先用 Discord 登入。</p>
+          <h1 id="gate-title" class="gate__title">網站管理</h1>
+          <p class="gate__text">此頁面供網站管理員管理活動與遊戲，請先用 Discord 登入。</p>
           <button type="button" class="sticker-btn sticker-btn--ink" @click="signInWithDiscord()">
             <DiscordIcon />
             <span>用 Discord 登入</span>
@@ -50,13 +52,43 @@ async function copyUid() {
       </div>
     </section>
 
-    <!-- Keyed by path so moving between the list, a new event and an event
-         starts each page fresh. -->
-    <RouterView v-else :key="route.path" />
+    <template v-else>
+      <nav class="tabs" aria-label="網站管理">
+        <RouterLink :to="{ name: 'admin' }" class="tabs__link" :class="{ 'is-active': onEvents }" :aria-current="onEvents ? 'page' : undefined">
+          活動
+        </RouterLink>
+        <RouterLink :to="{ name: 'admin-games' }" class="tabs__link" exact-active-class="is-active">遊戲</RouterLink>
+      </nav>
+      <!-- Keyed by path so moving between the list, a new event and an event
+           starts each page fresh. -->
+      <RouterView :key="route.path" />
+    </template>
   </div>
 </template>
 
 <style scoped>
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: clamp(20px, 3vh, 32px);
+  border-bottom: 3px solid var(--ink);
+}
+.tabs__link {
+  min-height: 44px;
+  padding: 10px 18px 8px;
+  border-radius: 10px 10px 0 0;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--ink-2);
+  transition: background-color 0.2s;
+}
+.tabs__link:hover {
+  background: var(--card);
+}
+.tabs__link.is-active {
+  background: var(--ink);
+  color: var(--card);
+}
 .gate {
   display: grid;
   place-items: center;
