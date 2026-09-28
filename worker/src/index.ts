@@ -1,15 +1,31 @@
 import { bearer, verifyIdToken } from './auth'
 import { COVER_PATH, MAX_COVER_BYTES, saveCover, serveCover } from './covers'
-import { Invalid, SLUG, adminEvent, byStart, localizeEvent, parseEvent, publicEvent, savedFields } from './events'
+import { MemberCheckUnavailable, isGuildMember } from './discord'
+import { SLUG, adminEvent, byStart, localizeEvent, parseEvent, publicEvent, savedFields } from './events'
 import { Firestore, saveUser } from './firestore'
+import {
+  GAME_FIELDS,
+  MAX_GAMES_PER_MEMBER,
+  RESERVED_SLUGS,
+  byPinnedThenRecent,
+  bySaved,
+  fullGame,
+  parseGame,
+  pinnedOf,
+  publicGame,
+} from './games'
 import { eventJsonLd } from './jsonld'
 import { alternates, fixedPage, pageUrl, type PageMeta, withMeta } from './meta'
 import { DEFAULT_LOCALE, LOCALES, splitPath, withLang, type Locale } from '../../src/i18n/locales'
 import { createCustomToken, type ServiceAccount } from './token'
+import { Invalid } from './validate'
 
 interface Env {
   DISCORD_CLIENT_SECRET: string
   FIREBASE_SERVICE_ACCOUNT: string
+  // The Discord bot's token, for checking who is in the server
+  // (worker/src/discord.ts). Without it no one but admins can upload games.
+  DISCORD_BOT_TOKEN?: string
   // Per-IP request limit for /api/* (ratelimits in wrangler.jsonc).
   API_LIMIT: RateLimit
   // Event cover images (worker/src/covers.ts), KV namespace event_images.
@@ -20,6 +36,10 @@ interface Env {
   // localhost:8085 and localhost:9099. See README.
   FIRESTORE_EMULATOR_HOST?: string
   FIREBASE_AUTH_EMULATOR_HOST?: string
+  // Local development only, with the Auth emulator: Discord user IDs to treat
+  // as members of the server (comma-separated) instead of asking the bot.
+  // Ignored in production, where there is no emulator.
+  DEV_DISCORD_MEMBERS?: string
 }
 
 const serviceAccount = (env: Env) => JSON.parse(env.FIREBASE_SERVICE_ACCOUNT) as ServiceAccount
@@ -130,18 +150,30 @@ async function publishedEvents(env: Env) {
   return publicEvents
 }
 
-// Pages with content of their own. Games have no store yet: add /games and
-// /games/:slug once they do.
-const SITEMAP_PAGES = ['/', '/events']
+// Games, cached the same way. A member's or an admin's write clears it here.
+let publicGames: { at: number; items: Record<string, unknown>[] } | null = null
+
+async function listedGames(env: Env) {
+  if (publicGames && Date.now() - publicGames.at < PUBLIC_TTL) return publicGames
+  const db = firestore(env)
+  const [docs, settings] = await Promise.all([db.list('games', { field: 'hidden', value: false }), db.get('settings/games')])
+  const pinned = pinnedOf(settings)
+  publicGames = { at: Date.now(), items: docs.map((d) => publicGame(d, pinned)).sort(byPinnedThenRecent) }
+  return publicGames
+}
+
+// Pages with content of their own.
+const SITEMAP_PAGES = ['/', '/games', '/events']
 
 /**
- * GET /sitemap.xml: the fixed pages plus every published event, for search
- * engines, each in every language with links to the others.
+ * GET /sitemap.xml: the fixed pages plus every listed game and published
+ * event, for search engines, each in every language with links to the others.
  */
 async function sitemap(origin: string, env: Env) {
-  const { items, updated } = await publishedEvents(env)
+  const [{ items, updated }, games] = await Promise.all([publishedEvents(env), listedGames(env)])
   const pages = [
     ...SITEMAP_PAGES.map((path) => ({ path, lastmod: '' })),
+    ...games.items.map(({ slug, updatedAt }) => ({ path: `/games/${slug}`, lastmod: String(updatedAt ?? '') })),
     ...items.map(({ slug }) => ({ path: `/events/${slug}`, lastmod: updated.get(String(slug)) ?? '' })),
   ]
   const urls = pages.flatMap(({ path, lastmod }) => {
@@ -164,6 +196,21 @@ async function sitemap(origin: string, env: Env) {
 async function pageMeta(origin: string, locale: Locale, path: string, env: Env): Promise<PageMeta | null> {
   const fixed = fixedPage(locale, path)
   if (fixed) return { ...fixed, locale, path }
+  const gameSlug = path.match(/^\/games\/([a-z0-9-]+)$/)?.[1]
+  if (gameSlug) {
+    const game = (await listedGames(env)).items.find((g) => g.slug === gameSlug)
+    if (!game) return null
+    const cover = typeof game.cover === 'string' && game.cover
+    return {
+      locale,
+      path,
+      title: String(game.title),
+      description: String(game.pitch),
+      image: cover ? new URL(cover, origin).href : undefined,
+      // What GET /api/games/:slug answers. Games are shown as written, in every language.
+      data: { url: `/api/games/${gameSlug}`, body: { item: game } },
+    }
+  }
   const slug = path.match(/^\/events\/([a-z0-9-]+)$/)?.[1]
   const found = slug && (await publishedEvents(env)).items.find((e) => e.slug === slug)
   if (!found) return null
@@ -184,11 +231,12 @@ async function pageMeta(origin: string, locale: Locale, path: string, env: Env):
 }
 
 /**
- * GET /, /events, /games, /events/:slug and the same under /en, /ja, /ko:
- * the site's page in its language, with the page's own title, description,
- * link preview, links to its other languages and (events) JSON-LD. A zh-TW
- * page without its own (an unknown event, a failed lookup) gets the page as
- * it is; one in another language still gets its language.
+ * GET /, /events, /games, /events/:slug, /games/:slug and the same under /en,
+ * /ja, /ko: the site's page in its language, with the page's own title,
+ * description, link preview, links to its other languages and (events)
+ * JSON-LD. A zh-TW page without its own (an unknown event, a failed lookup,
+ * the upload form) gets the page as it is; one in another language still
+ * gets its language.
  */
 async function page(request: Request, url: URL, env: Env) {
   const { locale, path } = splitPath(url.pathname)
@@ -208,6 +256,12 @@ async function page(request: Request, url: URL, env: Env) {
   return res
 }
 
+/** Whoever signed the request with a Firebase ID token (bearer), or null. */
+async function signedIn(request: Request, env: Env) {
+  const token = bearer(request)
+  return token ? verifyIdToken(token, env.FIREBASE_AUTH_EMULATOR_HOST) : null
+}
+
 // Whether a uid has an admins/{uid} document, remembered per isolate for a
 // minute, "no" included: otherwise any signed-in account could spend the
 // daily read quota by calling /api/admin/me in a loop. Keyed by verified uid
@@ -223,6 +277,46 @@ async function isAdmin(db: Firestore, uid: string) {
   if (adminCache.size > 1000) adminCache.clear()
   adminCache.set(uid, { admin, at: Date.now() })
   return admin
+}
+
+// Whether a uid's Discord account is in the server, remembered per isolate
+// the same way so a page's few calls ask Discord once. "No" is kept only
+// briefly: someone who has just joined presses "check again" right away.
+const MEMBER_TTL = 60_000
+const NOT_MEMBER_TTL = 10_000
+const memberCache = new Map<string, { member: boolean; at: number }>()
+
+async function isMember(env: Env, uid: string) {
+  const discordId = uid.match(/^discord:(\d+)$/)?.[1]
+  if (!discordId) return false
+  const hit = memberCache.get(uid)
+  if (hit && Date.now() - hit.at < (hit.member ? MEMBER_TTL : NOT_MEMBER_TTL)) return hit.member
+  // With the emulators and a list of test members, the list answers; without
+  // the list the bot is asked, as in production.
+  const member =
+    env.FIREBASE_AUTH_EMULATOR_HOST && env.DEV_DISCORD_MEMBERS !== undefined
+      ? env.DEV_DISCORD_MEMBERS.split(',').includes(discordId)
+      : await isGuildMember(discordId, env.DISCORD_BOT_TOKEN)
+  if (memberCache.size > 1000) memberCache.clear()
+  memberCache.set(uid, { member, at: Date.now() })
+  return member
+}
+
+/** Who may upload games: members of the Discord server, and admins. */
+async function canUpload(db: Firestore, env: Env, uid: string) {
+  return (await isAdmin(db, uid)) || isMember(env, uid)
+}
+
+/** POST …/covers: store the image in the body (worker/src/covers.ts) → { url }. */
+async function uploadCover(request: Request, env: Env) {
+  const tooLarge = () =>
+    json({ error: 'too_large', field: 'cover', code: 'imageTooLarge', message: '圖片不能超過 5 MB' }, 413)
+  if (Number(request.headers.get('Content-Length') ?? 0) > MAX_COVER_BYTES) return tooLarge()
+  const body = await request.arrayBuffer()
+  if (body.byteLength > MAX_COVER_BYTES) return tooLarge()
+  const url = await saveCover(env.COVERS, body)
+  if (!url) throw new Invalid('cover', '只接受 JPEG、PNG、WebP、GIF 或 AVIF 圖片', 'image')
+  return json({ url }, 201)
 }
 
 /** Create (`exists: false`) or update (`exists: true`) events/{slug} from an admin's form. */
@@ -241,21 +335,32 @@ async function saveEvent(db: Firestore, slug: string, body: unknown, exists: boo
   return json({ item: saved && adminEvent(saved) }, exists ? 200 : 201)
 }
 
+/** Set settings/games.pinned to a game's slug, or clear it (null). */
+async function setPinned(db: Firestore, slug: string | null) {
+  const res = await db.write('settings/games', slug ? { pinned: slug } : {}, { mask: ['pinned'], now: [] })
+  if (!res.ok) throw new Error(`Firestore write failed: ${res.status} ${await res.text()}`)
+  publicGames = null
+}
+
 /**
  * /api/admin/* — for people with a document at admins/{uid} (added by hand
  * in the Firebase console). Requests carry the Firebase ID token as a bearer
  * token.
- *   GET    /me              → { uid, admin }  (any signed-in user)
- *   GET    /events          → { items }       drafts included
- *   POST   /events          → { item }        create; the slug is in the body
- *   GET    /events/:slug    → { item }
- *   PUT    /events/:slug    → { item }        replace every field (i18n only if sent)
+ *   GET    /me                  → { uid, admin }     (any signed-in user)
+ *   POST   /covers              → { url }            an image as the body
+ *   GET    /events              → { items }          drafts included
+ *   POST   /events              → { item }           create; the slug is in the body
+ *   GET    /events/:slug        → { item }
+ *   PUT    /events/:slug        → { item }           replace every field (i18n only if sent)
  *   DELETE /events/:slug
+ *   GET    /games               → { items, pinned }  hidden ones included
+ *   PUT    /games/pinned        → { pinned }         { slug } pins one, { slug: null } none
+ *   PUT    /games/:slug/hidden  → { item }           { hidden: true } takes it off the site
  */
 async function admin(request: Request, path: string, env: Env) {
-  const token = bearer(request)
-  const uid = token && (await verifyIdToken(token, env.FIREBASE_AUTH_EMULATOR_HOST))
-  if (!uid) return json({ error: 'unauthenticated' }, 401)
+  const user = await signedIn(request, env)
+  if (!user) return json({ error: 'unauthenticated' }, 401)
+  const { uid } = user
   const db = firestore(env)
   const admin = await isAdmin(db, uid)
   const { method } = request
@@ -263,14 +368,34 @@ async function admin(request: Request, path: string, env: Env) {
   if (path === '/me' && method === 'GET') return json({ uid, admin }, 200)
   if (!admin) return json({ error: 'forbidden' }, 403)
 
-  if (path === '/covers' && method === 'POST') {
-    const tooLarge = () => json({ error: 'too_large', field: 'cover', message: '圖片不能超過 5 MB' }, 413)
-    if (Number(request.headers.get('Content-Length') ?? 0) > MAX_COVER_BYTES) return tooLarge()
-    const body = await request.arrayBuffer()
-    if (body.byteLength > MAX_COVER_BYTES) return tooLarge()
-    const url = await saveCover(env.COVERS, body)
-    if (!url) throw new Invalid('cover', '只接受 JPEG、PNG、WebP、GIF 或 AVIF 圖片')
-    return json({ url }, 201)
+  if (path === '/covers' && method === 'POST') return uploadCover(request, env)
+  if (path === '/games' && method === 'GET') {
+    const [docs, settings] = await Promise.all([db.list('games'), db.get('settings/games')])
+    return json({ items: docs.map(fullGame).sort(bySaved), pinned: pinnedOf(settings) }, 200)
+  }
+  if (path === '/games/pinned' && method === 'PUT') {
+    const body = await readJson(request)
+    const slug = (body as { slug?: unknown } | null)?.slug ?? null
+    if (slug !== null) {
+      // Only a game people can see can be pinned.
+      const doc = typeof slug === 'string' && SLUG.test(slug) ? await db.get(`games/${slug}`) : null
+      if (!doc || doc.data.hidden) throw new Invalid('slug', '找不到這款遊戲，或它已被隱藏')
+    }
+    await setPinned(db, slug as string | null)
+    return json({ pinned: slug }, 200)
+  }
+  const hide = path.match(/^\/games\/([a-z0-9-]+)\/hidden$/)?.[1]
+  if (hide && method === 'PUT') {
+    const hidden = (await readJson(request) as { hidden?: unknown } | null)?.hidden
+    if (typeof hidden !== 'boolean') throw new Invalid('hidden', '格式不正確')
+    const res = await db.write(`games/${hide}`, { hidden }, { mask: ['hidden'], now: [], exists: true })
+    if (res.status === 404) return notFound()
+    if (!res.ok) throw new Error(`Firestore write failed: ${res.status} ${await res.text()}`)
+    // A hidden game can't stay pinned.
+    if (hidden && pinnedOf(await db.get('settings/games')) === hide) await setPinned(db, null)
+    publicGames = null
+    const saved = await db.get(`games/${hide}`)
+    return json({ item: saved && fullGame(saved) }, 200)
   }
   if (path === '/events' && method === 'GET') {
     return json({ items: (await db.list('events')).map(adminEvent).sort(byStart) }, 200)
@@ -301,6 +426,79 @@ async function admin(request: Request, path: string, env: Env) {
   return notFound()
 }
 
+/** Create games/{slug} for `owner`, the uploader, or (owner null) update it, from the owner's form. */
+async function saveGame(db: Firestore, slug: string, body: unknown, owner: { uid: string; name: string } | null) {
+  const game = parseGame(body)
+  const res = owner
+    ? await db.write(
+        `games/${slug}`,
+        { ...game, ownerUid: owner.uid, ownerName: owner.name, hidden: false },
+        { mask: [...GAME_FIELDS, 'ownerUid', 'ownerName', 'hidden'], now: ['createdAt', 'updatedAt'], exists: false },
+      )
+    : await db.write(`games/${slug}`, game, { mask: GAME_FIELDS, now: ['updatedAt'], exists: true })
+  if (res.status === 409) {
+    return json({ error: 'slug_taken', field: 'slug', code: 'slugTaken', message: '這個網址代稱已有遊戲使用' }, 409)
+  }
+  if (res.status === 404) return notFound()
+  if (!res.ok) throw new Error(`Firestore write failed: ${res.status} ${await res.text()}`)
+  publicGames = null
+  const saved = await db.get(`games/${slug}`)
+  return json({ item: saved && fullGame(saved) }, owner ? 201 : 200)
+}
+
+/**
+ * /api/my/* — a signed-in member's own games. Uploading and editing need
+ * membership of the Discord server (checked with Discord each time, cached
+ * briefly) or an admin; admins may also edit anyone's game. Requests carry
+ * the Firebase ID token as a bearer token.
+ *   GET  /status       → { uid, canUpload }   (any signed-in user)
+ *   GET  /games        → { items }            the games this account uploaded
+ *   POST /covers       → { url }              an image as the body
+ *   POST /games        → { item }             create; the slug is in the body
+ *   GET  /games/:slug  → { item }
+ *   PUT  /games/:slug  → { item }             replace every field an owner edits
+ */
+async function my(request: Request, path: string, env: Env) {
+  const user = await signedIn(request, env)
+  if (!user) return json({ error: 'unauthenticated' }, 401)
+  const { uid } = user
+  const db = firestore(env)
+  const { method } = request
+
+  if (path === '/status' && method === 'GET') return json({ uid, canUpload: await canUpload(db, env, uid) }, 200)
+  if (path === '/games' && method === 'GET') {
+    return json({ items: (await db.list('games', { field: 'ownerUid', value: uid })).map(fullGame).sort(bySaved) }, 200)
+  }
+  if (!(await canUpload(db, env, uid))) return json({ error: 'not_member' }, 403)
+
+  if (path === '/covers' && method === 'POST') return uploadCover(request, env)
+  if (path === '/games' && method === 'POST') {
+    const body = await readJson(request)
+    const slug = (body as { slug?: unknown } | null)?.slug
+    if (typeof slug !== 'string' || slug.length > 60 || !SLUG.test(slug)) {
+      throw new Invalid('slug', '只能使用小寫英文、數字與連字號（-），最多 60 個字', 'slug', { max: 60 })
+    }
+    if (RESERVED_SLUGS.includes(slug)) {
+      return json({ error: 'slug_taken', field: 'slug', code: 'slugTaken', message: '這個網址代稱已有遊戲使用' }, 409)
+    }
+    // Every game is read each time the public list refreshes, so one account can't add without end.
+    if (!(await isAdmin(db, uid))) {
+      const own = await db.list('games', { field: 'ownerUid', value: uid })
+      if (own.length >= MAX_GAMES_PER_MEMBER) return json({ error: 'too_many_games', max: MAX_GAMES_PER_MEMBER }, 409)
+    }
+    return saveGame(db, slug, body, user)
+  }
+
+  const slug = path.match(/^\/games\/([a-z0-9-]+)$/)?.[1]
+  if (!slug) return notFound()
+  const doc = await db.get(`games/${slug}`)
+  // Someone else's game is as good as missing, unless an admin is asking.
+  if (!doc || (doc.data.ownerUid !== uid && !(await isAdmin(db, uid)))) return notFound()
+  if (method === 'GET') return json({ item: fullGame(doc) }, 200)
+  if (method === 'PUT') return saveGame(db, slug, await readJson(request), null)
+  return notFound()
+}
+
 /** The ?lang= of an events request: the language their text comes in. */
 function langParam({ searchParams }: URL): Locale {
   const lang = searchParams.get('lang')
@@ -312,6 +510,7 @@ async function route(request: Request, url: URL, env: Env) {
   const { method } = request
   if (pathname === '/api/auth/discord' && method === 'POST') return discordSignIn(request, env)
   if (pathname.startsWith('/api/admin/')) return admin(request, pathname.slice('/api/admin'.length), env)
+  if (pathname.startsWith('/api/my/')) return my(request, pathname.slice('/api/my'.length), env)
 
   if (method !== 'GET') return notFound()
   if (pathname === '/sitemap.xml') return sitemap(origin, env)
@@ -326,8 +525,12 @@ async function route(request: Request, url: URL, env: Env) {
     const item = (await publishedEvents(env)).items.find((e) => e.slug === slug)
     return item ? json({ item: localizeEvent(item, langParam(url)) }, 200) : notFound()
   }
-  // Games have no store yet; the list is empty until they do.
-  if (pathname === '/api/games') return json({ items: [] }, 200)
+  if (pathname === '/api/games') return json({ items: (await listedGames(env)).items }, 200)
+  const game = pathname.match(/^\/api\/games\/([a-z0-9-]+)$/)?.[1]
+  if (game) {
+    const item = (await listedGames(env)).items.find((g) => g.slug === game)
+    return item ? json({ item }, 200) : notFound()
+  }
   return notFound()
 }
 
@@ -356,7 +559,13 @@ export default {
     try {
       return await route(request, url, env)
     } catch (e) {
-      if (e instanceof Invalid) return json({ error: 'invalid', field: e.field, message: e.message }, 400)
+      if (e instanceof Invalid) {
+        return json({ error: 'invalid', field: e.field, message: e.message, code: e.code, params: e.params }, 400)
+      }
+      if (e instanceof MemberCheckUnavailable) {
+        console.error(e)
+        return json({ error: 'member_check_unavailable' }, 503)
+      }
       console.error(e)
       return json({ error: 'server_error' }, 500)
     }

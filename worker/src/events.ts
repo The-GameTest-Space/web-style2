@@ -1,5 +1,6 @@
 import { COVER_PATH } from './covers'
 import type { Doc } from './firestore'
+import { Invalid, array, bool, date, isWebUrl, record, text } from './validate'
 import { DEFAULT_LOCALE, TRANSLATED, type Locale } from '../../src/i18n/locales'
 
 // Events live at events/{slug}. The Worker is their only reader and writer
@@ -40,64 +41,6 @@ export const EVENT_FIELDS = [
  */
 export const savedFields = (body: unknown) =>
   (body as { i18n?: unknown } | null)?.i18n === undefined ? EVENT_FIELDS : [...EVENT_FIELDS, 'i18n']
-
-/** A rejected field, named by its path in the request body. */
-export class Invalid extends Error {
-  constructor(
-    readonly field: string,
-    message: string,
-  ) {
-    super(message)
-  }
-}
-
-function text(v: unknown, field: string, max: number): string
-function text(v: unknown, field: string, max: number, optional: true): string | undefined
-function text(v: unknown, field: string, max: number, optional = false) {
-  if (v !== undefined && v !== null && typeof v !== 'string') throw new Invalid(field, '格式不正確')
-  const s = (v ?? '').trim()
-  if (!s) {
-    if (optional) return undefined
-    throw new Invalid(field, '此欄位為必填')
-  }
-  if (s.length > max) throw new Invalid(field, `最多 ${max} 個字`)
-  return s
-}
-
-function date(v: unknown, field: string): Date
-function date(v: unknown, field: string, optional: true): Date | undefined
-function date(v: unknown, field: string, optional = false) {
-  const s = optional ? text(v, field, 40, true) : text(v, field, 40)
-  if (!s) return undefined
-  const d = new Date(s)
-  if (Number.isNaN(d.getTime())) throw new Invalid(field, '日期格式不正確')
-  return d
-}
-
-function array(v: unknown, field: string, max: number): unknown[] {
-  if (v === undefined || v === null) return []
-  if (!Array.isArray(v)) throw new Invalid(field, '格式不正確')
-  if (v.length > max) throw new Invalid(field, `最多 ${max} 項`)
-  return v
-}
-
-function bool(v: unknown, field: string) {
-  if (typeof v !== 'boolean') throw new Invalid(field, '格式不正確')
-  return v
-}
-
-const record = (v: unknown, field: string) => {
-  if (typeof v !== 'object' || v === null || Array.isArray(v)) throw new Invalid(field, '格式不正確')
-  return v as Record<string, unknown>
-}
-
-function isWebUrl(s: string, protocols: string[]) {
-  try {
-    return protocols.includes(new URL(s).protocol)
-  } catch {
-    return false
-  }
-}
 
 /** Validate an admin's event body into what is stored (dates as Date, empty optionals left out). */
 export function parseEvent(input: unknown) {

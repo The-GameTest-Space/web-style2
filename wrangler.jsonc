@@ -23,6 +23,7 @@
       "/events",
       "/games",
       "/events/*",
+      "/games/*",
       "/en",
       "/en/*",
       "/ja",
@@ -38,4 +39,6 @@
   // Secrets (set with `npx wrangler secret put <NAME>`, never committed):
   //   DISCORD_CLIENT_SECRET     Discord app OAuth2 client secret
   //   FIREBASE_SERVICE_ACCOUNT  Firebase service account key JSON
+  //   DISCORD_BOT_TOKEN         the Discord app's bot token, to check who is
+  //                             in the server (the bot must be a member of it)
 }

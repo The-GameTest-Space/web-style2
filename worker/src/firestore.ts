@@ -120,16 +120,17 @@ export class Firestore {
    * Write the fields named in `mask` (a masked field missing from `data` is
    * deleted) and stamp `now` with the server time. `exists` is a
    * precondition: true fails with 404 if the document is missing, false
-   * fails with 409 if it is already there.
+   * fails with 409 if it is already there. Without it the document is
+   * created or updated, whichever applies.
    */
-  write(path: string, data: object, opts: { mask: string[]; now: string[]; exists: boolean }) {
+  write(path: string, data: object, opts: { mask: string[]; now: string[]; exists?: boolean }) {
     return this.call('commit', {
       writes: [
         {
           update: { name: this.name(path), fields: encodeFields(data) },
           updateMask: { fieldPaths: opts.mask },
           updateTransforms: opts.now.map((fieldPath) => ({ fieldPath, setToServerValue: 'REQUEST_TIME' })),
-          currentDocument: { exists: opts.exists },
+          ...(opts.exists !== undefined && { currentDocument: { exists: opts.exists } }),
         },
       ],
     })
