@@ -2158,6 +2158,1540 @@
           ]
         }
       }
+    },
+    "steam-next-fest-2026-10": {
+      "source": {
+        "title": "Steam 新品節 2026 年 10 月（Steam Next Fest）",
+        "summary": "Steam 一年三次的線上試玩節，一週內免費試玩大量未發售遊戲的 Demo。台灣時間 10/20 01:00 開始。這一屆已截止報名。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 一年三次的新品節（Steam Next Fest）：一週內可以免費試玩大量還沒發售的遊戲 Demo、看開發者直播，把喜歡的遊戲加入願望清單。對開發者來說，這是上市前收集玩家回饋、累積關注的機會。</p><h3>時間</h3><ul><li>美國太平洋時間 10/19 10:00（PDT）至 10/26 10:00（PDT）</li><li>台灣時間 10/20 01:00 至 10/27 01:00</li></ul><h3>玩家</h3><p>活動期間到 <a href=\"https://store.steampowered.com/sale/nextfest\">Steam 新品節頁面</a>就能找到所有參展的 Demo，不需要報名。</p><h3>開發者</h3><p>這一屆已在 8/31 截止報名，所有必要項目的送審期限是 9/28。還沒報名的遊戲可以參加下一屆：2027 年 2 月，報名到 2027/1/10（太平洋時間）。</p><p>參加條件：遊戲還沒發售，且要到這一屆結束後才發售；商店頁已公開；活動開始前準備好可以公開遊玩的 Demo；不能是已發售遊戲的序章或試玩版。每款遊戲只能參加一次新品節，請挑最適合發售時程的一屆。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/nextfest_october_2026\">https://partner.steamgames.com/optin/sale/nextfest_october_2026</a>）需要用 Steamworks 帳號登入。</p><p>活動流程中有時刻的項目已換算成台灣時間，只有日期的項目是 Steam 公布的日期（美國太平洋時間）。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": [
+          {
+            "time": "10/1",
+            "item": "取消預告片授權的最後期限"
+          },
+          {
+            "time": "10/9 01:00",
+            "item": "媒體搶先試玩開始"
+          },
+          {
+            "time": "10/20 01:00",
+            "item": "新品節開始"
+          },
+          {
+            "time": "10/27 01:00",
+            "item": "新品節結束，公布最多人玩的 Demo"
+          }
+        ],
+        "audience": [
+          "想搶先試玩的玩家",
+          "準備上架 Steam 的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Next Fest: October 2026",
+          "summary": "Steam’s online demo festival, held three times a year: a week of free demos from lots of unreleased games. Starts October 20, 01:00 Taiwan time. Registration for this edition has closed.",
+          "description": "<p>Steam Next Fest comes around three times a year: for one week you can play demos of lots of unreleased games for free, watch developer livestreams and add the games you like to your wishlist. For developers, it’s a chance to gather player feedback and build interest before launch.</p><h3>When</h3><ul><li>US Pacific time: October 19, 10:00 PDT to October 26, 10:00 PDT</li><li>Taiwan time: October 20, 01:00 to October 27, 01:00</li></ul><h3>Players</h3><p>During the fest, you’ll find every demo on the <a href=\"https://store.steampowered.com/sale/nextfest\">Steam Next Fest page</a>. No sign-up needed.</p><h3>Developers</h3><p>Registration for this edition closed on August 31, and the deadline to submit everything required for review is September 28. Games that haven’t registered can join the next edition in February 2027; registration for it is open until January 10, 2027 (Pacific time).</p><p>To take part, a game must be unreleased and launch only after this edition ends; its store page must be public; it needs a publicly playable demo by the time the fest starts; and it can’t be a prologue or demo version of a game that’s already out. Each game can join Next Fest only once, so pick the edition that best fits your release plans.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/nextfest_october_2026\">https://partner.steamgames.com/optin/sale/nextfest_october_2026</a>) requires a Steamworks sign-in.</p><p>In the schedule, items with a time are in Taiwan time; items with only a date use the dates Steam announced (US Pacific time).</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "agenda": [
+            {
+              "time": "Oct 1",
+              "item": "Last day to opt out of trailer permissions"
+            },
+            {
+              "time": "Oct 9, 01:00",
+              "item": "Press preview begins"
+            },
+            {
+              "time": "Oct 20, 01:00",
+              "item": "Next Fest begins"
+            },
+            {
+              "time": "Oct 27, 01:00",
+              "item": "Next Fest ends; the most-played demos are announced"
+            }
+          ],
+          "audience": [
+            "Players who want to try games early",
+            "Developers getting ready to launch on Steam"
+          ]
+        },
+        "ja": {
+          "title": "Steam Next Fest 2026年10月",
+          "summary": "Steam が年3回開くオンライン試遊イベントで、1週間にわたり未発売ゲームの体験版を無料でたくさん遊べます。台湾時間10月20日 1:00スタート。今回の参加登録はすでに締め切られています。",
+          "description": "<p>Steam が年3回開く Steam Next Fest では、1週間にわたって未発売ゲームの体験版を無料でたくさん遊べます。開発者のライブ配信を見たり、気になったゲームをウィッシュリストに追加したりもできます。開発者にとっては、発売前にプレイヤーの感想を集め、注目を集めるチャンスです。</p><h3>日時</h3><ul><li>米国太平洋時間：10月19日 10:00（PDT）〜10月26日 10:00（PDT）</li><li>台湾時間：10月20日 1:00〜10月27日 1:00</li></ul><h3>プレイヤー</h3><p>開催期間中は <a href=\"https://store.steampowered.com/sale/nextfest\">Steam Next Fest のページ</a>で参加作品の体験版をすべて探せます。申し込みは不要です。</p><h3>開発者</h3><p>今回の参加登録は8月31日に締め切られ、必要な項目をすべて審査に提出する期限は9月28日です。まだ登録していないゲームは、次回の2027年2月開催に参加できます。こちらの登録期限は2027年1月10日（太平洋時間）です。</p><p>参加条件は、未発売で今回の開催終了後に発売すること、ストアページが公開済みであること、開催までに誰でも遊べる体験版を用意すること、そして発売済みゲームのプロローグや体験版ではないことです。Next Fest に参加できるのは1タイトルにつき1回だけなので、発売スケジュールに合う回を選びましょう。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/nextfest_october_2026\">https://partner.steamgames.com/optin/sale/nextfest_october_2026</a>）を開くには Steamworks アカウントでのログインが必要です。</p><p>タイムテーブルのうち時刻のある項目は台湾時間に換算しています。日付だけの項目は Steam が発表した日付（米国太平洋時間）です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "agenda": [
+            {
+              "time": "10/1",
+              "item": "トレーラー使用許可の取り消し期限"
+            },
+            {
+              "time": "10/9 01:00",
+              "item": "メディア向け先行プレビュー開始"
+            },
+            {
+              "time": "10/20 01:00",
+              "item": "Next Fest 開始"
+            },
+            {
+              "time": "10/27 01:00",
+              "item": "Next Fest 終了、最もプレイされた体験版を発表"
+            }
+          ],
+          "audience": [
+            "いち早く試遊したいプレイヤー",
+            "Steam でのリリースを準備中の開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Next Fest 2026년 10월",
+          "summary": "Steam이 1년에 세 번 여는 온라인 데모 축제로, 일주일 동안 출시 전 게임의 데모를 무료로 즐길 수 있어요. 대만 시간 10월 20일 01:00에 시작해요. 이번 회차 참가 등록은 마감되었어요.",
+          "description": "<p>Steam이 1년에 세 번 여는 Steam Next Fest에서는 일주일 동안 아직 출시되지 않은 게임의 데모를 무료로 잔뜩 플레이할 수 있어요. 개발자 라이브 방송을 보고, 마음에 드는 게임을 찜 목록에 추가할 수도 있어요. 개발자에게는 출시 전에 플레이어 피드백을 모으고 관심을 쌓을 기회예요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 10월 19일 10:00(PDT)~10월 26일 10:00(PDT)</li><li>대만 시간: 10월 20일 01:00~10월 27일 01:00</li></ul><h3>플레이어</h3><p>행사 기간에 <a href=\"https://store.steampowered.com/sale/nextfest\">Steam Next Fest 페이지</a>에서 참가작 데모를 모두 찾을 수 있어요. 따로 신청할 필요는 없어요.</p><h3>개발자</h3><p>이번 회차 참가 등록은 8월 31일에 마감되었고, 필요한 항목을 모두 심사에 제출하는 기한은 9월 28일이에요. 아직 등록하지 않은 게임은 다음 회차인 2027년 2월 행사에 참가할 수 있고, 등록은 2027년 1월 10일(태평양 시간)까지예요.</p><p>참가 조건: 아직 출시되지 않았고 이번 회차가 끝난 뒤에 출시할 것, 상점 페이지가 공개되어 있을 것, 행사 시작 전까지 누구나 플레이할 수 있는 데모를 준비할 것, 이미 출시된 게임의 프롤로그나 체험판이 아닐 것. 게임마다 Next Fest에는 한 번만 참가할 수 있으니 출시 일정에 가장 잘 맞는 회차를 고르세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/nextfest_october_2026\">https://partner.steamgames.com/optin/sale/nextfest_october_2026</a>)는 Steamworks 계정으로 로그인해야 열려요.</p><p>진행 순서에서 시각이 있는 항목은 대만 시간으로 바꿨고, 날짜만 있는 항목은 Steam이 발표한 날짜(미국 태평양 시간)예요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "agenda": [
+            {
+              "time": "10/1",
+              "item": "트레일러 사용 허가 철회 마감"
+            },
+            {
+              "time": "10/9 01:00",
+              "item": "언론 대상 사전 공개 시작"
+            },
+            {
+              "time": "10/20 01:00",
+              "item": "Next Fest 시작"
+            },
+            {
+              "time": "10/27 01:00",
+              "item": "Next Fest 종료, 가장 많이 플레이된 데모 발표"
+            }
+          ],
+          "audience": [
+            "먼저 플레이해 보고 싶은 플레이어",
+            "Steam 출시를 준비하는 개발자"
+          ]
+        }
+      }
+    },
+    "steam-next-fest-2027-02": {
+      "source": {
+        "title": "Steam 新品節 2027 年 2 月（Steam Next Fest）",
+        "summary": "Steam 一年三次的線上試玩節，一週內免費試玩大量未發售遊戲的 Demo。台灣時間 2/23 02:00 開始。開發者報名到 1/11（台灣時間）。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 一年三次的新品節（Steam Next Fest）：一週內可以免費試玩大量還沒發售的遊戲 Demo、看開發者直播，把喜歡的遊戲加入願望清單。對開發者來說，這是上市前收集玩家回饋、累積關注的機會。</p><h3>時間</h3><ul><li>美國太平洋時間 2/22 10:00（PST）至 3/1 10:00（PST）</li><li>台灣時間 2/23 02:00 至 3/2 02:00</li></ul><h3>玩家</h3><p>活動期間到 <a href=\"https://store.steampowered.com/sale/nextfest\">Steam 新品節頁面</a>就能找到所有參展的 Demo，不需要報名。</p><h3>開發者</h3><p>報名到太平洋時間 1/10 23:59（台灣時間 1/11 15:59）。想被選進官方宣傳預告片，也要在這之前把商店頁的宣傳素材更新好；Steam 會在截止後通知入選考慮的遊戲。</p><p>參加條件：遊戲還沒發售，且要到這一屆結束後才發售；商店頁已公開；活動開始前準備好可以公開遊玩的 Demo；不能是已發售遊戲的序章或試玩版。每款遊戲只能參加一次新品節，請挑最適合發售時程的一屆。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/nextfest_feb_2027\">https://partner.steamgames.com/optin/sale/nextfest_feb_2027</a>）需要用 Steamworks 帳號登入。</p><p>活動流程中有時刻的項目已換算成台灣時間，只有日期的項目是 Steam 公布的日期（美國太平洋時間）。</p>",
+        "schedule": null,
+        "deadlineLabel": "報名截止",
+        "agenda": [
+          {
+            "time": "12/9 02:00",
+            "item": "Steam 官方線上 Q&A（Zoom）"
+          },
+          {
+            "time": "1/11 15:59",
+            "item": "報名截止"
+          },
+          {
+            "time": "1/18",
+            "item": "Steam 擷取官方預告片素材"
+          },
+          {
+            "time": "1/25",
+            "item": "想在媒體搶先試玩一開始就上線，Demo 與商店頁須在此前送審"
+          },
+          {
+            "time": "2/8",
+            "item": "所有必要項目的送審期限"
+          },
+          {
+            "time": "2/11",
+            "item": "取消預告片授權的最後期限"
+          },
+          {
+            "time": "2/12 02:00",
+            "item": "媒體搶先試玩開始"
+          },
+          {
+            "time": "2/23 02:00",
+            "item": "新品節開始"
+          },
+          {
+            "time": "3/2 02:00",
+            "item": "新品節結束，公布最多人玩的 Demo"
+          }
+        ],
+        "audience": [
+          "想搶先試玩的玩家",
+          "準備上架 Steam 的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Next Fest: February 2027",
+          "summary": "Steam’s online demo festival, held three times a year: a week of free demos from lots of unreleased games. Starts February 23, 02:00 Taiwan time. Developers can register until January 11 (Taiwan time).",
+          "description": "<p>Steam Next Fest comes around three times a year: for one week you can play demos of lots of unreleased games for free, watch developer livestreams and add the games you like to your wishlist. For developers, it’s a chance to gather player feedback and build interest before launch.</p><h3>When</h3><ul><li>US Pacific time: February 22, 10:00 PST to March 1, 10:00 PST</li><li>Taiwan time: February 23, 02:00 to March 2, 02:00</li></ul><h3>Players</h3><p>During the fest, you’ll find every demo on the <a href=\"https://store.steampowered.com/sale/nextfest\">Steam Next Fest page</a>. No sign-up needed.</p><h3>Developers</h3><p>Registration is open until January 10, 23:59 Pacific time (January 11, 15:59 Taiwan time). If you want your game considered for the official trailer, update your store page’s marketing materials by then too; Steam lets the games under consideration know after the deadline.</p><p>To take part, a game must be unreleased and launch only after this edition ends; its store page must be public; it needs a publicly playable demo by the time the fest starts; and it can’t be a prologue or demo version of a game that’s already out. Each game can join Next Fest only once, so pick the edition that best fits your release plans.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/nextfest_feb_2027\">https://partner.steamgames.com/optin/sale/nextfest_feb_2027</a>) requires a Steamworks sign-in.</p><p>In the schedule, items with a time are in Taiwan time; items with only a date use the dates Steam announced (US Pacific time).</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "deadlineLabel": "Sign-up deadline",
+          "agenda": [
+            {
+              "time": "Dec 9, 02:00",
+              "item": "Official Steam online Q&A (Zoom)"
+            },
+            {
+              "time": "Jan 11, 15:59",
+              "item": "Registration closes"
+            },
+            {
+              "time": "Jan 18",
+              "item": "Steam pulls footage for the official trailer"
+            },
+            {
+              "time": "Jan 25",
+              "item": "Submit your demo and store page for review by this date to be live when the press preview opens"
+            },
+            {
+              "time": "Feb 8",
+              "item": "Deadline to submit everything required for review"
+            },
+            {
+              "time": "Feb 11",
+              "item": "Last day to opt out of trailer permissions"
+            },
+            {
+              "time": "Feb 12, 02:00",
+              "item": "Press preview begins"
+            },
+            {
+              "time": "Feb 23, 02:00",
+              "item": "Next Fest begins"
+            },
+            {
+              "time": "Mar 2, 02:00",
+              "item": "Next Fest ends; the most-played demos are announced"
+            }
+          ],
+          "audience": [
+            "Players who want to try games early",
+            "Developers getting ready to launch on Steam"
+          ]
+        },
+        "ja": {
+          "title": "Steam Next Fest 2027年2月",
+          "summary": "Steam が年3回開くオンライン試遊イベントで、1週間にわたり未発売ゲームの体験版を無料でたくさん遊べます。台湾時間2月23日 2:00スタート。開発者の参加登録は1月11日（台湾時間）までです。",
+          "description": "<p>Steam が年3回開く Steam Next Fest では、1週間にわたって未発売ゲームの体験版を無料でたくさん遊べます。開発者のライブ配信を見たり、気になったゲームをウィッシュリストに追加したりもできます。開発者にとっては、発売前にプレイヤーの感想を集め、注目を集めるチャンスです。</p><h3>日時</h3><ul><li>米国太平洋時間：2月22日 10:00（PST）〜3月1日 10:00（PST）</li><li>台湾時間：2月23日 2:00〜3月2日 2:00</li></ul><h3>プレイヤー</h3><p>開催期間中は <a href=\"https://store.steampowered.com/sale/nextfest\">Steam Next Fest のページ</a>で参加作品の体験版をすべて探せます。申し込みは不要です。</p><h3>開発者</h3><p>参加登録は太平洋時間1月10日 23:59（台湾時間1月11日 15:59）までです。公式トレーラーへの採用を狙うなら、それまでにストアページの宣伝素材も最新にしておきましょう。締め切り後、採用候補になったゲームには Steam から連絡があります。</p><p>参加条件は、未発売で今回の開催終了後に発売すること、ストアページが公開済みであること、開催までに誰でも遊べる体験版を用意すること、そして発売済みゲームのプロローグや体験版ではないことです。Next Fest に参加できるのは1タイトルにつき1回だけなので、発売スケジュールに合う回を選びましょう。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/nextfest_feb_2027\">https://partner.steamgames.com/optin/sale/nextfest_feb_2027</a>）を開くには Steamworks アカウントでのログインが必要です。</p><p>タイムテーブルのうち時刻のある項目は台湾時間に換算しています。日付だけの項目は Steam が発表した日付（米国太平洋時間）です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "deadlineLabel": "参加登録締め切り",
+          "agenda": [
+            {
+              "time": "12/9 02:00",
+              "item": "Steam 公式オンライン Q&A（Zoom）"
+            },
+            {
+              "time": "1/11 15:59",
+              "item": "参加登録の締め切り"
+            },
+            {
+              "time": "1/18",
+              "item": "Steam が公式トレーラー用の映像を取得"
+            },
+            {
+              "time": "1/25",
+              "item": "メディア向けプレビューの初日から公開するには、この日までに体験版とストアページを審査に提出"
+            },
+            {
+              "time": "2/8",
+              "item": "必要な項目すべての審査提出期限"
+            },
+            {
+              "time": "2/11",
+              "item": "トレーラー使用許可の取り消し期限"
+            },
+            {
+              "time": "2/12 02:00",
+              "item": "メディア向け先行プレビュー開始"
+            },
+            {
+              "time": "2/23 02:00",
+              "item": "Next Fest 開始"
+            },
+            {
+              "time": "3/2 02:00",
+              "item": "Next Fest 終了、最もプレイされた体験版を発表"
+            }
+          ],
+          "audience": [
+            "いち早く試遊したいプレイヤー",
+            "Steam でのリリースを準備中の開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Next Fest 2027년 2월",
+          "summary": "Steam이 1년에 세 번 여는 온라인 데모 축제로, 일주일 동안 출시 전 게임의 데모를 무료로 즐길 수 있어요. 대만 시간 2월 23일 02:00에 시작해요. 개발자 참가 등록은 1월 11일(대만 시간)까지예요.",
+          "description": "<p>Steam이 1년에 세 번 여는 Steam Next Fest에서는 일주일 동안 아직 출시되지 않은 게임의 데모를 무료로 잔뜩 플레이할 수 있어요. 개발자 라이브 방송을 보고, 마음에 드는 게임을 찜 목록에 추가할 수도 있어요. 개발자에게는 출시 전에 플레이어 피드백을 모으고 관심을 쌓을 기회예요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 2월 22일 10:00(PST)~3월 1일 10:00(PST)</li><li>대만 시간: 2월 23일 02:00~3월 2일 02:00</li></ul><h3>플레이어</h3><p>행사 기간에 <a href=\"https://store.steampowered.com/sale/nextfest\">Steam Next Fest 페이지</a>에서 참가작 데모를 모두 찾을 수 있어요. 따로 신청할 필요는 없어요.</p><h3>개발자</h3><p>참가 등록은 태평양 시간 1월 10일 23:59(대만 시간 1월 11일 15:59)까지예요. 공식 트레일러에 들어가고 싶다면 그 전에 상점 페이지의 홍보 자료도 최신으로 바꿔 두세요. 마감 후 Steam이 후보에 오른 게임에 알려 줘요.</p><p>참가 조건: 아직 출시되지 않았고 이번 회차가 끝난 뒤에 출시할 것, 상점 페이지가 공개되어 있을 것, 행사 시작 전까지 누구나 플레이할 수 있는 데모를 준비할 것, 이미 출시된 게임의 프롤로그나 체험판이 아닐 것. 게임마다 Next Fest에는 한 번만 참가할 수 있으니 출시 일정에 가장 잘 맞는 회차를 고르세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/nextfest_feb_2027\">https://partner.steamgames.com/optin/sale/nextfest_feb_2027</a>)는 Steamworks 계정으로 로그인해야 열려요.</p><p>진행 순서에서 시각이 있는 항목은 대만 시간으로 바꿨고, 날짜만 있는 항목은 Steam이 발표한 날짜(미국 태평양 시간)예요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "deadlineLabel": "참가 등록 마감",
+          "agenda": [
+            {
+              "time": "12/9 02:00",
+              "item": "Steam 공식 온라인 Q&A(Zoom)"
+            },
+            {
+              "time": "1/11 15:59",
+              "item": "참가 등록 마감"
+            },
+            {
+              "time": "1/18",
+              "item": "Steam이 공식 트레일러용 영상을 가져감"
+            },
+            {
+              "time": "1/25",
+              "item": "언론 사전 공개 첫날부터 선보이려면 이날까지 데모와 상점 페이지를 심사에 제출"
+            },
+            {
+              "time": "2/8",
+              "item": "필요한 항목 전체의 심사 제출 마감"
+            },
+            {
+              "time": "2/11",
+              "item": "트레일러 사용 허가 철회 마감"
+            },
+            {
+              "time": "2/12 02:00",
+              "item": "언론 대상 사전 공개 시작"
+            },
+            {
+              "time": "2/23 02:00",
+              "item": "Next Fest 시작"
+            },
+            {
+              "time": "3/2 02:00",
+              "item": "Next Fest 종료, 가장 많이 플레이된 데모 발표"
+            }
+          ],
+          "audience": [
+            "먼저 플레이해 보고 싶은 플레이어",
+            "Steam 출시를 준비하는 개발자"
+          ]
+        }
+      }
+    },
+    "steam-next-fest-2027-06": {
+      "source": {
+        "title": "Steam 新品節 2027 年 6 月（Steam Next Fest）",
+        "summary": "Steam 一年三次的線上試玩節，一週內免費試玩大量未發售遊戲的 Demo。台灣時間 6/15 01:00 開始。開發者報名到 4/26（台灣時間）。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 一年三次的新品節（Steam Next Fest）：一週內可以免費試玩大量還沒發售的遊戲 Demo、看開發者直播，把喜歡的遊戲加入願望清單。對開發者來說，這是上市前收集玩家回饋、累積關注的機會。</p><h3>時間</h3><ul><li>美國太平洋時間 6/14 10:00（PDT）至 6/21 10:00（PDT）</li><li>台灣時間 6/15 01:00 至 6/22 01:00</li></ul><h3>玩家</h3><p>活動期間到 <a href=\"https://store.steampowered.com/sale/nextfest\">Steam 新品節頁面</a>就能找到所有參展的 Demo，不需要報名。</p><h3>開發者</h3><p>報名到太平洋時間 4/25 23:59（台灣時間 4/26 14:59）。想被選進官方宣傳預告片，也要在這之前把商店頁的宣傳素材更新好；Steam 會在截止後通知入選考慮的遊戲。</p><p>參加條件：遊戲還沒發售，且要到這一屆結束後才發售；商店頁已公開；活動開始前準備好可以公開遊玩的 Demo；不能是已發售遊戲的序章或試玩版。每款遊戲只能參加一次新品節，請挑最適合發售時程的一屆。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/nextfest_june_2027\">https://partner.steamgames.com/optin/sale/nextfest_june_2027</a>）需要用 Steamworks 帳號登入。</p><p>活動流程中有時刻的項目已換算成台灣時間，只有日期的項目是 Steam 公布的日期（美國太平洋時間）。</p>",
+        "schedule": null,
+        "deadlineLabel": "報名截止",
+        "agenda": [
+          {
+            "time": "3 月（日期未定）",
+            "item": "Steam 官方線上 Q&A（Zoom）"
+          },
+          {
+            "time": "4/26 14:59",
+            "item": "報名截止"
+          },
+          {
+            "time": "5/3",
+            "item": "Steam 擷取官方預告片素材"
+          },
+          {
+            "time": "5/17",
+            "item": "想在媒體搶先試玩一開始就上線，Demo 與商店頁須在此前送審"
+          },
+          {
+            "time": "5/31",
+            "item": "所有必要項目的送審期限"
+          },
+          {
+            "time": "6/3",
+            "item": "取消預告片授權的最後期限"
+          },
+          {
+            "time": "6/4 01:00",
+            "item": "媒體搶先試玩開始"
+          },
+          {
+            "time": "6/15 01:00",
+            "item": "新品節開始"
+          },
+          {
+            "time": "6/22 01:00",
+            "item": "新品節結束，公布最多人玩的 Demo"
+          }
+        ],
+        "audience": [
+          "想搶先試玩的玩家",
+          "準備上架 Steam 的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Next Fest: June 2027",
+          "summary": "Steam’s online demo festival, held three times a year: a week of free demos from lots of unreleased games. Starts June 15, 01:00 Taiwan time. Developers can register until April 26 (Taiwan time).",
+          "description": "<p>Steam Next Fest comes around three times a year: for one week you can play demos of lots of unreleased games for free, watch developer livestreams and add the games you like to your wishlist. For developers, it’s a chance to gather player feedback and build interest before launch.</p><h3>When</h3><ul><li>US Pacific time: June 14, 10:00 PDT to June 21, 10:00 PDT</li><li>Taiwan time: June 15, 01:00 to June 22, 01:00</li></ul><h3>Players</h3><p>During the fest, you’ll find every demo on the <a href=\"https://store.steampowered.com/sale/nextfest\">Steam Next Fest page</a>. No sign-up needed.</p><h3>Developers</h3><p>Registration is open until April 25, 23:59 Pacific time (April 26, 14:59 Taiwan time). If you want your game considered for the official trailer, update your store page’s marketing materials by then too; Steam lets the games under consideration know after the deadline.</p><p>To take part, a game must be unreleased and launch only after this edition ends; its store page must be public; it needs a publicly playable demo by the time the fest starts; and it can’t be a prologue or demo version of a game that’s already out. Each game can join Next Fest only once, so pick the edition that best fits your release plans.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/nextfest_june_2027\">https://partner.steamgames.com/optin/sale/nextfest_june_2027</a>) requires a Steamworks sign-in.</p><p>In the schedule, items with a time are in Taiwan time; items with only a date use the dates Steam announced (US Pacific time).</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "deadlineLabel": "Sign-up deadline",
+          "agenda": [
+            {
+              "time": "March (date TBA)",
+              "item": "Official Steam online Q&A (Zoom)"
+            },
+            {
+              "time": "Apr 26, 14:59",
+              "item": "Registration closes"
+            },
+            {
+              "time": "May 3",
+              "item": "Steam pulls footage for the official trailer"
+            },
+            {
+              "time": "May 17",
+              "item": "Submit your demo and store page for review by this date to be live when the press preview opens"
+            },
+            {
+              "time": "May 31",
+              "item": "Deadline to submit everything required for review"
+            },
+            {
+              "time": "Jun 3",
+              "item": "Last day to opt out of trailer permissions"
+            },
+            {
+              "time": "Jun 4, 01:00",
+              "item": "Press preview begins"
+            },
+            {
+              "time": "Jun 15, 01:00",
+              "item": "Next Fest begins"
+            },
+            {
+              "time": "Jun 22, 01:00",
+              "item": "Next Fest ends; the most-played demos are announced"
+            }
+          ],
+          "audience": [
+            "Players who want to try games early",
+            "Developers getting ready to launch on Steam"
+          ]
+        },
+        "ja": {
+          "title": "Steam Next Fest 2027年6月",
+          "summary": "Steam が年3回開くオンライン試遊イベントで、1週間にわたり未発売ゲームの体験版を無料でたくさん遊べます。台湾時間6月15日 1:00スタート。開発者の参加登録は4月26日（台湾時間）までです。",
+          "description": "<p>Steam が年3回開く Steam Next Fest では、1週間にわたって未発売ゲームの体験版を無料でたくさん遊べます。開発者のライブ配信を見たり、気になったゲームをウィッシュリストに追加したりもできます。開発者にとっては、発売前にプレイヤーの感想を集め、注目を集めるチャンスです。</p><h3>日時</h3><ul><li>米国太平洋時間：6月14日 10:00（PDT）〜6月21日 10:00（PDT）</li><li>台湾時間：6月15日 1:00〜6月22日 1:00</li></ul><h3>プレイヤー</h3><p>開催期間中は <a href=\"https://store.steampowered.com/sale/nextfest\">Steam Next Fest のページ</a>で参加作品の体験版をすべて探せます。申し込みは不要です。</p><h3>開発者</h3><p>参加登録は太平洋時間4月25日 23:59（台湾時間4月26日 14:59）までです。公式トレーラーへの採用を狙うなら、それまでにストアページの宣伝素材も最新にしておきましょう。締め切り後、採用候補になったゲームには Steam から連絡があります。</p><p>参加条件は、未発売で今回の開催終了後に発売すること、ストアページが公開済みであること、開催までに誰でも遊べる体験版を用意すること、そして発売済みゲームのプロローグや体験版ではないことです。Next Fest に参加できるのは1タイトルにつき1回だけなので、発売スケジュールに合う回を選びましょう。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/nextfest_june_2027\">https://partner.steamgames.com/optin/sale/nextfest_june_2027</a>）を開くには Steamworks アカウントでのログインが必要です。</p><p>タイムテーブルのうち時刻のある項目は台湾時間に換算しています。日付だけの項目は Steam が発表した日付（米国太平洋時間）です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "deadlineLabel": "参加登録締め切り",
+          "agenda": [
+            {
+              "time": "3月（日程未定）",
+              "item": "Steam 公式オンライン Q&A（Zoom）"
+            },
+            {
+              "time": "4/26 14:59",
+              "item": "参加登録の締め切り"
+            },
+            {
+              "time": "5/3",
+              "item": "Steam が公式トレーラー用の映像を取得"
+            },
+            {
+              "time": "5/17",
+              "item": "メディア向けプレビューの初日から公開するには、この日までに体験版とストアページを審査に提出"
+            },
+            {
+              "time": "5/31",
+              "item": "必要な項目すべての審査提出期限"
+            },
+            {
+              "time": "6/3",
+              "item": "トレーラー使用許可の取り消し期限"
+            },
+            {
+              "time": "6/4 01:00",
+              "item": "メディア向け先行プレビュー開始"
+            },
+            {
+              "time": "6/15 01:00",
+              "item": "Next Fest 開始"
+            },
+            {
+              "time": "6/22 01:00",
+              "item": "Next Fest 終了、最もプレイされた体験版を発表"
+            }
+          ],
+          "audience": [
+            "いち早く試遊したいプレイヤー",
+            "Steam でのリリースを準備中の開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Next Fest 2027년 6월",
+          "summary": "Steam이 1년에 세 번 여는 온라인 데모 축제로, 일주일 동안 출시 전 게임의 데모를 무료로 즐길 수 있어요. 대만 시간 6월 15일 01:00에 시작해요. 개발자 참가 등록은 4월 26일(대만 시간)까지예요.",
+          "description": "<p>Steam이 1년에 세 번 여는 Steam Next Fest에서는 일주일 동안 아직 출시되지 않은 게임의 데모를 무료로 잔뜩 플레이할 수 있어요. 개발자 라이브 방송을 보고, 마음에 드는 게임을 찜 목록에 추가할 수도 있어요. 개발자에게는 출시 전에 플레이어 피드백을 모으고 관심을 쌓을 기회예요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 6월 14일 10:00(PDT)~6월 21일 10:00(PDT)</li><li>대만 시간: 6월 15일 01:00~6월 22일 01:00</li></ul><h3>플레이어</h3><p>행사 기간에 <a href=\"https://store.steampowered.com/sale/nextfest\">Steam Next Fest 페이지</a>에서 참가작 데모를 모두 찾을 수 있어요. 따로 신청할 필요는 없어요.</p><h3>개발자</h3><p>참가 등록은 태평양 시간 4월 25일 23:59(대만 시간 4월 26일 14:59)까지예요. 공식 트레일러에 들어가고 싶다면 그 전에 상점 페이지의 홍보 자료도 최신으로 바꿔 두세요. 마감 후 Steam이 후보에 오른 게임에 알려 줘요.</p><p>참가 조건: 아직 출시되지 않았고 이번 회차가 끝난 뒤에 출시할 것, 상점 페이지가 공개되어 있을 것, 행사 시작 전까지 누구나 플레이할 수 있는 데모를 준비할 것, 이미 출시된 게임의 프롤로그나 체험판이 아닐 것. 게임마다 Next Fest에는 한 번만 참가할 수 있으니 출시 일정에 가장 잘 맞는 회차를 고르세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/nextfest_june_2027\">https://partner.steamgames.com/optin/sale/nextfest_june_2027</a>)는 Steamworks 계정으로 로그인해야 열려요.</p><p>진행 순서에서 시각이 있는 항목은 대만 시간으로 바꿨고, 날짜만 있는 항목은 Steam이 발표한 날짜(미국 태평양 시간)예요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "deadlineLabel": "참가 등록 마감",
+          "agenda": [
+            {
+              "time": "3월(날짜 미정)",
+              "item": "Steam 공식 온라인 Q&A(Zoom)"
+            },
+            {
+              "time": "4/26 14:59",
+              "item": "참가 등록 마감"
+            },
+            {
+              "time": "5/3",
+              "item": "Steam이 공식 트레일러용 영상을 가져감"
+            },
+            {
+              "time": "5/17",
+              "item": "언론 사전 공개 첫날부터 선보이려면 이날까지 데모와 상점 페이지를 심사에 제출"
+            },
+            {
+              "time": "5/31",
+              "item": "필요한 항목 전체의 심사 제출 마감"
+            },
+            {
+              "time": "6/3",
+              "item": "트레일러 사용 허가 철회 마감"
+            },
+            {
+              "time": "6/4 01:00",
+              "item": "언론 대상 사전 공개 시작"
+            },
+            {
+              "time": "6/15 01:00",
+              "item": "Next Fest 시작"
+            },
+            {
+              "time": "6/22 01:00",
+              "item": "Next Fest 종료, 가장 많이 플레이된 데모 발표"
+            }
+          ],
+          "audience": [
+            "먼저 플레이해 보고 싶은 플레이어",
+            "Steam 출시를 준비하는 개발자"
+          ]
+        }
+      }
+    },
+    "steam-autumn-sale-2026": {
+      "source": {
+        "title": "Steam 秋季特賣 2026（Autumn Sale）",
+        "summary": "Steam 一年四次的全站季節特賣，台灣時間 10/2 01:00 到 10/9 01:00。活動開始時已發售滿 30 天的遊戲，都能設定折扣參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 一年四次的全站季節特賣之一，活動期間商店首頁會集中推出大量折扣遊戲。</p><h3>時間</h3><ul><li>美國太平洋時間 10/1 10:00（PDT）至 10/8 10:00（PDT）</li><li>台灣時間 10/2 01:00 至 10/9 01:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>玩家</h3><p>活動期間直接到 Steam 商店首頁就能看到特賣專區。</p><h3>開發者</h3><p>在活動開始前至少 30 天發售的遊戲都能參加，不用另外報名：到 Steamworks 的<a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">折扣管理頁面</a>（需登入）設定並送出這次特賣的折扣即可。四大季節特賣不受兩次折扣之間的冷卻期限制。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "已在 Steam 上架的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Autumn Sale 2026",
+          "summary": "One of Steam’s four store-wide seasonal sales, from October 2, 01:00 to October 9, 01:00 Taiwan time. Any game released at least 30 days before the sale starts can join with a discount.",
+          "description": "<p>One of Steam’s four store-wide seasonal sales a year. During the sale, the store’s front page is packed with discounted games.</p><h3>When</h3><ul><li>US Pacific time: October 1, 10:00 PDT to October 8, 10:00 PDT</li><li>Taiwan time: October 2, 01:00 to October 9, 01:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Players</h3><p>Just head to the Steam Store front page during the sale to find it.</p><h3>Developers</h3><p>Any game released at least 30 days before the sale starts can take part, with no separate registration: set and submit a discount for this sale on the Steamworks <a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">Discount Management page</a> (sign-in required). The four seasonal sales are exempt from the cooldown between discounts.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Developers with games on Steam"
+          ]
+        },
+        "ja": {
+          "title": "Steam オータムセール 2026",
+          "summary": "Steam が年4回開くストア全体のシーズンセールのひとつで、台湾時間10月2日 1:00〜10月9日 1:00に開催されます。セール開始時点で発売から30日以上たっていれば、どのゲームも割引を設定して参加できます。",
+          "description": "<p>Steam が年4回開く、ストア全体のシーズンセールのひとつです。期間中はストアのトップページに割引中のゲームがずらりと並びます。</p><h3>日時</h3><ul><li>米国太平洋時間：10月1日 10:00（PDT）〜10月8日 10:00（PDT）</li><li>台湾時間：10月2日 1:00〜10月9日 1:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>プレイヤー</h3><p>期間中に Steam ストアのトップページを開けば、セールの特設コーナーが見つかります。</p><h3>開発者</h3><p>セール開始の30日以上前に発売されたゲームなら、別途の申し込みなしで参加できます。Steamworks の<a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">割引管理ページ</a>（ログインが必要）で、このセールの割引を設定して送信するだけです。なお、4つのシーズンセールには割引と割引の間のクールダウン期間が適用されません。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "Steam でゲームを販売中の開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam 가을 할인 2026",
+          "summary": "Steam이 1년에 네 번 여는 상점 전체 시즌 할인 중 하나로, 대만 시간 10월 2일 01:00~10월 9일 01:00에 열려요. 할인 시작 시점에 출시 30일이 지난 게임이라면 할인을 설정해 참가할 수 있어요.",
+          "description": "<p>Steam이 1년에 네 번 여는 상점 전체 시즌 할인 중 하나예요. 기간 중에는 상점 첫 화면에 할인 게임이 가득 올라와요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 10월 1일 10:00(PDT)~10월 8일 10:00(PDT)</li><li>대만 시간: 10월 2일 01:00~10월 9일 01:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>플레이어</h3><p>기간 중에 Steam 상점 첫 화면으로 가면 할인 코너를 바로 볼 수 있어요.</p><h3>개발자</h3><p>할인 시작 30일 전까지 출시된 게임이라면 따로 신청하지 않아도 참가할 수 있어요. Steamworks의 <a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">할인 관리 페이지</a>(로그인 필요)에서 이번 할인에 적용할 할인을 설정하고 제출하면 돼요. 4대 시즌 할인은 할인 사이의 쿨다운 제한을 받지 않아요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "Steam에 게임을 출시한 개발자"
+          ]
+        }
+      }
+    },
+    "steam-winter-sale-2026": {
+      "source": {
+        "title": "Steam 冬季特賣 2026（Winter Sale）",
+        "summary": "Steam 一年四次的全站季節特賣，台灣時間 12/18 02:00 到 1/5 02:00。活動開始時已發售滿 30 天的遊戲，都能設定折扣參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 一年四次的全站季節特賣之一，活動期間商店首頁會集中推出大量折扣遊戲。</p><h3>時間</h3><ul><li>美國太平洋時間 12/17 10:00（PST）至 1/4 10:00（PST）</li><li>台灣時間 12/18 02:00 至 1/5 02:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>玩家</h3><p>活動期間直接到 Steam 商店首頁就能看到特賣專區。</p><h3>開發者</h3><p>在活動開始前至少 30 天發售的遊戲都能參加，不用另外報名：到 Steamworks 的<a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">折扣管理頁面</a>（需登入）設定並送出這次特賣的折扣即可。四大季節特賣不受兩次折扣之間的冷卻期限制。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "已在 Steam 上架的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Winter Sale 2026",
+          "summary": "One of Steam’s four store-wide seasonal sales, from December 18, 02:00 to January 5, 02:00 Taiwan time. Any game released at least 30 days before the sale starts can join with a discount.",
+          "description": "<p>One of Steam’s four store-wide seasonal sales a year. During the sale, the store’s front page is packed with discounted games.</p><h3>When</h3><ul><li>US Pacific time: December 17, 10:00 PST to January 4, 10:00 PST</li><li>Taiwan time: December 18, 02:00 to January 5, 02:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Players</h3><p>Just head to the Steam Store front page during the sale to find it.</p><h3>Developers</h3><p>Any game released at least 30 days before the sale starts can take part, with no separate registration: set and submit a discount for this sale on the Steamworks <a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">Discount Management page</a> (sign-in required). The four seasonal sales are exempt from the cooldown between discounts.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Developers with games on Steam"
+          ]
+        },
+        "ja": {
+          "title": "Steam ウインターセール 2026",
+          "summary": "Steam が年4回開くストア全体のシーズンセールのひとつで、台湾時間12月18日 2:00〜1月5日 2:00に開催されます。セール開始時点で発売から30日以上たっていれば、どのゲームも割引を設定して参加できます。",
+          "description": "<p>Steam が年4回開く、ストア全体のシーズンセールのひとつです。期間中はストアのトップページに割引中のゲームがずらりと並びます。</p><h3>日時</h3><ul><li>米国太平洋時間：12月17日 10:00（PST）〜1月4日 10:00（PST）</li><li>台湾時間：12月18日 2:00〜1月5日 2:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>プレイヤー</h3><p>期間中に Steam ストアのトップページを開けば、セールの特設コーナーが見つかります。</p><h3>開発者</h3><p>セール開始の30日以上前に発売されたゲームなら、別途の申し込みなしで参加できます。Steamworks の<a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">割引管理ページ</a>（ログインが必要）で、このセールの割引を設定して送信するだけです。なお、4つのシーズンセールには割引と割引の間のクールダウン期間が適用されません。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "Steam でゲームを販売中の開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam 겨울 할인 2026",
+          "summary": "Steam이 1년에 네 번 여는 상점 전체 시즌 할인 중 하나로, 대만 시간 12월 18일 02:00~1월 5일 02:00에 열려요. 할인 시작 시점에 출시 30일이 지난 게임이라면 할인을 설정해 참가할 수 있어요.",
+          "description": "<p>Steam이 1년에 네 번 여는 상점 전체 시즌 할인 중 하나예요. 기간 중에는 상점 첫 화면에 할인 게임이 가득 올라와요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 12월 17일 10:00(PST)~1월 4일 10:00(PST)</li><li>대만 시간: 12월 18일 02:00~1월 5일 02:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>플레이어</h3><p>기간 중에 Steam 상점 첫 화면으로 가면 할인 코너를 바로 볼 수 있어요.</p><h3>개발자</h3><p>할인 시작 30일 전까지 출시된 게임이라면 따로 신청하지 않아도 참가할 수 있어요. Steamworks의 <a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">할인 관리 페이지</a>(로그인 필요)에서 이번 할인에 적용할 할인을 설정하고 제출하면 돼요. 4대 시즌 할인은 할인 사이의 쿨다운 제한을 받지 않아요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "Steam에 게임을 출시한 개발자"
+          ]
+        }
+      }
+    },
+    "steam-spring-sale-2027": {
+      "source": {
+        "title": "Steam 春季特賣 2027（Spring Sale）",
+        "summary": "Steam 一年四次的全站季節特賣，台灣時間 3/19 01:00 到 3/26 01:00。活動開始時已發售滿 30 天的遊戲，都能設定折扣參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 一年四次的全站季節特賣之一，活動期間商店首頁會集中推出大量折扣遊戲。</p><h3>時間</h3><ul><li>美國太平洋時間 3/18 10:00（PDT）至 3/25 10:00（PDT）</li><li>台灣時間 3/19 01:00 至 3/26 01:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>玩家</h3><p>活動期間直接到 Steam 商店首頁就能看到特賣專區。</p><h3>開發者</h3><p>在活動開始前至少 30 天發售的遊戲都能參加，不用另外報名：到 Steamworks 的<a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">折扣管理頁面</a>（需登入）設定並送出這次特賣的折扣即可。四大季節特賣不受兩次折扣之間的冷卻期限制。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "已在 Steam 上架的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Spring Sale 2027",
+          "summary": "One of Steam’s four store-wide seasonal sales, from March 19, 01:00 to March 26, 01:00 Taiwan time. Any game released at least 30 days before the sale starts can join with a discount.",
+          "description": "<p>One of Steam’s four store-wide seasonal sales a year. During the sale, the store’s front page is packed with discounted games.</p><h3>When</h3><ul><li>US Pacific time: March 18, 10:00 PDT to March 25, 10:00 PDT</li><li>Taiwan time: March 19, 01:00 to March 26, 01:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Players</h3><p>Just head to the Steam Store front page during the sale to find it.</p><h3>Developers</h3><p>Any game released at least 30 days before the sale starts can take part, with no separate registration: set and submit a discount for this sale on the Steamworks <a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">Discount Management page</a> (sign-in required). The four seasonal sales are exempt from the cooldown between discounts.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Developers with games on Steam"
+          ]
+        },
+        "ja": {
+          "title": "Steam スプリングセール 2027",
+          "summary": "Steam が年4回開くストア全体のシーズンセールのひとつで、台湾時間3月19日 1:00〜3月26日 1:00に開催されます。セール開始時点で発売から30日以上たっていれば、どのゲームも割引を設定して参加できます。",
+          "description": "<p>Steam が年4回開く、ストア全体のシーズンセールのひとつです。期間中はストアのトップページに割引中のゲームがずらりと並びます。</p><h3>日時</h3><ul><li>米国太平洋時間：3月18日 10:00（PDT）〜3月25日 10:00（PDT）</li><li>台湾時間：3月19日 1:00〜3月26日 1:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>プレイヤー</h3><p>期間中に Steam ストアのトップページを開けば、セールの特設コーナーが見つかります。</p><h3>開発者</h3><p>セール開始の30日以上前に発売されたゲームなら、別途の申し込みなしで参加できます。Steamworks の<a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">割引管理ページ</a>（ログインが必要）で、このセールの割引を設定して送信するだけです。なお、4つのシーズンセールには割引と割引の間のクールダウン期間が適用されません。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "Steam でゲームを販売中の開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam 봄 할인 2027",
+          "summary": "Steam이 1년에 네 번 여는 상점 전체 시즌 할인 중 하나로, 대만 시간 3월 19일 01:00~3월 26일 01:00에 열려요. 할인 시작 시점에 출시 30일이 지난 게임이라면 할인을 설정해 참가할 수 있어요.",
+          "description": "<p>Steam이 1년에 네 번 여는 상점 전체 시즌 할인 중 하나예요. 기간 중에는 상점 첫 화면에 할인 게임이 가득 올라와요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 3월 18일 10:00(PDT)~3월 25일 10:00(PDT)</li><li>대만 시간: 3월 19일 01:00~3월 26일 01:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>플레이어</h3><p>기간 중에 Steam 상점 첫 화면으로 가면 할인 코너를 바로 볼 수 있어요.</p><h3>개발자</h3><p>할인 시작 30일 전까지 출시된 게임이라면 따로 신청하지 않아도 참가할 수 있어요. Steamworks의 <a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">할인 관리 페이지</a>(로그인 필요)에서 이번 할인에 적용할 할인을 설정하고 제출하면 돼요. 4대 시즌 할인은 할인 사이의 쿨다운 제한을 받지 않아요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "Steam에 게임을 출시한 개발자"
+          ]
+        }
+      }
+    },
+    "steam-summer-sale-2027": {
+      "source": {
+        "title": "Steam 夏季特賣 2027（Summer Sale）",
+        "summary": "Steam 一年四次的全站季節特賣，台灣時間 6/25 01:00 到 7/9 01:00。活動開始時已發售滿 30 天的遊戲，都能設定折扣參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 一年四次的全站季節特賣之一，活動期間商店首頁會集中推出大量折扣遊戲。</p><h3>時間</h3><ul><li>美國太平洋時間 6/24 10:00（PDT）至 7/8 10:00（PDT）</li><li>台灣時間 6/25 01:00 至 7/9 01:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>玩家</h3><p>活動期間直接到 Steam 商店首頁就能看到特賣專區。</p><h3>開發者</h3><p>在活動開始前至少 30 天發售的遊戲都能參加，不用另外報名：到 Steamworks 的<a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">折扣管理頁面</a>（需登入）設定並送出這次特賣的折扣即可。四大季節特賣不受兩次折扣之間的冷卻期限制。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "已在 Steam 上架的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Summer Sale 2027",
+          "summary": "One of Steam’s four store-wide seasonal sales, from June 25, 01:00 to July 9, 01:00 Taiwan time. Any game released at least 30 days before the sale starts can join with a discount.",
+          "description": "<p>One of Steam’s four store-wide seasonal sales a year. During the sale, the store’s front page is packed with discounted games.</p><h3>When</h3><ul><li>US Pacific time: June 24, 10:00 PDT to July 8, 10:00 PDT</li><li>Taiwan time: June 25, 01:00 to July 9, 01:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Players</h3><p>Just head to the Steam Store front page during the sale to find it.</p><h3>Developers</h3><p>Any game released at least 30 days before the sale starts can take part, with no separate registration: set and submit a discount for this sale on the Steamworks <a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">Discount Management page</a> (sign-in required). The four seasonal sales are exempt from the cooldown between discounts.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Developers with games on Steam"
+          ]
+        },
+        "ja": {
+          "title": "Steam サマーセール 2027",
+          "summary": "Steam が年4回開くストア全体のシーズンセールのひとつで、台湾時間6月25日 1:00〜7月9日 1:00に開催されます。セール開始時点で発売から30日以上たっていれば、どのゲームも割引を設定して参加できます。",
+          "description": "<p>Steam が年4回開く、ストア全体のシーズンセールのひとつです。期間中はストアのトップページに割引中のゲームがずらりと並びます。</p><h3>日時</h3><ul><li>米国太平洋時間：6月24日 10:00（PDT）〜7月8日 10:00（PDT）</li><li>台湾時間：6月25日 1:00〜7月9日 1:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>プレイヤー</h3><p>期間中に Steam ストアのトップページを開けば、セールの特設コーナーが見つかります。</p><h3>開発者</h3><p>セール開始の30日以上前に発売されたゲームなら、別途の申し込みなしで参加できます。Steamworks の<a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">割引管理ページ</a>（ログインが必要）で、このセールの割引を設定して送信するだけです。なお、4つのシーズンセールには割引と割引の間のクールダウン期間が適用されません。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "Steam でゲームを販売中の開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam 여름 할인 2027",
+          "summary": "Steam이 1년에 네 번 여는 상점 전체 시즌 할인 중 하나로, 대만 시간 6월 25일 01:00~7월 9일 01:00에 열려요. 할인 시작 시점에 출시 30일이 지난 게임이라면 할인을 설정해 참가할 수 있어요.",
+          "description": "<p>Steam이 1년에 네 번 여는 상점 전체 시즌 할인 중 하나예요. 기간 중에는 상점 첫 화면에 할인 게임이 가득 올라와요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 6월 24일 10:00(PDT)~7월 8일 10:00(PDT)</li><li>대만 시간: 6월 25일 01:00~7월 9일 01:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>플레이어</h3><p>기간 중에 Steam 상점 첫 화면으로 가면 할인 코너를 바로 볼 수 있어요.</p><h3>개발자</h3><p>할인 시작 30일 전까지 출시된 게임이라면 따로 신청하지 않아도 참가할 수 있어요. Steamworks의 <a href=\"https://partner.steamgames.com/promotion/discounts/dashboard/\">할인 관리 페이지</a>(로그인 필요)에서 이번 할인에 적용할 할인을 설정하고 제출하면 돼요. 4대 시즌 할인은 할인 사이의 쿨다운 제한을 받지 않아요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "Steam에 게임을 출시한 개발자"
+          ]
+        }
+      }
+    },
+    "steam-cooking-fest-2026": {
+      "source": {
+        "title": "Steam 料理遊戲節（Cooking Fest 2026）",
+        "summary": "Steam 的主題特賣活動，主題：料理、餵人吃飯，以及各種和吃有關的遊戲。台灣時間 10/13 01:00 到 10/20 01:00，符合主題的遊戲可以報名參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 的主題特賣活動（Fest），這一檔的主題：料理、餵人吃飯，以及各種和吃有關的遊戲。活動期間 Steam 首頁會推出專區，分成折扣、免費遊玩、Demo、即將推出等分類。</p><h3>時間</h3><ul><li>美國太平洋時間 10/12 10:00（PDT）至 10/19 10:00（PDT）</li><li>台灣時間 10/13 01:00 至 10/20 01:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>開發者</h3><p>Steam 會自動邀請主要題材或玩法符合主題的遊戲，受邀後在 Steamworks 勾選報名即可。不一定要打折，但活動頁會優先展示有折扣的遊戲；免費遊戲、即將推出的遊戲和 Demo 也能參加。這類活動的折扣要遵守一般的折扣冷卻期。想被考慮放進官方宣傳素材，通常要在活動開始前約 6 週完成報名並設定折扣，確切期限以報名頁為準。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/cooking_2026\">https://partner.steamgames.com/optin/sale/cooking_2026</a>）需要用 Steamworks 帳號登入。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "料理題材遊戲的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Cooking Fest 2026",
+          "summary": "A themed Steam sale. Theme: games about cooking, feeding people and everything in between. Runs October 13, 01:00 to October 20, 01:00 Taiwan time; games that fit the theme can register.",
+          "description": "<p>A themed Steam sale, or Fest. This one’s theme: games about cooking, feeding people and everything in between. During the fest, the Steam front page gets a dedicated section, split into categories such as discounts, free to play, demos and upcoming games.</p><h3>When</h3><ul><li>US Pacific time: October 12, 10:00 PDT to October 19, 10:00 PDT</li><li>Taiwan time: October 13, 01:00 to October 20, 01:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Developers</h3><p>Steam automatically invites games whose main subject or gameplay fits the theme; once invited, just tick the box on Steamworks to register. A discount isn’t required, but the event page features discounted games first; free games, upcoming games and demos can take part too. Discounts in these events follow the usual cooldown between discounts. To be considered for the official marketing materials, you usually need to register and set your discount about 6 weeks before the fest starts; the registration page has the exact deadline.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/cooking_2026\">https://partner.steamgames.com/optin/sale/cooking_2026</a>) requires a Steamworks sign-in.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Developers of cooking games"
+          ]
+        },
+        "ja": {
+          "title": "Steam Cooking Fest 2026（料理ゲーム特集）",
+          "summary": "Steam のテーマ別セールで、テーマは「料理や、人に食べさせること、食べ物にまつわるあらゆるゲーム」。台湾時間10月13日 1:00〜10月20日 1:00に開催され、テーマに合うゲームは参加登録できます。",
+          "description": "<p>Steam のテーマ別セール（Fest）です。今回のテーマは「料理や、人に食べさせること、食べ物にまつわるあらゆるゲーム」。期間中は Steam のトップページに特設コーナーができ、割引、無料プレイ、体験版、近日登場といったカテゴリーに分かれます。</p><h3>日時</h3><ul><li>米国太平洋時間：10月12日 10:00（PDT）〜10月19日 10:00（PDT）</li><li>台湾時間：10月13日 1:00〜10月20日 1:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>開発者</h3><p>メインの題材やゲームプレイがテーマに合うゲームには、Steam から自動で招待が届きます。招待されたら、Steamworks でチェックを入れるだけで登録完了です。割引は必須ではないものの、イベントページでは割引中のゲームが優先して紹介されます。無料ゲームや近日発売のゲーム、体験版も参加可能です。この種のイベントでの割引には、通常の割引クールダウン期間が適用されます。公式の宣伝素材への採用を検討してもらうには、たいてい開催の約6週間前までに登録と割引設定を済ませる必要があるので、正確な期限は登録ページで確認してください。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/cooking_2026\">https://partner.steamgames.com/optin/sale/cooking_2026</a>）を開くには Steamworks アカウントでのログインが必要です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "料理ゲームの開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Cooking Fest 2026 (요리 게임 특집)",
+          "summary": "Steam의 테마 할인 행사예요. 주제: 요리, 누군가를 먹이는 일, 그 밖에 먹는 것과 관련된 모든 게임. 대만 시간 10월 13일 01:00~10월 20일 01:00에 열리며, 주제에 맞는 게임은 참가 등록할 수 있어요.",
+          "description": "<p>Steam의 테마 할인 행사(Fest)예요. 이번 주제: 요리, 누군가를 먹이는 일, 그 밖에 먹는 것과 관련된 모든 게임. 기간 중에는 Steam 첫 화면에 전용 코너가 생기고, 할인, 무료 플레이, 데모, 출시 예정 등의 분류로 나뉘어요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 10월 12일 10:00(PDT)~10월 19일 10:00(PDT)</li><li>대만 시간: 10월 13일 01:00~10월 20일 01:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>개발자</h3><p>주요 소재나 게임플레이가 주제에 맞는 게임에는 Steam이 자동으로 초대를 보내고, 초대를 받으면 Steamworks에서 체크박스만 선택하면 등록돼요. 할인이 필수는 아니지만 행사 페이지에서는 할인 중인 게임이 먼저 소개되고, 무료 게임, 출시 예정 게임, 데모도 참가할 수 있어요. 이런 행사의 할인에는 일반 할인 쿨다운이 적용돼요. 공식 홍보 자료에 들어가려면 보통 행사 시작 약 6주 전까지 등록과 할인 설정을 마쳐야 하니, 정확한 마감은 등록 페이지에서 확인하세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/cooking_2026\">https://partner.steamgames.com/optin/sale/cooking_2026</a>)는 Steamworks 계정으로 로그인해야 열려요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "요리 게임 개발자"
+          ]
+        }
+      }
+    },
+    "steam-scream-fest-2026": {
+      "source": {
+        "title": "Steam 驚聲尖叫節 V（Steam Scream V）",
+        "summary": "Steam 的主題特賣活動，主題：恐怖遊戲，以及以萬聖節為題材的遊戲。台灣時間 10/27 01:00 到 11/3 02:00，符合主題的遊戲可以報名參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 的主題特賣活動（Fest），這一檔的主題：恐怖遊戲，以及以萬聖節為題材的遊戲。活動期間 Steam 首頁會推出專區，分成折扣、免費遊玩、Demo、即將推出等分類。</p><h3>時間</h3><ul><li>美國太平洋時間 10/26 10:00（PDT）至 11/2 10:00（PST）</li><li>台灣時間 10/27 01:00 至 11/3 02:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>開發者</h3><p>Steam 會自動邀請主要題材或玩法符合主題的遊戲，受邀後在 Steamworks 勾選報名即可。不一定要打折，但活動頁會優先展示有折扣的遊戲；免費遊戲、即將推出的遊戲和 Demo 也能參加。這類活動的折扣要遵守一般的折扣冷卻期。想被考慮放進官方宣傳素材，通常要在活動開始前約 6 週完成報名並設定折扣，確切期限以報名頁為準。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/horror_2026\">https://partner.steamgames.com/optin/sale/horror_2026</a>）需要用 Steamworks 帳號登入。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "恐怖遊戲的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Scream V Fest",
+          "summary": "A themed Steam sale. Theme: horror games, plus games themed around Halloween. Runs October 27, 01:00 to November 3, 02:00 Taiwan time; games that fit the theme can register.",
+          "description": "<p>A themed Steam sale, or Fest. This one’s theme: horror games, plus games themed around Halloween. During the fest, the Steam front page gets a dedicated section, split into categories such as discounts, free to play, demos and upcoming games.</p><h3>When</h3><ul><li>US Pacific time: October 26, 10:00 PDT to November 2, 10:00 PST</li><li>Taiwan time: October 27, 01:00 to November 3, 02:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Developers</h3><p>Steam automatically invites games whose main subject or gameplay fits the theme; once invited, just tick the box on Steamworks to register. A discount isn’t required, but the event page features discounted games first; free games, upcoming games and demos can take part too. Discounts in these events follow the usual cooldown between discounts. To be considered for the official marketing materials, you usually need to register and set your discount about 6 weeks before the fest starts; the registration page has the exact deadline.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/horror_2026\">https://partner.steamgames.com/optin/sale/horror_2026</a>) requires a Steamworks sign-in.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Horror game developers"
+          ]
+        },
+        "ja": {
+          "title": "Steam Scream V Fest（ホラーゲーム特集）",
+          "summary": "Steam のテーマ別セールで、テーマは「ホラーゲームと、ハロウィンを題材にしたゲーム」。台湾時間10月27日 1:00〜11月3日 2:00に開催され、テーマに合うゲームは参加登録できます。",
+          "description": "<p>Steam のテーマ別セール（Fest）です。今回のテーマは「ホラーゲームと、ハロウィンを題材にしたゲーム」。期間中は Steam のトップページに特設コーナーができ、割引、無料プレイ、体験版、近日登場といったカテゴリーに分かれます。</p><h3>日時</h3><ul><li>米国太平洋時間：10月26日 10:00（PDT）〜11月2日 10:00（PST）</li><li>台湾時間：10月27日 1:00〜11月3日 2:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>開発者</h3><p>メインの題材やゲームプレイがテーマに合うゲームには、Steam から自動で招待が届きます。招待されたら、Steamworks でチェックを入れるだけで登録完了です。割引は必須ではないものの、イベントページでは割引中のゲームが優先して紹介されます。無料ゲームや近日発売のゲーム、体験版も参加可能です。この種のイベントでの割引には、通常の割引クールダウン期間が適用されます。公式の宣伝素材への採用を検討してもらうには、たいてい開催の約6週間前までに登録と割引設定を済ませる必要があるので、正確な期限は登録ページで確認してください。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/horror_2026\">https://partner.steamgames.com/optin/sale/horror_2026</a>）を開くには Steamworks アカウントでのログインが必要です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "ホラーゲームの開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Scream V Fest (공포 게임 특집)",
+          "summary": "Steam의 테마 할인 행사예요. 주제: 공포 게임과 핼러윈을 소재로 한 게임. 대만 시간 10월 27일 01:00~11월 3일 02:00에 열리며, 주제에 맞는 게임은 참가 등록할 수 있어요.",
+          "description": "<p>Steam의 테마 할인 행사(Fest)예요. 이번 주제: 공포 게임과 핼러윈을 소재로 한 게임. 기간 중에는 Steam 첫 화면에 전용 코너가 생기고, 할인, 무료 플레이, 데모, 출시 예정 등의 분류로 나뉘어요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 10월 26일 10:00(PDT)~11월 2일 10:00(PST)</li><li>대만 시간: 10월 27일 01:00~11월 3일 02:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>개발자</h3><p>주요 소재나 게임플레이가 주제에 맞는 게임에는 Steam이 자동으로 초대를 보내고, 초대를 받으면 Steamworks에서 체크박스만 선택하면 등록돼요. 할인이 필수는 아니지만 행사 페이지에서는 할인 중인 게임이 먼저 소개되고, 무료 게임, 출시 예정 게임, 데모도 참가할 수 있어요. 이런 행사의 할인에는 일반 할인 쿨다운이 적용돼요. 공식 홍보 자료에 들어가려면 보통 행사 시작 약 6주 전까지 등록과 할인 설정을 마쳐야 하니, 정확한 마감은 등록 페이지에서 확인하세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/horror_2026\">https://partner.steamgames.com/optin/sale/horror_2026</a>)는 Steamworks 계정으로 로그인해야 열려요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "공포 게임 개발자"
+          ]
+        }
+      }
+    },
+    "steam-auto-battler-rpg-fest-2026": {
+      "source": {
+        "title": "Steam 自動戰鬥 RPG 遊戲節（Auto-Battler RPG Fest 2026）",
+        "summary": "Steam 的主題特賣活動，主題：戰鬥自動進行、玩家靠升級與強化單位取勝的遊戲。台灣時間 11/17 02:00 到 11/24 02:00，符合主題的遊戲可以報名參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 的主題特賣活動（Fest），這一檔的主題：戰鬥自動進行、玩家靠升級與強化單位取勝的遊戲。活動期間 Steam 首頁會推出專區，分成折扣、免費遊玩、Demo、即將推出等分類。</p><h3>時間</h3><ul><li>美國太平洋時間 11/16 10:00（PST）至 11/23 10:00（PST）</li><li>台灣時間 11/17 02:00 至 11/24 02:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>開發者</h3><p>Steam 會自動邀請主要題材或玩法符合主題的遊戲，受邀後在 Steamworks 勾選報名即可。不一定要打折，但活動頁會優先展示有折扣的遊戲；免費遊戲、即將推出的遊戲和 Demo 也能參加。這類活動的折扣要遵守一般的折扣冷卻期。想被考慮放進官方宣傳素材，通常要在活動開始前約 6 週完成報名並設定折扣，確切期限以報名頁為準。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/auto_battler_2026\">https://partner.steamgames.com/optin/sale/auto_battler_2026</a>）需要用 Steamworks 帳號登入。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "自動戰鬥遊戲的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Auto-Battler RPG Fest 2026",
+          "summary": "A themed Steam sale. Theme: games where battles play out on their own and you win by upgrading and strengthening your units. Runs November 17, 02:00 to November 24, 02:00 Taiwan time; games that fit the theme can register.",
+          "description": "<p>A themed Steam sale, or Fest. This one’s theme: games where battles play out on their own and you win by upgrading and strengthening your units. During the fest, the Steam front page gets a dedicated section, split into categories such as discounts, free to play, demos and upcoming games.</p><h3>When</h3><ul><li>US Pacific time: November 16, 10:00 PST to November 23, 10:00 PST</li><li>Taiwan time: November 17, 02:00 to November 24, 02:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Developers</h3><p>Steam automatically invites games whose main subject or gameplay fits the theme; once invited, just tick the box on Steamworks to register. A discount isn’t required, but the event page features discounted games first; free games, upcoming games and demos can take part too. Discounts in these events follow the usual cooldown between discounts. To be considered for the official marketing materials, you usually need to register and set your discount about 6 weeks before the fest starts; the registration page has the exact deadline.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/auto_battler_2026\">https://partner.steamgames.com/optin/sale/auto_battler_2026</a>) requires a Steamworks sign-in.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Auto-battler developers"
+          ]
+        },
+        "ja": {
+          "title": "Steam Auto-Battler RPG Fest 2026（オートバトル RPG 特集）",
+          "summary": "Steam のテーマ別セールで、テーマは「戦闘は自動で進み、ユニットのアップグレードや強化で勝利をつかむゲーム」。台湾時間11月17日 2:00〜11月24日 2:00に開催され、テーマに合うゲームは参加登録できます。",
+          "description": "<p>Steam のテーマ別セール（Fest）です。今回のテーマは「戦闘は自動で進み、ユニットのアップグレードや強化で勝利をつかむゲーム」。期間中は Steam のトップページに特設コーナーができ、割引、無料プレイ、体験版、近日登場といったカテゴリーに分かれます。</p><h3>日時</h3><ul><li>米国太平洋時間：11月16日 10:00（PST）〜11月23日 10:00（PST）</li><li>台湾時間：11月17日 2:00〜11月24日 2:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>開発者</h3><p>メインの題材やゲームプレイがテーマに合うゲームには、Steam から自動で招待が届きます。招待されたら、Steamworks でチェックを入れるだけで登録完了です。割引は必須ではないものの、イベントページでは割引中のゲームが優先して紹介されます。無料ゲームや近日発売のゲーム、体験版も参加可能です。この種のイベントでの割引には、通常の割引クールダウン期間が適用されます。公式の宣伝素材への採用を検討してもらうには、たいてい開催の約6週間前までに登録と割引設定を済ませる必要があるので、正確な期限は登録ページで確認してください。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/auto_battler_2026\">https://partner.steamgames.com/optin/sale/auto_battler_2026</a>）を開くには Steamworks アカウントでのログインが必要です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "オートバトルゲームの開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Auto-Battler RPG Fest 2026 (오토배틀 RPG 특집)",
+          "summary": "Steam의 테마 할인 행사예요. 주제: 전투는 자동으로 진행되고, 유닛을 업그레이드하고 강화해서 이기는 게임. 대만 시간 11월 17일 02:00~11월 24일 02:00에 열리며, 주제에 맞는 게임은 참가 등록할 수 있어요.",
+          "description": "<p>Steam의 테마 할인 행사(Fest)예요. 이번 주제: 전투는 자동으로 진행되고, 유닛을 업그레이드하고 강화해서 이기는 게임. 기간 중에는 Steam 첫 화면에 전용 코너가 생기고, 할인, 무료 플레이, 데모, 출시 예정 등의 분류로 나뉘어요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 11월 16일 10:00(PST)~11월 23일 10:00(PST)</li><li>대만 시간: 11월 17일 02:00~11월 24일 02:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>개발자</h3><p>주요 소재나 게임플레이가 주제에 맞는 게임에는 Steam이 자동으로 초대를 보내고, 초대를 받으면 Steamworks에서 체크박스만 선택하면 등록돼요. 할인이 필수는 아니지만 행사 페이지에서는 할인 중인 게임이 먼저 소개되고, 무료 게임, 출시 예정 게임, 데모도 참가할 수 있어요. 이런 행사의 할인에는 일반 할인 쿨다운이 적용돼요. 공식 홍보 자료에 들어가려면 보통 행사 시작 약 6주 전까지 등록과 할인 설정을 마쳐야 하니, 정확한 마감은 등록 페이지에서 확인하세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/auto_battler_2026\">https://partner.steamgames.com/optin/sale/auto_battler_2026</a>)는 Steamworks 계정으로 로그인해야 열려요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "오토배틀 게임 개발자"
+          ]
+        }
+      }
+    },
+    "steam-desktop-companion-fest-2027": {
+      "source": {
+        "title": "Steam 桌面陪伴遊戲節（Desktop Companion Fest 2027）",
+        "summary": "Steam 的主題特賣活動，主題：待在電腦桌面上、在你做其他事時陪著你的遊戲。台灣時間 1/15 02:00 到 1/19 02:00，符合主題的遊戲可以報名參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 的主題特賣活動（Fest），這一檔的主題：待在電腦桌面上、在你做其他事時陪著你的遊戲。活動期間 Steam 首頁會推出專區，分成折扣、免費遊玩、Demo、即將推出等分類。</p><h3>時間</h3><ul><li>美國太平洋時間 1/14 10:00（PST）至 1/18 10:00（PST）</li><li>台灣時間 1/15 02:00 至 1/19 02:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>開發者</h3><p>Steam 會自動邀請主要題材或玩法符合主題的遊戲，受邀後在 Steamworks 勾選報名即可。不一定要打折，但活動頁會優先展示有折扣的遊戲；免費遊戲、即將推出的遊戲和 Demo 也能參加。這類活動的折扣要遵守一般的折扣冷卻期。想被考慮放進官方宣傳素材，通常要在活動開始前約 6 週完成報名並設定折扣，確切期限以報名頁為準。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/desktop_companion_2027\">https://partner.steamgames.com/optin/sale/desktop_companion_2027</a>）需要用 Steamworks 帳號登入。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "桌面陪伴遊戲的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Desktop Companion Fest 2027",
+          "summary": "A themed Steam sale. Theme: games that sit on your desktop and keep you company while you do other things. Runs January 15, 02:00 to January 19, 02:00 Taiwan time; games that fit the theme can register.",
+          "description": "<p>A themed Steam sale, or Fest. This one’s theme: games that sit on your desktop and keep you company while you do other things. During the fest, the Steam front page gets a dedicated section, split into categories such as discounts, free to play, demos and upcoming games.</p><h3>When</h3><ul><li>US Pacific time: January 14, 10:00 PST to January 18, 10:00 PST</li><li>Taiwan time: January 15, 02:00 to January 19, 02:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Developers</h3><p>Steam automatically invites games whose main subject or gameplay fits the theme; once invited, just tick the box on Steamworks to register. A discount isn’t required, but the event page features discounted games first; free games, upcoming games and demos can take part too. Discounts in these events follow the usual cooldown between discounts. To be considered for the official marketing materials, you usually need to register and set your discount about 6 weeks before the fest starts; the registration page has the exact deadline.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/desktop_companion_2027\">https://partner.steamgames.com/optin/sale/desktop_companion_2027</a>) requires a Steamworks sign-in.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Desktop companion game developers"
+          ]
+        },
+        "ja": {
+          "title": "Steam Desktop Companion Fest 2027（デスクトップ常駐ゲーム特集）",
+          "summary": "Steam のテーマ別セールで、テーマは「パソコンのデスクトップに常駐して、ほかの作業中もそばにいてくれるゲーム」。台湾時間1月15日 2:00〜1月19日 2:00に開催され、テーマに合うゲームは参加登録できます。",
+          "description": "<p>Steam のテーマ別セール（Fest）です。今回のテーマは「パソコンのデスクトップに常駐して、ほかの作業中もそばにいてくれるゲーム」。期間中は Steam のトップページに特設コーナーができ、割引、無料プレイ、体験版、近日登場といったカテゴリーに分かれます。</p><h3>日時</h3><ul><li>米国太平洋時間：1月14日 10:00（PST）〜1月18日 10:00（PST）</li><li>台湾時間：1月15日 2:00〜1月19日 2:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>開発者</h3><p>メインの題材やゲームプレイがテーマに合うゲームには、Steam から自動で招待が届きます。招待されたら、Steamworks でチェックを入れるだけで登録完了です。割引は必須ではないものの、イベントページでは割引中のゲームが優先して紹介されます。無料ゲームや近日発売のゲーム、体験版も参加可能です。この種のイベントでの割引には、通常の割引クールダウン期間が適用されます。公式の宣伝素材への採用を検討してもらうには、たいてい開催の約6週間前までに登録と割引設定を済ませる必要があるので、正確な期限は登録ページで確認してください。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/desktop_companion_2027\">https://partner.steamgames.com/optin/sale/desktop_companion_2027</a>）を開くには Steamworks アカウントでのログインが必要です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "デスクトップ常駐ゲームの開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Desktop Companion Fest 2027 (바탕 화면 게임 특집)",
+          "summary": "Steam의 테마 할인 행사예요. 주제: 컴퓨터 바탕 화면에 머물며 다른 일을 하는 동안 곁에 있어 주는 게임. 대만 시간 1월 15일 02:00~1월 19일 02:00에 열리며, 주제에 맞는 게임은 참가 등록할 수 있어요.",
+          "description": "<p>Steam의 테마 할인 행사(Fest)예요. 이번 주제: 컴퓨터 바탕 화면에 머물며 다른 일을 하는 동안 곁에 있어 주는 게임. 기간 중에는 Steam 첫 화면에 전용 코너가 생기고, 할인, 무료 플레이, 데모, 출시 예정 등의 분류로 나뉘어요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 1월 14일 10:00(PST)~1월 18일 10:00(PST)</li><li>대만 시간: 1월 15일 02:00~1월 19일 02:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>개발자</h3><p>주요 소재나 게임플레이가 주제에 맞는 게임에는 Steam이 자동으로 초대를 보내고, 초대를 받으면 Steamworks에서 체크박스만 선택하면 등록돼요. 할인이 필수는 아니지만 행사 페이지에서는 할인 중인 게임이 먼저 소개되고, 무료 게임, 출시 예정 게임, 데모도 참가할 수 있어요. 이런 행사의 할인에는 일반 할인 쿨다운이 적용돼요. 공식 홍보 자료에 들어가려면 보통 행사 시작 약 6주 전까지 등록과 할인 설정을 마쳐야 하니, 정확한 마감은 등록 페이지에서 확인하세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/desktop_companion_2027\">https://partner.steamgames.com/optin/sale/desktop_companion_2027</a>)는 Steamworks 계정으로 로그인해야 열려요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "바탕 화면 게임 개발자"
+          ]
+        }
+      }
+    },
+    "steam-shop-keeper-fest-2027": {
+      "source": {
+        "title": "Steam 開店經營遊戲節（Shop Keeper Fest 2027）",
+        "summary": "Steam 的主題特賣活動，主題：經營商店的遊戲。台灣時間 1/26 02:00 到 2/2 02:00，符合主題的遊戲可以報名參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 的主題特賣活動（Fest），這一檔的主題：經營商店的遊戲。活動期間 Steam 首頁會推出專區，分成折扣、免費遊玩、Demo、即將推出等分類。</p><h3>時間</h3><ul><li>美國太平洋時間 1/25 10:00（PST）至 2/1 10:00（PST）</li><li>台灣時間 1/26 02:00 至 2/2 02:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>開發者</h3><p>Steam 會自動邀請主要題材或玩法符合主題的遊戲，受邀後在 Steamworks 勾選報名即可。不一定要打折，但活動頁會優先展示有折扣的遊戲；免費遊戲、即將推出的遊戲和 Demo 也能參加。這類活動的折扣要遵守一般的折扣冷卻期。想被考慮放進官方宣傳素材，通常要在活動開始前約 6 週完成報名並設定折扣，確切期限以報名頁為準。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/shop_keep_2027\">https://partner.steamgames.com/optin/sale/shop_keep_2027</a>）需要用 Steamworks 帳號登入。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "經營遊戲的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Shop Keeper Fest 2027",
+          "summary": "A themed Steam sale. Theme: games about running a shop. Runs January 26, 02:00 to February 2, 02:00 Taiwan time; games that fit the theme can register.",
+          "description": "<p>A themed Steam sale, or Fest. This one’s theme: games about running a shop. During the fest, the Steam front page gets a dedicated section, split into categories such as discounts, free to play, demos and upcoming games.</p><h3>When</h3><ul><li>US Pacific time: January 25, 10:00 PST to February 1, 10:00 PST</li><li>Taiwan time: January 26, 02:00 to February 2, 02:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Developers</h3><p>Steam automatically invites games whose main subject or gameplay fits the theme; once invited, just tick the box on Steamworks to register. A discount isn’t required, but the event page features discounted games first; free games, upcoming games and demos can take part too. Discounts in these events follow the usual cooldown between discounts. To be considered for the official marketing materials, you usually need to register and set your discount about 6 weeks before the fest starts; the registration page has the exact deadline.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/shop_keep_2027\">https://partner.steamgames.com/optin/sale/shop_keep_2027</a>) requires a Steamworks sign-in.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Management game developers"
+          ]
+        },
+        "ja": {
+          "title": "Steam Shop Keeper Fest 2027（お店経営ゲーム特集）",
+          "summary": "Steam のテーマ別セールで、テーマは「お店を経営するゲーム」。台湾時間1月26日 2:00〜2月2日 2:00に開催され、テーマに合うゲームは参加登録できます。",
+          "description": "<p>Steam のテーマ別セール（Fest）です。今回のテーマは「お店を経営するゲーム」。期間中は Steam のトップページに特設コーナーができ、割引、無料プレイ、体験版、近日登場といったカテゴリーに分かれます。</p><h3>日時</h3><ul><li>米国太平洋時間：1月25日 10:00（PST）〜2月1日 10:00（PST）</li><li>台湾時間：1月26日 2:00〜2月2日 2:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>開発者</h3><p>メインの題材やゲームプレイがテーマに合うゲームには、Steam から自動で招待が届きます。招待されたら、Steamworks でチェックを入れるだけで登録完了です。割引は必須ではないものの、イベントページでは割引中のゲームが優先して紹介されます。無料ゲームや近日発売のゲーム、体験版も参加可能です。この種のイベントでの割引には、通常の割引クールダウン期間が適用されます。公式の宣伝素材への採用を検討してもらうには、たいてい開催の約6週間前までに登録と割引設定を済ませる必要があるので、正確な期限は登録ページで確認してください。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/shop_keep_2027\">https://partner.steamgames.com/optin/sale/shop_keep_2027</a>）を開くには Steamworks アカウントでのログインが必要です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "経営ゲームの開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Shop Keeper Fest 2027 (가게 경영 게임 특집)",
+          "summary": "Steam의 테마 할인 행사예요. 주제: 가게를 운영하는 게임. 대만 시간 1월 26일 02:00~2월 2일 02:00에 열리며, 주제에 맞는 게임은 참가 등록할 수 있어요.",
+          "description": "<p>Steam의 테마 할인 행사(Fest)예요. 이번 주제: 가게를 운영하는 게임. 기간 중에는 Steam 첫 화면에 전용 코너가 생기고, 할인, 무료 플레이, 데모, 출시 예정 등의 분류로 나뉘어요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 1월 25일 10:00(PST)~2월 1일 10:00(PST)</li><li>대만 시간: 1월 26일 02:00~2월 2일 02:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>개발자</h3><p>주요 소재나 게임플레이가 주제에 맞는 게임에는 Steam이 자동으로 초대를 보내고, 초대를 받으면 Steamworks에서 체크박스만 선택하면 등록돼요. 할인이 필수는 아니지만 행사 페이지에서는 할인 중인 게임이 먼저 소개되고, 무료 게임, 출시 예정 게임, 데모도 참가할 수 있어요. 이런 행사의 할인에는 일반 할인 쿨다운이 적용돼요. 공식 홍보 자료에 들어가려면 보통 행사 시작 약 6주 전까지 등록과 할인 설정을 마쳐야 하니, 정확한 마감은 등록 페이지에서 확인하세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/shop_keep_2027\">https://partner.steamgames.com/optin/sale/shop_keep_2027</a>)는 Steamworks 계정으로 로그인해야 열려요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "경영 게임 개발자"
+          ]
+        }
+      }
+    },
+    "steam-sheep-fest-2027": {
+      "source": {
+        "title": "Steam 綿羊遊戲節（Sheep Fest 2027）",
+        "summary": "Steam 的主題特賣活動，主題：和綿羊、山羊等羊亞科動物有關的遊戲（塔爾羊、北山羊也可以）。台灣時間 2/5 02:00 到 2/9 02:00，符合主題的遊戲可以報名參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 的主題特賣活動（Fest），這一檔的主題：和綿羊、山羊等羊亞科動物有關的遊戲（塔爾羊、北山羊也可以）。活動期間 Steam 首頁會推出專區，分成折扣、免費遊玩、Demo、即將推出等分類。</p><h3>時間</h3><ul><li>美國太平洋時間 2/4 10:00（PST）至 2/8 10:00（PST）</li><li>台灣時間 2/5 02:00 至 2/9 02:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>開發者</h3><p>Steam 會自動邀請主要題材或玩法符合主題的遊戲，受邀後在 Steamworks 勾選報名即可。不一定要打折，但活動頁會優先展示有折扣的遊戲；免費遊戲、即將推出的遊戲和 Demo 也能參加。這類活動的折扣要遵守一般的折扣冷卻期。想被考慮放進官方宣傳素材，通常要在活動開始前約 6 週完成報名並設定折扣，確切期限以報名頁為準。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/sheep_2027\">https://partner.steamgames.com/optin/sale/sheep_2027</a>）需要用 Steamworks 帳號登入。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "有羊登場的遊戲的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Sheep Fest 2027",
+          "summary": "A themed Steam sale. Theme: games about sheep, goats and other animals in the subfamily Caprinae (tahrs and ibexes count too). Runs February 5, 02:00 to February 9, 02:00 Taiwan time; games that fit the theme can register.",
+          "description": "<p>A themed Steam sale, or Fest. This one’s theme: games about sheep, goats and other animals in the subfamily Caprinae (tahrs and ibexes count too). During the fest, the Steam front page gets a dedicated section, split into categories such as discounts, free to play, demos and upcoming games.</p><h3>When</h3><ul><li>US Pacific time: February 4, 10:00 PST to February 8, 10:00 PST</li><li>Taiwan time: February 5, 02:00 to February 9, 02:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Developers</h3><p>Steam automatically invites games whose main subject or gameplay fits the theme; once invited, just tick the box on Steamworks to register. A discount isn’t required, but the event page features discounted games first; free games, upcoming games and demos can take part too. Discounts in these events follow the usual cooldown between discounts. To be considered for the official marketing materials, you usually need to register and set your discount about 6 weeks before the fest starts; the registration page has the exact deadline.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/sheep_2027\">https://partner.steamgames.com/optin/sale/sheep_2027</a>) requires a Steamworks sign-in.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Developers of games featuring sheep"
+          ]
+        },
+        "ja": {
+          "title": "Steam Sheep Fest 2027（ヒツジゲーム特集）",
+          "summary": "Steam のテーマ別セールで、テーマは「ヒツジやヤギなど、ヤギ亜科の動物にまつわるゲーム（タールやアイベックスも対象）」。台湾時間2月5日 2:00〜2月9日 2:00に開催され、テーマに合うゲームは参加登録できます。",
+          "description": "<p>Steam のテーマ別セール（Fest）です。今回のテーマは「ヒツジやヤギなど、ヤギ亜科の動物にまつわるゲーム（タールやアイベックスも対象）」。期間中は Steam のトップページに特設コーナーができ、割引、無料プレイ、体験版、近日登場といったカテゴリーに分かれます。</p><h3>日時</h3><ul><li>米国太平洋時間：2月4日 10:00（PST）〜2月8日 10:00（PST）</li><li>台湾時間：2月5日 2:00〜2月9日 2:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>開発者</h3><p>メインの題材やゲームプレイがテーマに合うゲームには、Steam から自動で招待が届きます。招待されたら、Steamworks でチェックを入れるだけで登録完了です。割引は必須ではないものの、イベントページでは割引中のゲームが優先して紹介されます。無料ゲームや近日発売のゲーム、体験版も参加可能です。この種のイベントでの割引には、通常の割引クールダウン期間が適用されます。公式の宣伝素材への採用を検討してもらうには、たいてい開催の約6週間前までに登録と割引設定を済ませる必要があるので、正確な期限は登録ページで確認してください。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/sheep_2027\">https://partner.steamgames.com/optin/sale/sheep_2027</a>）を開くには Steamworks アカウントでのログインが必要です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "ヒツジが登場するゲームの開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Sheep Fest 2027 (양 게임 특집)",
+          "summary": "Steam의 테마 할인 행사예요. 주제: 양, 염소 등 양아과 동물과 관련된 게임(타르, 아이벡스도 포함). 대만 시간 2월 5일 02:00~2월 9일 02:00에 열리며, 주제에 맞는 게임은 참가 등록할 수 있어요.",
+          "description": "<p>Steam의 테마 할인 행사(Fest)예요. 이번 주제: 양, 염소 등 양아과 동물과 관련된 게임(타르, 아이벡스도 포함). 기간 중에는 Steam 첫 화면에 전용 코너가 생기고, 할인, 무료 플레이, 데모, 출시 예정 등의 분류로 나뉘어요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 2월 4일 10:00(PST)~2월 8일 10:00(PST)</li><li>대만 시간: 2월 5일 02:00~2월 9일 02:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>개발자</h3><p>주요 소재나 게임플레이가 주제에 맞는 게임에는 Steam이 자동으로 초대를 보내고, 초대를 받으면 Steamworks에서 체크박스만 선택하면 등록돼요. 할인이 필수는 아니지만 행사 페이지에서는 할인 중인 게임이 먼저 소개되고, 무료 게임, 출시 예정 게임, 데모도 참가할 수 있어요. 이런 행사의 할인에는 일반 할인 쿨다운이 적용돼요. 공식 홍보 자료에 들어가려면 보통 행사 시작 약 6주 전까지 등록과 할인 설정을 마쳐야 하니, 정확한 마감은 등록 페이지에서 확인하세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/sheep_2027\">https://partner.steamgames.com/optin/sale/sheep_2027</a>)는 Steamworks 계정으로 로그인해야 열려요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "양이 나오는 게임 개발자"
+          ]
+        }
+      }
+    },
+    "steam-couch-co-op-fest-2027": {
+      "source": {
+        "title": "Steam 本地合作遊戲節（Couch Co-Op Fest 2027）",
+        "summary": "Steam 的主題特賣活動，主題：可以在同一台裝置上一起玩的遊戲（必須支援本地合作）。台灣時間 2/9 02:00 到 2/16 02:00，符合主題的遊戲可以報名參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 的主題特賣活動（Fest），這一檔的主題：可以在同一台裝置上一起玩的遊戲（必須支援本地合作）。活動期間 Steam 首頁會推出專區，分成折扣、免費遊玩、Demo、即將推出等分類。</p><h3>時間</h3><ul><li>美國太平洋時間 2/8 10:00（PST）至 2/15 10:00（PST）</li><li>台灣時間 2/9 02:00 至 2/16 02:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>開發者</h3><p>Steam 會自動邀請主要題材或玩法符合主題的遊戲，受邀後在 Steamworks 勾選報名即可。不一定要打折，但活動頁會優先展示有折扣的遊戲；免費遊戲、即將推出的遊戲和 Demo 也能參加。這類活動的折扣要遵守一般的折扣冷卻期。想被考慮放進官方宣傳素材，通常要在活動開始前約 6 週完成報名並設定折扣，確切期限以報名頁為準。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/couch_coop_2027\">https://partner.steamgames.com/optin/sale/couch_coop_2027</a>）需要用 Steamworks 帳號登入。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "本地合作遊戲的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Couch Co-Op Fest 2027",
+          "summary": "A themed Steam sale. Theme: games you can play together on the same device (local co-op support required). Runs February 9, 02:00 to February 16, 02:00 Taiwan time; games that fit the theme can register.",
+          "description": "<p>A themed Steam sale, or Fest. This one’s theme: games you can play together on the same device (local co-op support required). During the fest, the Steam front page gets a dedicated section, split into categories such as discounts, free to play, demos and upcoming games.</p><h3>When</h3><ul><li>US Pacific time: February 8, 10:00 PST to February 15, 10:00 PST</li><li>Taiwan time: February 9, 02:00 to February 16, 02:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Developers</h3><p>Steam automatically invites games whose main subject or gameplay fits the theme; once invited, just tick the box on Steamworks to register. A discount isn’t required, but the event page features discounted games first; free games, upcoming games and demos can take part too. Discounts in these events follow the usual cooldown between discounts. To be considered for the official marketing materials, you usually need to register and set your discount about 6 weeks before the fest starts; the registration page has the exact deadline.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/couch_coop_2027\">https://partner.steamgames.com/optin/sale/couch_coop_2027</a>) requires a Steamworks sign-in.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Local co-op game developers"
+          ]
+        },
+        "ja": {
+          "title": "Steam Couch Co-Op Fest 2027（ローカル協力プレイ特集）",
+          "summary": "Steam のテーマ別セールで、テーマは「1台の端末でいっしょに遊べるゲーム（ローカル協力プレイへの対応が必須）」。台湾時間2月9日 2:00〜2月16日 2:00に開催され、テーマに合うゲームは参加登録できます。",
+          "description": "<p>Steam のテーマ別セール（Fest）です。今回のテーマは「1台の端末でいっしょに遊べるゲーム（ローカル協力プレイへの対応が必須）」。期間中は Steam のトップページに特設コーナーができ、割引、無料プレイ、体験版、近日登場といったカテゴリーに分かれます。</p><h3>日時</h3><ul><li>米国太平洋時間：2月8日 10:00（PST）〜2月15日 10:00（PST）</li><li>台湾時間：2月9日 2:00〜2月16日 2:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>開発者</h3><p>メインの題材やゲームプレイがテーマに合うゲームには、Steam から自動で招待が届きます。招待されたら、Steamworks でチェックを入れるだけで登録完了です。割引は必須ではないものの、イベントページでは割引中のゲームが優先して紹介されます。無料ゲームや近日発売のゲーム、体験版も参加可能です。この種のイベントでの割引には、通常の割引クールダウン期間が適用されます。公式の宣伝素材への採用を検討してもらうには、たいてい開催の約6週間前までに登録と割引設定を済ませる必要があるので、正確な期限は登録ページで確認してください。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/couch_coop_2027\">https://partner.steamgames.com/optin/sale/couch_coop_2027</a>）を開くには Steamworks アカウントでのログインが必要です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "ローカル協力プレイゲームの開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Couch Co-Op Fest 2027 (로컬 협동 게임 특집)",
+          "summary": "Steam의 테마 할인 행사예요. 주제: 한 기기에서 함께 즐길 수 있는 게임(로컬 협동 지원 필수). 대만 시간 2월 9일 02:00~2월 16일 02:00에 열리며, 주제에 맞는 게임은 참가 등록할 수 있어요.",
+          "description": "<p>Steam의 테마 할인 행사(Fest)예요. 이번 주제: 한 기기에서 함께 즐길 수 있는 게임(로컬 협동 지원 필수). 기간 중에는 Steam 첫 화면에 전용 코너가 생기고, 할인, 무료 플레이, 데모, 출시 예정 등의 분류로 나뉘어요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 2월 8일 10:00(PST)~2월 15일 10:00(PST)</li><li>대만 시간: 2월 9일 02:00~2월 16일 02:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>개발자</h3><p>주요 소재나 게임플레이가 주제에 맞는 게임에는 Steam이 자동으로 초대를 보내고, 초대를 받으면 Steamworks에서 체크박스만 선택하면 등록돼요. 할인이 필수는 아니지만 행사 페이지에서는 할인 중인 게임이 먼저 소개되고, 무료 게임, 출시 예정 게임, 데모도 참가할 수 있어요. 이런 행사의 할인에는 일반 할인 쿨다운이 적용돼요. 공식 홍보 자료에 들어가려면 보통 행사 시작 약 6주 전까지 등록과 할인 설정을 마쳐야 하니, 정확한 마감은 등록 페이지에서 확인하세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/couch_coop_2027\">https://partner.steamgames.com/optin/sale/couch_coop_2027</a>)는 Steamworks 계정으로 로그인해야 열려요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "로컬 협동 게임 개발자"
+          ]
+        }
+      }
+    },
+    "steam-rhythm-fest-2027": {
+      "source": {
+        "title": "Steam 節奏遊戲節（Rhythm Fest 2027）",
+        "summary": "Steam 的主題特賣活動，主題：跟著節拍準確按下音符、箭頭或子彈等的節奏遊戲。台灣時間 3/9 02:00 到 3/16 01:00，符合主題的遊戲可以報名參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 的主題特賣活動（Fest），這一檔的主題：跟著節拍準確按下音符、箭頭或子彈等的節奏遊戲。活動期間 Steam 首頁會推出專區，分成折扣、免費遊玩、Demo、即將推出等分類。</p><h3>時間</h3><ul><li>美國太平洋時間 3/8 10:00（PST）至 3/15 10:00（PDT）</li><li>台灣時間 3/9 02:00 至 3/16 01:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>開發者</h3><p>Steam 會自動邀請主要題材或玩法符合主題的遊戲，受邀後在 Steamworks 勾選報名即可。不一定要打折，但活動頁會優先展示有折扣的遊戲；免費遊戲、即將推出的遊戲和 Demo 也能參加。這類活動的折扣要遵守一般的折扣冷卻期。想被考慮放進官方宣傳素材，通常要在活動開始前約 6 週完成報名並設定折扣，確切期限以報名頁為準。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/rhythm_2027\">https://partner.steamgames.com/optin/sale/rhythm_2027</a>）需要用 Steamworks 帳號登入。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "節奏遊戲的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Rhythm Fest 2027",
+          "summary": "A themed Steam sale. Theme: rhythm games about hitting notes, arrows, bullets and more in time with the beat. Runs March 9, 02:00 to March 16, 01:00 Taiwan time; games that fit the theme can register.",
+          "description": "<p>A themed Steam sale, or Fest. This one’s theme: rhythm games about hitting notes, arrows, bullets and more in time with the beat. During the fest, the Steam front page gets a dedicated section, split into categories such as discounts, free to play, demos and upcoming games.</p><h3>When</h3><ul><li>US Pacific time: March 8, 10:00 PST to March 15, 10:00 PDT</li><li>Taiwan time: March 9, 02:00 to March 16, 01:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Developers</h3><p>Steam automatically invites games whose main subject or gameplay fits the theme; once invited, just tick the box on Steamworks to register. A discount isn’t required, but the event page features discounted games first; free games, upcoming games and demos can take part too. Discounts in these events follow the usual cooldown between discounts. To be considered for the official marketing materials, you usually need to register and set your discount about 6 weeks before the fest starts; the registration page has the exact deadline.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/rhythm_2027\">https://partner.steamgames.com/optin/sale/rhythm_2027</a>) requires a Steamworks sign-in.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Rhythm game developers"
+          ]
+        },
+        "ja": {
+          "title": "Steam Rhythm Fest 2027（リズムゲーム特集）",
+          "summary": "Steam のテーマ別セールで、テーマは「ビートに合わせてノーツや矢印、弾などを正確にとらえるリズムゲーム」。台湾時間3月9日 2:00〜3月16日 1:00に開催され、テーマに合うゲームは参加登録できます。",
+          "description": "<p>Steam のテーマ別セール（Fest）です。今回のテーマは「ビートに合わせてノーツや矢印、弾などを正確にとらえるリズムゲーム」。期間中は Steam のトップページに特設コーナーができ、割引、無料プレイ、体験版、近日登場といったカテゴリーに分かれます。</p><h3>日時</h3><ul><li>米国太平洋時間：3月8日 10:00（PST）〜3月15日 10:00（PDT）</li><li>台湾時間：3月9日 2:00〜3月16日 1:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>開発者</h3><p>メインの題材やゲームプレイがテーマに合うゲームには、Steam から自動で招待が届きます。招待されたら、Steamworks でチェックを入れるだけで登録完了です。割引は必須ではないものの、イベントページでは割引中のゲームが優先して紹介されます。無料ゲームや近日発売のゲーム、体験版も参加可能です。この種のイベントでの割引には、通常の割引クールダウン期間が適用されます。公式の宣伝素材への採用を検討してもらうには、たいてい開催の約6週間前までに登録と割引設定を済ませる必要があるので、正確な期限は登録ページで確認してください。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/rhythm_2027\">https://partner.steamgames.com/optin/sale/rhythm_2027</a>）を開くには Steamworks アカウントでのログインが必要です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "リズムゲームの開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Rhythm Fest 2027 (리듬 게임 특집)",
+          "summary": "Steam의 테마 할인 행사예요. 주제: 박자에 맞춰 노트, 화살표, 탄환 등을 정확히 맞히는 리듬 게임. 대만 시간 3월 9일 02:00~3월 16일 01:00에 열리며, 주제에 맞는 게임은 참가 등록할 수 있어요.",
+          "description": "<p>Steam의 테마 할인 행사(Fest)예요. 이번 주제: 박자에 맞춰 노트, 화살표, 탄환 등을 정확히 맞히는 리듬 게임. 기간 중에는 Steam 첫 화면에 전용 코너가 생기고, 할인, 무료 플레이, 데모, 출시 예정 등의 분류로 나뉘어요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 3월 8일 10:00(PST)~3월 15일 10:00(PDT)</li><li>대만 시간: 3월 9일 02:00~3월 16일 01:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>개발자</h3><p>주요 소재나 게임플레이가 주제에 맞는 게임에는 Steam이 자동으로 초대를 보내고, 초대를 받으면 Steamworks에서 체크박스만 선택하면 등록돼요. 할인이 필수는 아니지만 행사 페이지에서는 할인 중인 게임이 먼저 소개되고, 무료 게임, 출시 예정 게임, 데모도 참가할 수 있어요. 이런 행사의 할인에는 일반 할인 쿨다운이 적용돼요. 공식 홍보 자료에 들어가려면 보통 행사 시작 약 6주 전까지 등록과 할인 설정을 마쳐야 하니, 정확한 마감은 등록 페이지에서 확인하세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/rhythm_2027\">https://partner.steamgames.com/optin/sale/rhythm_2027</a>)는 Steamworks 계정으로 로그인해야 열려요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "리듬 게임 개발자"
+          ]
+        }
+      }
+    },
+    "steam-dinos-vs-robots-fest-2027": {
+      "source": {
+        "title": "Steam 恐龍大戰機器人遊戲節（Dinos vs. Robots Fest 2027）",
+        "summary": "Steam 的主題特賣活動，主題：有恐龍、機器人，或兩者都有（包括機器恐龍）的遊戲。台灣時間 3/30 01:00 到 4/6 01:00，符合主題的遊戲可以報名參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 的主題特賣活動（Fest），這一檔的主題：有恐龍、機器人，或兩者都有（包括機器恐龍）的遊戲。活動期間 Steam 首頁會推出專區，分成折扣、免費遊玩、Demo、即將推出等分類。</p><h3>時間</h3><ul><li>美國太平洋時間 3/29 10:00（PDT）至 4/5 10:00（PDT）</li><li>台灣時間 3/30 01:00 至 4/6 01:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>開發者</h3><p>Steam 會自動邀請主要題材或玩法符合主題的遊戲，受邀後在 Steamworks 勾選報名即可。不一定要打折，但活動頁會優先展示有折扣的遊戲；免費遊戲、即將推出的遊戲和 Demo 也能參加。這類活動的折扣要遵守一般的折扣冷卻期。想被考慮放進官方宣傳素材，通常要在活動開始前約 6 週完成報名並設定折扣，確切期限以報名頁為準。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/dinos_robots_2027\">https://partner.steamgames.com/optin/sale/dinos_robots_2027</a>）需要用 Steamworks 帳號登入。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "恐龍或機器人題材遊戲的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Dinos vs. Robots Fest 2027",
+          "summary": "A themed Steam sale. Theme: games with dinosaurs, robots or both (robot dinosaurs included). Runs March 30, 01:00 to April 6, 01:00 Taiwan time; games that fit the theme can register.",
+          "description": "<p>A themed Steam sale, or Fest. This one’s theme: games with dinosaurs, robots or both (robot dinosaurs included). During the fest, the Steam front page gets a dedicated section, split into categories such as discounts, free to play, demos and upcoming games.</p><h3>When</h3><ul><li>US Pacific time: March 29, 10:00 PDT to April 5, 10:00 PDT</li><li>Taiwan time: March 30, 01:00 to April 6, 01:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Developers</h3><p>Steam automatically invites games whose main subject or gameplay fits the theme; once invited, just tick the box on Steamworks to register. A discount isn’t required, but the event page features discounted games first; free games, upcoming games and demos can take part too. Discounts in these events follow the usual cooldown between discounts. To be considered for the official marketing materials, you usually need to register and set your discount about 6 weeks before the fest starts; the registration page has the exact deadline.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/dinos_robots_2027\">https://partner.steamgames.com/optin/sale/dinos_robots_2027</a>) requires a Steamworks sign-in.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Developers of dinosaur or robot games"
+          ]
+        },
+        "ja": {
+          "title": "Steam Dinos vs. Robots Fest 2027（恐竜・ロボットゲーム特集）",
+          "summary": "Steam のテーマ別セールで、テーマは「恐竜かロボット、あるいはその両方（ロボット恐竜も含む）が登場するゲーム」。台湾時間3月30日 1:00〜4月6日 1:00に開催され、テーマに合うゲームは参加登録できます。",
+          "description": "<p>Steam のテーマ別セール（Fest）です。今回のテーマは「恐竜かロボット、あるいはその両方（ロボット恐竜も含む）が登場するゲーム」。期間中は Steam のトップページに特設コーナーができ、割引、無料プレイ、体験版、近日登場といったカテゴリーに分かれます。</p><h3>日時</h3><ul><li>米国太平洋時間：3月29日 10:00（PDT）〜4月5日 10:00（PDT）</li><li>台湾時間：3月30日 1:00〜4月6日 1:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>開発者</h3><p>メインの題材やゲームプレイがテーマに合うゲームには、Steam から自動で招待が届きます。招待されたら、Steamworks でチェックを入れるだけで登録完了です。割引は必須ではないものの、イベントページでは割引中のゲームが優先して紹介されます。無料ゲームや近日発売のゲーム、体験版も参加可能です。この種のイベントでの割引には、通常の割引クールダウン期間が適用されます。公式の宣伝素材への採用を検討してもらうには、たいてい開催の約6週間前までに登録と割引設定を済ませる必要があるので、正確な期限は登録ページで確認してください。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/dinos_robots_2027\">https://partner.steamgames.com/optin/sale/dinos_robots_2027</a>）を開くには Steamworks アカウントでのログインが必要です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "恐竜やロボットが題材のゲームの開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Dinos vs. Robots Fest 2027 (공룡·로봇 게임 특집)",
+          "summary": "Steam의 테마 할인 행사예요. 주제: 공룡이나 로봇, 또는 둘 다(로봇 공룡 포함) 나오는 게임. 대만 시간 3월 30일 01:00~4월 6일 01:00에 열리며, 주제에 맞는 게임은 참가 등록할 수 있어요.",
+          "description": "<p>Steam의 테마 할인 행사(Fest)예요. 이번 주제: 공룡이나 로봇, 또는 둘 다(로봇 공룡 포함) 나오는 게임. 기간 중에는 Steam 첫 화면에 전용 코너가 생기고, 할인, 무료 플레이, 데모, 출시 예정 등의 분류로 나뉘어요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 3월 29일 10:00(PDT)~4월 5일 10:00(PDT)</li><li>대만 시간: 3월 30일 01:00~4월 6일 01:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>개발자</h3><p>주요 소재나 게임플레이가 주제에 맞는 게임에는 Steam이 자동으로 초대를 보내고, 초대를 받으면 Steamworks에서 체크박스만 선택하면 등록돼요. 할인이 필수는 아니지만 행사 페이지에서는 할인 중인 게임이 먼저 소개되고, 무료 게임, 출시 예정 게임, 데모도 참가할 수 있어요. 이런 행사의 할인에는 일반 할인 쿨다운이 적용돼요. 공식 홍보 자료에 들어가려면 보통 행사 시작 약 6주 전까지 등록과 할인 설정을 마쳐야 하니, 정확한 마감은 등록 페이지에서 확인하세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/dinos_robots_2027\">https://partner.steamgames.com/optin/sale/dinos_robots_2027</a>)는 Steamworks 계정으로 로그인해야 열려요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "공룡·로봇 게임 개발자"
+          ]
+        }
+      }
+    },
+    "steam-racing-fest-2027": {
+      "source": {
+        "title": "Steam 競速遊戲節（Racing Fest 2027）",
+        "summary": "Steam 的主題特賣活動，主題：比速度的遊戲：比別人快、比電腦快，或比昨天的自己快。台灣時間 4/13 01:00 到 4/20 01:00，符合主題的遊戲可以報名參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 的主題特賣活動（Fest），這一檔的主題：比速度的遊戲：比別人快、比電腦快，或比昨天的自己快。活動期間 Steam 首頁會推出專區，分成折扣、免費遊玩、Demo、即將推出等分類。</p><h3>時間</h3><ul><li>美國太平洋時間 4/12 10:00（PDT）至 4/19 10:00（PDT）</li><li>台灣時間 4/13 01:00 至 4/20 01:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>開發者</h3><p>Steam 會自動邀請主要題材或玩法符合主題的遊戲，受邀後在 Steamworks 勾選報名即可。不一定要打折，但活動頁會優先展示有折扣的遊戲；免費遊戲、即將推出的遊戲和 Demo 也能參加。這類活動的折扣要遵守一般的折扣冷卻期。想被考慮放進官方宣傳素材，通常要在活動開始前約 6 週完成報名並設定折扣，確切期限以報名頁為準。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/racing_2027\">https://partner.steamgames.com/optin/sale/racing_2027</a>）需要用 Steamworks 帳號登入。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "競速遊戲的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Racing Fest 2027",
+          "summary": "A themed Steam sale. Theme: games about going fast, whether faster than other people, the computer or yesterday’s you. Runs April 13, 01:00 to April 20, 01:00 Taiwan time; games that fit the theme can register.",
+          "description": "<p>A themed Steam sale, or Fest. This one’s theme: games about going fast, whether faster than other people, the computer or yesterday’s you. During the fest, the Steam front page gets a dedicated section, split into categories such as discounts, free to play, demos and upcoming games.</p><h3>When</h3><ul><li>US Pacific time: April 12, 10:00 PDT to April 19, 10:00 PDT</li><li>Taiwan time: April 13, 01:00 to April 20, 01:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Developers</h3><p>Steam automatically invites games whose main subject or gameplay fits the theme; once invited, just tick the box on Steamworks to register. A discount isn’t required, but the event page features discounted games first; free games, upcoming games and demos can take part too. Discounts in these events follow the usual cooldown between discounts. To be considered for the official marketing materials, you usually need to register and set your discount about 6 weeks before the fest starts; the registration page has the exact deadline.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/racing_2027\">https://partner.steamgames.com/optin/sale/racing_2027</a>) requires a Steamworks sign-in.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Racing game developers"
+          ]
+        },
+        "ja": {
+          "title": "Steam Racing Fest 2027（レースゲーム特集）",
+          "summary": "Steam のテーマ別セールで、テーマは「ほかの人やコンピューター、昨日の自分よりも速く走ることを競うゲーム」。台湾時間4月13日 1:00〜4月20日 1:00に開催され、テーマに合うゲームは参加登録できます。",
+          "description": "<p>Steam のテーマ別セール（Fest）です。今回のテーマは「ほかの人やコンピューター、昨日の自分よりも速く走ることを競うゲーム」。期間中は Steam のトップページに特設コーナーができ、割引、無料プレイ、体験版、近日登場といったカテゴリーに分かれます。</p><h3>日時</h3><ul><li>米国太平洋時間：4月12日 10:00（PDT）〜4月19日 10:00（PDT）</li><li>台湾時間：4月13日 1:00〜4月20日 1:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>開発者</h3><p>メインの題材やゲームプレイがテーマに合うゲームには、Steam から自動で招待が届きます。招待されたら、Steamworks でチェックを入れるだけで登録完了です。割引は必須ではないものの、イベントページでは割引中のゲームが優先して紹介されます。無料ゲームや近日発売のゲーム、体験版も参加可能です。この種のイベントでの割引には、通常の割引クールダウン期間が適用されます。公式の宣伝素材への採用を検討してもらうには、たいてい開催の約6週間前までに登録と割引設定を済ませる必要があるので、正確な期限は登録ページで確認してください。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/racing_2027\">https://partner.steamgames.com/optin/sale/racing_2027</a>）を開くには Steamworks アカウントでのログインが必要です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "レースゲームの開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Racing Fest 2027 (레이싱 게임 특집)",
+          "summary": "Steam의 테마 할인 행사예요. 주제: 다른 사람, 컴퓨터, 어제의 나보다 빨리 달리는 속도 경쟁 게임. 대만 시간 4월 13일 01:00~4월 20일 01:00에 열리며, 주제에 맞는 게임은 참가 등록할 수 있어요.",
+          "description": "<p>Steam의 테마 할인 행사(Fest)예요. 이번 주제: 다른 사람, 컴퓨터, 어제의 나보다 빨리 달리는 속도 경쟁 게임. 기간 중에는 Steam 첫 화면에 전용 코너가 생기고, 할인, 무료 플레이, 데모, 출시 예정 등의 분류로 나뉘어요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 4월 12일 10:00(PDT)~4월 19일 10:00(PDT)</li><li>대만 시간: 4월 13일 01:00~4월 20일 01:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>개발자</h3><p>주요 소재나 게임플레이가 주제에 맞는 게임에는 Steam이 자동으로 초대를 보내고, 초대를 받으면 Steamworks에서 체크박스만 선택하면 등록돼요. 할인이 필수는 아니지만 행사 페이지에서는 할인 중인 게임이 먼저 소개되고, 무료 게임, 출시 예정 게임, 데모도 참가할 수 있어요. 이런 행사의 할인에는 일반 할인 쿨다운이 적용돼요. 공식 홍보 자료에 들어가려면 보통 행사 시작 약 6주 전까지 등록과 할인 설정을 마쳐야 하니, 정확한 마감은 등록 페이지에서 확인하세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/racing_2027\">https://partner.steamgames.com/optin/sale/racing_2027</a>)는 Steamworks 계정으로 로그인해야 열려요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "레이싱 게임 개발자"
+          ]
+        }
+      }
+    },
+    "steam-witch-fest-2027": {
+      "source": {
+        "title": "Steam 女巫遊戲節（Witch Fest 2027）",
+        "summary": "Steam 的主題特賣活動，主題：和女巫、巫術有關的遊戲。台灣時間 4/23 01:00 到 4/27 01:00，符合主題的遊戲可以報名參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 的主題特賣活動（Fest），這一檔的主題：和女巫、巫術有關的遊戲。活動期間 Steam 首頁會推出專區，分成折扣、免費遊玩、Demo、即將推出等分類。</p><h3>時間</h3><ul><li>美國太平洋時間 4/22 10:00（PDT）至 4/26 10:00（PDT）</li><li>台灣時間 4/23 01:00 至 4/27 01:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>開發者</h3><p>Steam 會自動邀請主要題材或玩法符合主題的遊戲，受邀後在 Steamworks 勾選報名即可。不一定要打折，但活動頁會優先展示有折扣的遊戲；免費遊戲、即將推出的遊戲和 Demo 也能參加。這類活動的折扣要遵守一般的折扣冷卻期。想被考慮放進官方宣傳素材，通常要在活動開始前約 6 週完成報名並設定折扣，確切期限以報名頁為準。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/witch_2027\">https://partner.steamgames.com/optin/sale/witch_2027</a>）需要用 Steamworks 帳號登入。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "女巫題材遊戲的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Witch Fest 2027",
+          "summary": "A themed Steam sale. Theme: games about witches and witchcraft. Runs April 23, 01:00 to April 27, 01:00 Taiwan time; games that fit the theme can register.",
+          "description": "<p>A themed Steam sale, or Fest. This one’s theme: games about witches and witchcraft. During the fest, the Steam front page gets a dedicated section, split into categories such as discounts, free to play, demos and upcoming games.</p><h3>When</h3><ul><li>US Pacific time: April 22, 10:00 PDT to April 26, 10:00 PDT</li><li>Taiwan time: April 23, 01:00 to April 27, 01:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Developers</h3><p>Steam automatically invites games whose main subject or gameplay fits the theme; once invited, just tick the box on Steamworks to register. A discount isn’t required, but the event page features discounted games first; free games, upcoming games and demos can take part too. Discounts in these events follow the usual cooldown between discounts. To be considered for the official marketing materials, you usually need to register and set your discount about 6 weeks before the fest starts; the registration page has the exact deadline.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/witch_2027\">https://partner.steamgames.com/optin/sale/witch_2027</a>) requires a Steamworks sign-in.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Developers of witch games"
+          ]
+        },
+        "ja": {
+          "title": "Steam Witch Fest 2027（魔女ゲーム特集）",
+          "summary": "Steam のテーマ別セールで、テーマは「魔女や魔術にまつわるゲーム」。台湾時間4月23日 1:00〜4月27日 1:00に開催され、テーマに合うゲームは参加登録できます。",
+          "description": "<p>Steam のテーマ別セール（Fest）です。今回のテーマは「魔女や魔術にまつわるゲーム」。期間中は Steam のトップページに特設コーナーができ、割引、無料プレイ、体験版、近日登場といったカテゴリーに分かれます。</p><h3>日時</h3><ul><li>米国太平洋時間：4月22日 10:00（PDT）〜4月26日 10:00（PDT）</li><li>台湾時間：4月23日 1:00〜4月27日 1:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>開発者</h3><p>メインの題材やゲームプレイがテーマに合うゲームには、Steam から自動で招待が届きます。招待されたら、Steamworks でチェックを入れるだけで登録完了です。割引は必須ではないものの、イベントページでは割引中のゲームが優先して紹介されます。無料ゲームや近日発売のゲーム、体験版も参加可能です。この種のイベントでの割引には、通常の割引クールダウン期間が適用されます。公式の宣伝素材への採用を検討してもらうには、たいてい開催の約6週間前までに登録と割引設定を済ませる必要があるので、正確な期限は登録ページで確認してください。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/witch_2027\">https://partner.steamgames.com/optin/sale/witch_2027</a>）を開くには Steamworks アカウントでのログインが必要です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "魔女が題材のゲームの開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Witch Fest 2027 (마녀 게임 특집)",
+          "summary": "Steam의 테마 할인 행사예요. 주제: 마녀와 마법에 관한 게임. 대만 시간 4월 23일 01:00~4월 27일 01:00에 열리며, 주제에 맞는 게임은 참가 등록할 수 있어요.",
+          "description": "<p>Steam의 테마 할인 행사(Fest)예요. 이번 주제: 마녀와 마법에 관한 게임. 기간 중에는 Steam 첫 화면에 전용 코너가 생기고, 할인, 무료 플레이, 데모, 출시 예정 등의 분류로 나뉘어요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 4월 22일 10:00(PDT)~4월 26일 10:00(PDT)</li><li>대만 시간: 4월 23일 01:00~4월 27일 01:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>개발자</h3><p>주요 소재나 게임플레이가 주제에 맞는 게임에는 Steam이 자동으로 초대를 보내고, 초대를 받으면 Steamworks에서 체크박스만 선택하면 등록돼요. 할인이 필수는 아니지만 행사 페이지에서는 할인 중인 게임이 먼저 소개되고, 무료 게임, 출시 예정 게임, 데모도 참가할 수 있어요. 이런 행사의 할인에는 일반 할인 쿨다운이 적용돼요. 공식 홍보 자료에 들어가려면 보통 행사 시작 약 6주 전까지 등록과 할인 설정을 마쳐야 하니, 정확한 마감은 등록 페이지에서 확인하세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/witch_2027\">https://partner.steamgames.com/optin/sale/witch_2027</a>)는 Steamworks 계정으로 로그인해야 열려요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "마녀 게임 개발자"
+          ]
+        }
+      }
+    },
+    "steam-fighting-fest-2027": {
+      "source": {
+        "title": "Steam 格鬥遊戲節（Fighting Fest 2027）",
+        "summary": "Steam 的主題特賣活動，主題：格鬥遊戲社群在玩的那種對戰格鬥遊戲，不只是有打鬥的遊戲。台灣時間 4/27 01:00 到 5/4 01:00，符合主題的遊戲可以報名參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 的主題特賣活動（Fest），這一檔的主題：格鬥遊戲社群在玩的那種對戰格鬥遊戲，不只是有打鬥的遊戲。活動期間 Steam 首頁會推出專區，分成折扣、免費遊玩、Demo、即將推出等分類。</p><h3>時間</h3><ul><li>美國太平洋時間 4/26 10:00（PDT）至 5/3 10:00（PDT）</li><li>台灣時間 4/27 01:00 至 5/4 01:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>開發者</h3><p>Steam 會自動邀請主要題材或玩法符合主題的遊戲，受邀後在 Steamworks 勾選報名即可。不一定要打折，但活動頁會優先展示有折扣的遊戲；免費遊戲、即將推出的遊戲和 Demo 也能參加。這類活動的折扣要遵守一般的折扣冷卻期。想被考慮放進官方宣傳素材，通常要在活動開始前約 6 週完成報名並設定折扣，確切期限以報名頁為準。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/fighting_2027\">https://partner.steamgames.com/optin/sale/fighting_2027</a>）需要用 Steamworks 帳號登入。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "格鬥遊戲的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Fighting Fest 2027",
+          "summary": "A themed Steam sale. Theme: fighting games of the kind the fighting game community plays, not just games with fighting in them. Runs April 27, 01:00 to May 4, 01:00 Taiwan time; games that fit the theme can register.",
+          "description": "<p>A themed Steam sale, or Fest. This one’s theme: fighting games of the kind the fighting game community plays, not just games with fighting in them. During the fest, the Steam front page gets a dedicated section, split into categories such as discounts, free to play, demos and upcoming games.</p><h3>When</h3><ul><li>US Pacific time: April 26, 10:00 PDT to May 3, 10:00 PDT</li><li>Taiwan time: April 27, 01:00 to May 4, 01:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Developers</h3><p>Steam automatically invites games whose main subject or gameplay fits the theme; once invited, just tick the box on Steamworks to register. A discount isn’t required, but the event page features discounted games first; free games, upcoming games and demos can take part too. Discounts in these events follow the usual cooldown between discounts. To be considered for the official marketing materials, you usually need to register and set your discount about 6 weeks before the fest starts; the registration page has the exact deadline.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/fighting_2027\">https://partner.steamgames.com/optin/sale/fighting_2027</a>) requires a Steamworks sign-in.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Fighting game developers"
+          ]
+        },
+        "ja": {
+          "title": "Steam Fighting Fest 2027（格闘ゲーム特集）",
+          "summary": "Steam のテーマ別セールで、テーマは「格闘ゲームコミュニティで遊ばれているような対戦格闘ゲーム（戦闘があるだけのゲームは対象外）」。台湾時間4月27日 1:00〜5月4日 1:00に開催され、テーマに合うゲームは参加登録できます。",
+          "description": "<p>Steam のテーマ別セール（Fest）です。今回のテーマは「格闘ゲームコミュニティで遊ばれているような対戦格闘ゲーム（戦闘があるだけのゲームは対象外）」。期間中は Steam のトップページに特設コーナーができ、割引、無料プレイ、体験版、近日登場といったカテゴリーに分かれます。</p><h3>日時</h3><ul><li>米国太平洋時間：4月26日 10:00（PDT）〜5月3日 10:00（PDT）</li><li>台湾時間：4月27日 1:00〜5月4日 1:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>開発者</h3><p>メインの題材やゲームプレイがテーマに合うゲームには、Steam から自動で招待が届きます。招待されたら、Steamworks でチェックを入れるだけで登録完了です。割引は必須ではないものの、イベントページでは割引中のゲームが優先して紹介されます。無料ゲームや近日発売のゲーム、体験版も参加可能です。この種のイベントでの割引には、通常の割引クールダウン期間が適用されます。公式の宣伝素材への採用を検討してもらうには、たいてい開催の約6週間前までに登録と割引設定を済ませる必要があるので、正確な期限は登録ページで確認してください。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/fighting_2027\">https://partner.steamgames.com/optin/sale/fighting_2027</a>）を開くには Steamworks アカウントでのログインが必要です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "格闘ゲームの開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Fighting Fest 2027 (격투 게임 특집)",
+          "summary": "Steam의 테마 할인 행사예요. 주제: 격투 게임 커뮤니티가 즐기는 대전 격투 게임(단순히 싸움이 나오는 게임은 제외). 대만 시간 4월 27일 01:00~5월 4일 01:00에 열리며, 주제에 맞는 게임은 참가 등록할 수 있어요.",
+          "description": "<p>Steam의 테마 할인 행사(Fest)예요. 이번 주제: 격투 게임 커뮤니티가 즐기는 대전 격투 게임(단순히 싸움이 나오는 게임은 제외). 기간 중에는 Steam 첫 화면에 전용 코너가 생기고, 할인, 무료 플레이, 데모, 출시 예정 등의 분류로 나뉘어요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 4월 26일 10:00(PDT)~5월 3일 10:00(PDT)</li><li>대만 시간: 4월 27일 01:00~5월 4일 01:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>개발자</h3><p>주요 소재나 게임플레이가 주제에 맞는 게임에는 Steam이 자동으로 초대를 보내고, 초대를 받으면 Steamworks에서 체크박스만 선택하면 등록돼요. 할인이 필수는 아니지만 행사 페이지에서는 할인 중인 게임이 먼저 소개되고, 무료 게임, 출시 예정 게임, 데모도 참가할 수 있어요. 이런 행사의 할인에는 일반 할인 쿨다운이 적용돼요. 공식 홍보 자료에 들어가려면 보통 행사 시작 약 6주 전까지 등록과 할인 설정을 마쳐야 하니, 정확한 마감은 등록 페이지에서 확인하세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/fighting_2027\">https://partner.steamgames.com/optin/sale/fighting_2027</a>)는 Steamworks 계정으로 로그인해야 열려요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "격투 게임 개발자"
+          ]
+        }
+      }
+    },
+    "steam-rts-fest-2027": {
+      "source": {
+        "title": "Steam 即時戰略遊戲節（Real-Time Strategy Fest 2027）",
+        "summary": "Steam 的主題特賣活動，主題：即時進行、講究戰略的遊戲，包括建造與研發規劃、預判敵人動向和資源管理。台灣時間 5/11 01:00 到 5/18 01:00，符合主題的遊戲可以報名參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 的主題特賣活動（Fest），這一檔的主題：即時進行、講究戰略的遊戲，包括建造與研發規劃、預判敵人動向和資源管理。活動期間 Steam 首頁會推出專區，分成折扣、免費遊玩、Demo、即將推出等分類。</p><h3>時間</h3><ul><li>美國太平洋時間 5/10 10:00（PDT）至 5/17 10:00（PDT）</li><li>台灣時間 5/11 01:00 至 5/18 01:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>開發者</h3><p>Steam 會自動邀請主要題材或玩法符合主題的遊戲，受邀後在 Steamworks 勾選報名即可。不一定要打折，但活動頁會優先展示有折扣的遊戲；免費遊戲、即將推出的遊戲和 Demo 也能參加。這類活動的折扣要遵守一般的折扣冷卻期。想被考慮放進官方宣傳素材，通常要在活動開始前約 6 週完成報名並設定折扣，確切期限以報名頁為準。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/rts_2027\">https://partner.steamgames.com/optin/sale/rts_2027</a>）需要用 Steamworks 帳號登入。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "即時戰略遊戲的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Real-Time Strategy Fest 2027",
+          "summary": "A themed Steam sale. Theme: games played in real time that call for strategy, including planning builds and research, anticipating enemy moves and managing resources. Runs May 11, 01:00 to May 18, 01:00 Taiwan time; games that fit the theme can register.",
+          "description": "<p>A themed Steam sale, or Fest. This one’s theme: games played in real time that call for strategy, including planning builds and research, anticipating enemy moves and managing resources. During the fest, the Steam front page gets a dedicated section, split into categories such as discounts, free to play, demos and upcoming games.</p><h3>When</h3><ul><li>US Pacific time: May 10, 10:00 PDT to May 17, 10:00 PDT</li><li>Taiwan time: May 11, 01:00 to May 18, 01:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Developers</h3><p>Steam automatically invites games whose main subject or gameplay fits the theme; once invited, just tick the box on Steamworks to register. A discount isn’t required, but the event page features discounted games first; free games, upcoming games and demos can take part too. Discounts in these events follow the usual cooldown between discounts. To be considered for the official marketing materials, you usually need to register and set your discount about 6 weeks before the fest starts; the registration page has the exact deadline.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/rts_2027\">https://partner.steamgames.com/optin/sale/rts_2027</a>) requires a Steamworks sign-in.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "RTS developers"
+          ]
+        },
+        "ja": {
+          "title": "Steam Real-Time Strategy Fest 2027（リアルタイムストラテジー特集）",
+          "summary": "Steam のテーマ別セールで、テーマは「リアルタイムで進み、建設や研究の計画、敵の動きの予測、資源管理といった戦略性が問われるゲーム」。台湾時間5月11日 1:00〜5月18日 1:00に開催され、テーマに合うゲームは参加登録できます。",
+          "description": "<p>Steam のテーマ別セール（Fest）です。今回のテーマは「リアルタイムで進み、建設や研究の計画、敵の動きの予測、資源管理といった戦略性が問われるゲーム」。期間中は Steam のトップページに特設コーナーができ、割引、無料プレイ、体験版、近日登場といったカテゴリーに分かれます。</p><h3>日時</h3><ul><li>米国太平洋時間：5月10日 10:00（PDT）〜5月17日 10:00（PDT）</li><li>台湾時間：5月11日 1:00〜5月18日 1:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>開発者</h3><p>メインの題材やゲームプレイがテーマに合うゲームには、Steam から自動で招待が届きます。招待されたら、Steamworks でチェックを入れるだけで登録完了です。割引は必須ではないものの、イベントページでは割引中のゲームが優先して紹介されます。無料ゲームや近日発売のゲーム、体験版も参加可能です。この種のイベントでの割引には、通常の割引クールダウン期間が適用されます。公式の宣伝素材への採用を検討してもらうには、たいてい開催の約6週間前までに登録と割引設定を済ませる必要があるので、正確な期限は登録ページで確認してください。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/rts_2027\">https://partner.steamgames.com/optin/sale/rts_2027</a>）を開くには Steamworks アカウントでのログインが必要です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "リアルタイムストラテジーの開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Real-Time Strategy Fest 2027 (실시간 전략 게임 특집)",
+          "summary": "Steam의 테마 할인 행사예요. 주제: 실시간으로 진행되며 건설·연구 계획, 적의 움직임 예측, 자원 관리 같은 전략이 필요한 게임. 대만 시간 5월 11일 01:00~5월 18일 01:00에 열리며, 주제에 맞는 게임은 참가 등록할 수 있어요.",
+          "description": "<p>Steam의 테마 할인 행사(Fest)예요. 이번 주제: 실시간으로 진행되며 건설·연구 계획, 적의 움직임 예측, 자원 관리 같은 전략이 필요한 게임. 기간 중에는 Steam 첫 화면에 전용 코너가 생기고, 할인, 무료 플레이, 데모, 출시 예정 등의 분류로 나뉘어요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 5월 10일 10:00(PDT)~5월 17일 10:00(PDT)</li><li>대만 시간: 5월 11일 01:00~5월 18일 01:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>개발자</h3><p>주요 소재나 게임플레이가 주제에 맞는 게임에는 Steam이 자동으로 초대를 보내고, 초대를 받으면 Steamworks에서 체크박스만 선택하면 등록돼요. 할인이 필수는 아니지만 행사 페이지에서는 할인 중인 게임이 먼저 소개되고, 무료 게임, 출시 예정 게임, 데모도 참가할 수 있어요. 이런 행사의 할인에는 일반 할인 쿨다운이 적용돼요. 공식 홍보 자료에 들어가려면 보통 행사 시작 약 6주 전까지 등록과 할인 설정을 마쳐야 하니, 정확한 마감은 등록 페이지에서 확인하세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/rts_2027\">https://partner.steamgames.com/optin/sale/rts_2027</a>)는 Steamworks 계정으로 로그인해야 열려요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "실시간 전략 게임 개발자"
+          ]
+        }
+      }
+    },
+    "steam-mountaineering-fest-2027": {
+      "source": {
+        "title": "Steam 登山遊戲節（Mountaineering Fest 2027）",
+        "summary": "Steam 的主題特賣活動，主題：以攀登山岳為主題的遊戲。台灣時間 6/1 01:00 到 6/4 01:00，符合主題的遊戲可以報名參加。",
+        "city": "線上（Steam）",
+        "venue": "Steam 商店",
+        "fee": "免費",
+        "description": "<p>Steam 的主題特賣活動（Fest），這一檔的主題：以攀登山岳為主題的遊戲。活動期間 Steam 首頁會推出專區，分成折扣、免費遊玩、Demo、即將推出等分類。</p><h3>時間</h3><ul><li>美國太平洋時間 5/31 10:00（PDT）至 6/3 10:00（PDT）</li><li>台灣時間 6/1 01:00 至 6/4 01:00</li></ul><p>官方只公布了日期，開始和結束時間依 Steam 慣例的太平洋時間上午 10 點推算。</p><h3>開發者</h3><p>Steam 會自動邀請主要題材或玩法符合主題的遊戲，受邀後在 Steamworks 勾選報名即可。不一定要打折，但活動頁會優先展示有折扣的遊戲；免費遊戲、即將推出的遊戲和 Demo 也能參加。這類活動的折扣要遵守一般的折扣冷卻期。想被考慮放進官方宣傳素材，通常要在活動開始前約 6 週完成報名並設定折扣，確切期限以報名頁為準。</p><p>報名頁（<a href=\"https://partner.steamgames.com/optin/sale/mountaineering_2027\">https://partner.steamgames.com/optin/sale/mountaineering_2027</a>）需要用 Steamworks 帳號登入。</p>",
+        "schedule": null,
+        "deadlineLabel": null,
+        "agenda": null,
+        "audience": [
+          "玩家",
+          "登山題材遊戲的開發者"
+        ]
+      },
+      "i18n": {
+        "en": {
+          "title": "Steam Mountaineering Fest 2027",
+          "summary": "A themed Steam sale. Theme: games about climbing mountains. Runs June 1, 01:00 to June 4, 01:00 Taiwan time; games that fit the theme can register.",
+          "description": "<p>A themed Steam sale, or Fest. This one’s theme: games about climbing mountains. During the fest, the Steam front page gets a dedicated section, split into categories such as discounts, free to play, demos and upcoming games.</p><h3>When</h3><ul><li>US Pacific time: May 31, 10:00 PDT to June 3, 10:00 PDT</li><li>Taiwan time: June 1, 01:00 to June 4, 01:00</li></ul><p>Steam has announced only the dates; the start and end times assume Steam’s usual 10:00 a.m. Pacific time.</p><h3>Developers</h3><p>Steam automatically invites games whose main subject or gameplay fits the theme; once invited, just tick the box on Steamworks to register. A discount isn’t required, but the event page features discounted games first; free games, upcoming games and demos can take part too. Discounts in these events follow the usual cooldown between discounts. To be considered for the official marketing materials, you usually need to register and set your discount about 6 weeks before the fest starts; the registration page has the exact deadline.</p><p>The registration page (<a href=\"https://partner.steamgames.com/optin/sale/mountaineering_2027\">https://partner.steamgames.com/optin/sale/mountaineering_2027</a>) requires a Steamworks sign-in.</p>",
+          "city": "Online (Steam)",
+          "venue": "Steam Store",
+          "fee": "Free",
+          "audience": [
+            "Players",
+            "Developers of mountaineering games"
+          ]
+        },
+        "ja": {
+          "title": "Steam Mountaineering Fest 2027（登山ゲーム特集）",
+          "summary": "Steam のテーマ別セールで、テーマは「山登りを題材にしたゲーム」。台湾時間6月1日 1:00〜6月4日 1:00に開催され、テーマに合うゲームは参加登録できます。",
+          "description": "<p>Steam のテーマ別セール（Fest）です。今回のテーマは「山登りを題材にしたゲーム」。期間中は Steam のトップページに特設コーナーができ、割引、無料プレイ、体験版、近日登場といったカテゴリーに分かれます。</p><h3>日時</h3><ul><li>米国太平洋時間：5月31日 10:00（PDT）〜6月3日 10:00（PDT）</li><li>台湾時間：6月1日 1:00〜6月4日 1:00</li></ul><p>公式に発表されているのは日付だけのため、開始・終了時刻は Steam の通例どおり太平洋時間の午前10時として計算しています。</p><h3>開発者</h3><p>メインの題材やゲームプレイがテーマに合うゲームには、Steam から自動で招待が届きます。招待されたら、Steamworks でチェックを入れるだけで登録完了です。割引は必須ではないものの、イベントページでは割引中のゲームが優先して紹介されます。無料ゲームや近日発売のゲーム、体験版も参加可能です。この種のイベントでの割引には、通常の割引クールダウン期間が適用されます。公式の宣伝素材への採用を検討してもらうには、たいてい開催の約6週間前までに登録と割引設定を済ませる必要があるので、正確な期限は登録ページで確認してください。</p><p>登録ページ（<a href=\"https://partner.steamgames.com/optin/sale/mountaineering_2027\">https://partner.steamgames.com/optin/sale/mountaineering_2027</a>）を開くには Steamworks アカウントでのログインが必要です。</p>",
+          "city": "オンライン（Steam）",
+          "venue": "Steam ストア",
+          "fee": "無料",
+          "audience": [
+            "プレイヤー",
+            "登山が題材のゲームの開発者"
+          ]
+        },
+        "ko": {
+          "title": "Steam Mountaineering Fest 2027 (등산 게임 특집)",
+          "summary": "Steam의 테마 할인 행사예요. 주제: 산을 오르는 것이 주제인 게임. 대만 시간 6월 1일 01:00~6월 4일 01:00에 열리며, 주제에 맞는 게임은 참가 등록할 수 있어요.",
+          "description": "<p>Steam의 테마 할인 행사(Fest)예요. 이번 주제: 산을 오르는 것이 주제인 게임. 기간 중에는 Steam 첫 화면에 전용 코너가 생기고, 할인, 무료 플레이, 데모, 출시 예정 등의 분류로 나뉘어요.</p><h3>일시</h3><ul><li>미국 태평양 시간: 5월 31일 10:00(PDT)~6월 3일 10:00(PDT)</li><li>대만 시간: 6월 1일 01:00~6월 4일 01:00</li></ul><p>공식적으로는 날짜만 발표되어, 시작·종료 시각은 Steam의 관례대로 태평양 시간 오전 10시로 계산했어요.</p><h3>개발자</h3><p>주요 소재나 게임플레이가 주제에 맞는 게임에는 Steam이 자동으로 초대를 보내고, 초대를 받으면 Steamworks에서 체크박스만 선택하면 등록돼요. 할인이 필수는 아니지만 행사 페이지에서는 할인 중인 게임이 먼저 소개되고, 무료 게임, 출시 예정 게임, 데모도 참가할 수 있어요. 이런 행사의 할인에는 일반 할인 쿨다운이 적용돼요. 공식 홍보 자료에 들어가려면 보통 행사 시작 약 6주 전까지 등록과 할인 설정을 마쳐야 하니, 정확한 마감은 등록 페이지에서 확인하세요.</p><p>등록 페이지(<a href=\"https://partner.steamgames.com/optin/sale/mountaineering_2027\">https://partner.steamgames.com/optin/sale/mountaineering_2027</a>)는 Steamworks 계정으로 로그인해야 열려요.</p>",
+          "city": "온라인 (Steam)",
+          "venue": "Steam 상점",
+          "fee": "무료",
+          "audience": [
+            "플레이어",
+            "등산 게임 개발자"
+          ]
+        }
+      }
     }
   }
 }
