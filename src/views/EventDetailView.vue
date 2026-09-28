@@ -7,6 +7,7 @@ import { daysUntil, eventTypeLabel, fullDate, isMultiDay, monthDay, pageTitle, t
 import { safeHtml } from '@/utils/html'
 import DdayCounter from '@/components/DdayCounter.vue'
 import OngoingMark from '@/components/OngoingMark.vue'
+import EventTitle from '@/components/EventTitle.vue'
 import DiscordButton from '@/components/DiscordButton.vue'
 import StateBlock from '@/components/StateBlock.vue'
 import I18nT from '@/components/I18nT.vue'
@@ -96,7 +97,7 @@ function downloadIcs() {
         </div>
         <div class="poster__titles">
           <p class="poster__type">{{ eventTypeLabel(ev.type) }}<span v-if="ev.online"> · {{ t('event.online') }}</span></p>
-          <h1 class="poster__title" :lang="textLang(ev, 'title')">{{ ev.title }}</h1>
+          <h1 class="poster__title" :lang="textLang(ev, 'title')"><EventTitle :text="ev.title" /></h1>
           <p class="poster__summary" :lang="textLang(ev, 'summary')">{{ ev.summary }}</p>
           <p v-if="(ev.lang ?? DEFAULT_LOCALE) !== locale" class="poster__untranslated">{{ t('event.untranslated') }}</p>
           <p v-if="data?.sample" class="poster__sample hand">{{ t('event.sample') }}</p>

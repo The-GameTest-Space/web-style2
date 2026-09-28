@@ -6,6 +6,7 @@ import { daysUntil, eventTypeLabel, isMultiDay, monthDay, time, weekday } from '
 import { t } from '@/i18n'
 import { textLang } from '@/utils/eventText'
 import DdayCounter from './DdayCounter.vue'
+import EventTitle from './EventTitle.vue'
 import OngoingMark from './OngoingMark.vue'
 
 const props = defineProps<{ event: GameEvent }>()
@@ -38,7 +39,7 @@ const urgent = computed(() => deadlineDays.value !== null && deadlineDays.value 
       </div>
       <div class="event-row__main" :class="{ 'event-row__main--wide': event.ongoing }">
         <span class="event-row__type">{{ eventTypeLabel(event.type) }}</span>
-        <h3 class="event-row__title" :lang="textLang(event, 'title')">{{ event.title }}</h3>
+        <h3 class="event-row__title" :lang="textLang(event, 'title')"><EventTitle :text="event.title" /></h3>
         <p class="event-row__meta">
           <span v-if="event.ongoing" :lang="textLang(event, 'schedule')"><Repeat :size="15" aria-hidden="true" />{{ event.schedule }}</span>
           <span :lang="textLang(event, 'venue')"><MapPin :size="15" aria-hidden="true" />{{ event.city }}・{{ event.venue }}</span>
