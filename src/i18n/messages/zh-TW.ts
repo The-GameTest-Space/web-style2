@@ -38,10 +38,12 @@ export default {
   'header.skip': '跳至主要內容',
   'header.home': 'The Game Test Space 首頁',
   'header.nav': '主選單',
+  'header.menu': '選單',
   'nav.games': '遊戲',
   'nav.events': '活動',
 
   'lang.current': '語言：{name}',
+  'lang.label': '語言',
 
   'account.signIn': '登入',
   'account.signInLabel': '用 Discord 登入',

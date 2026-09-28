@@ -4,6 +4,7 @@ import AccountMenu from './AccountMenu.vue'
 import BrandMark from './BrandMark.vue'
 import DiscordButton from './DiscordButton.vue'
 import LocaleMenu from './LocaleMenu.vue'
+import MobileMenu from './MobileMenu.vue'
 import Viewfinder from './Viewfinder.vue'
 import { t } from '@/i18n'
 
@@ -57,6 +58,7 @@ onBeforeUnmount(() => {
         </RouterLink>
         <LocaleMenu />
         <AccountMenu />
+        <MobileMenu class="site-nav__menu" />
         <DiscordButton class="site-nav__cta" />
       </nav>
     </div>
@@ -126,6 +128,10 @@ onBeforeUnmount(() => {
   text-decoration: none;
   white-space: nowrap;
 }
+/* Small screens only, below. */
+.site-nav__menu {
+  display: none;
+}
 .site-nav__cta {
   min-height: 46px;
   padding-block: 0.55em;
@@ -151,19 +157,40 @@ onBeforeUnmount(() => {
   .brand__word {
     display: none;
   }
+  /* The menu's frame scales in from a little larger than its panel; past the
+     screen's edge that would widen the page. */
+  .site-header {
+    overflow-x: clip;
+  }
   .site-header__bar {
     min-height: 64px;
   }
   .site-nav {
     gap: 2px;
   }
-  .site-nav__link {
-    padding: 10px 10px;
+  /* The page links and the languages move into the menu. */
+  .site-nav__link,
+  .site-nav :deep(.lang) {
+    display: none;
+  }
+  .site-nav__menu {
+    display: block;
   }
   .site-nav__cta {
     min-height: 42px;
     padding-inline: 0.9em 1em;
     font-size: 0.9375rem;
+  }
+  /* The items sit close together here, so the frame hugs the label instead
+     of reaching into its neighbours. It keeps the same distance from the text
+     whichever padding the item has. */
+  .site-nav :deep(.acct-login) {
+    --vf-inset: 5px 1px;
+    --vf-size: 10px;
+    --vf-w: 2px;
+  }
+  .site-header__bar.is-compact :deep(.acct-login) {
+    --vf-inset: 5px -3px;
   }
 }
 .site-header__bar.is-compact .site-nav__link,

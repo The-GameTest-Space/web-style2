@@ -34,10 +34,12 @@ export default {
   'header.skip': '본문으로 건너뛰기',
   'header.home': 'The Game Test Space 홈',
   'header.nav': '주 메뉴',
+  'header.menu': '메뉴',
   'nav.games': '게임',
   'nav.events': '행사',
 
   'lang.current': '언어: {name}',
+  'lang.label': '언어',
 
   'account.signIn': '로그인',
   'account.signInLabel': 'Discord로 로그인',

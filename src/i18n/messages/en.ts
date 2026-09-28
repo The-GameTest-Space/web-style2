@@ -33,10 +33,12 @@ export default {
   'header.skip': 'Skip to main content',
   'header.home': 'The Game Test Space home',
   'header.nav': 'Main',
+  'header.menu': 'Menu',
   'nav.games': 'Games',
   'nav.events': 'Events',
 
   'lang.current': 'Language: {name}',
+  'lang.label': 'Language',
 
   'account.signIn': 'Sign in',
   'account.signInLabel': 'Sign in with Discord',

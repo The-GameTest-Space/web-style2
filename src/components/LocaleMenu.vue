@@ -215,21 +215,4 @@ function onArrow(e: KeyboardEvent) {
     transition: none;
   }
 }
-
-@media (max-width: 760px) {
-  .lang__toggle {
-    padding: 10px;
-  }
-  .lang__short {
-    display: none;
-  }
-  /* The header is the panel's frame of reference, so it stays on screen. */
-  .lang {
-    position: static;
-  }
-  .lang__panel {
-    top: calc(100% + 12px);
-    right: var(--gutter);
-  }
-}
 </style>

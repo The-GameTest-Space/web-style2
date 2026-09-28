@@ -34,10 +34,12 @@ export default {
   'header.skip': '本文へスキップ',
   'header.home': 'The Game Test Space ホーム',
   'header.nav': 'メインメニュー',
+  'header.menu': 'メニュー',
   'nav.games': 'ゲーム',
   'nav.events': 'イベント',
 
   'lang.current': '言語：{name}',
+  'lang.label': '言語',
 
   'account.signIn': 'ログイン',
   'account.signInLabel': 'Discord でログイン',
