@@ -24,7 +24,7 @@ const type = computed(() =>
   EVENT_TYPES.includes(route.query.type as EventType) ? (route.query.type as EventType) : null,
 )
 const onlineOnly = computed(() => route.query.online === '1')
-// ?country=jp; lower case in the URL, ISO code in the data.
+// ?country=jp; lower case in the URL, upper case (JP, STEAM) in the data.
 const country = computed(() => {
   const c = typeof route.query.country === 'string' ? route.query.country.toUpperCase() : ''
   return COUNTRIES.includes(c as Country) ? (c as Country) : null

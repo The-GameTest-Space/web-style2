@@ -90,6 +90,7 @@ export default {
   'country.VN': 'Vietnam',
   'country.PH': 'Philippines',
   'country.ID': 'Indonesia',
+  'country.STEAM': 'Steam',
 
   'gameStatus.seeking': 'Seeking playtesters',
   'gameStatus.released': 'Released',

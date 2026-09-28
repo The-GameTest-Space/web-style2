@@ -9,7 +9,7 @@ import { DEFAULT_LOCALE, TRANSLATED, type Locale } from '../../src/i18n/locales'
 
 export const EVENT_TYPES = ['jam', 'meetup', 'expo', 'talk', 'playtest']
 // Must match COUNTRIES in src/utils/country.ts.
-export const COUNTRIES = ['TW', 'JP', 'KR', 'CN', 'SG', 'MY', 'TH', 'VN', 'PH', 'ID']
+export const COUNTRIES = ['TW', 'JP', 'KR', 'CN', 'SG', 'MY', 'TH', 'VN', 'PH', 'ID', 'STEAM']
 export const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 
 /** Every field an admin edits. Saving writes all of them, so a cleared field is removed. */

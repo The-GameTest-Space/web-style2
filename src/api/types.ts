@@ -83,8 +83,11 @@ export interface OwnGame extends GameInput {
 
 export type EventType = 'jam' | 'meetup' | 'expo' | 'talk' | 'playtest'
 
-/** Where an event takes place, as an ISO 3166 code. Labels are in src/utils/country.ts. */
-export type Country = 'TW' | 'JP' | 'KR' | 'CN' | 'SG' | 'MY' | 'TH' | 'VN' | 'PH' | 'ID'
+/**
+ * Where an event takes place: an ISO 3166 code, or STEAM for an event on
+ * Steam, which is held everywhere at once. Labels are in src/utils/country.ts.
+ */
+export type Country = 'TW' | 'JP' | 'KR' | 'CN' | 'SG' | 'MY' | 'TH' | 'VN' | 'PH' | 'ID' | 'STEAM'
 
 interface EventBase {
   slug: string

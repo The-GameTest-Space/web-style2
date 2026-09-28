@@ -18,6 +18,10 @@ export function eventJsonLd(event: Record<string, unknown>, pageUrl: string, ori
   if (event.ongoing || !startsAt) return null
   const endsAt = text(event.endsAt)
   const url = text(event.url) ?? pageUrl
+  // Events saved before countries were recorded are in Taiwan (countryOf).
+  // STEAM is no country, so an address says none.
+  const code = text(event.country) ?? 'TW'
+  const country = /^[A-Z]{2}$/.test(code) ? code : undefined
   const cover = text(event.cover)
   return {
     '@context': 'https://schema.org',
@@ -34,8 +38,7 @@ export function eventJsonLd(event: Record<string, unknown>, pageUrl: string, ori
       : {
           '@type': 'Place',
           name: event.venue,
-          // Events saved before countries were recorded are in Taiwan (countryOf).
-          address: { '@type': 'PostalAddress', addressLocality: event.city, addressCountry: text(event.country) ?? 'TW' },
+          address: { '@type': 'PostalAddress', addressLocality: event.city, ...(country && { addressCountry: country }) },
         },
     ...(cover && { image: [new URL(cover, origin).href] }),
     // The fee is free text, in the page's language; only a free event has a

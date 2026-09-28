@@ -91,6 +91,7 @@ export default {
   'country.VN': '베트남',
   'country.PH': '필리핀',
   'country.ID': '인도네시아',
+  'country.STEAM': 'Steam',
 
   'gameStatus.seeking': '테스터 모집 중',
   'gameStatus.released': '출시됨',

@@ -96,6 +96,7 @@ export default {
   'country.VN': '越南',
   'country.PH': '菲律賓',
   'country.ID': '印尼',
+  'country.STEAM': 'Steam',
 
   'gameStatus.seeking': '徵求測試中',
   'gameStatus.released': '已上架',
