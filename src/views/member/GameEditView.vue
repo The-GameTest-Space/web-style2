@@ -356,6 +356,10 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
                   v-bind="aria('f-feedback')"
                 ></textarea>
               </FormField>
+            </section>
+
+            <section class="part" aria-labelledby="part-links">
+              <h2 id="part-links" class="part__title">{{ t('gameForm.links') }}</h2>
               <FormField id="f-thread" :label="t('gameForm.thread')" optional :hint="t('gameForm.threadHint')" :error="fieldErrors['f-thread']">
                 <input
                   id="f-thread"
@@ -365,6 +369,28 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
                   maxlength="200"
                   placeholder="https://discord.com/channels/…"
                   v-bind="aria('f-thread')"
+                />
+              </FormField>
+              <FormField id="f-steam" :label="t('gameForm.steam')" optional :hint="t('gameForm.steamHint')" :error="fieldErrors['f-steam']">
+                <input
+                  id="f-steam"
+                  v-model="form.steam"
+                  type="url"
+                  class="input"
+                  maxlength="300"
+                  placeholder="https://store.steampowered.com/app/…"
+                  v-bind="aria('f-steam')"
+                />
+              </FormField>
+              <FormField id="f-itch" :label="t('gameForm.itch')" optional :hint="t('gameForm.itchHint')" :error="fieldErrors['f-itch']">
+                <input
+                  id="f-itch"
+                  v-model="form.itch"
+                  type="url"
+                  class="input"
+                  maxlength="300"
+                  placeholder="https://….itch.io/…"
+                  v-bind="aria('f-itch')"
                 />
               </FormField>
             </section>

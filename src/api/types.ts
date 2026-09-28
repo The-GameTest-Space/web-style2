@@ -33,10 +33,16 @@ export interface Game {
   description: string[]
   feedbackWanted: string[]
   /**
-   * The game's thread in the community's Discord server. The only link a
-   * game carries: builds are shared in Discord, never through the site.
+   * The game's thread in the community's Discord server. With its Steam and
+   * itch.io pages, the only links a game carries: nothing is downloaded
+   * through the site.
    */
   thread?: string
+  /** The game's Steam app, shown as Steam's store widget. */
+  steamAppId?: string
+  /** The game's itch.io page, and its number there for itch.io's widget. */
+  itchUrl?: string
+  itchId?: string
   /**
    * Orange dot stickers on the card: playtesters so far. Only the sample
    * games have a count; nothing counts real ones yet.
@@ -65,11 +71,18 @@ export interface GameInput {
   description: string[]
   feedbackWanted: string[]
   thread?: string
+  /** A Steam store page's URL; the Worker keeps its app's ID (steamAppId). */
+  steam?: string
+  /** An itch.io game page's URL; the Worker looks up its number (itchId). */
+  itch?: string
   buildLog: BuildNote[]
 }
 
 /** A game as its owner and the admins see it: everything stored. */
-export interface OwnGame extends GameInput {
+export interface OwnGame extends Omit<GameInput, 'steam' | 'itch'> {
+  steamAppId?: string
+  itchUrl?: string
+  itchId?: string
   build: string
   ownerUid: string
   /** The uploader's Discord name when they uploaded it. */

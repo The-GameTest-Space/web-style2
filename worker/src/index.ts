@@ -2,7 +2,8 @@ import { bearer, verifyIdToken } from './auth'
 import { COVER_PATH, MAX_COVER_BYTES, saveCover, serveCover } from './covers'
 import { MemberCheckUnavailable, isGuildMember } from './discord'
 import { SLUG, adminEvent, byStart, localizeEvent, parseEvent, publicEvent, savedFields } from './events'
-import { Firestore, saveUser } from './firestore'
+import { Firestore, saveUser, type Doc } from './firestore'
+import { itchGame } from './itch'
 import {
   GAME_FIELDS,
   MAX_GAMES_PER_MEMBER,
@@ -426,9 +427,25 @@ async function admin(request: Request, path: string, env: Env) {
   return notFound()
 }
 
-/** Create games/{slug} for `owner`, the uploader, or (owner null) update it, from the owner's form. */
-async function saveGame(db: Firestore, slug: string, body: unknown, owner: { uid: string; name: string } | null) {
-  const game = parseGame(body)
+/**
+ * Create games/{slug} for `owner`, the uploader, or (owner null) update it,
+ * from the owner's form. `existing` is the game as stored, when updating.
+ */
+async function saveGame(
+  db: Firestore,
+  slug: string,
+  body: unknown,
+  owner: { uid: string; name: string } | null,
+  existing?: Doc,
+) {
+  const parsed = parseGame(body)
+  // itch.io is asked only for a page the game didn't have before.
+  const known = existing?.data.itchUrl === parsed.itchUrl && typeof existing?.data.itchId === 'string'
+  const game = !parsed.itchUrl
+    ? parsed
+    : known
+      ? { ...parsed, itchId: existing!.data.itchId as string }
+      : { ...parsed, ...(await itchGame(parsed.itchUrl)) }
   const res = owner
     ? await db.write(
         `games/${slug}`,
@@ -495,7 +512,7 @@ async function my(request: Request, path: string, env: Env) {
   // Someone else's game is as good as missing, unless an admin is asking.
   if (!doc || (doc.data.ownerUid !== uid && !(await isAdmin(db, uid)))) return notFound()
   if (method === 'GET') return json({ item: fullGame(doc) }, 200)
-  if (method === 'PUT') return saveGame(db, slug, await readJson(request), null)
+  if (method === 'PUT') return saveGame(db, slug, await readJson(request), null, doc)
   return notFound()
 }
 

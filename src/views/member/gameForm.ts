@@ -24,6 +24,10 @@ export interface GameForm {
   description: string
   feedbackWanted: string
   thread: string
+  /** The Steam store page's URL. */
+  steam: string
+  /** The itch.io game page's URL. */
+  itch: string
   buildLog: BuildNote[]
 }
 
@@ -51,6 +55,8 @@ export const blankGame = (): GameForm => ({
   description: '',
   feedbackWanted: '',
   thread: '',
+  steam: '',
+  itch: '',
   buildLog: [blankNote()],
 })
 
@@ -69,6 +75,8 @@ export function fromGame(g: OwnGame): GameForm {
     description: g.description.join('\n\n'),
     feedbackWanted: g.feedbackWanted.join('\n'),
     thread: g.thread ?? '',
+    steam: g.steamAppId ? `https://store.steampowered.com/app/${g.steamAppId}/` : '',
+    itch: g.itchUrl ?? '',
     buildLog: g.buildLog.map((n) => ({ ...n })),
   }
 }
@@ -98,6 +106,8 @@ export function toInput(f: GameForm): GameInput {
       .filter(Boolean),
     feedbackWanted: lines(f.feedbackWanted),
     thread: f.thread.trim() || undefined,
+    steam: f.steam.trim() || undefined,
+    itch: f.itch.trim() || undefined,
     buildLog: f.buildLog,
   }
 }
@@ -136,6 +146,8 @@ const LABELS: Record<string, MessageKey> = {
   'f-description': 'gameForm.description',
   'f-feedback': 'gameForm.feedback',
   'f-thread': 'gameForm.thread',
+  'f-steam': 'gameForm.steam',
+  'f-itch': 'gameForm.itch',
   'f-log-add': 'gameForm.log',
 }
 
@@ -164,6 +176,9 @@ const REASONS: Record<string, MessageKey> = {
   format: 'form.error.format',
   date: 'form.error.date',
   thread: 'form.error.thread',
+  steam: 'form.error.steam',
+  itch: 'form.error.itch',
+  itchUnavailable: 'form.error.itchUnavailable',
   cover: 'form.error.cover',
   slug: 'form.error.slug',
   slugTaken: 'form.error.slugTaken',

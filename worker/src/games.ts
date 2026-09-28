@@ -18,10 +18,21 @@ export const RESERVED_SLUGS = ['new']
 export const MAX_GAMES_PER_MEMBER = 10
 /**
  * A thread (or a message in one) in the community's Discord server, as
- * Discord's "Copy Link" gives it. The only link a game may carry: builds are
- * shared in Discord, never through the site.
+ * Discord's "Copy Link" gives it. Besides its Steam and itch.io pages, the
+ * only link a game may carry: nothing is downloaded through the site.
  */
 const THREAD = new RegExp(`^https://(?:(?:ptb|canary)\\.)?discord(?:app)?\\.com/channels/${GUILD_ID}/\\d+(?:/\\d+)?/?$`)
+/**
+ * A Steam store page, as the browser's address bar shows it
+ * (store.steampowered.com/app/<id>/<name>/). Only the app's ID is kept: the
+ * game page shows Steam's own widget for it.
+ */
+const STEAM_APP = /^https?:\/\/store\.steampowered\.com\/app\/(\d{1,10})(?:[/?#].*)?$/
+/**
+ * An itch.io game page (<creator>.itch.io/<game>). The game page shows
+ * itch.io's widget for it; its number is looked up when saved (itch.ts).
+ */
+const ITCH_PAGE = /^https?:\/\/([a-z0-9][a-z0-9-]*)\.itch\.io\/([a-z0-9][a-z0-9_-]*)\/?(?:[?#].*)?$/i
 
 /** Every field an owner edits. Saving writes all of them, so a cleared optional field is removed. */
 export const GAME_FIELDS = [
@@ -37,6 +48,9 @@ export const GAME_FIELDS = [
   'description',
   'feedbackWanted',
   'thread',
+  'steamAppId',
+  'itchUrl',
+  'itchId',
   'buildLog',
 ]
 
@@ -82,6 +96,14 @@ export function parseGame(input: unknown) {
   const thread = text(body.thread, 'thread', 200, true)
   if (thread && !THREAD.test(thread)) throw new Invalid('thread', '請貼上本社群 Discord 伺服器中討論串的連結', 'thread')
 
+  const steam = text(body.steam, 'steam', 300, true)
+  const steamAppId = steam?.match(STEAM_APP)?.[1]
+  if (steam && !steamAppId) throw new Invalid('steam', '請貼上 Steam 商店頁的網址', 'steam')
+
+  const itch = text(body.itch, 'itch', 300, true)
+  const page = itch?.match(ITCH_PAGE)
+  if (itch && !page) throw new Invalid('itch', '請貼上 itch.io 遊戲頁的網址', 'itch')
+
   // An uploaded image (/api/covers/…) or a picture elsewhere, over https so
   // the page never loads it insecurely. Every game card shows one.
   const cover = text(body.cover, 'cover', 500)
@@ -108,6 +130,9 @@ export function parseGame(input: unknown) {
     description: items(body.description, 'description', 1, 20, (p, at) => text(p, at, 1000)),
     feedbackWanted: items(body.feedbackWanted, 'feedbackWanted', 1, 5, (q, at) => text(q, at, 80)),
     thread,
+    steamAppId,
+    // Its number (itchId) is added by the caller, from itch.io.
+    itchUrl: page ? `https://${page[1]!.toLowerCase()}.itch.io/${page[2]!.toLowerCase()}` : undefined,
     // Newest first, after checking, so a rejected row keeps the index the form sent.
     buildLog: buildLog.sort((a, b) => b.date.localeCompare(a.date)),
   }

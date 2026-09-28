@@ -76,6 +76,28 @@ watchEffect(() => {
           <figcaption v-if="data?.sample" class="print__cap hand">{{ t('game.sampleCover') }}</figcaption>
         </figure>
 
+        <!-- The stores' own widgets: price, wishlist or download, the store page. -->
+        <div v-if="game.steamAppId || game.itchId" class="stores">
+          <iframe
+            v-if="game.steamAppId"
+            class="stores__steam"
+            :src="`https://store.steampowered.com/widget/${game.steamAppId}/`"
+            :title="t('game.steam', { title: game.title })"
+            width="646"
+            height="190"
+            loading="lazy"
+          ></iframe>
+          <iframe
+            v-if="game.itchId"
+            class="stores__itch"
+            :src="`https://itch.io/embed/${game.itchId}`"
+            :title="t('game.itch', { title: game.title })"
+            width="552"
+            height="167"
+            loading="lazy"
+          ></iframe>
+        </div>
+
         <section class="about" aria-labelledby="about-title">
           <h2 id="about-title" class="about__title">{{ t('game.about') }}</h2>
           <p class="about__pitch" lang="zh-Hant-TW">{{ game.pitch }}</p>
@@ -184,6 +206,24 @@ watchEffect(() => {
   background: var(--card);
   box-shadow: var(--shadow-paper);
   transform: rotate(-0.8deg);
+}
+.stores {
+  display: grid;
+  gap: 16px;
+  margin-top: clamp(40px, 6vh, 56px);
+}
+.stores iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+.stores__steam {
+  max-width: 646px;
+  height: 190px;
+}
+.stores__itch {
+  max-width: 552px;
+  height: 167px;
 }
 .print img {
   width: 100%;
@@ -431,12 +471,16 @@ watchEffect(() => {
   .print {
     grid-row: 1;
   }
-  .about {
+  .stores {
     grid-row: 3;
   }
-  .log {
+  .about {
     grid-row: 4;
   }
+  .log {
+    grid-row: 5;
+  }
+  .stores,
   .about,
   .log {
     margin-top: 0;
