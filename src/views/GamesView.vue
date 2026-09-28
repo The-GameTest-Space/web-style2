@@ -5,6 +5,7 @@ import { Plus } from 'lucide-vue-next'
 import { useApi } from '@/api/client'
 import type { Game, ListResponse } from '@/api/types'
 import GameCard from '@/components/GameCard.vue'
+import FilterSelect from '@/components/FilterSelect.vue'
 import TapeHeading from '@/components/TapeHeading.vue'
 import SampleNote from '@/components/SampleNote.vue'
 import StateBlock from '@/components/StateBlock.vue'
@@ -35,6 +36,16 @@ function setQuery(patch: Record<string, string | undefined>) {
 function toggleGenre(g: string) {
   setQuery({ genre: genre.value === g ? undefined : g })
 }
+
+// On phones the genre chips are a dropdown instead.
+const genreModel = computed({
+  get: () => genre.value,
+  set: (v: string) => setQuery({ genre: v || undefined }),
+})
+const genreOptions = computed(() => [
+  { value: '', label: t('games.allGenres') },
+  ...genres.value.map((g) => ({ value: g, label: g, lang: 'zh-Hant-TW' })),
+])
 </script>
 
 <template>
@@ -55,6 +66,7 @@ function toggleGenre(g: string) {
         <span class="filter__dot" aria-hidden="true"></span>{{ t('games.seekingOnly') }}
       </button>
       <span class="filters__sep" aria-hidden="true"></span>
+      <FilterSelect v-model="genreModel" class="filters__pick" :label="t('game.genres')" :options="genreOptions" />
       <button type="button" class="filter" :aria-pressed="!genre" @click="setQuery({ genre: undefined })">{{ t('games.allGenres') }}</button>
       <button
         v-for="g in genres"
@@ -85,14 +97,16 @@ function toggleGenre(g: string) {
       </p>
       <div class="games__grid">
         <GameCard v-for="(g, i) in shown" :key="g.slug" :game="g" :order="i" class="games__card" />
-        <aside class="games__slot">
-          <p class="games__slot-title">{{ t('games.slotTitle') }}</p>
-          <p class="games__slot-text">{{ t('games.slotText') }}</p>
-          <DiscordButton variant="ink" :label="t('games.postBuild')" />
-          <RouterLink to="/games/new" class="sticker-btn sticker-btn--paper"><Plus aria-hidden="true" />{{ t('games.upload') }}</RouterLink>
-        </aside>
       </div>
     </template>
+
+    <!-- The empty wall above already asks for games; otherwise this does. -->
+    <aside v-if="!data || all.length" class="games__slot">
+      <p class="games__slot-title">{{ t('games.slotTitle') }}</p>
+      <p class="games__slot-text">{{ t('games.slotText') }}</p>
+      <DiscordButton variant="ink" :label="t('games.postBuild')" />
+      <RouterLink to="/games/new" class="sticker-btn sticker-btn--paper"><Plus aria-hidden="true" />{{ t('games.upload') }}</RouterLink>
+    </aside>
   </div>
 </template>
 
@@ -169,6 +183,10 @@ function toggleGenre(g: string) {
   background: var(--ink);
   border-color: var(--ink);
 }
+/* Phones only, below. */
+.filters .filters__pick {
+  display: none;
+}
 
 .games__count {
   margin-top: 28px;
@@ -193,10 +211,11 @@ function toggleGenre(g: string) {
   gap: 14px;
   align-content: start;
   justify-items: start;
-  min-height: 360px;
+  margin-top: clamp(64px, 10vh, 112px);
   padding: 28px 24px;
   border: 3px dashed var(--ink);
   border-radius: 4px;
+  max-width: 640px;
 }
 .games__slot-title {
   font-family: var(--font-body);
@@ -213,12 +232,51 @@ function toggleGenre(g: string) {
   justify-content: center;
   gap: 12px;
 }
+/* From tablet width the slot sits beside the page heading, as on the events
+   page; below this it stays after the games, where it is in the markup. */
+@media (min-width: 761px) {
+  .games {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    column-gap: 32px;
+    align-content: start;
+  }
+  .games > * {
+    grid-column: 1 / -1;
+  }
+  .games > .page-head {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .games > .games__slot {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    margin-top: 0;
+    max-width: none;
+  }
+}
+@media (min-width: 1081px) {
+  .games {
+    grid-template-columns: minmax(0, 1fr) 400px;
+    column-gap: 48px;
+  }
+}
 @media (max-width: 640px) {
   .games__card:nth-child(n) {
     margin-top: 0;
   }
   .filters__sep {
     display: none;
+  }
+  /* The genre chips become one dropdown. The seeking switch is yes or no,
+     not one of many, so it stays a chip. */
+  .filter:not(.filter--seeking) {
+    display: none;
+  }
+  .filters .filters__pick {
+    display: block;
+    flex: 1 1 160px;
   }
 }
 </style>

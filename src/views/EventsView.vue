@@ -7,6 +7,7 @@ import type { Country, DatedEvent, EventType, GameEvent, ListResponse } from '@/
 import { EVENT_TYPES, daysUntil, eventTypeLabel, monthLabel } from '@/utils/format'
 import { COUNTRIES, countryLabel, countryOf } from '@/utils/country'
 import EventRow from '@/components/EventRow.vue'
+import FilterSelect from '@/components/FilterSelect.vue'
 import TapeHeading from '@/components/TapeHeading.vue'
 import SampleNote from '@/components/SampleNote.vue'
 import StateBlock from '@/components/StateBlock.vue'
@@ -96,6 +97,24 @@ function setQuery(patch: Record<string, string | undefined>) {
   router.replace({ query: { ...route.query, ...patch } })
 }
 
+// On phones each row of chips is a dropdown instead.
+const typeModel = computed({
+  get: () => type.value ?? '',
+  set: (v: string) => setQuery({ type: v || undefined }),
+})
+const typeOptions = computed(() => [
+  { value: '', label: t('common.all') },
+  ...EVENT_TYPES.map((et) => ({ value: et, label: eventTypeLabel(et) })),
+])
+const countryModel = computed({
+  get: () => country.value?.toLowerCase() ?? '',
+  set: (v: string) => setQuery({ country: v || undefined }),
+})
+const countryOptions = computed(() => [
+  { value: '', label: t('common.all') },
+  ...countries.value.map((c) => ({ value: c.toLowerCase(), label: countryLabel(c) })),
+])
+
 // The search runs as you type; the keyboard's search key only closes the keyboard.
 function onSearchSubmit(e: Event) {
   ;(e.target as HTMLFormElement).querySelector('input')?.blur()
@@ -129,42 +148,46 @@ function onSearchSubmit(e: Event) {
     <!-- Announces the number of results as the search changes. -->
     <p class="visually-hidden" aria-live="polite">{{ terms.length && data ? t('events.found', { n: resultCount }) : '' }}</p>
 
-    <div class="filters" role="group" :aria-label="t('events.byType')">
-      <span class="filters__label" aria-hidden="true">{{ t('events.type') }}</span>
-      <button type="button" class="filter" :aria-pressed="!type" @click="setQuery({ type: undefined })">{{ t('common.all') }}</button>
-      <button
-        v-for="et in EVENT_TYPES"
-        :key="et"
-        type="button"
-        class="filter"
-        :aria-pressed="type === et"
-        @click="setQuery({ type: type === et ? undefined : et })"
-      >
-        {{ eventTypeLabel(et) }}
-      </button>
-      <span class="filters__sep" aria-hidden="true"></span>
-      <button
-        type="button"
-        class="filter"
-        :aria-pressed="onlineOnly"
-        @click="setQuery({ online: onlineOnly ? undefined : '1' })"
-      >
-        {{ t('events.onlineOnly') }}
-      </button>
-    </div>
-    <div v-if="countries.length > 1" class="filters" role="group" :aria-label="t('events.byCountry')">
-      <span class="filters__label" aria-hidden="true">{{ t('events.country') }}</span>
-      <button type="button" class="filter" :aria-pressed="!country" @click="setQuery({ country: undefined })">{{ t('common.all') }}</button>
-      <button
-        v-for="c in countries"
-        :key="c"
-        type="button"
-        class="filter"
-        :aria-pressed="country === c"
-        @click="setQuery({ country: country === c ? undefined : c.toLowerCase() })"
-      >
-        {{ countryLabel(c) }}
-      </button>
+    <div class="filterbar">
+      <div class="filters" role="group" :aria-label="t('events.byType')">
+        <span class="filters__label" aria-hidden="true">{{ t('events.type') }}</span>
+        <FilterSelect v-model="typeModel" class="filters__pick" :label="t('events.type')" :options="typeOptions" />
+        <button type="button" class="filter" :aria-pressed="!type" @click="setQuery({ type: undefined })">{{ t('common.all') }}</button>
+        <button
+          v-for="et in EVENT_TYPES"
+          :key="et"
+          type="button"
+          class="filter"
+          :aria-pressed="type === et"
+          @click="setQuery({ type: type === et ? undefined : et })"
+        >
+          {{ eventTypeLabel(et) }}
+        </button>
+        <span class="filters__sep" aria-hidden="true"></span>
+        <button
+          type="button"
+          class="filter filter--toggle"
+          :aria-pressed="onlineOnly"
+          @click="setQuery({ online: onlineOnly ? undefined : '1' })"
+        >
+          {{ t('events.onlineOnly') }}
+        </button>
+      </div>
+      <div v-if="countries.length > 1" class="filters" role="group" :aria-label="t('events.byCountry')">
+        <span class="filters__label" aria-hidden="true">{{ t('events.country') }}</span>
+        <FilterSelect v-model="countryModel" class="filters__pick" :label="t('events.country')" :options="countryOptions" />
+        <button type="button" class="filter" :aria-pressed="!country" @click="setQuery({ country: undefined })">{{ t('common.all') }}</button>
+        <button
+          v-for="c in countries"
+          :key="c"
+          type="button"
+          class="filter"
+          :aria-pressed="country === c"
+          @click="setQuery({ country: country === c ? undefined : c.toLowerCase() })"
+        >
+          {{ countryLabel(c) }}
+        </button>
+      </div>
     </div>
 
     <StateBlock v-if="loading && !data" kind="loading" :message="t('events.loading')" />
@@ -331,6 +354,10 @@ function onSearchSubmit(e: Event) {
   background: var(--ink);
   color: var(--card);
 }
+/* Phones only, below. */
+.filters .filters__pick {
+  display: none;
+}
 .events__count {
   margin-top: 28px;
   font-weight: 700;
@@ -401,13 +428,13 @@ function onSearchSubmit(e: Event) {
 .suggest__text {
   color: var(--ink-2);
 }
-/* On wide screens the suggest box sits beside the page heading; below this
+/* From tablet width the suggest box sits beside the page heading; below this
    it stays at the end of the list, where it is in the markup. */
-@media (min-width: 1081px) {
+@media (min-width: 761px) {
   .events {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 400px;
-    column-gap: 48px;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    column-gap: 32px;
     align-content: start;
   }
   .events > * {
@@ -425,9 +452,40 @@ function onSearchSubmit(e: Event) {
     max-width: none;
   }
 }
+@media (min-width: 1081px) {
+  .events {
+    grid-template-columns: minmax(0, 1fr) 400px;
+    column-gap: 48px;
+  }
+}
 @media (max-width: 640px) {
   .filters__sep {
     display: none;
+  }
+  /* Each row's chips become one dropdown beside its label; the rows share
+     the label column, so the dropdowns line up whatever the labels' length.
+     The online switch is yes or no, not one of many, so it stays a chip,
+     under the type dropdown. */
+  .filterbar {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 12px;
+  }
+  .filters {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    column-gap: 12px;
+  }
+  .filter:not(.filter--toggle) {
+    display: none;
+  }
+  .filters .filters__pick {
+    display: block;
+  }
+  .filter--toggle {
+    grid-column: 2;
+    justify-self: start;
   }
 }
 </style>

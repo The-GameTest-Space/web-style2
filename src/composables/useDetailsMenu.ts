@@ -2,8 +2,9 @@ import { onBeforeUnmount, onMounted, watch, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 /**
- * A <details> dropdown in the header: it closes on a press outside it, on
- * Escape (focus back on its toggle) and when the page changes.
+ * A <details> dropdown (the header's menus, the filters' lists): it closes on
+ * a press outside it, on Escape (focus back on its toggle) and when the page
+ * changes.
  */
 export function useDetailsMenu(menu: Ref<HTMLDetailsElement | null>) {
   const route = useRoute()
