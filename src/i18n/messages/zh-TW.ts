@@ -54,8 +54,6 @@ export default {
   'account.signOut': '登出',
 
   'footer.nav': '頁尾選單',
-  'footer.games': '遊戲作品',
-  'footer.events': '活動資訊',
   'footer.note':
     'Discord 的成員人數與線上人數為即時取自 Discord 的實際數字。Discord 伺服器成員可以登入後自行刊登遊戲；如希望在本網站刊登活動，請至 Discord 與我們聯繫。',
 

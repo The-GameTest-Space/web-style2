@@ -50,8 +50,6 @@ export default {
   'account.signOut': '로그아웃',
 
   'footer.nav': '하단 메뉴',
-  'footer.games': '게임',
-  'footer.events': '행사',
   'footer.note':
     'Discord 멤버 수와 접속자 수는 Discord에서 실시간으로 가져온 실제 숫자예요. Discord 서버 멤버는 로그인해서 게임을 직접 등록할 수 있어요. 행사를 이 사이트에 소개하고 싶다면 Discord로 연락해 주세요.',
 

@@ -49,8 +49,6 @@ export default {
   'account.signOut': 'Sign out',
 
   'footer.nav': 'Footer',
-  'footer.games': 'Games',
-  'footer.events': 'Events',
   'footer.note':
     'The member and online counts are live numbers from Discord. Members of our Discord server can sign in and list their games themselves; to have an event listed on this site, get in touch with us on Discord.',
 

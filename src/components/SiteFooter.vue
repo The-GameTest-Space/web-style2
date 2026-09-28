@@ -1,7 +1,13 @@
 <script setup lang="ts">
+import { Instagram } from 'lucide-vue-next'
 import BrandMark from './BrandMark.vue'
+import DiscordIcon from './DiscordIcon.vue'
+import ThreadsIcon from './ThreadsIcon.vue'
 import { DISCORD_INVITE } from '@/composables/useDiscord'
 import { t } from '@/i18n'
+
+const THREADS = 'https://www.threads.com/@gametestspace'
+const INSTAGRAM = 'https://www.instagram.com/gametestspace/'
 </script>
 
 <template>
@@ -9,14 +15,20 @@ import { t } from '@/i18n'
     <div class="tape site-footer__tape" aria-hidden="true"></div>
     <div class="shell site-footer__grid">
       <div class="site-footer__brand">
-        <BrandMark :size="56" />
+        <BrandMark :size="56" class="site-footer__mark" />
         <p class="site-footer__name">The Game Test Space</p>
         <p class="site-footer__line">{{ t('site.tagline') }}</p>
       </div>
       <nav class="site-footer__nav" :aria-label="t('footer.nav')">
-        <RouterLink to="/games">{{ t('footer.games') }}</RouterLink>
-        <RouterLink to="/events">{{ t('footer.events') }}</RouterLink>
-        <a :href="DISCORD_INVITE" target="_blank" rel="noopener">Discord<span class="visually-hidden">{{ t('common.newTab') }}</span></a>
+        <a :href="THREADS" target="_blank" rel="noopener">
+          <ThreadsIcon />Threads<span class="visually-hidden">{{ t('common.newTab') }}</span>
+        </a>
+        <a :href="INSTAGRAM" target="_blank" rel="noopener">
+          <Instagram :size="20" aria-hidden="true" />Instagram<span class="visually-hidden">{{ t('common.newTab') }}</span>
+        </a>
+        <a :href="DISCORD_INVITE" target="_blank" rel="noopener">
+          <DiscordIcon />Discord<span class="visually-hidden">{{ t('common.newTab') }}</span>
+        </a>
       </nav>
       <p class="site-footer__note">{{ t('footer.note') }}</p>
     </div>
@@ -60,10 +72,13 @@ import { t } from '@/i18n'
 .site-footer__nav {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
   font-weight: 700;
 }
 .site-footer__nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
   width: fit-content;
 }
@@ -72,18 +87,74 @@ import { t } from '@/i18n'
   text-decoration-color: var(--dot);
   text-decoration-thickness: 3px;
 }
+.site-footer__nav svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  transition: color 0.2s;
+}
+.site-footer__nav a:hover svg {
+  color: var(--dot);
+}
 .site-footer__note {
   font-size: 0.875rem;
   line-height: 1.75;
   color: var(--ink-2);
   max-width: 44ch;
 }
-@media (max-width: 860px) {
+/* Tablets: the logo with the links under it on the left; the name, tagline
+   and note on the right, the note filling the width. The brand block opens
+   up so its logo and its words can take different columns. */
+@media (min-width: 641px) and (max-width: 860px) {
   .site-footer__grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      'mark name'
+      'mark line'
+      'nav note';
+    gap: 0 40px;
+  }
+  .site-footer__brand {
+    display: contents;
+  }
+  .site-footer__mark {
+    grid-area: mark;
+    align-self: center;
+  }
+  .site-footer__name {
+    grid-area: name;
+    margin-top: 0;
+  }
+  .site-footer__line {
+    grid-area: line;
+  }
+  .site-footer__nav {
+    grid-area: nav;
+    gap: 0;
+    margin-top: 24px;
+  }
+  .site-footer__nav a {
+    min-height: 44px;
   }
   .site-footer__note {
-    grid-column: 1 / -1;
+    grid-area: note;
+    margin-top: 32px;
+    max-width: none;
+  }
+}
+/* Phones: one column, the links in a row of finger-sized targets. */
+@media (max-width: 640px) {
+  .site-footer__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .site-footer__nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0 24px;
+  }
+  .site-footer__nav a {
+    min-height: 44px;
   }
 }
 </style>
