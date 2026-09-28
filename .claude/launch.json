@@ -21,9 +21,22 @@
         "--var", "FIRESTORE_EMULATOR_HOST:localhost:8085",
         "--var", "FIREBASE_AUTH_EMULATOR_HOST:localhost:9099",
         "--var", "FIREBASE_SERVICE_ACCOUNT:{\"project_id\":\"demo-gtspace\",\"client_email\":\"dev@demo-gtspace.iam.gserviceaccount.com\",\"private_key\":\"\"}",
-        "--var", "DISCORD_CLIENT_SECRET:unused"
+        "--var", "DISCORD_CLIENT_SECRET:unused",
+        "--var", "DEV_DISCORD_MEMBERS:100000000000000001"
       ],
       "port": 8787
+    },
+    {
+      "name": "worker-emulated-bot",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "wrangler", "dev", "--port", "8788",
+        "--var", "FIRESTORE_EMULATOR_HOST:localhost:8085",
+        "--var", "FIREBASE_AUTH_EMULATOR_HOST:localhost:9099",
+        "--var", "FIREBASE_SERVICE_ACCOUNT:{\"project_id\":\"demo-gtspace\",\"client_email\":\"dev@demo-gtspace.iam.gserviceaccount.com\",\"private_key\":\"\"}",
+        "--var", "DISCORD_CLIENT_SECRET:unused"
+      ],
+      "port": 8788
     },
     {
       "name": "web-local-api",
