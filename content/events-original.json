@@ -1,0 +1,446 @@
+{
+  "about": "Original-language facts copied verbatim from each event's official page, kept as the source for localizing the site's entries (Firestore events/{slug}). Facts only; the pages' own prose is not reproduced. Check the official page before relying on anything here.",
+  "checkedAt": "2026-09-28",
+  "events": [
+    {
+      "slug": "indie-live-expo-2026-12",
+      "lang": "ja",
+      "officialUrl": "https://indie.live-expo.games/",
+      "sources": [
+        "https://indie.live-expo.games/entry/",
+        "https://indie.live-expo.games/",
+        "https://indie.live-expo.games/27477/"
+      ],
+      "original": {
+        "name": "INDIE Live Expo 2026.12.1",
+        "organizer": "INDIE Live Expo実行委員会",
+        "dates": "2026年12月1日（火） ※放送時間は後日発表いたします",
+        "hours": null,
+        "venue": null,
+        "address": null,
+        "fee": "エントリー料 無料",
+        "deadlines": [
+          {
+            "label": "エントリー締切",
+            "date": "2026年9月29日(火) 11:59 AM (JST)"
+          }
+        ],
+        "application": "エントリー期間は9月29日（火）11:59 AM（日本時間）まで。1団体につき1タイトルまで無料でご応募いただくことが可能です。",
+        "eligibility": "1団体につき1タイトルまで受付 / 注意事項内容を満たしていること / ファイルが正しくアップロードされていること"
+      }
+    },
+    {
+      "slug": "kobe-game-labyrinth-2026",
+      "lang": "ja",
+      "officialUrl": "https://www.ktmg-llc.com/kobegamelabyrinth",
+      "sources": [
+        "https://www.ktmg-llc.com/kobegamelabyrinth",
+        "https://www.kobedenshi.ac.jp/whatsnew/2026/07/%E7%A5%9E%E6%88%B8%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%A9%E3%83%93%E3%83%AA%E3%83%B3%E3%82%B92026%E9%96%8B%E5%82%AC%E6%97%A5%E6%B1%BA%E5%AE%9A"
+      ],
+      "original": {
+        "name": "神戸ゲームラビリンス2026",
+        "organizer": "神戸ゲームラビリンス準備会",
+        "dates": "2026年11月21日(土)",
+        "hours": "11:00～17:00",
+        "venue": "神戸電子専門学校 学生会館4F",
+        "address": "兵庫県神戸市中央区加納町２丁目１−１５",
+        "fee": "入場料：無料 / 出展料：無料",
+        "deadlines": [
+          {
+            "label": "出展者募集フォーム",
+            "date": "2026年10月4日(日) 23:59"
+          }
+        ],
+        "application": "※「出展規約」などの詳細な情報は、申し込みフォームに記載されています。",
+        "eligibility": "個人、サークル、法人を問わず"
+      }
+    },
+    {
+      "slug": "digigame-expo-2026",
+      "lang": "ja",
+      "officialUrl": "https://digigame-expo.org/",
+      "sources": [
+        "https://digigame-expo.org/",
+        "https://digigame-expo.org/summary",
+        "https://digigame-expo.org/circle"
+      ],
+      "original": {
+        "name": "デジゲー博2026",
+        "organizer": "デジゲー博準備会",
+        "dates": "2026年11月8日(日)",
+        "hours": "11:00～16:00(予定)",
+        "venue": "秋葉原UDX2階 アキバ・スクエア + 4階 UDXギャラリー",
+        "address": "東京都千代田区外神田4-14-1",
+        "fee": "サークル参加費（机スペース） 1スペース 8,000円 / 2スペース 16,000円 / サークル参加費（フリーレイアウト） 1スペース 35,000円",
+        "deadlines": [
+          {
+            "label": "オンライン申し込み およびサークルカット登録",
+            "date": "2026年8月31日(月) 23時59分締切"
+          },
+          {
+            "label": "参加費の払い込み",
+            "date": "2026年9月1日(火)まで"
+          }
+        ],
+        "application": "直接参加のみ250スペース （募集スペースを超える申し込みがあった場合抽選になることがあります）",
+        "eligibility": "サークル代表者が義務教育を修了していること。 / 日本国内に、サークル申し込み代表者が郵便物を受け取れる住所を持っていること。（海外住所での申し込みはできません）"
+      }
+    },
+    {
+      "slug": "tokyo-game-dungeon-14",
+      "lang": "ja",
+      "officialUrl": "https://tokyogamedungeon.com/",
+      "sources": [
+        "https://tokyogamedungeon.com/",
+        "https://tokyogamedungeon.com/wp-content/uploads/2026/08/20260813_oshirase.pdf"
+      ],
+      "original": {
+        "name": "東京ゲームダンジョン14",
+        "organizer": "ゲームダンジョン事務局",
+        "dates": "2026年10月31日(土)",
+        "hours": "11:00〜17:00 ※ビジネスチケット、先行入場前売券での入場は11:00から、それ以外のチケットは12:00から入場可能",
+        "venue": "東京都立産業貿易センター 浜松町館 2・3階展示室",
+        "address": "〒105-7501 東京都港区海岸1-7-1 東京ポートシティ竹芝",
+        "fee": "出展料は8,500円(税込)です。 / 一般チケット 1,000円（税込） / ビジネスチケット 2,000円（税込） / ※18歳以下は終日無料、小学生以下は保護者同伴が必須",
+        "deadlines": [],
+        "application": "東京ゲームダンジョン14、大阪ゲームダンジョン2の出展申込は終了しました。",
+        "eligibility": "日本国内に在住の方であればどなたでも申込みいただけます。"
+      }
+    },
+    {
+      "slug": "osaka-game-dungeon-2",
+      "lang": "ja",
+      "officialUrl": "https://tokyogamedungeon.com/",
+      "sources": [
+        "https://tokyogamedungeon.com/",
+        "https://tokyogamedungeon.com/wp-content/uploads/2026/05/20260519_oshirase.pdf"
+      ],
+      "original": {
+        "name": "大阪ゲームダンジョン2",
+        "organizer": "ゲームダンジョン事務局",
+        "dates": "2026年12月26日(土)",
+        "hours": "12:00〜17:00",
+        "venue": "マイドームおおさか 3階 展示ホール（E・F）",
+        "address": "〒540-0029 大阪市中央区本町橋2番5号",
+        "fee": "一般チケット：1,000円（税込） / ビジネスチケット：2,000円（税込） / ※18歳以下は終日無料、小学生以下は保護者同伴が必須",
+        "deadlines": [],
+        "application": "東京ゲームダンジョン14、大阪ゲームダンジョン2の出展申込は終了しました。",
+        "eligibility": "日本国内に在住の方であればどなたでも申込みいただけます。"
+      }
+    },
+    {
+      "slug": "tokyo-game-dungeon-15",
+      "lang": "ja",
+      "officialUrl": "https://tokyogamedungeon.com/",
+      "sources": [
+        "https://tokyogamedungeon.com/",
+        "https://tokyogamedungeon.com/wp-content/uploads/2026/05/20260519_oshirase.pdf"
+      ],
+      "original": {
+        "name": "東京ゲームダンジョン15",
+        "organizer": "ゲームダンジョン事務局",
+        "dates": "2027年2月20日(土)",
+        "hours": null,
+        "venue": "東京都立産業貿易センター浜松町館 2・3階 展示室",
+        "address": "〒105-7501 東京都港区海岸1-7-1 東京ポートシティ竹芝",
+        "fee": null,
+        "deadlines": [],
+        "application": "出展申込 2026 年11 月",
+        "eligibility": "日本国内に在住の方であればどなたでも申込みいただけます。"
+      }
+    },
+    {
+      "slug": "unreal-fest-tokyo-2026",
+      "lang": "ja",
+      "officialUrl": "https://www.unrealengine.com/ja/events/unreal-fest-tokyo-2026",
+      "sources": [
+        "https://www.unrealengine.com/ja/events/unreal-fest-tokyo-2026",
+        "https://prtimes.jp/main/html/rd/p/000000198.000036502.html",
+        "https://web.cvent.com/event/b96e6f83-886c-4b77-9541-32e20ddd2166/summary?locale=ja-JP"
+      ],
+      "original": {
+        "name": "Unreal Fest Tokyo 2026",
+        "organizer": "エピック ゲームズ ジャパン",
+        "dates": "2026年11月3日(火・祝)・4日(水)",
+        "hours": "Unreal Fest 1日目（9:00開場 10:00~19:30） / Unreal Fest 2日目（9:30開場 10:00～19:00）",
+        "venue": "TFTビル西館（TFTホール）",
+        "address": "〒135-0063 東京都江東区有明3-4-10",
+        "fee": "※Unreal Fest Tokyo 2026への参加は無料です。11月4日に開催する公式ネットワーキングパーティー「Unreal Fest Closing Party」への参加には、別途チケット（税込7,700円）が必要です。",
+        "deadlines": [
+          {
+            "label": "登録期限",
+            "date": "2026年11月4日 17:59"
+          }
+        ],
+        "application": "※先着順・定員制",
+        "eligibility": null
+      }
+    },
+    {
+      "slug": "cedec-kyushu-2026",
+      "lang": "ja",
+      "officialUrl": "https://cedec-kyushu.jp/2026/outline.html",
+      "sources": [
+        "https://cedec-kyushu.jp/2026/outline.html",
+        "https://cedec-kyushu.jp/2026/entry.html"
+      ],
+      "original": {
+        "name": "CEDEC+KYUSHU 2026",
+        "organizer": "CEDEC+KYUSHU 2026実行委員会",
+        "dates": "2026年11月14日（土）",
+        "hours": null,
+        "venue": "九州産業大学 1号館 ＋ オンライン",
+        "address": null,
+        "fee": "通常価格 リアルパス 学生 3,500円 一般 7,000円 / オンラインパス 学生 4,000円 一般 7,500円 / レギュラーパス 学生 4,500円 一般 8,000円 / 高校生以下の受講パス（無料）",
+        "deadlines": [
+          {
+            "label": "団体割引期間",
+            "date": "10/16（金）迄"
+          },
+          {
+            "label": "早期割引期間",
+            "date": "10/30（金）23:59迄"
+          }
+        ],
+        "application": "現地でのセッション受講、オンラインでのセッション受講には受講パスの購入が必要です。",
+        "eligibility": "コンピュータエンターテインメント開発技術者・クリエイター、学生 ※コンピュータエンターテインメント関係者以外の方もお気軽にご参加ください。"
+      }
+    },
+    {
+      "slug": "indie-developers-conference-2026",
+      "lang": "ja",
+      "officialUrl": "https://indiedevconf.jp/",
+      "sources": [
+        "https://indiedevconf.jp/"
+      ],
+      "original": {
+        "name": "Indie Developers Conference 2026",
+        "organizer": "株式会社ヘッドハイ / 株式会社アクティブゲーミングメディア / 株式会社産経デジタル",
+        "dates": "2026年11月28日(土)",
+        "hours": null,
+        "venue": null,
+        "address": null,
+        "fee": null,
+        "deadlines": [],
+        "application": null,
+        "eligibility": null
+      }
+    },
+    {
+      "slug": "game-creators-conference-2027",
+      "lang": "ja",
+      "officialUrl": "https://gc-conf.com/",
+      "sources": [
+        "https://gc-conf.com/"
+      ],
+      "original": {
+        "name": "GAME CREATORS CONFERENCE '27",
+        "organizer": "一般社団法人デジタルエンターテインメントクリエイター協会（DECA）",
+        "dates": "2027年3月12日(金)",
+        "hours": null,
+        "venue": "大阪府立国際会議場（グランキューブ大阪）10F",
+        "address": null,
+        "fee": null,
+        "deadlines": [],
+        "application": null,
+        "eligibility": null
+      }
+    },
+    {
+      "slug": "tokyo-indie-games-summit-2027",
+      "lang": "ja",
+      "officialUrl": "https://indiegamessummit.tokyo/",
+      "sources": [
+        "https://indiegamessummit.tokyo/",
+        "https://indiegamessummit.tokyo/news/"
+      ],
+      "original": {
+        "name": "TOKYO INDIE GAMES SUMMIT 2027",
+        "organizer": "TOKYO INDIE GAMES SUMMIT 運営事務局",
+        "dates": "2027年 3月27日（土）ビジネスデイ / 2027年 3月28日（日）一般公開日",
+        "hours": "OPEN 10:00 CLOSE 17:00",
+        "venue": "未来をつくる杉並サイエンスラボ IMAGINUS（イマジナス） ほか",
+        "address": "〒166-0002 東京都杉並区高円寺北2丁目14-13",
+        "fee": "出展費用は無料。",
+        "deadlines": [
+          {
+            "label": "出展申込期間",
+            "date": "2026年9月15日(火)16:00 ～ 2026年11月15日(日) 23:59（JST）"
+          }
+        ],
+        "application": "上記条件を満たした応募タイトルを対象に、TIGS運営事務局にて審査を行います。",
+        "eligibility": "個人、サークル、または小規模な独立ゲーム開発組織であること / 国内・海外は不問です"
+      }
+    },
+    {
+      "slug": "bitsummit-2027",
+      "lang": "ja",
+      "officialUrl": "https://bitsummit.org/",
+      "sources": [
+        "https://bitsummit.org/%E3%80%8Cbitsummit%E3%80%8D2027%E5%B9%B4%E3%81%AE%E9%96%8B%E5%82%AC%E6%97%A5%E7%A8%8B%E3%82%92%E7%99%BA%E8%A1%A8%EF%BC%81%E4%BD%B5%E3%81%9B%E3%81%A6%E3%80%81%E3%81%94%E6%9D%A5%E5%A0%B4%E8%80%85/"
+      ],
+      "original": {
+        "name": "BitSummit",
+        "organizer": "BitSummit実行委員会",
+        "dates": "2027年5月21日（金）～5月23日（日）",
+        "hours": null,
+        "venue": "京都市勧業館みやこめっせ",
+        "address": null,
+        "fee": null,
+        "deadlines": [],
+        "application": "一般出展者向けの応募開始時期は2026年11月ごろを予定しております。",
+        "eligibility": null
+      }
+    },
+    {
+      "slug": "cedec-2027",
+      "lang": "ja",
+      "officialUrl": "https://cedec.cesa.or.jp/",
+      "sources": [
+        "https://cedec.cesa.or.jp/2026/newslist/news/1081.html",
+        "https://cedec.cesa.or.jp/2026/uploads/0e08fd5b0d01a9855bc04b75e05d6ecaa4b43bf1.pdf"
+      ],
+      "original": {
+        "name": "CEDEC2027",
+        "organizer": "一般社団法人コンピュータエンターテインメント協会",
+        "dates": "2027年7⽉14⽇（⽔）から7⽉16⽇（⾦）",
+        "hours": null,
+        "venue": "パシフィコ横浜ノース",
+        "address": null,
+        "fee": null,
+        "deadlines": [],
+        "application": null,
+        "eligibility": null
+      }
+    },
+    {
+      "slug": "tokyo-game-show-2027",
+      "lang": "ja",
+      "officialUrl": "https://tgs.cesa.or.jp/",
+      "sources": [
+        "https://prtimes.jp/main/html/rd/p/000000164.000013057.html"
+      ],
+      "original": {
+        "name": "東京ゲームショウ2027",
+        "organizer": "一般社団法人コンピュータエンターテインメント協会",
+        "dates": "９月16日(木)～20日(月・祝)",
+        "hours": null,
+        "venue": "リアル会場は幕張メッセを予定",
+        "address": null,
+        "fee": null,
+        "deadlines": [],
+        "application": null,
+        "eligibility": null
+      }
+    },
+    {
+      "slug": "g-star-2026",
+      "lang": "ko",
+      "officialUrl": "https://www.gstar.or.kr/gstar/gstar_info.do",
+      "sources": [
+        "https://www.gstar.or.kr/gstar/gstar_info.do",
+        "https://www.gstar.or.kr/part/gstar_btb_info.do",
+        "https://www.gstar.or.kr/board/board_user_view.do?bmt_idx=1&bd_idx=1172"
+      ],
+      "original": {
+        "name": "국제게임전시회 지스타 2026",
+        "organizer": "한국게임산업협회",
+        "dates": "2026.11.18(수) ~ 11.22(일)",
+        "hours": "BTB 전시 / 운영시간 10:00 ~ 18:00",
+        "venue": "[오프라인] 부산 벡스코, [온라인] 지스타 TV",
+        "address": null,
+        "fee": "BTB 입장권 금액(VAT포함) 사전 등록 - 8.13(목) ~ 11.15(일) 200,000원 / 현장 등록 - 11.19(목) ~ 11.21(토) 300,000원",
+        "deadlines": [
+          {
+            "label": "BTB 입장권 사전 등록",
+            "date": "8.13(목) ~ 11.15(일)"
+          },
+          {
+            "label": "지스타 인디 쇼케이스 2.0: Galaxy 전시 접수",
+            "date": "09.02(수) ~ 09.15(화) 16:00까지"
+          }
+        ],
+        "application": "접수방법 : 구글 폼 (특이사항 접수처 : indie@gstar.or.kr)",
+        "eligibility": "접수자격 : 국내외 우수 인디게임 (전시 수량 추후 확정)"
+      }
+    },
+    {
+      "slug": "g-con-2026",
+      "lang": "ko",
+      "officialUrl": "https://www.gstar.or.kr/conference/conf_info.do",
+      "sources": [
+        "https://www.gstar.or.kr/conference/conf_info.do",
+        "https://www.gstar.or.kr/conference/conf_pre_info.do",
+        "https://www.gstar.or.kr/gstar/gstar_info.do"
+      ],
+      "original": {
+        "name": "G-CON 2026",
+        "organizer": "한국게임산업협회",
+        "dates": "2026. 11. 19(Thu) – 20(Fri)",
+        "hours": null,
+        "venue": "Convention Hall, Bexco",
+        "address": null,
+        "fee": "사전등록 (8/13-11/15) 일반 200,000원 / 학생 120,000원 / 현장등록 (11/19-11/20) 일반 300,000원 / 학생 250,000원 (VAT포함)",
+        "deadlines": [
+          {
+            "label": "사전등록",
+            "date": "8/13-11/15"
+          }
+        ],
+        "application": null,
+        "eligibility": "학생 패스는 청소년 (2008년 1월 1일 이후)만 구매 가능하며, 등록 및 입장 시 신분증을 요구할 수 있습니다."
+      }
+    },
+    {
+      "slug": "beaver-rocks-2026",
+      "lang": "ko",
+      "officialUrl": "https://beaverrocks.com/",
+      "sources": [
+        "https://beaverrocks.com/",
+        "https://beaverrocks.com/creator"
+      ],
+      "original": {
+        "name": "BEAVER ROCKS 2026",
+        "organizer": "스마일게이트 퓨처랩",
+        "dates": "2026년 12월 18일(금) ~ 12월 20일(일)",
+        "hours": null,
+        "venue": "SETEC 1,2 전시장",
+        "address": null,
+        "fee": "선정된 모든 창작팀은 무료로 전시 참여가 가능합니다.",
+        "deadlines": [
+          {
+            "label": "모집 일정",
+            "date": "2026. 5. 19 (화) 오전 10시 - 7. 27 (월) 오후 6시까지"
+          },
+          {
+            "label": "결과 발표",
+            "date": "2026. 9. 28 (월)"
+          }
+        ],
+        "application": "Beaver Rocks 2026 참가자 모집이 마감되었습니다.",
+        "eligibility": "인디게임을 개발하고 있는 팀 또는 개인이라면 누구나 지원하실 수 있습니다. (국적 및 개발 단계와 관계없이 지원 가능)"
+      }
+    },
+    {
+      "slug": "seoul-indies-meetups",
+      "lang": "en",
+      "officialUrl": "https://www.meetup.com/seoul-indies/",
+      "sources": [
+        "https://www.meetup.com/seoul-indies/",
+        "https://www.meetup.com/seoul-indies/events/"
+      ],
+      "original": {
+        "name": "서울인디즈 / Seoul Indies",
+        "organizer": "Douglas Vautour",
+        "dates": "Seoul Indies is a monthly game developer meetup. / Wed, Sep 30 · 8:00 PM KST",
+        "hours": "8:00pm - Venue open, ice breaking / 8:30pm - Show your game. / 9:30pm and on - Informal Demos, Free Play, and Chill",
+        "venue": "Enough Lounge",
+        "address": "서울 마포구 토정로 17길 11 2층 이너프 라운지",
+        "fee": "10,000 KRW (Some drinks and snacks provided)",
+        "deadlines": [],
+        "application": "you can apply to give a brief (max 5-10 minutes) demo of your game.",
+        "eligibility": "Everyone is welcome."
+      }
+    }
+  ]
+}
