@@ -1,6 +1,6 @@
 <script setup lang="ts">
-// An event's title as text, with the word Steam marked the way the site marks
-// things: an orange marker swipe, the word set as the platform writes it.
+// An event's title as text, with the word Steam marked: a marker underlay in
+// Steam's blue, the word set in capitals as the platform writes it.
 // Only the look changes; the text stays "Steam" for search and screen readers.
 import { computed } from 'vue'
 
@@ -45,7 +45,10 @@ const parts = computed(() => {
   inset: 0.81em -0.06em auto;
   height: 0.27em;
   z-index: -1;
-  background: var(--dot);
+  /* Steam's own light blue, the one colour here from outside the site: it
+     says Steam at a glance and stays clear of the orange that marks
+     deadlines. */
+  background: #66c0f4;
   border-radius: 0.1em 0.2em 0.12em 0.24em / 0.2em 0.12em 0.2em 0.14em;
   transform: rotate(-1deg) skewX(-10deg);
   animation: swipe 0.5s var(--ease-out) 0.15s both;
