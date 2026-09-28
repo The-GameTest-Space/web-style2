@@ -33,7 +33,7 @@ A space built around *playtesting*: developers testing each other's games. The s
 
 - Stack: Vue 3 + Vite + vue-router + TypeScript. The site and its `/api/*` ship together as one Cloudflare Worker; events are stored in Firestore, which only the Worker touches.
 - Pages: home, game list, event list, game detail, event detail, and `/admin` where admins (listed in Firestore `admins/{uid}`) create, edit, publish and delete events, and pin or hide games.
-- Games are listed by members of the Discord server themselves (sign in with Discord; membership is checked with Discord's bot). They add updates to the log and edit the description later. A game carries text, a cover image and at most a link to its Discord thread: builds are shared only in Discord. Sample games and events exist only in local development (`npm run dev`), as a fallback when the API has nothing.
+- Games are listed by members of the Discord server themselves (sign in with Discord; membership is checked with Discord's bot). They add updates to the log and edit the description later. A game carries text, a cover image, and links to its Discord thread and to its Steam and itch.io pages (shown as those stores' own widgets); no other links, and nothing is downloaded through the site. Sample games and events exist only in local development (`npm run dev`), as a fallback when the API has nothing.
 - Undecided: a submission flow for events.
 
 ## Brand Commitments
