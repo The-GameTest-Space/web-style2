@@ -5,6 +5,7 @@ import { ArrowLeft, ExternalLink, ImagePlus, Plus, X } from 'lucide-vue-next'
 import { myApi } from '@/api/my'
 import { ApiError } from '@/api/signed'
 import type { OwnGame } from '@/api/types'
+import { askConfirm } from '@/composables/useConfirm'
 import { useMember } from '@/composables/useMember'
 import { gameStatusLabel, time } from '@/utils/format'
 import { toCoverImage } from '@/utils/image'
@@ -181,8 +182,15 @@ async function addNote() {
 // On the router rather than the route (onBeforeRouteLeave): after an upload
 // this page moves to the game's own address and stays the same page, and a
 // route guard would stay behind on /games/new.
-const stopGuard = router.beforeEach((to, from) => {
-  if (to.path !== from.path && !leaving && dirty.value && !confirm(t('form.leave'))) return false
+const stopGuard = router.beforeEach(async (to, from) => {
+  if (to.path === from.path || leaving || !dirty.value) return
+  const ok = await askConfirm({
+    title: t('form.leave.title'),
+    message: t('form.leave.text'),
+    confirmLabel: t('form.leave.confirm'),
+    cancelLabel: t('form.leave.stay'),
+  })
+  if (!ok) return false
 })
 onBeforeUnmount(stopGuard)
 function onBeforeUnload(e: BeforeUnloadEvent) {

@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { Eye, EyeOff, ExternalLink, Pencil, Pin, PinOff } from 'lucide-vue-next'
 import { adminApi } from '@/api/admin'
 import type { OwnGame } from '@/api/types'
+import { askConfirm } from '@/composables/useConfirm'
 import { gameStatusLabel } from '@/utils/format'
 import StateBlock from '@/components/StateBlock.vue'
 import TapeHeading from '@/components/TapeHeading.vue'
@@ -45,7 +46,15 @@ async function pin(g: OwnGame | null) {
 }
 
 async function setHidden(g: OwnGame, hidden: boolean) {
-  if (hidden && !confirm(`確定要隱藏《${g.title}》嗎？隱藏後不會出現在公開頁面，刊登者仍可在「我的遊戲」看到它。`)) return
+  if (hidden) {
+    const ok = await askConfirm({
+      title: `要隱藏《${g.title}》嗎？`,
+      message: '隱藏後不會出現在公開頁面，刊登者仍可在「我的遊戲」看到它。',
+      confirmLabel: '隱藏遊戲',
+      cancelLabel: '取消',
+    })
+    if (!ok) return
+  }
   busy.value = g.slug
   status.value = null
   try {

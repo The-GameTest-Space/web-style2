@@ -4,6 +4,7 @@ import { onBeforeRouteLeave, useRouter } from 'vue-router'
 import { ArrowLeft, Eye, EyeOff, ExternalLink, ImagePlus, Plus, Trash2, X } from 'lucide-vue-next'
 import { adminApi } from '@/api/admin'
 import { ApiError } from '@/api/signed'
+import { askConfirm } from '@/composables/useConfirm'
 import type { AdminEvent, Country, EventInput, EventType } from '@/api/types'
 import { COUNTRIES, countryLabel, countryOf } from '@/utils/country'
 import { EVENT_TYPES, eventTypeLabel, time } from '@/utils/format'
@@ -279,7 +280,13 @@ async function save() {
 
 async function remove() {
   const title = saved.value?.title ?? form.title
-  if (!confirm(`確定要刪除「${title}」嗎？刪除後無法復原。`)) return
+  const ok = await askConfirm({
+    title: `要刪除「${title}」嗎？`,
+    message: '刪除後無法復原。',
+    confirmLabel: '刪除活動',
+    cancelLabel: '取消',
+  })
+  if (!ok) return
   status.value = null
   deleting.value = true
   try {
@@ -329,8 +336,15 @@ async function addAgendaRow() {
   document.getElementById(`f-agenda-${form.agenda.length - 1}-time`)?.focus()
 }
 
-onBeforeRouteLeave(() => {
-  if (!leaving && dirty.value && !confirm('有尚未儲存的變更，確定要離開嗎？')) return false
+onBeforeRouteLeave(async () => {
+  if (leaving || !dirty.value) return
+  const ok = await askConfirm({
+    title: '要離開這個頁面嗎？',
+    message: '有尚未儲存的變更，離開後就會遺失。',
+    confirmLabel: '離開',
+    cancelLabel: '繼續編輯',
+  })
+  if (!ok) return false
 })
 function onBeforeUnload(e: BeforeUnloadEvent) {
   if (dirty.value) e.preventDefault()

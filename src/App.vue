@@ -2,6 +2,7 @@
 import SiteHeader from './components/SiteHeader.vue'
 import SiteFooter from './components/SiteFooter.vue'
 import LogoIntro from './components/LogoIntro.vue'
+import ConfirmDialog from './components/ConfirmDialog.vue'
 import { useIntro } from './composables/useIntro'
 
 const { playing, finish } = useIntro()
@@ -14,6 +15,7 @@ const { playing, finish } = useIntro()
     <RouterView />
   </main>
   <SiteFooter />
+  <ConfirmDialog />
 </template>
 
 <style>
