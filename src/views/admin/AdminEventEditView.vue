@@ -5,8 +5,8 @@ import { ArrowLeft, Eye, EyeOff, ExternalLink, ImagePlus, Plus, Trash2, X } from
 import { adminApi } from '@/api/admin'
 import { ApiError } from '@/api/signed'
 import { askConfirm } from '@/composables/useConfirm'
-import type { AdminEvent, Country, EventInput, EventType } from '@/api/types'
-import { COUNTRIES, countryLabel, countryOf } from '@/utils/country'
+import type { AdminEvent, Country, EventFormat, EventInput, EventType } from '@/api/types'
+import { COUNTRIES, FORMATS, countryLabel, countryOf, formatLabel, formatOf } from '@/utils/country'
 import { EVENT_TYPES, eventTypeLabel, time } from '@/utils/format'
 import { asHtml, safeHtml } from '@/utils/html'
 import { toCoverImage } from '@/utils/image'
@@ -27,6 +27,8 @@ interface Form {
   slug: string
   title: string
   type: EventType
+  format: EventFormat
+  /** Kept while Steam is picked, so switching back restores it. */
   country: Country
   summary: string
   startsAt: string
@@ -38,7 +40,6 @@ interface Form {
   deadlineAt: string
   city: string
   venue: string
-  online: boolean
   fee: string
   description: string
   agenda: { time: string; item: string }[]
@@ -53,6 +54,7 @@ const blank = (): Form => ({
   slug: '',
   title: '',
   type: 'meetup',
+  format: 'offline',
   country: 'TW',
   summary: '',
   startsAt: '',
@@ -64,7 +66,6 @@ const blank = (): Form => ({
   deadlineAt: '',
   city: '',
   venue: '',
-  online: false,
   fee: '免費',
   description: '',
   agenda: [],
@@ -88,7 +89,8 @@ function fromEvent(e: AdminEvent): Form {
     slug: e.slug,
     title: e.title,
     type: e.type,
-    country: countryOf(e),
+    format: formatOf(e),
+    country: countryOf(e) ?? 'TW',
     summary: e.summary,
     startsAt: toLocalInput(e.startsAt),
     endsAt: toLocalInput(e.endsAt),
@@ -99,7 +101,6 @@ function fromEvent(e: AdminEvent): Form {
     deadlineAt: toLocalInput(e.deadline?.date),
     city: e.city,
     venue: e.venue,
-    online: e.online,
     fee: e.fee,
     description: e.description ?? '',
     agenda: (e.agenda ?? []).map((a) => ({ ...a })),
@@ -116,7 +117,8 @@ function toInput(f: Form): EventInput {
     slug: f.slug.trim(),
     title: f.title,
     type: f.type,
-    country: f.country,
+    // An event on Steam is stored as the country STEAM (see countryOf).
+    country: f.format === 'steam' ? 'STEAM' : f.country,
     summary: f.summary,
     startsAt: toIso(f.startsAt),
     // An ongoing event keeps no end or deadline, even if they were filled in before the switch.
@@ -126,7 +128,7 @@ function toInput(f: Form): EventInput {
     deadline: !f.ongoing && f.hasDeadline ? { label: f.deadlineLabel, date: toIso(f.deadlineAt) ?? '' } : undefined,
     city: f.city,
     venue: f.venue,
-    online: f.online,
+    online: f.format !== 'offline',
     fee: f.fee,
     description: asHtml(f.description) || undefined,
     agenda: f.agenda,
@@ -407,6 +409,15 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
             </div>
           </fieldset>
           <fieldset class="field fieldset">
+            <legend class="field__label">場地</legend>
+            <div class="pills">
+              <label v-for="(fm, i) in FORMATS" :key="fm" class="pill">
+                <input :id="i === 0 ? 'f-format' : undefined" v-model="form.format" type="radio" name="format" :value="fm" />
+                <span>{{ formatLabel(fm) }}</span>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset v-if="form.format !== 'steam'" class="field fieldset">
             <legend class="field__label">國家</legend>
             <div class="pills">
               <label v-for="(c, i) in COUNTRIES" :key="c" class="pill">
@@ -531,7 +542,6 @@ onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload)
               />
             </FormField>
           </div>
-          <label class="check"><input v-model="form.online" type="checkbox" />線上活動</label>
           <FormField id="f-fee" label="費用" :error="fieldErrors['f-fee']">
             <input
               id="f-fee"

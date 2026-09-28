@@ -8,7 +8,8 @@ import { DEFAULT_LOCALE, TRANSLATED, type Locale } from '../../src/i18n/locales'
 // here. The shape matches GameEvent / AdminEvent in src/api/types.ts.
 
 export const EVENT_TYPES = ['jam', 'meetup', 'expo', 'talk', 'playtest']
-// Must match COUNTRIES in src/utils/country.ts.
+// The countries in src/utils/country.ts, and STEAM: an event on Steam, which
+// has no country (the site shows it as a format, see formatOf there).
 export const COUNTRIES = ['TW', 'JP', 'KR', 'CN', 'SG', 'MY', 'TH', 'VN', 'PH', 'ID', 'STEAM']
 export const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 
@@ -93,7 +94,8 @@ export function parseEvent(input: unknown) {
     schedule,
     city: text(body.city, 'city', 40),
     venue: text(body.venue, 'venue', 120),
-    online: bool(body.online, 'online'),
+    // An event on Steam is online, whatever the form said.
+    online: country === 'STEAM' || bool(body.online, 'online'),
     fee: text(body.fee, 'fee', 60),
     deadline,
     summary: text(body.summary, 'summary', 300),

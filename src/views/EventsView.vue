@@ -3,9 +3,9 @@ import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Search, X } from 'lucide-vue-next'
 import { useApi } from '@/api/client'
-import type { Country, DatedEvent, EventType, GameEvent, ListResponse } from '@/api/types'
+import type { Country, DatedEvent, EventFormat, EventType, GameEvent, ListResponse } from '@/api/types'
 import { EVENT_TYPES, daysUntil, eventTypeLabel, monthLabel } from '@/utils/format'
-import { COUNTRIES, countryLabel, countryOf } from '@/utils/country'
+import { COUNTRIES, FORMATS, countryLabel, countryOf, formatLabel, formatOf } from '@/utils/country'
 import EventRow from '@/components/EventRow.vue'
 import FilterSelect from '@/components/FilterSelect.vue'
 import TapeHeading from '@/components/TapeHeading.vue'
@@ -23,8 +23,11 @@ const { data, error, loading, retry } = useApi<ListResponse<GameEvent>>(withLang
 const type = computed(() =>
   EVENT_TYPES.includes(route.query.type as EventType) ? (route.query.type as EventType) : null,
 )
-const onlineOnly = computed(() => route.query.online === '1')
-// ?country=jp; lower case in the URL, upper case (JP, STEAM) in the data.
+// ?format=steam: on Steam, online elsewhere, or in person.
+const format = computed(() =>
+  FORMATS.includes(route.query.format as EventFormat) ? (route.query.format as EventFormat) : null,
+)
+// ?country=jp; lower case in the URL, ISO code in the data.
 const country = computed(() => {
   const c = typeof route.query.country === 'string' ? route.query.country.toUpperCase() : ''
   return COUNTRIES.includes(c as Country) ? (c as Country) : null
@@ -45,13 +48,15 @@ watch(
 )
 const norm = (s: string) => s.normalize('NFKC').toLowerCase()
 const terms = computed(() => norm(q.value).split(/\s+/).filter(Boolean))
-const searchable = (e: GameEvent) =>
-  norm(
+const searchable = (e: GameEvent) => {
+  const c = countryOf(e)
+  return norm(
     [
       e.title,
       e.summary,
       eventTypeLabel(e.type),
-      countryLabel(countryOf(e)),
+      formatLabel(formatOf(e)),
+      c ? countryLabel(c) : '',
       e.city,
       e.venue,
       e.fee,
@@ -60,12 +65,13 @@ const searchable = (e: GameEvent) =>
       (e.description ?? '').replace(/<[^>]*>/g, ' '),
     ].join(' '),
   )
+}
 
-const filtered = computed(() => !!type.value || !!country.value || onlineOnly.value || terms.value.length > 0)
+const filtered = computed(() => !!type.value || !!format.value || !!country.value || terms.value.length > 0)
 
 const shown = computed(() =>
   (data.value?.items ?? []).filter((e) => {
-    if ((type.value && e.type !== type.value) || (onlineOnly.value && !e.online)) return false
+    if ((type.value && e.type !== type.value) || (format.value && formatOf(e) !== format.value)) return false
     if (country.value && countryOf(e) !== country.value) return false
     if (!terms.value.length) return true
     const text = searchable(e)
@@ -105,6 +111,14 @@ const typeModel = computed({
 const typeOptions = computed(() => [
   { value: '', label: t('common.all') },
   ...EVENT_TYPES.map((et) => ({ value: et, label: eventTypeLabel(et) })),
+])
+const formatModel = computed({
+  get: () => format.value ?? '',
+  set: (v: string) => setQuery({ format: v || undefined }),
+})
+const formatOptions = computed(() => [
+  { value: '', label: t('common.all') },
+  ...FORMATS.map((f) => ({ value: f, label: formatLabel(f) })),
 ])
 const countryModel = computed({
   get: () => country.value?.toLowerCase() ?? '',
@@ -163,14 +177,20 @@ function onSearchSubmit(e: Event) {
         >
           {{ eventTypeLabel(et) }}
         </button>
-        <span class="filters__sep" aria-hidden="true"></span>
+      </div>
+      <div class="filters" role="group" :aria-label="t('events.byFormat')">
+        <span class="filters__label" aria-hidden="true">{{ t('events.format') }}</span>
+        <FilterSelect v-model="formatModel" class="filters__pick" :label="t('events.format')" :options="formatOptions" />
+        <button type="button" class="filter" :aria-pressed="!format" @click="setQuery({ format: undefined })">{{ t('common.all') }}</button>
         <button
+          v-for="f in FORMATS"
+          :key="f"
           type="button"
-          class="filter filter--toggle"
-          :aria-pressed="onlineOnly"
-          @click="setQuery({ online: onlineOnly ? undefined : '1' })"
+          class="filter"
+          :aria-pressed="format === f"
+          @click="setQuery({ format: format === f ? undefined : f })"
         >
-          {{ t('events.onlineOnly') }}
+          {{ formatLabel(f) }}
         </button>
       </div>
       <div v-if="countries.length > 1" class="filters" role="group" :aria-label="t('events.byCountry')">
@@ -325,13 +345,6 @@ function onSearchSubmit(e: Event) {
   font-weight: 800;
   color: var(--ink-3);
 }
-.filters__sep {
-  width: 2px;
-  height: 28px;
-  background: var(--ink);
-  margin-inline: 6px;
-  border-radius: 2px;
-}
 .filter {
   min-height: 44px;
   padding: 0 16px;
@@ -459,13 +472,8 @@ function onSearchSubmit(e: Event) {
   }
 }
 @media (max-width: 640px) {
-  .filters__sep {
-    display: none;
-  }
   /* Each row's chips become one dropdown beside its label; the rows share
-     the label column, so the dropdowns line up whatever the labels' length.
-     The online switch is yes or no, not one of many, so it stays a chip,
-     under the type dropdown. */
+     the label column, so the dropdowns line up whatever the labels' length. */
   .filterbar {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
@@ -477,15 +485,11 @@ function onSearchSubmit(e: Event) {
     grid-template-columns: subgrid;
     column-gap: 12px;
   }
-  .filter:not(.filter--toggle) {
+  .filter {
     display: none;
   }
   .filters .filters__pick {
     display: block;
-  }
-  .filter--toggle {
-    grid-column: 2;
-    justify-self: start;
   }
 }
 </style>

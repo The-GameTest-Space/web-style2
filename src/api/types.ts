@@ -83,18 +83,22 @@ export interface OwnGame extends GameInput {
 
 export type EventType = 'jam' | 'meetup' | 'expo' | 'talk' | 'playtest'
 
-/**
- * Where an event takes place: an ISO 3166 code, or STEAM for an event on
- * Steam, which is held everywhere at once. Labels are in src/utils/country.ts.
- */
-export type Country = 'TW' | 'JP' | 'KR' | 'CN' | 'SG' | 'MY' | 'TH' | 'VN' | 'PH' | 'ID' | 'STEAM'
+/** Where an event takes place, as an ISO 3166 code. Labels are in src/utils/country.ts. */
+export type Country = 'TW' | 'JP' | 'KR' | 'CN' | 'SG' | 'MY' | 'TH' | 'VN' | 'PH' | 'ID'
+
+/** How an event is attended: on Steam, online elsewhere, or in person (see formatOf). */
+export type EventFormat = 'steam' | 'online' | 'offline'
 
 interface EventBase {
   slug: string
   title: string
   type: EventType
-  /** Missing on events saved before countries were recorded: those are in Taiwan (see countryOf). */
-  country?: Country
+  /**
+   * Missing on events saved before countries were recorded: those are in
+   * Taiwan. STEAM for an event on Steam, which has no country and is shown
+   * as a format instead (see countryOf and formatOf).
+   */
+  country?: Country | 'STEAM'
   city: string
   venue: string
   online: boolean

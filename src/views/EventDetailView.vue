@@ -14,6 +14,7 @@ import I18nT from '@/components/I18nT.vue'
 import { locale, t } from '@/i18n'
 import { DEFAULT_LOCALE, withLang } from '@/i18n/locales'
 import { textLang } from '@/utils/eventText'
+import { formatLabel, formatOf } from '@/utils/country'
 
 const props = defineProps<{ slug: string }>()
 const { data, error, loading, retry } = useApi<ItemResponse<GameEvent>>(() => withLang(`/api/events/${props.slug}`, locale))
@@ -96,7 +97,7 @@ function downloadIcs() {
           </template>
         </div>
         <div class="poster__titles">
-          <p class="poster__type">{{ eventTypeLabel(ev.type) }}<span v-if="ev.online"> · {{ t('event.online') }}</span></p>
+          <p class="poster__type">{{ eventTypeLabel(ev.type) }}<span v-if="formatOf(ev) !== 'offline'"> · {{ formatLabel(formatOf(ev)) }}</span></p>
           <h1 class="poster__title" :lang="textLang(ev, 'title')"><EventTitle :text="ev.title" /></h1>
           <p class="poster__summary" :lang="textLang(ev, 'summary')">{{ ev.summary }}</p>
           <p v-if="(ev.lang ?? DEFAULT_LOCALE) !== locale" class="poster__untranslated">{{ t('event.untranslated') }}</p>
